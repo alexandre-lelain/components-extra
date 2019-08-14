@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "React UI components based on styled-components & material-ui.",
   "repository": "git@github.com:alexandre-lelain/components-extra.git",
+  "homepage": "https://components-extra.netlify.com/",
   "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
   "license": "MIT",
   "sideEffects": [
