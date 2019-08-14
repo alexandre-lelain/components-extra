@@ -1,8 +1,6 @@
 import React from 'react'
-import theme from 'theme'
 import { storiesOf } from '@storybook/react'
 import Navbar from '../src/components/Navbar'
-import StyledProvider from '../src/components/StyledProvider'
 
 const options = [
   {
@@ -47,30 +45,22 @@ const renderBrandIcon = () => (
   </svg>
 )
 
-const StoryNavbar = props => (
-  <>
-    <StyledProvider theme={theme}>
-      <Navbar
-        options={options}
-        renderBrandIcon={renderBrandIcon}
-        title="Awesome Navbar"
-        {...props}
-      />
-    </StyledProvider>
-  </>
-)
-
-storiesOf('Navbar', module).add('Default', () => <StoryNavbar />)
+storiesOf('Navbar', module).add('Default', () => (
+  <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" />
+))
 
 storiesOf('Navbar', module).add('Sticky', () => (
   <>
-    <StoryNavbar isSticky />
+    <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" isSticky />
     <div style={{ height: '1800px' }}></div>
   </>
 ))
 
 storiesOf('Navbar', module).add('With Language', () => (
-  <>
-    <StoryNavbar languages={languages} />
-  </>
+  <Navbar
+    options={options}
+    renderBrandIcon={renderBrandIcon}
+    title="Awesome Navbar"
+    languages={languages}
+  />
 ))
