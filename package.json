@@ -1,0 +1,49 @@
+{
+  "name": "styled-react-components",
+  "version": "1.0.0",
+  "description": "UI components based on styled-components",
+  "repository": "git@github.com:alexandre-lelain/styled-react-components.git",
+  "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
+  "license": "MIT",
+  "sideEffects": [
+    "./src/index.js"
+  ],
+  "scripts": {
+    "build": "yarn webpack",
+    "build:analyze": "yarn build --analyze",
+    "story": "yarn start-storybook -p 4242",
+    "prettier": "prettier --write {src,stories}/**/*.js",
+    "lint": "eslint --cache {src,stories}/**/*.js"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.3.2",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/styles": "^4.3.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^5.1.10",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "webpack": "^4.38.0",
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged --pattern \"{.storybook,src,stories}/**/*.js\""
+    }
+  }
+}
