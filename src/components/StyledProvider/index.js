@@ -6,7 +6,8 @@ import { StylesProvider, ThemeProvider } from '@material-ui/styles'
 import theme from 'theme'
 
 const StyledProvider = ({ children, otherTheme = {} }) => {
-  const finalTheme = createMuiTheme(theme, otherTheme)
+  const mergedTheme = Object.assign(theme, otherTheme)
+  const finalTheme = createMuiTheme(mergedTheme)
 
   return (
     <StylesProvider injectFirst>
