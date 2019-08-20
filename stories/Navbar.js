@@ -1,5 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import Navbar from 'components/Navbar'
 
 const options = [
@@ -25,15 +27,17 @@ const languages = [
   {
     label: 'French',
     locale: 'FR',
-    onClick: () => console.log('French selected'),
   },
   {
     label: 'English',
     isDefault: true,
     locale: 'EN',
-    onClick: () => console.log('English selected'),
   },
 ]
+
+const StoryContainer = styled('div')`
+  margin-top: 32px;
+`
 
 const renderBrandIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -46,21 +50,26 @@ const renderBrandIcon = () => (
 )
 
 storiesOf('Navbar', module).add('Default', () => (
-  <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" />
+  <StoryContainer>
+    <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" />
+  </StoryContainer>
 ))
 
 storiesOf('Navbar', module).add('Sticky', () => (
-  <>
+  <StoryContainer>
     <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" isSticky />
     <div style={{ height: '1800px' }}></div>
-  </>
+  </StoryContainer>
 ))
 
 storiesOf('Navbar', module).add('With Language', () => (
-  <Navbar
-    options={options}
-    renderBrandIcon={renderBrandIcon}
-    title="Awesome Navbar"
-    languages={languages}
-  />
+  <StoryContainer>
+    <Navbar
+      languages={languages}
+      onSelectLanguage={action('onClickLanguage')}
+      options={options}
+      renderBrandIcon={renderBrandIcon}
+      title="Awesome Navbar"
+    />
+  </StoryContainer>
 ))

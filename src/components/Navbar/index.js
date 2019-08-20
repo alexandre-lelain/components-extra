@@ -13,13 +13,14 @@ const Navbar = ({
   isSticky = false,
   languages = [],
   linkComponent,
+  onSelectLanguage,
   options = [],
   renderBrandIcon,
   title = '',
 }) => {
   return (
     <OptionsContext.Provider value={options}>
-      <LanguagesContext.Provider value={languages}>
+      <LanguagesContext.Provider value={{ languages, onSelectLanguage }}>
         <AppBar position={isSticky ? 'sticky' : 'static'}>
           <Toolbar>
             <Brand renderBrandIcon={renderBrandIcon} title={title} />
@@ -36,7 +37,6 @@ const languageType = PropTypes.shape({
   isDefault: PropTypes.bool,
   label: PropTypes.string,
   locale: PropTypes.string,
-  onClick: PropTypes.func,
 })
 
 const optionType = PropTypes.shape({
@@ -51,6 +51,12 @@ Navbar.propTypes = {
   languages: PropTypes.arrayOf(languageType),
   /* The component you want to render the link items with. */
   linkComponent: PropTypes.element,
+  /**
+   * Function fired on language selection.
+   * Params:
+   * - language: languageType. The the selected language.
+   */
+  onSelectLanguage: PropTypes.func,
   /* The nav items of the navbar */
   options: PropTypes.arrayOf(optionType),
   /* render function for the Navbar's brand icon. */

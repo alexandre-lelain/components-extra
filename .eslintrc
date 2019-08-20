@@ -10,7 +10,12 @@
   },
   "rules": {
     "react/prop-types": [
-      2, { ignore: [theme, children] }
+      2, { "ignore": ["theme", "children"] }
     ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

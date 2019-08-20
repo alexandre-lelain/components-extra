@@ -24,7 +24,7 @@ const Locale = styled(Typography).attrs(() => ({
 `
 
 const Language = () => {
-  const languages = useLanguages()
+  const { languages } = useLanguages()
   const [currentLang, setCurrentLang] = useState({})
   const [langAnchor, setLangAnchor] = useState(null)
 

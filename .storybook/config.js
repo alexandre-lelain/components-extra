@@ -1,13 +1,15 @@
-import { addDecorator, configure } from '@storybook/react'
+import { addDecorator, addParameters, configure } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
 import { withThemeProvider } from './decorators'
+import parameters from './parameters'
 
 function loadStories() {
   const req = require.context('../stories', true, /\.*\.js$/)
   req.keys().forEach(filename => req(filename))
 }
 
+addParameters(parameters)
 configure(loadStories, module)
 addDecorator(withInfo)
 addDecorator(withThemeProvider)

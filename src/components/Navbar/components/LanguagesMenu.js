@@ -15,23 +15,23 @@ const Locale = styled(Typography).attrs(() => ({
 `
 
 const LanguagesMenu = ({ langAnchor = null, onClose, setCurrentLang }) => {
-  const languages = useLanguages()
+  const { languages, onSelectLanguage } = useLanguages()
 
-  const onClickItem = (onClick, language) => {
+  const onClickItem = language => {
     onClose()
     setCurrentLang(language)
-    onClick()
+    onSelectLanguage && onSelectLanguage(language)
   }
 
   return (
     <Menu anchorEl={langAnchor} keepMounted open={Boolean(langAnchor)} onClose={onClose}>
       {languages.map(language => {
-        const { label, locale, onClick } = language
+        const { label, locale } = language
         return (
           <MenuItem
             aria-label={label}
             key={label}
-            onClick={() => onClickItem(onClick, language)}
+            onClick={() => onClickItem(language)}
             title={label}
           >
             <Locale>{locale}</Locale>
