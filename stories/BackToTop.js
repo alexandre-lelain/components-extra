@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { storiesOf } from '@storybook/react'
 
-import BackToTop from '../src/components/BackToTop'
+import BackToTop from 'components/BackToTop'
 
 storiesOf('BackToTop', module).add('Default', () => (
   <>
