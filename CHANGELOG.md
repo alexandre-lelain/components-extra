@@ -1,3 +1,9 @@
+# 0.1.5
+
+## Features
+
+* Add badges in Readme. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.1.4
 
 ## Fixes

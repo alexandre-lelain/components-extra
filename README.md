@@ -1,6 +1,6 @@
 # components-extra
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/950cb520-b2e5-434f-b777-c36eede4e727/deploy-status)](https://app.netlify.com/sites/components-extra/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/950cb520-b2e5-434f-b777-c36eede4e727/deploy-status)](https://app.netlify.com/sites/components-extra/deploys) [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls)
 
 React UI components built on top of [styled-components](styled-components.com) & [material-ui components](material-ui.com).
 
