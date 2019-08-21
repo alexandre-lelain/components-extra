@@ -1,6 +1,6 @@
 {
   "name": "components-extra",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React UI components based on styled-components & material-ui.",
   "repository": "git@github.com:alexandre-lelain/components-extra.git",
   "homepage": "https://components-extra.netlify.com/",
@@ -20,9 +20,10 @@
     "build": "yarn webpack",
     "build:analyze": "yarn build --analyze",
     "build-storybook": "build-storybook -c .storybook",
-    "start": "yarn start-storybook -p 4242",
+    "lint": "eslint --cache {src,stories}/**/*.js",
+    "prepare": "yarn build",
     "prettier": "prettier --write {src,stories}/**/*.js",
-    "lint": "eslint --cache {src,stories}/**/*.js"
+    "start": "yarn start-storybook -p 4242"
   },
   "dependencies": {
     "@material-ui/core": "^4.3.2",
