@@ -47,7 +47,7 @@ const Language = () => {
           >
             <IconTranslate />
           </IconButton>
-          {locale && <Locale>{locale}</Locale>}
+          {locale && <Locale color="secondary">{locale}</Locale>}
         </Container>
         <LanguagesMenu
           langAnchor={langAnchor}

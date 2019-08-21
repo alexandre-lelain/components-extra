@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       backgroundColor: theme.palette.primary.light,
     },
+    color: theme.palette.secondary.main,
   },
   sectionMobile: {
     display: 'flex',

@@ -26,7 +26,7 @@ const BackToTop = () => {
 
   return (
     <Button color="primary" aria-label="Back to top" isDisplayed={display} onClick={scrollToTop}>
-      <ArrowUpwardIcon />
+      <ArrowUpwardIcon color="secondary" />
     </Button>
   )
 }
