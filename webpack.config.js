@@ -8,7 +8,9 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
+    library: '',
+    libraryTarget: 'commonjs2'
   },
   resolve: {
     alias: {
@@ -26,6 +28,11 @@ module.exports = {
         }
       }
     ]
+  },
+  externals: {
+    'react': 'commonjs react',
+    'react-dom': 'commonjs react-dom',
+    'styled-components': 'commonjs styled-components'
   },
   plugins: [
     ...plugins,
