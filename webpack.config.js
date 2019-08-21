@@ -7,7 +7,7 @@ process.argv.includes('--analyze') && plugins.push(new BundleAnalyzerPlugin())
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.[contenthash].js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'build')
   },
   resolve: {
@@ -15,11 +15,6 @@ module.exports = {
       theme: path.resolve(__dirname, './src/theme'),
       utils: path.resolve(__dirname, './src/utils'),
     }
-  },
-  externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-    'styled-components': 'styled-components',
   },
   module: {
     rules: [
