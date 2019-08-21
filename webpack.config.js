@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.[contenthash].js',
-    path: path.resolve(__dirname, '../build')
+    path: path.resolve(__dirname, 'build')
   },
   resolve: {
     alias: {
