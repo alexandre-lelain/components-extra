@@ -80,4 +80,40 @@ And voilà! you're all set :)
 
 ## Customization
 
-You can totally override the default **theme**.
+You can totally override the default **theme**. By default, the components use the
+following [custom theme](https://components-extra.netlify.com/?path=/story/theme--default).
+This default theme is applied on top of the [material-ui](https://material-ui.com/customization/theming/) one.
+
+You can override this theme with the prop `otherTheme` of the `StyledProvider` component
+mentionned above.
+
+Say, for example you want to override the 2 main palette colors to have this:
+
+```js
+const yourTheme = {
+  palette: {
+    primary: {
+      main: 'blue',
+    },
+    secondary: {
+      main: 'red',
+    },
+  },
+}
+```
+
+You can apply it this way:
+
+```js
+import { BackToTop, StyledProvider } from 'components-extra'
+import yourTheme from './YourTheme.js'
+
+const App = () => {
+
+  return (
+    <StyledProvider otherTheme={yourTheme}>
+      <BackToTop />
+    </StyledProvider>
+  )
+}
+```
