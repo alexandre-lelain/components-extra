@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography'
 import { storiesOf } from '@storybook/react'
 
 import BackToTop from 'components/BackToTop'
+import PropsTable from './components/PropsTable'
 
 storiesOf('BackToTop', module).add('Default', () => (
   <>
@@ -11,3 +12,7 @@ storiesOf('BackToTop', module).add('Default', () => (
     <BackToTop />
   </>
 ))
+
+storiesOf('BackToTop', module).add('API', () => <PropsTable title="BackToTop" />, {
+  info: { disable: true },
+})

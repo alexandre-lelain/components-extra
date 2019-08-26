@@ -6,6 +6,8 @@ React UI components built on top of [styled-components](styled-components.com) &
 
 To see the list of available components, please visit the [storybook](https://components-extra.netlify.com).
 
+To see the API of each component, you can either click on the `show info` floating button on each component's story, or simply visit their `API` story.
+
 ## Motivation
 
 Do you have a web app to develop asap ? With extremely short deadlines ?
