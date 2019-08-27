@@ -10,7 +10,7 @@
   },
   "rules": {
     "react/prop-types": [
-      2, { "ignore": ["theme", "children"] }
+      2, { "ignore": ["theme", "children", "className"] }
     ]
   },
   "settings": {

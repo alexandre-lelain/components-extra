@@ -128,6 +128,10 @@ const App = () => {
 }
 ```
 
+### Extend the components
+
+All the components-extra are exported as [styled-components](styled-components.com), so you can extends them, and
+use them as styled selectors.
 
 ## Demo
 

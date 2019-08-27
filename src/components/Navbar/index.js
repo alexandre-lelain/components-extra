@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 
@@ -10,6 +11,7 @@ import DesktopItems from './components/DesktopItems'
 import MobileItems from './components/MobileItems'
 
 const Navbar = ({
+  className,
   isSticky = false,
   languages = [],
   linkComponent,
@@ -21,7 +23,7 @@ const Navbar = ({
   return (
     <OptionsContext.Provider value={options}>
       <LanguagesContext.Provider value={{ languages, onSelectLanguage }}>
-        <AppBar position={isSticky ? 'sticky' : 'static'}>
+        <AppBar className={className} position={isSticky ? 'sticky' : 'static'}>
           <Toolbar>
             <Brand renderBrandIcon={renderBrandIcon} title={title} />
             <DesktopItems linkComponent={linkComponent} />
@@ -87,4 +89,4 @@ Navbar.propTypes = {
   title: PropTypes.string,
 }
 
-export default Navbar
+export default styled(Navbar)``

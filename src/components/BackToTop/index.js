@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 
 import Button from './components/Button'
 
 const START_HEIGHT = 20
 
-const BackToTop = () => {
+const BackToTop = ({ className }) => {
   const [display, setDisplay] = useState(false)
   const { body, documentElement } = document
 
@@ -25,10 +26,16 @@ const BackToTop = () => {
   const scrollToTop = () => documentElement.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <Button color="primary" aria-label="Back to top" isDisplayed={display} onClick={scrollToTop}>
+    <Button
+      className={className}
+      color="primary"
+      aria-label="Back to top"
+      isDisplayed={display}
+      onClick={scrollToTop}
+    >
       <ArrowUpwardIcon color="secondary" />
     </Button>
   )
 }
 
-export default BackToTop
+export default styled(BackToTop)``

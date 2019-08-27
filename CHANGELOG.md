@@ -1,3 +1,9 @@
+# 0.1.6
+
+## Features
+
+* `Navbar` & `BackToTop` components are now exported as styled-components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.1.5
 
 ## Features
