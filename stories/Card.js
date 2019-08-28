@@ -7,7 +7,7 @@ import Card from 'components/Card'
 
 import PropsTable, { createData } from './components/PropsTable'
 
-const Container = styled('div')`
+const Container = styled.div`
   width: 70%;
   margin: auto;
   text-align: center;

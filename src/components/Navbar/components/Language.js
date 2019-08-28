@@ -11,7 +11,7 @@ import isEmpty from 'utils/isEmpty'
 
 import { useLanguages } from '../hooks'
 
-const Container = styled('div')`
+const Container = styled.div`
   display: flex;
   align-items: center;
 `

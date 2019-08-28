@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 
-const IconContainer = styled('div')`
+const IconContainer = styled.div`
   width: 24px;
   height: 24px;
   margin-right: 8px;

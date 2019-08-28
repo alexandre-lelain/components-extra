@@ -37,7 +37,7 @@ const languages = [
   },
 ]
 
-const StoryContainer = styled('div')`
+const StoryContainer = styled.div`
   margin-top: 32px;
 `
 
