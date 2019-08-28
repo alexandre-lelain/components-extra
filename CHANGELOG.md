@@ -1,3 +1,9 @@
+# 0.1.8
+
+## Fix
+
+* `Card`'s content is now left aligned. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.1.7
 
 ## Features

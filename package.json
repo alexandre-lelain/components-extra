@@ -1,6 +1,6 @@
 {
   "name": "components-extra",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "React UI components based on styled-components & material-ui.",
   "repository": "git@github.com:alexandre-lelain/components-extra.git",
   "homepage": "https://components-extra.netlify.com/",

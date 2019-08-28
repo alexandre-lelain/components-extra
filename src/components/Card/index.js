@@ -17,6 +17,9 @@ const useStyles = makeStyles({
   media: {
     height: 200,
   },
+  content: {
+    textAlign: 'left',
+  },
 })
 
 const ExtraCard = ({ actions = [], className, description, image, onCardClick, title }) => {
@@ -26,7 +29,7 @@ const ExtraCard = ({ actions = [], className, description, image, onCardClick, t
     <Card className={className}>
       <CardActionArea onClick={onCardClick}>
         {image && <CardMedia className={classes.media} image={image} title={title} />}
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5">
             {title}
           </Typography>

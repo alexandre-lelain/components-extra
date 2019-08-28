@@ -10,6 +10,7 @@ import PropsTable, { createData } from './components/PropsTable'
 const Container = styled('div')`
   width: 70%;
   margin: auto;
+  text-align: center;
 `
 
 storiesOf('Card', module).add('Default', () => (
