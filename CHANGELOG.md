@@ -1,3 +1,9 @@
+# 0.1.7
+
+## Features
+
+* Add `Card` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.1.6
 
 ## Features
