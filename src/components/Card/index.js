@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { makeStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
+import MaterialCard from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
@@ -22,11 +22,11 @@ const useStyles = makeStyles({
   },
 })
 
-const ExtraCard = ({ actions = [], className, description, image, onCardClick, title }) => {
+const Card = ({ actions = [], className, description, image, onCardClick, title }) => {
   const classes = useStyles()
 
   return (
-    <Card className={className}>
+    <MaterialCard className={className}>
       <CardActionArea onClick={onCardClick}>
         {image && <CardMedia className={classes.media} image={image} title={title} />}
         <CardContent className={classes.content}>
@@ -41,11 +41,11 @@ const ExtraCard = ({ actions = [], className, description, image, onCardClick, t
         </CardContent>
       </CardActionArea>
       {!isEmpty(actions) && <Actions actions={actions} />}
-    </Card>
+    </MaterialCard>
   )
 }
 
-ExtraCard.propTypes = {
+Card.propTypes = {
   /**
    * The Card's list of actions. The actions are displayed
    * and behave as links.
@@ -75,4 +75,5 @@ ExtraCard.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-export default styled(ExtraCard)``
+export { Card }
+export default styled(Card)``

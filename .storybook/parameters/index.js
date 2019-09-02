@@ -7,5 +7,6 @@ const theme = create({
 export default {
   options: {
     theme,
+    addonPanelInRight: true,
   },
 }

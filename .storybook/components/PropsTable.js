@@ -22,13 +22,6 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const createData = (name, type, defaultValue, isRequired) => ({
-  name,
-  type,
-  defaultValue,
-  isRequired,
-})
-
 const parseType = type => {
   const { name, value } = type
 
@@ -77,4 +70,3 @@ PropsTable.propTypes = {
 }
 
 export default PropsTable
-export { createData }

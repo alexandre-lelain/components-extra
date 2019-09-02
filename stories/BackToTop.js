@@ -2,8 +2,8 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { storiesOf } from '@storybook/react'
 
-import BackToTop from 'components/BackToTop'
-import PropsTable from './components/PropsTable'
+import { BackToTop } from 'components/BackToTop'
+import createApiStory from './helpers/createApiStory'
 
 storiesOf('BackToTop', module).add('Default', () => (
   <>
@@ -13,6 +13,4 @@ storiesOf('BackToTop', module).add('Default', () => (
   </>
 ))
 
-storiesOf('BackToTop', module).add('API', () => <PropsTable title="BackToTop" />, {
-  info: { disable: true },
-})
+createApiStory('BackToTop', BackToTop)

@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import styled from 'styled-components'
 
-import Card from 'components/Card'
+import { Card } from 'components/Card'
 
-import PropsTable, { createData } from './components/PropsTable'
+import createApiStory from './helpers/createApiStory'
 
 const Container = styled.div`
   width: 70%;
@@ -49,14 +49,4 @@ storiesOf('Card', module).add('Without media', () => (
   </Container>
 ))
 
-const props = [
-  createData('actions', 'arrayOf({ label: string, href: string, onClick: func })', '[]', 'false'),
-  createData('description', 'string', "''", 'false'),
-  createData('image', 'string', 'null', 'false'),
-  createData('onCardClick', 'func', 'noop', 'false'),
-  createData('title', 'string', "''", 'true'),
-]
-
-storiesOf('Card', module).add('API', () => <PropsTable title="Card" rows={props} />, {
-  info: { disable: true },
-})
+createApiStory('Card', Card)

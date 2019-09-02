@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import Navbar from 'components/Navbar'
-import PropsTable, { createData } from './components/PropsTable'
+import { Navbar } from 'components/Navbar'
+import createApiStory from './helpers/createApiStory'
 
 const options = [
   {
@@ -76,21 +76,4 @@ storiesOf('Navbar', module).add('With Language', () => (
   </StoryContainer>
 ))
 
-const props = [
-  createData('isSticky', 'bool', 'false', 'false'),
-  createData(
-    'languages',
-    'arrayOf({ isDefault: bool, label: string, locale: string })',
-    '[]',
-    'false',
-  ),
-  createData('linkComponent', 'element', 'HTML.Element.a', 'false'),
-  createData('onSelectLanguage', 'func', 'noop', 'false'),
-  createData('options', 'arrayOf({ href: string, label: string })', '[]', 'false'),
-  createData('renderBrandIcon', 'func => element', 'noop', 'false'),
-  createData('title', 'string', "''", 'false'),
-]
-
-storiesOf('Navbar', module).add('API', () => <PropsTable title="Navbar" rows={props} />, {
-  info: { disable: true },
-})
+createApiStory('Navbar', Navbar)

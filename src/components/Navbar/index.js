@@ -89,4 +89,5 @@ Navbar.propTypes = {
   title: PropTypes.string,
 }
 
+export { Navbar }
 export default styled(Navbar)``
