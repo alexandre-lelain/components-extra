@@ -14,11 +14,11 @@ const Navbar = ({
   className,
   isSticky = false,
   languages = [],
-  linkComponent,
+  linkComponent = 'a',
   onSelectLanguage,
   options = [],
   renderBrandIcon,
-  title = '',
+  title,
 }) => {
   return (
     <OptionsContext.Provider value={options}>
@@ -70,7 +70,8 @@ Navbar.propTypes = {
    */
   onSelectLanguage: PropTypes.func,
   /**
-   * The navigation items of the navbar.
+   * The navigation items of the navbar. You can also add any additional property in the
+   * PropTypes.shape() object in case you use a third-party linkComponent.
    */
   options: PropTypes.arrayOf(
     PropTypes.shape({

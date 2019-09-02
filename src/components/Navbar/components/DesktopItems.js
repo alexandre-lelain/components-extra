@@ -33,9 +33,9 @@ const DesktopItems = ({ linkComponent }) => {
     <div className={styles.sectionDesktop}>
       <Language />
       {options.map(option => {
-        const { href, label } = option
+        const { href, label, ...rest } = option
         return (
-          <StyledItem component={linkComponent} key={label} href={linkComponent ? undefined : href}>
+          <StyledItem component={linkComponent} key={label} href={href} {...rest}>
             {label}
           </StyledItem>
         )
