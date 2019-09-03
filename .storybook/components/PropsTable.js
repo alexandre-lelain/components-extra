@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
+import Typography from '@material-ui/core/Typography'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -8,28 +9,24 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 650,
-  },
-  typeCell: {
-    color: '#932981',
-  },
-}))
+import useStyles from './helpers/styles'
 
 const parseType = type => {
   const { name, value } = type
 
   if (value) {
-    return JSON.stringify(type)
+    return `${name}: ${parseType(value)}`
   }
   return name
 }
+
+const HeaderTitle = styled(Typography).attrs(() => ({
+  variant: 'subtitle2',
+}))``
+
+const CellContent = styled(Typography).attrs(() => ({
+  variant: 'body2',
+}))``
 
 const PropsTable = ({ propDefinitions = [] }) => {
   const classes = useStyles()
@@ -39,24 +36,38 @@ const PropsTable = ({ propDefinitions = [] }) => {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Prop</TableCell>
-            <TableCell align="right">Type</TableCell>
-            <TableCell align="right">Default value</TableCell>
-            <TableCell align="right">Description</TableCell>
+            <TableCell>
+              <HeaderTitle>Prop</HeaderTitle>
+            </TableCell>
+            <TableCell className={classes.type}>
+              <HeaderTitle>Type</HeaderTitle>
+            </TableCell>
+            <TableCell>
+              <HeaderTitle>Default</HeaderTitle>
+            </TableCell>
+            <TableCell className={classes.description}>
+              <HeaderTitle>Description</HeaderTitle>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {propDefinitions.map(({ defaultValue, description, property, propType, required }) => (
             <TableRow key={property}>
-              <TableCell component="th" scope="row">
-                {property}
-                {required ? '*' : ''}
+              <TableCell>
+                <CellContent>
+                  {property}
+                  {required ? '*' : ''}
+                </CellContent>
               </TableCell>
-              <TableCell className={classes.typeCell} align="right" color="purple">
-                {parseType(propType)}
+              <TableCell className={classes.typeCell}>
+                <CellContent>{parseType(propType)}</CellContent>
               </TableCell>
-              <TableCell align="right">{defaultValue}</TableCell>
-              <TableCell align="right">{description}</TableCell>
+              <TableCell className={classes.defaultValue}>
+                <CellContent>{defaultValue}</CellContent>
+              </TableCell>
+              <TableCell>
+                <CellContent>{description}</CellContent>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
