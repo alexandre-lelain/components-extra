@@ -62,7 +62,7 @@ Navbar.propTypes = {
    * component. Defaults to HTML link <a>.
    */
 
-  linkComponent: PropTypes.element,
+  linkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /**
    * Function fired on language selection.
    * Params:
