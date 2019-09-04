@@ -1,6 +1,17 @@
+# 0.1.9-wip
+
+## Features
+
+* The components' api props-table in the storybook is now generic. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Fixes
+
+* Fix `Navbar` navigation items bug when using `linkComponent` prop. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Added missing default props in various components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.1.8
 
-## Fix
+## Fixes
 
 * `Card`'s content is now left aligned. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 

@@ -38,4 +38,5 @@ const BackToTop = ({ className }) => {
   )
 }
 
+export { BackToTop }
 export default styled(BackToTop)``
