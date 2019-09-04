@@ -4,8 +4,8 @@ import { storiesOf } from '@storybook/react'
 
 import theme from 'theme'
 
-storiesOf('Theme', module).add(
-  'Default',
+storiesOf('Introduction|Theme', module).add(
+  'values',
   () => <ReactJson src={theme} sortKeys displayDataTypes={false} />,
   { info: { disable: true } },
 )

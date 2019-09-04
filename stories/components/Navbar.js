@@ -51,20 +51,22 @@ const renderBrandIcon = () => (
   </svg>
 )
 
-storiesOf('Navbar', module).add('Default', () => (
+const story = storiesOf('Components|Navbar', module)
+
+story.add('Default', () => (
   <StoryContainer>
     <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" />
   </StoryContainer>
 ))
 
-storiesOf('Navbar', module).add('Sticky', () => (
+story.add('Sticky', () => (
   <StoryContainer>
     <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" isSticky />
     <div style={{ height: '1800px' }}></div>
   </StoryContainer>
 ))
 
-storiesOf('Navbar', module).add('With Language', () => (
+story.add('With Language', () => (
   <StoryContainer>
     <Navbar
       languages={languages}
@@ -76,4 +78,4 @@ storiesOf('Navbar', module).add('With Language', () => (
   </StoryContainer>
 ))
 
-createApiStory('Navbar', Navbar)
+createApiStory(story, Navbar)

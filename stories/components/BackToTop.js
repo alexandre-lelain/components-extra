@@ -5,7 +5,9 @@ import { storiesOf } from '@storybook/react'
 import { BackToTop } from 'components/BackToTop'
 import createApiStory from './helpers/createApiStory'
 
-storiesOf('BackToTop', module).add('Default', () => (
+const story = storiesOf('Components|BackToTop', module)
+
+story.add('Default', () => (
   <>
     <Typography>Scroll down... ;) </Typography>
     <div style={{ height: '1800px' }}></div>
@@ -13,4 +15,4 @@ storiesOf('BackToTop', module).add('Default', () => (
   </>
 ))
 
-createApiStory('BackToTop', BackToTop)
+createApiStory(story, BackToTop)

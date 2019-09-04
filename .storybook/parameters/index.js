@@ -11,13 +11,13 @@ const theme = create({
 export default {
   options: {
     theme,
-    addonPanelInRight: true,
+    panelPosition: 'right',
     showPanel: true,
   },
 }
 
 export const infoConfig = {
-  header: true,
+  header: false,
   TableComponent: PropsTable,
   propTables: null,
   styles: {

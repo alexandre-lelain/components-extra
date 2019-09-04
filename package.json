@@ -1,6 +1,6 @@
 {
   "name": "components-extra",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "React UI components based on styled-components & material-ui.",
   "repository": "git@github.com:alexandre-lelain/components-extra.git",
   "homepage": "https://components-extra.netlify.com/",
@@ -51,6 +51,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-json-view": "^1.19.1",
+    "react-markdown": "^4.2.2",
     "style-loader": "^1.0.0",
     "styled-components": "^4.3.2",
     "webpack": "^4.38.0",

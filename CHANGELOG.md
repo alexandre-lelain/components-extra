@@ -1,3 +1,15 @@
+# 0.1.10
+
+## Features
+
+* Add `Menu` & `Contributing` sections in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Add more details in `Customization` section in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Add `Components` & `Introduction` in storybook, along with `get Started` story. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Fixes
+
+* Fix typos in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.1.9
 
 ## Features

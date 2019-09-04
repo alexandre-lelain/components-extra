@@ -13,7 +13,9 @@ const Container = styled.div`
   text-align: center;
 `
 
-storiesOf('Card', module).add('Default', () => (
+const story = storiesOf('Components|Card', module)
+
+story.add('Default', () => (
   <Container>
     <Card
       actions={[
@@ -34,7 +36,7 @@ storiesOf('Card', module).add('Default', () => (
   </Container>
 ))
 
-storiesOf('Card', module).add('Without media', () => (
+story.add('Without media', () => (
   <Container>
     <Card
       actions={[
@@ -49,4 +51,4 @@ storiesOf('Card', module).add('Without media', () => (
   </Container>
 ))
 
-createApiStory('Card', Card)
+createApiStory(story, Card)

@@ -6,7 +6,8 @@ React UI components built on top of [styled-components](styled-components.com) &
 
 To see the list of available components, please visit the [storybook](https://components-extra.netlify.com).
 
-To see the API of each component, you can either click on the `show info` floating button on each component's story, or simply visit their `API` story.
+To see the API of each component, simply visit their `API` story on the storybook. You can also see the source code of each story by clicking the "show info" button on the
+top-right corner.
 
 ## Motivation
 
@@ -21,9 +22,18 @@ The components are not too generic for this very simple purpose: **save you time
 on what they were made for. While you may not be able to customize them from the bottom to the top,
 you can bring your own **theme** to customize them with your own styleguide.
 
+## Menu
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Getting started in only 2 steps](#getting-started-in-only-2-steps)
+- [Customization](#customization)
+- [Demo](#demo)
+- [Contributing](#contributing)
+
 ## Requirements
 
-To have the smallest build possible, the three following deps are externals to the lib.
+In order for the lib to be the smallest as possible, the three following dependencies are externals to the lib.
 So you will need to have those three installed on your app:
 
 - **[react](https://www.npmjs.com/package/react)**
@@ -42,7 +52,7 @@ or
 npm -i components-extra
 ```
 
-## Getting started - in 2 steps (only!)
+## Getting started in only 2 steps
 
 ### Step 1
 
@@ -84,7 +94,7 @@ const App = () => {
 }
 ```
 
-And voilà! you're all set :)
+And voilà! you're all set and ready to create your website's interface.
 
 ## Customization
 
@@ -95,7 +105,7 @@ This default theme is applied on top of the [material-ui](https://material-ui.co
 You can override this theme with the prop `otherTheme` of the `StyledProvider` component
 mentionned above.
 
-Say, for example you want to override the 2 main palette colors to have this:
+Say, for example, you want to override the 2 main palette colors to have this:
 
 ```js
 // YourTheme.js
@@ -130,10 +140,70 @@ const App = () => {
 
 ### Extend the components
 
-All the components-extra are exported as [styled-components](styled-components.com), so you can extends them, and
+All the **components-extra** are exported as [styled-components](styled-components.com), so you can extend them, and
 use them as styled selectors.
+
+
+For example, to extend the **BackToTop** component:
+
+```js
+import { BackToTop, StyledProvider } from 'components-extra'
+import styled from 'styled-components
+
+const CustomBackToTop = styled(BackToTop)`
+  opacity: 0.5;
+`
+
+const App = () => {
+
+  return (
+    <StyledProvider>
+      <CustomBackToTop />
+    </StyledProvider>
+  )
+}
+```
+
+Or to use it as a styled selector:
+
+```js
+import { BackToTop, StyledProvider } from 'components-extra'
+import styled from 'styled-components
+
+const Container = styled.div`
+  ${BackToTop} {
+    opacity: 0.5;
+  }
+`
+
+const App = () => {
+
+  return (
+    <StyledProvider>
+      <Container>
+        <BackToTop />
+      </Container>
+    </StyledProvider>
+  )
+}
+```
 
 ## Demo
 
-
 Cick [here](https://components-extra.netlify.com) to see the storybook.
+
+## Contributing
+
+Do you have a component you would like to add in the library ? Please, open an issue and/or
+a PR! :)
+
+Do you want to fix a broken features ? Please, go ahead :)
+
+Any ideas, suggestions ? Feel free to open an issue!
+
+If you open a PR, please run the following command to ensure your code meets the lint config, and that it builds correctly. Your code will be prettier-ed automatically when you commit thanks to a pre-commit hook.
+
+```
+yarn lint && yarn build
+```
+
