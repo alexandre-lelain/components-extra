@@ -1,3 +1,9 @@
+# 0.1.11
+
+## Fixes
+
+* Fix README missing symbol in code snippets. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.1.10
 
 ## Features

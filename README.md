@@ -148,7 +148,7 @@ For example, to extend the **BackToTop** component:
 
 ```js
 import { BackToTop, StyledProvider } from 'components-extra'
-import styled from 'styled-components
+import styled from 'styled-components'
 
 const CustomBackToTop = styled(BackToTop)`
   opacity: 0.5;
@@ -168,7 +168,7 @@ Or to use it as a styled selector:
 
 ```js
 import { BackToTop, StyledProvider } from 'components-extra'
-import styled from 'styled-components
+import styled from 'styled-components'
 
 const Container = styled.div`
   ${BackToTop} {
