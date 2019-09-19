@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import MUIContainer from '@material-ui/core/Container'
 
-const getImageStyle = ({ image = null }) => {
+const getBackgroundStyle = ({ image = null, theme }) => {
   return image
     ? css`
         background-image: url(${image});
@@ -10,12 +10,14 @@ const getImageStyle = ({ image = null }) => {
         background-size: cover;
         background-repeat: no-repeat;
       `
-    : css``
+    : css`
+        background-color: ${theme.palette.primary.main};
+      `
 }
 
 const Container = styled(MUIContainer)`
-  ${getImageStyle};
-  padding: 24px 16px;
+  ${getBackgroundStyle};
+  padding: 24px;
 `
 
 Container.propTypes = {
