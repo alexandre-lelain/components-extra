@@ -1,4 +1,4 @@
-# 0.1.12-rc
+# 0.1.12
 
 * Add `Footer` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
