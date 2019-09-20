@@ -5,30 +5,30 @@ import PropTypes from 'prop-types'
 import isEmpty from 'utils/isEmpty'
 
 import BottomBanner from './components/BottomBanner'
-import Columns from './components/Columns'
-import Container from './components/Container'
+import FooterContainer from './components/FooterContainer'
+import Items from './components/Items'
 import Title from './components/Title'
+import TopContainer from './components/TopContainer'
 
 const Footer = ({
   bannerContent: BannerContent = null,
   className,
-  columns = [],
   items = [],
   image = null,
   title = null,
 }) => {
   return (
-    <>
-      <Container className={className} image={image}>
+    <FooterContainer className={className}>
+      <TopContainer image={image}>
         {!!title && <Title text={title} />}
-        {!isEmpty(columns) && !isEmpty(items) && <Columns columns={columns} items={items} />}
-      </Container>
+        {!isEmpty(items) && <Items items={items} />}
+      </TopContainer>
       {!!BannerContent && (
         <BottomBanner>
           <BannerContent />
         </BottomBanner>
       )}
-    </>
+    </FooterContainer>
   )
 }
 
@@ -38,25 +38,20 @@ Footer.propTypes = {
    */
   bannerContent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
   /**
-   * The columns' titles. Leave to 'undefined' if you just want
-   * to display the columns's items without a title.
-   */
-  columns: PropTypes.arrayOf(PropTypes.string),
-  /**
    * The footer's background image. It can either be an url or a
    * module-loaded image.
    */
   image: PropTypes.string,
   /**
-   * The Columns' list of items.
+   * The footer's item list.
    */
   items: PropTypes.arrayOf(
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string,
-        href: PropTypes.string,
-      }),
-    ),
+    PropTypes.shape({
+      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.object]),
+      href: PropTypes.string,
+      label: PropTypes.string.isRequired,
+      onClick: PropTypes.func,
+    }),
   ),
   /**
    * The footer's title.

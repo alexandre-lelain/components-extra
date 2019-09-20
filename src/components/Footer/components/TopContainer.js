@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import MUIContainer from '@material-ui/core/Container'
 
 const getBackgroundStyle = ({ image = null, theme }) => {
   return image
@@ -15,16 +14,16 @@ const getBackgroundStyle = ({ image = null, theme }) => {
       `
 }
 
-const Container = styled(MUIContainer)`
+const TopContainer = styled.div`
   ${getBackgroundStyle};
-  padding: 24px;
+  padding: 36px;
 `
 
-Container.propTypes = {
+TopContainer.propTypes = {
   /**
    * The footer's background image. Optional.
    */
   image: PropTypes.string,
 }
 
-export default Container
+export default TopContainer

@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 
 const Separator = styled.hr`
   width: 30%;
-  margin-bottom: 42px;
+  margin-bottom: 48px;
   ${({ theme }) => `
     border-color: ${theme.palette.secondary.main};
   `}
