@@ -16,7 +16,7 @@ const CookieButton = ({ className, href = undefined, label = '', onClick = undef
   return (
     <Button
       className={`${className} ${classes.label}`}
-      variant="contained"
+      variant="outlined"
       color="secondary"
       href={href}
       onClick={onClick}
