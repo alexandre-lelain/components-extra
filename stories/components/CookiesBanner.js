@@ -29,12 +29,14 @@ const FixedCookiesBanner = styled(StyledCookiesBanner)`
 `
 
 story.add('Default', () => (
-  <CookiesBanner gotItBtn={GOT_IT_BTN} moreInfoBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
+  <CookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
 ))
+
+story.add('With one button only', () => <CookiesBanner rightBtn={GOT_IT_BTN} text={COOKIE_TEXT} />)
 
 story.add('Real life situation', () => (
   <div>
-    <FixedCookiesBanner gotItBtn={GOT_IT_BTN} moreInfoBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
+    <FixedCookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
     <Typography>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed pellentesque justo.
       Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis

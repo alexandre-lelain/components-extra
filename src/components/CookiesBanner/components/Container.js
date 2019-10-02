@@ -27,6 +27,8 @@ export default styled.div`
 
       ${Paragraph} {
         margin-top: 16px;
+        margin-bottom: 8px;
+        text-align: justify;
       }
     }
 

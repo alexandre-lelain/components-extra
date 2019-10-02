@@ -11,7 +11,8 @@
   "rules": {
     "react/prop-types": [
       2, { "ignore": ["theme", "children", "className"] }
-    ]
+    ],
+    "react/no-unescaped-entities": 0,
   },
   "settings": {
     "react": {

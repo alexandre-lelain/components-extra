@@ -10,30 +10,30 @@ import CookieButton from './components/CookieButton'
 import CookieIcon from './components/CookieIcon'
 import Container from './components/Container'
 
-const CookiesBanner = ({ className, gotItBtn = {}, moreInfoBtn = {}, text = null }) => {
+const CookiesBanner = ({ className, rightBtn = {}, leftBtn = {}, text = null }) => {
   return (
     <Container className={className}>
       <CookieIcon />
       {text && <Paragraph color="secondary">{text}</Paragraph>}
-      {!isEmpty(moreInfoBtn) && <CookieButton {...moreInfoBtn} />}
-      {!isEmpty(gotItBtn) && <CookieButton {...gotItBtn} />}
+      {!isEmpty(leftBtn) && <CookieButton {...leftBtn} />}
+      {!isEmpty(rightBtn) && <CookieButton {...rightBtn} />}
     </Container>
   )
 }
 
 CookiesBanner.propTypes = {
   /**
-   * The acknowledge button.
+   * The controls' left button.
    */
-  gotItBtn: PropTypes.shape({
+  leftBtn: PropTypes.shape({
     href: PropTypes.string,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
   }),
   /**
-   * The more-information button.
+   * The controls' right button.
    */
-  moreInfoBtn: PropTypes.shape({
+  rightBtn: PropTypes.shape({
     href: PropTypes.string,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
