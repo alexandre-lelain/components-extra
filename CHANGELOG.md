@@ -1,4 +1,4 @@
-# 0.1.13
+# 0.2.0
 
 * Changed `Footer` main container element from `<div>` to `<footer>`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Add `Paragraph` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
