@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions'
 import { Navbar } from 'components/Navbar'
 import createApiStory from './helpers/createApiStory'
 
-const options = [
+const navItems = [
   {
     href: '#link1',
     label: 'Awesome Link 1',
@@ -41,7 +41,7 @@ const StoryContainer = styled.div`
   margin-top: 32px;
 `
 
-const renderBrandIcon = () => (
+const BrandIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <path
       fill="white"
@@ -55,13 +55,13 @@ const story = storiesOf('Components|Navbar', module)
 
 story.add('Default', () => (
   <StoryContainer>
-    <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" />
+    <Navbar navItems={navItems} brandIcon={BrandIcon} title="Awesome Navbar" />
   </StoryContainer>
 ))
 
 story.add('Sticky', () => (
   <StoryContainer>
-    <Navbar options={options} renderBrandIcon={renderBrandIcon} title="Awesome Navbar" isSticky />
+    <Navbar navItems={navItems} brandIcon={BrandIcon} title="Awesome Navbar" isSticky />
     <div style={{ height: '1800px' }}></div>
   </StoryContainer>
 ))
@@ -71,8 +71,8 @@ story.add('With Language', () => (
     <Navbar
       languages={languages}
       onSelectLanguage={action('onClickLanguage')}
-      options={options}
-      renderBrandIcon={renderBrandIcon}
+      navItems={navItems}
+      brandIcon={BrandIcon}
       title="Awesome Navbar"
     />
   </StoryContainer>

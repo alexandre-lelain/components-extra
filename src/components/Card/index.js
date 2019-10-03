@@ -22,7 +22,14 @@ const useStyles = makeStyles({
   },
 })
 
-const Card = ({ actions = [], className, description, image, onCardClick, title }) => {
+const Card = ({
+  actions = [],
+  className,
+  description = null,
+  image = null,
+  onCardClick = null,
+  title,
+}) => {
   const classes = useStyles()
 
   return (
@@ -47,8 +54,9 @@ const Card = ({ actions = [], className, description, image, onCardClick, title 
 
 Card.propTypes = {
   /**
-   * The Card's list of actions. The actions are displayed
-   * and behave as links.
+   * The Card's list of actions. The actions can be links or buttons.
+   * if you set a 'href', it will be a link, and if you set a 'onClick' it
+   * will be a button.
    */
   actions: PropTypes.arrayOf(
     PropTypes.shape({

@@ -38,12 +38,11 @@ Footer.propTypes = {
    */
   bannerContent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
   /**
-   * The footer's background image. It can either be an url or a
-   * module-loaded image.
+   * The footer's background image. It can either be an url or base64 string.
    */
   image: PropTypes.string,
   /**
-   * The footer's item list.
+   * The footer's items list.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({

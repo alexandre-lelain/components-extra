@@ -23,7 +23,8 @@ const CookiesBanner = ({ className, rightBtn = {}, leftBtn = {}, text = null }) 
 
 CookiesBanner.propTypes = {
   /**
-   * The controls' left button.
+   * The controls' left button. It will be a link if you set 'href',
+   * and it will be a button if you set 'onClick'.
    */
   leftBtn: PropTypes.shape({
     href: PropTypes.string,
@@ -31,7 +32,8 @@ CookiesBanner.propTypes = {
     onClick: PropTypes.func,
   }),
   /**
-   * The controls' right button.
+   * The controls' right button. It will be a link if you set 'href',
+   * and it will be a button if you set 'onClick'.
    */
   rightBtn: PropTypes.shape({
     href: PropTypes.string,

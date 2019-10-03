@@ -1,3 +1,8 @@
+# 0.2.1-rc
+
+* Renamed old Navbar's props `options` & `renderBrandIcon` to `navItems` & `brandIcon`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Added default value props to components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.2.0
 
 * Changed `Footer` main container element from `<div>` to `<footer>`. ([@alexandre-lelain](https://github.com/alexandre-lelain))

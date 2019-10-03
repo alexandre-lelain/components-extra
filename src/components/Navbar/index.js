@@ -11,21 +11,21 @@ import DesktopItems from './components/DesktopItems'
 import MobileItems from './components/MobileItems'
 
 const Navbar = ({
+  brandIcon = null,
   className,
   isSticky = false,
   languages = [],
   linkComponent = 'a',
-  onSelectLanguage,
-  options = [],
-  renderBrandIcon,
+  onSelectLanguage = null,
+  navItems = [],
   title,
 }) => {
   return (
-    <OptionsContext.Provider value={options}>
+    <OptionsContext.Provider value={navItems}>
       <LanguagesContext.Provider value={{ languages, onSelectLanguage }}>
         <AppBar className={className} position={isSticky ? 'sticky' : 'static'}>
           <Toolbar>
-            <Brand renderBrandIcon={renderBrandIcon} title={title} />
+            <Brand brandIcon={brandIcon} title={title} />
             <DesktopItems linkComponent={linkComponent} />
             <MobileItems linkComponent={linkComponent} />
           </Toolbar>
@@ -62,7 +62,17 @@ Navbar.propTypes = {
    * component. Defaults to HTML link <a>.
    */
 
-  linkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  linkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.string]),
+  /**
+   * The navigation items of the navbar. You can also add any additional property in the
+   * PropTypes.shape() object in case you use a third-party 'linkComponent'. See prop definition above.
+   */
+  navItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    }),
+  ),
   /**
    * Function fired on language selection.
    * Params:
@@ -70,24 +80,13 @@ Navbar.propTypes = {
    */
   onSelectLanguage: PropTypes.func,
   /**
-   * The navigation items of the navbar. You can also add any additional property in the
-   * PropTypes.shape() object in case you use a third-party linkComponent.
+   * The navbar brand's icon/element.
    */
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      href: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    }),
-  ),
-  /**
-   * Render function for the Navbar's brand icon.
-   * Must return a PropTypes.element.
-   */
-  renderBrandIcon: PropTypes.func,
+  brandIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
   /**
    * Title of the Navbar.
    */
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
 }
 
 export { Navbar }

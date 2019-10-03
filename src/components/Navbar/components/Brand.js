@@ -27,17 +27,21 @@ const BrandLink = styled(Link).attrs(() => ({
   align-items: center;
 `
 
-const Brand = ({ renderBrandIcon, title }) => {
+const Brand = ({ brandIcon: BrandIcon, title }) => {
   return (
     <BrandLink href="/">
-      {renderBrandIcon && <IconContainer>{renderBrandIcon()}</IconContainer>}
+      {BrandIcon && (
+        <IconContainer>
+          <BrandIcon />
+        </IconContainer>
+      )}
       {title && <Typography variant="h6">{title}</Typography>}
     </BrandLink>
   )
 }
 
 Brand.propTypes = {
-  renderBrandIcon: PropTypes.func,
+  brandIcon: PropTypes.func,
   title: PropTypes.string,
 }
 
