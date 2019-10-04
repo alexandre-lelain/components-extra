@@ -9,7 +9,7 @@ export default styled.div`
   align-items: center;
   justify-content: center;
   padding: 24px;
-  opacity: 0.9;
+  opacity: 0.95;
   ${({ theme }) => `
     color: ${theme.palette.secondary.main};
     background-color: ${theme.palette.primary.main};

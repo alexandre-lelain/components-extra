@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -10,16 +10,16 @@ import CookieButton from './components/CookieButton'
 import CookieIcon from './components/CookieIcon'
 import Container from './components/Container'
 
-const CookiesBanner = ({ className, rightBtn = {}, leftBtn = {}, text = null }) => {
+const CookiesBanner = forwardRef(({ className, rightBtn = {}, leftBtn = {}, text = null }, ref) => {
   return (
-    <Container className={className}>
+    <Container className={className} ref={ref}>
       <CookieIcon />
       {text && <Paragraph color="secondary">{text}</Paragraph>}
       {!isEmpty(leftBtn) && <CookieButton {...leftBtn} />}
       {!isEmpty(rightBtn) && <CookieButton {...rightBtn} />}
     </Container>
   )
-}
+})
 
 CookiesBanner.propTypes = {
   /**
@@ -45,6 +45,8 @@ CookiesBanner.propTypes = {
    */
   text: PropTypes.string,
 }
+
+CookiesBanner.displayName = 'CookiesBanner'
 
 export { CookiesBanner }
 export default styled(CookiesBanner)``

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -10,27 +10,26 @@ import Items from './components/Items'
 import Title from './components/Title'
 import TopContainer from './components/TopContainer'
 
-const Footer = ({
-  bannerContent: BannerContent = null,
-  className,
-  items = [],
-  image = null,
-  title = null,
-}) => {
-  return (
-    <FooterContainer className={className}>
-      <TopContainer image={image}>
-        {!!title && <Title text={title} />}
-        {!isEmpty(items) && <Items items={items} />}
-      </TopContainer>
-      {!!BannerContent && (
-        <BottomBanner>
-          <BannerContent />
-        </BottomBanner>
-      )}
-    </FooterContainer>
-  )
-}
+const Footer = forwardRef(
+  (
+    { bannerContent: BannerContent = null, className, items = [], image = null, title = null },
+    ref,
+  ) => {
+    return (
+      <FooterContainer className={className} ref={ref}>
+        <TopContainer image={image}>
+          {!!title && <Title text={title} />}
+          {!isEmpty(items) && <Items items={items} />}
+        </TopContainer>
+        {!!BannerContent && (
+          <BottomBanner>
+            <BannerContent />
+          </BottomBanner>
+        )}
+      </FooterContainer>
+    )
+  },
+)
 
 Footer.propTypes = {
   /**
@@ -57,6 +56,8 @@ Footer.propTypes = {
    */
   title: PropTypes.string,
 }
+
+Footer.displayName = 'Footer'
 
 export { Footer }
 export default styled(Footer)``

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar'
@@ -10,30 +10,35 @@ import Brand from './components/Brand'
 import DesktopItems from './components/DesktopItems'
 import MobileItems from './components/MobileItems'
 
-const Navbar = ({
-  brandIcon = null,
-  className,
-  isSticky = false,
-  languages = [],
-  linkComponent = 'a',
-  onSelectLanguage = null,
-  navItems = [],
-  title,
-}) => {
-  return (
-    <OptionsContext.Provider value={navItems}>
-      <LanguagesContext.Provider value={{ languages, onSelectLanguage }}>
-        <AppBar className={className} position={isSticky ? 'sticky' : 'static'}>
-          <Toolbar>
-            <Brand brandIcon={brandIcon} title={title} />
-            <DesktopItems linkComponent={linkComponent} />
-            <MobileItems linkComponent={linkComponent} />
-          </Toolbar>
-        </AppBar>
-      </LanguagesContext.Provider>
-    </OptionsContext.Provider>
-  )
-}
+const Navbar = forwardRef(
+  (
+    {
+      brandIcon = null,
+      className,
+      isSticky = false,
+      languages = [],
+      linkComponent = 'a',
+      onSelectLanguage = null,
+      navItems = [],
+      title,
+    },
+    ref,
+  ) => {
+    return (
+      <OptionsContext.Provider value={navItems}>
+        <LanguagesContext.Provider value={{ languages, onSelectLanguage }}>
+          <AppBar className={className} position={isSticky ? 'sticky' : 'static'} ref={ref}>
+            <Toolbar>
+              <Brand brandIcon={brandIcon} title={title} />
+              <DesktopItems linkComponent={linkComponent} />
+              <MobileItems linkComponent={linkComponent} />
+            </Toolbar>
+          </AppBar>
+        </LanguagesContext.Provider>
+      </OptionsContext.Provider>
+    )
+  },
+)
 
 Navbar.propTypes = {
   /**
@@ -88,6 +93,8 @@ Navbar.propTypes = {
    */
   title: PropTypes.string.isRequired,
 }
+
+Navbar.displayName = 'Navbar'
 
 export { Navbar }
 export default styled(Navbar)``

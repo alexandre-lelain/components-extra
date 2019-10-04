@@ -1,7 +1,8 @@
-# 0.2.1-rc
+# 0.2.1
 
 * Renamed old Navbar's props `options` & `renderBrandIcon` to `navItems` & `brandIcon`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Added default value props to components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* All components are now exported with `React.forwardRef`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.2.0
 
