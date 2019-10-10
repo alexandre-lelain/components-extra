@@ -10,9 +10,10 @@
   },
   "rules": {
     "react/prop-types": [
-      2, { "ignore": ["theme", "children", "className", "forwardedRef"] }
+      2, { "ignore": ["theme", "children", "className", "ref", "forwardedRef"] }
     ],
-    "react/no-unescaped-entities": 0,
+    "react/display-name": 0,
+    "react/no-unescaped-entities": 0
   },
   "settings": {
     "react": {

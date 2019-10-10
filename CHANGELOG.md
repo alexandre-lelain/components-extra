@@ -1,3 +1,7 @@
+# 0.2.2
+
+* Fixed broken API on storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.2.1
 
 * Renamed old Navbar's props `options` & `renderBrandIcon` to `navItems` & `brandIcon`. ([@alexandre-lelain](https://github.com/alexandre-lelain))

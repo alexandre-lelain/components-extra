@@ -10,35 +10,31 @@ import Brand from './components/Brand'
 import DesktopItems from './components/DesktopItems'
 import MobileItems from './components/MobileItems'
 
-const Navbar = forwardRef(
-  (
-    {
-      brandIcon = null,
-      className,
-      isSticky = false,
-      languages = [],
-      linkComponent = 'a',
-      onSelectLanguage = null,
-      navItems = [],
-      title,
-    },
-    ref,
-  ) => {
-    return (
-      <OptionsContext.Provider value={navItems}>
-        <LanguagesContext.Provider value={{ languages, onSelectLanguage }}>
-          <AppBar className={className} position={isSticky ? 'sticky' : 'static'} ref={ref}>
-            <Toolbar>
-              <Brand brandIcon={brandIcon} title={title} />
-              <DesktopItems linkComponent={linkComponent} />
-              <MobileItems linkComponent={linkComponent} />
-            </Toolbar>
-          </AppBar>
-        </LanguagesContext.Provider>
-      </OptionsContext.Provider>
-    )
-  },
-)
+const Navbar = ({
+  brandIcon = null,
+  className,
+  forwardedRef = null,
+  isSticky = false,
+  languages = [],
+  linkComponent = 'a',
+  onSelectLanguage = null,
+  navItems = [],
+  title,
+}) => {
+  return (
+    <OptionsContext.Provider value={navItems}>
+      <LanguagesContext.Provider value={{ languages, onSelectLanguage }}>
+        <AppBar className={className} position={isSticky ? 'sticky' : 'static'} ref={forwardedRef}>
+          <Toolbar>
+            <Brand brandIcon={brandIcon} title={title} />
+            <DesktopItems linkComponent={linkComponent} />
+            <MobileItems linkComponent={linkComponent} />
+          </Toolbar>
+        </AppBar>
+      </LanguagesContext.Provider>
+    </OptionsContext.Provider>
+  )
+}
 
 Navbar.propTypes = {
   /**
@@ -97,4 +93,4 @@ Navbar.propTypes = {
 Navbar.displayName = 'Navbar'
 
 export { Navbar }
-export default styled(Navbar)``
+export default styled(forwardRef((props, ref) => <Navbar {...props} forwardedRef={ref} />))``

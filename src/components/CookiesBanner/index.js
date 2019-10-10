@@ -10,16 +10,22 @@ import CookieButton from './components/CookieButton'
 import CookieIcon from './components/CookieIcon'
 import Container from './components/Container'
 
-const CookiesBanner = forwardRef(({ className, rightBtn = {}, leftBtn = {}, text = null }, ref) => {
+const CookiesBanner = ({
+  className,
+  forwardedRef = null,
+  rightBtn = {},
+  leftBtn = {},
+  text = null,
+}) => {
   return (
-    <Container className={className} ref={ref}>
+    <Container className={className} ref={forwardedRef}>
       <CookieIcon />
       {text && <Paragraph color="secondary">{text}</Paragraph>}
       {!isEmpty(leftBtn) && <CookieButton {...leftBtn} />}
       {!isEmpty(rightBtn) && <CookieButton {...rightBtn} />}
     </Container>
   )
-})
+}
 
 CookiesBanner.propTypes = {
   /**
@@ -49,4 +55,4 @@ CookiesBanner.propTypes = {
 CookiesBanner.displayName = 'CookiesBanner'
 
 export { CookiesBanner }
-export default styled(CookiesBanner)``
+export default styled(forwardRef((props, ref) => <CookiesBanner {...props} forwardedRef={ref} />))``

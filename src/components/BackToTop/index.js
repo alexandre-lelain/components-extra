@@ -6,7 +6,7 @@ import Button from './components/Button'
 
 const START_HEIGHT = 20
 
-const BackToTop = forwardRef(({ className }, ref) => {
+const BackToTop = ({ className, forwardedRef = null }) => {
   const [display, setDisplay] = useState(false)
   const { body, documentElement } = document
 
@@ -29,7 +29,7 @@ const BackToTop = forwardRef(({ className }, ref) => {
     <Button
       className={className}
       color="primary"
-      ref={ref}
+      ref={forwardedRef}
       aria-label="Back to top"
       isDisplayed={display}
       onClick={scrollToTop}
@@ -37,9 +37,9 @@ const BackToTop = forwardRef(({ className }, ref) => {
       <ArrowUpwardIcon color="secondary" />
     </Button>
   )
-})
+}
 
 BackToTop.displayName = 'BackToTop'
 
 export { BackToTop }
-export default styled(BackToTop)``
+export default styled(forwardRef((props, ref) => <BackToTop {...props} forwardedRef={ref} />))``

@@ -22,33 +22,36 @@ const useStyles = makeStyles({
   },
 })
 
-const Card = forwardRef(
-  (
-    { actions = [], className, description = null, image = null, onCardClick = null, title },
-    ref,
-  ) => {
-    const classes = useStyles()
+const Card = ({
+  actions = [],
+  className,
+  description = null,
+  forwardedRef = null,
+  image = null,
+  onCardClick = null,
+  title,
+}) => {
+  const classes = useStyles()
 
-    return (
-      <MaterialCard className={className} ref={ref}>
-        <CardActionArea onClick={onCardClick}>
-          {image && <CardMedia className={classes.media} image={image} title={title} />}
-          <CardContent className={classes.content}>
-            <Typography gutterBottom variant="h5">
-              {title}
+  return (
+    <MaterialCard className={className} ref={forwardedRef}>
+      <CardActionArea onClick={onCardClick}>
+        {image && <CardMedia className={classes.media} image={image} title={title} />}
+        <CardContent className={classes.content}>
+          <Typography gutterBottom variant="h5">
+            {title}
+          </Typography>
+          {description && (
+            <Typography variant="body2" color="textSecondary">
+              {description}
             </Typography>
-            {description && (
-              <Typography variant="body2" color="textSecondary">
-                {description}
-              </Typography>
-            )}
-          </CardContent>
-        </CardActionArea>
-        {!isEmpty(actions) && <Actions actions={actions} />}
-      </MaterialCard>
-    )
-  },
-)
+          )}
+        </CardContent>
+      </CardActionArea>
+      {!isEmpty(actions) && <Actions actions={actions} />}
+    </MaterialCard>
+  )
+}
 
 Card.propTypes = {
   /**
@@ -84,4 +87,4 @@ Card.propTypes = {
 Card.displayName = 'Card'
 
 export { Card }
-export default styled(Card)``
+export default styled(forwardRef((props, ref) => <Card {...props} forwardedRef={ref} />))``

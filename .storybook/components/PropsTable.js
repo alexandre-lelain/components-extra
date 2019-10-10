@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -9,9 +9,11 @@ import Paper from '@material-ui/core/Paper'
 
 import { HeaderTitle, CellContent, useStyles } from './helpers/styles'
 import parseType from './helpers/propsParser'
+import filterProps from './helpers/propsFilter'
 
 const PropsTable = ({ propDefinitions = [] }) => {
   const classes = useStyles()
+  const props = useMemo(() => filterProps(propDefinitions), [propDefinitions])
 
   return (
     <Paper className={classes.root}>
@@ -33,7 +35,7 @@ const PropsTable = ({ propDefinitions = [] }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {propDefinitions.map(({ defaultValue, description, property, propType, required }) => (
+          {props.map(({ defaultValue, description, property, propType, required }) => (
             <TableRow key={property}>
               <TableCell>
                 <CellContent>

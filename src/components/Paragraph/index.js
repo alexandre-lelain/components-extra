@@ -7,9 +7,9 @@ const StyledParagraph = styled(Typography)`
   max-width: 650px;
 `
 
-const Paragraph = forwardRef(({ className, variant = 'body2', ...rest }, ref) => (
-  <StyledParagraph className={className} ref={ref} variant={variant} {...rest} />
-))
+const Paragraph = ({ className, forwardedRef = null, variant = 'body2', ...rest }) => (
+  <StyledParagraph className={className} ref={forwardedRef} variant={variant} {...rest} />
+)
 
 Paragraph.propTypes = {
   /**
@@ -21,4 +21,4 @@ Paragraph.propTypes = {
 Paragraph.displayName = 'Paragraph'
 
 export { Paragraph }
-export default styled(Paragraph)``
+export default styled(forwardRef((props, ref) => <Paragraph {...props} forwardedRef={ref} />))``
