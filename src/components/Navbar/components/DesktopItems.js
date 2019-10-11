@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import Button from '@material-ui/core/Button'
+import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
 import Language from './Language'

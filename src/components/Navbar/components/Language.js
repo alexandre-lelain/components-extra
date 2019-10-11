@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import IconTranslate from '@material-ui/icons/Translate'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
+import { Translate as IconTranslate } from '@material-ui/icons'
+import { IconButton, Typography } from '@material-ui/core'
 
 import LanguagesMenu from './LanguagesMenu'
 

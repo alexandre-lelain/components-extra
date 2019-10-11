@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-import Typography from '@material-ui/core/Typography'
+import { Menu, MenuItem, Typography } from '@material-ui/core'
 
 import { useLanguages } from '../hooks'
 

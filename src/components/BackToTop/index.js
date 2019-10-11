@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
+import { ArrowUpward } from '@material-ui/icons'
 
 import Button from './components/Button'
 
@@ -34,7 +34,7 @@ const BackToTop = ({ className, forwardedRef = null }) => {
       isDisplayed={display}
       onClick={scrollToTop}
     >
-      <ArrowUpwardIcon color="secondary" />
+      <ArrowUpward color="secondary" />
     </Button>
   )
 }

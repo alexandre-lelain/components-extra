@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { makeStyles } from '@material-ui/core/styles'
-import MaterialCard from '@material-ui/core/Card'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
+import {
+  Card as MaterialCard,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from '@material-ui/core'
 
 import Actions from './components/Actions'
 

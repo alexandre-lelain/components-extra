@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import Fab from '@material-ui/core/Fab'
 import PropTypes from 'prop-types'
+import { Fab } from '@material-ui/core'
 
 /**
  * We have to disable next line in lint, because we have to stop 'isDisplayed' prop

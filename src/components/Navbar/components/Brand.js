@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Typography from '@material-ui/core/Typography'
-import Link from '@material-ui/core/Link'
+import { Link, Typography } from '@material-ui/core'
 
 const IconContainer = styled.div`
   width: 24px;
