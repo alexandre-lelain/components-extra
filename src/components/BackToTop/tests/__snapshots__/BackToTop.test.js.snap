@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackToTop testing BackToTop button renders correctly 1`] = `
+<button
+  aria-label="Back to top"
+  className="MuiButtonBase-root MuiFab-root sc-bwzfXH uTxCW sc-bdVaJa cupWFY MuiFab-primary"
+  disabled={false}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiFab-label"
+  >
+    <svg
+      aria-hidden="true"
+      className="MuiSvgIcon-root MuiSvgIcon-colorSecondary"
+      focusable="false"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+      />
+    </svg>
+  </span>
+</button>
+`;
