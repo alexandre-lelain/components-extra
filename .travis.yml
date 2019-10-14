@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '11.10.1'
+cache: yarn
+stages:
+  - Install
+  - Build
+  - Test
+jobs:
+  include:
+    - stage: Install
+      script: yarn install
+    - stage: Build
+      script: yarn build
+    - stage: Test
+      script: yarn test
