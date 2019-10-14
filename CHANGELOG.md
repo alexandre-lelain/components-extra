@@ -1,3 +1,9 @@
+# 0.3.0
+
+* Added components tests. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Added npm versioning scripts to package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Added connection to Travis CI pipelines. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.2.2
 
 * Fixed broken API on storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
