@@ -45,6 +45,8 @@
     "@storybook/addon-info": "^5.1.11",
     "@storybook/react": "^5.1.10",
     "@storybook/theming": "^5.1.11",
+    "@testing-library/jest-dom": "^4.1.2",
+    "@testing-library/react": "^9.3.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
@@ -60,7 +62,6 @@
     "react-dom": "^16.8.6",
     "react-json-view": "^1.19.1",
     "react-markdown": "^4.2.2",
-    "react-test-renderer": "^16.10.2",
     "style-loader": "^1.0.0",
     "styled-components": "^4.3.2",
     "webpack": "^4.38.0",
@@ -76,5 +77,8 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged --pattern \"{.storybook,src,stories}/**/*.js\""
     }
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["./jest.setup.js"]
   }
 }
