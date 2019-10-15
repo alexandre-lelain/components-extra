@@ -27,12 +27,12 @@ const BackToTop = ({ className, forwardedRef = null }) => {
 
   return (
     <Button
+      aria-label="Back to top"
       className={className}
       color="primary"
-      ref={forwardedRef}
-      aria-label="Back to top"
       isDisplayed={display}
       onClick={scrollToTop}
+      ref={forwardedRef}
     >
       <ArrowUpward color="secondary" />
     </Button>
@@ -41,5 +41,5 @@ const BackToTop = ({ className, forwardedRef = null }) => {
 
 BackToTop.displayName = 'BackToTop'
 
-export { BackToTop }
+export { BackToTop, START_HEIGHT }
 export default styled(forwardRef((props, ref) => <BackToTop {...props} forwardedRef={ref} />))``

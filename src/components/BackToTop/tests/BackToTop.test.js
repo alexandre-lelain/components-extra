@@ -1,29 +1,50 @@
 import React, { useRef, useLayoutEffect } from 'react'
-import renderer from 'react-test-renderer'
+import { fireEvent, render } from '@testing-library/react'
 
-import BackToTop from '..'
+import BackToTop, { START_HEIGHT } from '..'
 
-describe('BackToTop testing', () => {
-  let testRef = { current: undefined }
+const START_HEIGHT_TEST = START_HEIGHT + 42
+
+describe('BackToTop', () => {
+  beforeAll(() => {
+    document.documentElement.scrollIntoView = jest.fn(() => {
+      document.documentElement.scrollTop = 0
+    })
+  })
 
   const TestBackToTop = () => {
     const ref = useRef()
 
     useLayoutEffect(() => {
-      testRef = ref
-    }, [])
+      test('it forwards the given ref correctly', () => {
+        expect(ref.current).not.toBeFalsy()
+      })
+    }, [ref])
 
     return <BackToTop ref={ref} />
   }
 
-  const component = renderer.create(<TestBackToTop />)
-  const tree = component.toJSON()
+  render(<TestBackToTop />)
 
-  test('BackToTop button renders correctly', () => {
-    expect(tree).toMatchSnapshot()
+  test('it renders correctly', () => {
+    const { getByRole } = render(<BackToTop />)
+    const backToTop = getByRole('button')
+    expect(backToTop).not.toBeFalsy()
   })
 
-  test('BackToTop button forwards the given ref correctly.', () => {
-    expect(testRef.current).not.toBeUndefined()
+  test('it scrolls document to top when clicked', () => {
+    const { getByRole } = render(<BackToTop />)
+    const backToTop = getByRole('button')
+    document.documentElement.scrollTop = START_HEIGHT_TEST
+    fireEvent.click(backToTop)
+    expect(document.documentElement.scrollTop).toEqual(0)
+  })
+
+  test('it is displayed only on window scroll', () => {
+    const { getByRole } = render(<BackToTop />)
+    const backToTop = getByRole('button')
+    document.documentElement.scrollTop = 0
+    fireEvent.scroll(document, { target: { scrollY: START_HEIGHT_TEST } })
+    expect(backToTop).toHaveStyle(`display: inline-flex;`)
   })
 })
