@@ -28,7 +28,7 @@ const Language = () => {
   const [langAnchor, setLangAnchor] = useState(null)
 
   useEffect(() => {
-    const initLang = languages.find(language => language.isDefault) || {}
+    const initLang = languages.find(language => language.isDefault) || languages[0] || {}
     setCurrentLang(initLang)
   }, [])
 
@@ -46,7 +46,11 @@ const Language = () => {
           >
             <IconTranslate />
           </IconButton>
-          {locale && <Locale color="secondary">{locale}</Locale>}
+          {locale && (
+            <Locale color="secondary" title="current-locale">
+              {locale}
+            </Locale>
+          )}
         </Container>
         <LanguagesMenu
           langAnchor={langAnchor}

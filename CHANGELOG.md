@@ -3,6 +3,7 @@
 * Added components tests. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Added npm versioning scripts to package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Added connection to Travis CI pipelines. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `Navbar` component now set the first item of `languages` array prop if no default is provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.2.2
 

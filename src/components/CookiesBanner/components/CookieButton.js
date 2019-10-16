@@ -20,6 +20,7 @@ const CookieButton = ({ className, href = undefined, label = '', onClick = undef
       color="secondary"
       href={href}
       onClick={onClick}
+      role={href ? 'link' : 'button'}
       size="small"
     >
       {label}
