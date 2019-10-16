@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Typography } from '@material-ui/core'
 
+const MAX_WIDTH = '650px'
+
 const StyledParagraph = styled(Typography)`
-  max-width: 650px;
+  max-width: ${MAX_WIDTH};
 `
 
 const Paragraph = ({ className, forwardedRef = null, variant = 'body2', ...rest }) => (
@@ -20,5 +22,5 @@ Paragraph.propTypes = {
 
 Paragraph.displayName = 'Paragraph'
 
-export { Paragraph }
+export { Paragraph, MAX_WIDTH }
 export default styled(forwardRef((props, ref) => <Paragraph {...props} forwardedRef={ref} />))``
