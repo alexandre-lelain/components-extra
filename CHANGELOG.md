@@ -1,3 +1,7 @@
+# 0.3.1
+
+* Fix wrong link to CI badge in Readme. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.3.0
 
 * Added components tests. ([@alexandre-lelain](https://github.com/alexandre-lelain))
