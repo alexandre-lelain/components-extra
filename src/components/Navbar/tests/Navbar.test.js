@@ -4,23 +4,8 @@ import { fireEvent } from '@testing-library/react'
 import { renderWithTheme } from 'test'
 import Navbar from '..'
 
-let I_WAS_FIRED = false
 let LANGUAGE_WAS_CHANGED = 0
 const TITLE = 'awesome title'
-const BANNER_CONTENT = "I'm the banner content"
-const LINK = 'https://components-extra.netlify.com'
-const ITEMS = [
-  {
-    label: 'label 1',
-    onClick: () => {
-      I_WAS_FIRED = true
-    },
-  },
-  {
-    label: 'label 2',
-    href: LINK,
-  },
-]
 const LANGUAGES = [
   {
     label: 'french',

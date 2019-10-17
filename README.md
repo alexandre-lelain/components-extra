@@ -11,25 +11,31 @@ top-right corner.
 
 ## Motivation
 
-Do you have a web app to develop asap ? With extremely short deadlines ?
+Do you have a web app to develop as soon as possible ? With extremely short deadlines ?
 Do you want to use [material-design](material.io/design/) standards ?
 
 Well, you are in the right place. This lib was made **just** for **you**.
 
-The aim of the project is to provide **simple-to-use** components built on top of material-ui components & standards.
+The aim of the project is to provide **complex** components (like a Navbar, a CookiesBanner, and so on) built on top of material-ui components & standards.
 
 The components are not too generic for this very simple purpose: **save you time**. They focus
-on what they were made for. While you may not be able to customize them from the bottom to the top,
+on what they were made for. They have very few props so you can integrate them **right-away**.
+While you may not be able to customize them from the bottom to the top,
 you can bring your own **theme** to customize them with your own styleguide.
 
 ## Menu
 
+- [UI components](#ui-components)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Getting started in only 2 steps](#getting-started-in-only-2-steps)
 - [Customization](#customization)
-- [Demo](#demo)
 - [Contributing](#contributing)
+
+
+## UI components
+
+[Cick here](https://components-extra.netlify.com) to see the list of available components the lib has to offer.
 
 ## Requirements
 
@@ -94,7 +100,7 @@ const App = () => {
 }
 ```
 
-And voilà! you're all set and ready to create your website's interface.
+And voilà! You're all set and ready to create your website's interface.
 
 ## Customization
 
@@ -188,16 +194,12 @@ const App = () => {
 }
 ```
 
-## Demo
-
-Cick [here](https://components-extra.netlify.com) to see the storybook.
-
 ## Contributing
 
 Do you have a component you would like to add in the library ? Please, open an issue and/or
 a PR! :)
 
-Do you want to fix a broken features ? Please, go ahead :)
+Do you want to fix a broken feature ? Please, go ahead :)
 
 Any ideas, suggestions ? Feel free to open an issue!
 
@@ -207,3 +209,13 @@ If you open a PR, please run the following command to ensure your code meets the
 yarn lint && yarn build
 ```
 
+Please also check that the tests are all passing correctly:
+
+```
+yarn test
+```
+
+If one component's test function doesn't make sense anymore with your changes, don't hesitate to update
+its source code accordingly. Tests are here to make sure no regression happens and that the components' DOM
+reflects their specification. There also are some functional tests to make sure the components behave
+as expected.
