@@ -1,3 +1,8 @@
+# 0.3.2
+
+* Fix wrong link to CI badge in Readme (again!). ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Fix typo in code snippet in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.3.1
 
 * Fix wrong link to CI badge in Readme. ([@alexandre-lelain](https://github.com/alexandre-lelain))
