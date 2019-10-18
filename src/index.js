@@ -1,9 +1,7 @@
-import BackToTop from './components/BackToTop'
-import Card from './components/Card'
-import CookiesBanner from './components/CookiesBanner'
-import Footer from './components/Footer'
-import Navbar from './components/Navbar'
-import StyledProvider from './components/StyledProvider'
-import theme from './theme'
-
-export { BackToTop, Card, CookiesBanner, Footer, Navbar, StyledProvider, theme }
+export { default as BackToTop } from './components/BackToTop'
+export { default as Card } from './components/Card'
+export { default as CookiesBanner } from './components/CookiesBanner'
+export { default as Footer } from './components/Footer'
+export { default as Navbar } from './components/Navbar'
+export { default as StyledProvider } from './components/StyledProvider'
+export { default as theme } from './theme'
