@@ -1,3 +1,8 @@
+# 0.4.1
+
+* Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Replaced named imports from `@material-ui/icons` to default. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.4.0
 
 * `components-extra` is now tree-shakable! :) ([@alexandre-lelain](https://github.com/alexandre-lelain))

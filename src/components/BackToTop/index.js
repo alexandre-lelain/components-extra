@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { ArrowUpward } from '@material-ui/icons'
+import ArrowUpward from '@material-ui/icons/ArrowUpward'
 
 import Button from './components/Button'
 
