@@ -1,3 +1,10 @@
+# 0.4.0
+
+* `components-extra` is now tree-shakable! :) ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Replaced webpack by rollupJS. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Add `cjs`, `umd`, `esm` & `es` builds. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Replaced `.babelrc` config by `babel.config.js` file. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.3.2
 
 * Fix wrong link to CI badge in Readme (again!). ([@alexandre-lelain](https://github.com/alexandre-lelain))

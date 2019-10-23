@@ -1,6 +1,4 @@
-import path, { join } from 'path'
-import fs from 'fs'
-import { readdirSync } from 'fs-extra'
+import path from 'path'
 
 import alias from 'rollup-plugin-alias'
 import babel from 'rollup-plugin-babel'
@@ -10,20 +8,6 @@ import replace from 'rollup-plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
 import { sizeSnapshot } from "rollup-plugin-size-snapshot"
 import { terser } from 'rollup-plugin-terser'
-
-const COMPONENTS_DIRECTORY = 'src/components'
-const INDEX_FILE = 'index.js'
-const LIB_NAME = 'components-extra'
-
-const removeExt = path => path.replace(/\.[^.]+$/, '')
-
-const componentsEntries = readdirSync(COMPONENTS_DIRECTORY).reduce((components, filename) => {
-  const path = join(COMPONENTS_DIRECTORY, filename)
-  return fs.existsSync(join(path, INDEX_FILE)) ? {
-    [removeExt(filename)]: join(path, INDEX_FILE),
-    ...components,
-  } : { ...components }
-}, {})
 
 const globals = {
   react: 'React',
@@ -39,7 +23,7 @@ const plugins = [
       { find: 'utils', replacement: path.resolve(__dirname, './src/utils') },
     ],
   }),
-  babel({ exclude: /node_modules/ }),
+  babel({ exclude: /node_modules/, runtimeHelpers: true }),
   commonjs({ 
     include: /node_modules/,
     namedExports: {
@@ -53,39 +37,18 @@ const plugins = [
     extensions: ['.js'],
     preferBuiltins: false 
   }),
+  sizeSnapshot(),
+  terser(),
 ]
 
-const old_build = {
+export default {
   input: 'src/index.js',
   output: {
     file: 'build/umd/components-extra.min.js',
     format: 'umd',
-    name: LIB_NAME,
+    name: 'components-extra',
     esModule: false,
-    globals,
-  },
-  plugins: [
-    ...plugins,
-    sizeSnapshot(),
-    terser(),
-  ],
-}
-
-const modern_build = {
-  input: {
-    index: 'src/index.js',
-    ...componentsEntries,
-  },
-  output: {
-    dir: 'build/esm',
-    format: 'esm',
-    name: LIB_NAME,
     globals,
   },
   plugins,
 }
-
-export default [
-  { ...old_build }, 
-  { ...modern_build },
-]

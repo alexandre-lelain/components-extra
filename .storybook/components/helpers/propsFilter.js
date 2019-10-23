@@ -1,4 +1,4 @@
-const EXCLUDED = ['forwardedRef']
+const EXCLUDED = ['forwardedRef', 'ref']
 
 const filterProps = (propsDefinition = []) =>
   propsDefinition.filter(prop => !EXCLUDED.includes(prop.property))
