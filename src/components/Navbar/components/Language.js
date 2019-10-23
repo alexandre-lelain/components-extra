@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import { Translate as IconTranslate } from '@material-ui/icons'
+import IconTranslate from '@material-ui/icons/Translate'
 import { IconButton, Typography } from '@material-ui/core'
 
 import LanguagesMenu from './LanguagesMenu'

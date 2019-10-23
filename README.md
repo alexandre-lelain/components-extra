@@ -1,6 +1,8 @@
 # components-extra
 
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://components-extra.netlify.com/) [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra) [![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls)
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://components-extra.netlify.com/) [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra) [![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls) 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![build formats](https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg)](https://github.com/alexandre-lelain/components-extra)
 
 React UI components built on top of [styled-components](styled-components.com) & [material-ui components](material-ui.com).
 
@@ -57,6 +59,8 @@ or
 ```shell
 npm -i components-extra
 ```
+
+`components-extra` is **tree-shakeable** and **side-effect free**! It also supports older builds like cjs and umd if needed?
 
 ## Getting started in only 2 steps
 
