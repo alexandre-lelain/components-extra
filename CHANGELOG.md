@@ -1,3 +1,7 @@
+# 0.4.4
+
+* Fixed typo in package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.4.3
 
 * Fixed build entries in package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
