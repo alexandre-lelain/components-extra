@@ -1,3 +1,7 @@
+# 0.4.3
+
+* Fixed build entries in package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.4.2
 
 * Add `babel-plugin-transform-imports` plugin to babel conf to tree shake material-ui imports. ([@alexandre-lelain](https://github.com/alexandre-lelain))
