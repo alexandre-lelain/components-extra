@@ -1,3 +1,9 @@
+# 0.4.2
+
+* Add `babel-plugin-transform-imports` plugin to babel conf to tree shake material-ui imports. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Shorten default components imports from users' projects. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.4.1
 
 * Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))

@@ -12,8 +12,8 @@
     "material design",
     "complex"
   ],
-  "main": "build/index.js",
-  "module": "build/esm/index.js",
+  "main": "./index.js",
+  "module": "./esm/index.js",
   "files": [
     "build/**/*"
   ],
@@ -32,7 +32,8 @@
     "postversion": "git push && git push --tags",
     "start": "cross-env BABEL_ENV=dev start-storybook -p 4242",
     "test": "cross-env BABEL_ENV=dev jest",
-    "version": "yarn prettier && git add -vA src"
+    "version": "yarn prettier && git add -vA src",
+    "postinstall": "mv build/* . || exit 0"
   },
   "dependencies": {
     "@material-ui/core": "^4.3.2",
@@ -58,6 +59,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
+    "babel-plugin-transform-imports": "^2.0.0",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",

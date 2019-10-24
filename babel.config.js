@@ -25,6 +25,19 @@ else {
     'babel-plugin-transform-react-constant-elements',
     'babel-plugin-react-remove-properties',
     ['babel-plugin-transform-react-remove-prop-types', { mode: 'unsafe-wrap' }],
+    [
+      'babel-plugin-transform-imports',
+      {
+        '@material-ui/core': {
+          'transform': '@material-ui/core/esm/${member}',
+          'preventFullImport': true
+        },
+        '@material-ui/icons': {
+          'transform': '@material-ui/icons/esm/${member}',
+          'preventFullImport': true
+        }
+      }
+    ]
   ]
 
   const productionModernPlugins = [...productionPlugins, ['@babel/plugin-transform-runtime', { useESModules: true }]]

@@ -32,6 +32,7 @@ you can bring your own **theme** to customize them with your own styleguide.
 - [Installation](#installation)
 - [Getting started in only 2 steps](#getting-started-in-only-2-steps)
 - [Customization](#customization)
+- [Bundling in your project](#bundling-in-your-project)
 - [Contributing](#contributing)
 
 
@@ -60,7 +61,8 @@ or
 npm -i components-extra
 ```
 
-`components-extra` is **tree-shakeable** and **side-effect free**! It also supports older builds like cjs and umd if needed?
+
+This library is **tree-shakeable** and **side-effect free**! It also supports older builds like cjs and umd if needed.
 
 ## Getting started in only 2 steps
 
@@ -196,6 +198,24 @@ const App = () => {
     </StyledProvider>
   )
 }
+```
+
+## Bundling in your project
+
+**components-extra** is tree-shakeable, meaning that you can import its components as named imports, like this:
+
+```
+import { BackToTop } from 'components-extra'
+```
+
+If your bundler is set up to use the tree-shakeable libraries, it will automatically **only add the named imports
+you used**. In this example, only the `BackToTop` button will be included in your bundle.
+
+Else, if your bundler is not set up to use **esm/es** builds, you can still only include the components you need
+by importing them as defaults like this:
+
+```
+import BackToTop from 'components-extra/components/BackToTop'
 ```
 
 ## Contributing
