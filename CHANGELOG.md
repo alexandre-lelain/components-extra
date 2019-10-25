@@ -1,3 +1,7 @@
+# 0.4.6
+
+* Fixed too big link of `Navbar`'s brand title. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.4.5
 
 * Remove `@material-ui/icons` dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))

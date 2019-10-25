@@ -21,21 +21,27 @@ const BrandLink = styled(Link).attrs(() => ({
   color: 'secondary',
   underline: 'none',
 }))`
-  flex-grow: 1;
   display: flex;
   align-items: center;
 `
 
+const BrandContainer = styled.div`
+  display: flex;
+  flex-grow: 1;
+`
+
 const Brand = ({ brandIcon: BrandIcon, title }) => {
   return (
-    <BrandLink href="/">
-      {BrandIcon && (
-        <IconContainer>
-          <BrandIcon />
-        </IconContainer>
-      )}
-      {title && <Typography variant="h6">{title}</Typography>}
-    </BrandLink>
+    <BrandContainer>
+      <BrandLink href="/">
+        {BrandIcon && (
+          <IconContainer>
+            <BrandIcon />
+          </IconContainer>
+        )}
+        {title && <Typography variant="h6">{title}</Typography>}
+      </BrandLink>
+    </BrandContainer>
   )
 }
 
