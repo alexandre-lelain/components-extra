@@ -3,10 +3,3 @@ node_modules
 build
 .eslintcache
 storybook-static
-BackToTop
-Card
-CookiesBanner
-Footer
-Navbar
-Paragraph
-StyledProvider
