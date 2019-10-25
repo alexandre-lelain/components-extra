@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import ArrowUpward from '@material-ui/icons/ArrowUpward'
 
+import ArrowUpward from './components/ArrowUpward'
 import Button from './components/Button'
 
 const START_HEIGHT = 20

@@ -1,3 +1,9 @@
+# 0.4.5
+
+* Remove `@material-ui/icons` dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* es5 components can now be imported via `components-extra/[COMPONENT]` if es modules are not supported. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Improved README display. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.4.4
 
 * Fixed typo in package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))

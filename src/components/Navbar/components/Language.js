@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import IconTranslate from '@material-ui/icons/Translate'
 import { IconButton, Typography } from '@material-ui/core'
 
 import LanguagesMenu from './LanguagesMenu'
+import TranslateIcon from './TranslateIcon'
 
 import isEmpty from 'utils/isEmpty'
 
@@ -44,7 +44,7 @@ const Language = () => {
             onClick={e => setLangAnchor(e.currentTarget)}
             title="Change language"
           >
-            <IconTranslate />
+            <TranslateIcon />
           </IconButton>
           {locale && (
             <Locale color="secondary" title="current-locale">

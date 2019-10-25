@@ -1,15 +1,22 @@
-# components-extra
+<div align="center">
+  <h1>components-extra</h1>
 
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://components-extra.netlify.com/) [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra) [![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls) 
+  <p>React UI components built on top of <a href="https://styled-components.com">styled-components</a> & <a href="https://material-ui.com">material-ui components</a>.
+  </p>
+
+  <br/>
+
+  [**Read the API**](https://components-extra.netlify.com)
+
+  <br/>
+
+  [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://components-extra.netlify.com/) [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra) [![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![build formats](https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg)](https://github.com/alexandre-lelain/components-extra)
 
-React UI components built on top of [styled-components](styled-components.com) & [material-ui components](material-ui.com).
 
-To see the list of available components, please visit the [storybook](https://components-extra.netlify.com).
-
-To see the API of each component, simply visit their `API` story on the storybook. You can also see the source code of each story by clicking the "show info" button on the
-top-right corner.
+</div>
 
 ## Motivation
 
@@ -38,7 +45,9 @@ you can bring your own **theme** to customize them with your own styleguide.
 
 ## UI components
 
-[Cick here](https://components-extra.netlify.com) to see the list of available components the lib has to offer.
+[Cick here](https://components-extra.netlify.com) to see the list of available components the lib has to offer. To see the API of each component, simply visit their `API` story on the storybook. You can also see the **source code** of each story by clicking the "*show info*" button on the
+top-right corner. The source code examples will help you to integrate the components easily.
+
 
 ## Requirements
 
@@ -215,7 +224,7 @@ Else, if your bundler is not set up to use **esm/es** builds, you can still only
 by importing them as defaults like this:
 
 ```
-import BackToTop from 'components-extra/components/BackToTop'
+import BackToTop from 'components-extra/BackToTop'
 ```
 
 ## Contributing

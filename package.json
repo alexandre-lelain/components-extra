@@ -12,8 +12,8 @@
     "material design",
     "complex"
   ],
-  "main": "./build/index.js",
   "module": "./build/esm/index.js",
+  "main": "./build/index.js",
   "files": [
     "build/**/*"
   ],
@@ -33,11 +33,10 @@
     "start": "cross-env BABEL_ENV=dev start-storybook -p 4242",
     "test": "cross-env BABEL_ENV=dev jest",
     "version": "yarn prettier && git add -vA src",
-    "postinstall": "cp -r build/* . || exit 0"
+    "postinstall": "cp -r build/components/* . || exit 0"
   },
   "dependencies": {
     "@material-ui/core": "^4.3.2",
-    "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.3.0",
     "prop-types": "^15.7.2"
   },
