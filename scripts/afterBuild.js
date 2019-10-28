@@ -33,7 +33,7 @@ async function createPackageFile () {
 }
 
 async function copyMetaFiles () {
-  const filesToCopy = ['CHANGELOG.md', 'LICENSE']
+  const filesToCopy = ['CHANGELOG.md', 'LICENSE', 'README.md']
   await Promise.all(filesToCopy.map(includeFileInBuild))
 }
 

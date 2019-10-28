@@ -1,3 +1,7 @@
+# 0.4.8
+
+* Add `README` in published build folder. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.4.7
 
 * Replace `postinstall` script by after build script. ([@alexandre-lelain](https://github.com/alexandre-lelain))
