@@ -28,11 +28,10 @@
     "lint": "eslint --cache {src,stories}/**/*.js",
     "prettier": "prettier --write {src,stories}/**/*.js",
     "test": "cross-env BABEL_ENV=dev jest",
-    "prepublishOnly": "yarn validate",
     "preversion": "yarn validate",
     "postversion": "git push && git push --tags",
     "version": "yarn prettier && git add -vA src",
-    "release": "npm publish build"
+    "release": "yarn build && yarn publish build --tag latest"
   },
   "dependencies": {
     "@material-ui/core": "^4.3.2",
