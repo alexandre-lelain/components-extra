@@ -1,6 +1,6 @@
 {
   "name": "components-extra",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "React UI components based on styled-components & material-ui.",
   "repository": {
     "type": "git",
