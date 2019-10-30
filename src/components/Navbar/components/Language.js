@@ -30,7 +30,7 @@ const Language = () => {
   useEffect(() => {
     const initLang = languages.find(language => language.isDefault) || languages[0] || {}
     setCurrentLang(initLang)
-  }, [])
+  }, [languages])
 
   const { locale } = currentLang
 

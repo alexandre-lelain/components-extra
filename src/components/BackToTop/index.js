@@ -21,7 +21,7 @@ const BackToTop = ({ className, forwardedRef = null }) => {
 
     document.addEventListener('scroll', onScroll)
     return () => document.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [body.scrollTop, documentElement.scrollTop])
 
   const scrollToTop = () => documentElement.scrollIntoView({ behavior: 'smooth' })
 
