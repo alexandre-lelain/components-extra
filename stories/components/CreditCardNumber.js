@@ -8,10 +8,7 @@ const story = storiesOf('Components|CreditCardNumber', module)
 
 story.add('Default', () => (
   <>
-    <CreditCardNumber
-      id="card-number"
-      onChange={value => console.log("Credit's card number:" + value)}
-    />
+    <CreditCardNumber id="card-number" onChange={() => {}} />
   </>
 ))
 

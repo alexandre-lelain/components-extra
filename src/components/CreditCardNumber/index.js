@@ -1,43 +1,39 @@
-import React, { forwardRef, useState, useEffect } from 'react'
+import React, { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { OutlinedInput } from '@material-ui/core'
 
-import isEmpty from 'utils/isEmpty'
-
 import StartAdornment from './components/StartAdornment'
+import { addWhitespaces, removeWhitespaces, setCaretToPosition, MAX_LENGTH } from './utils'
 
-const MAX_LENGTH = 16 + 3
-
-// TODO: test
-const addWhitespaces = value => {
-  const trimmedValue = removeWhitespaces(value)
-  const matched = trimmedValue.match(/([a-z,0-9]{4})/gi)
-  if (matched && !isEmpty(matched)) {
-    const parts = matched.join(' ')
-    const valueLeft = trimmedValue.slice(matched.length * 4)
-    if (valueLeft && valueLeft !== '') {
-      return parts + ' ' + valueLeft
-    }
-    return parts
-  }
-  return value
-}
-
-// TODO: test
-const removeWhitespaces = value => value.replace(/\s/g, '')
+const endsWithWhitespace = value => value[value.length - 1] === ' '
 
 const CreditCardNumber = ({ className, id, forwardedRef = null, onChange, ...rest }) => {
   const [value, setValue] = useState('')
+  const [caretPosition, setCaretPosition] = useState(0)
+  const input = useRef(null)
+
+  useImperativeHandle(forwardedRef, () => input)
 
   useEffect(() => {
     onChange(removeWhitespaces(value))
-  }, [value])
+  }, [value, onChange])
+
+  useEffect(() => {
+    setCaretToPosition(input.current, caretPosition)
+  }, [value, caretPosition])
 
   const onChangeValue = event => {
+    let newCaretPosition = event.target.selectionStart
     const newValue = event.target.value
-    const formatedNewValue = addWhitespaces(newValue)
-    setValue(formatedNewValue)
+    const digitsOnly = removeWhitespaces(newValue)
+    const spacedValue = addWhitespaces(digitsOnly)
+    setValue(spacedValue)
+    console.log({ newValue }, { value })
+    if (endsWithWhitespace(value) && newValue.length >= value.length) {
+      newCaretPosition = newCaretPosition + parseInt(value.length / 4)
+    }
+    setCaretPosition(newCaretPosition)
   }
 
   return (
@@ -45,7 +41,7 @@ const CreditCardNumber = ({ className, id, forwardedRef = null, onChange, ...res
       autoComplete="cc-number"
       className={className}
       id={id}
-      inputRef={forwardedRef}
+      inputRef={input}
       placeholder="XXXX XXXX XXXX XXXX"
       inputProps={{
         'aria-label': 'credit-card number',
