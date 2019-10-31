@@ -4,20 +4,22 @@ import styled from 'styled-components'
 import { OutlinedInput } from '@material-ui/core'
 
 import StartAdornment from './components/StartAdornment'
-import { addWhitespaces, removeWhitespaces, setCaretToPosition, MAX_LENGTH } from './utils'
-
-const endsWithWhitespace = value => value[value.length - 1] === ' '
+import {
+  addWhitespaces,
+  isAddingNewGroup,
+  removeWhitespaces,
+  setCaretToPosition,
+  DIGITS_GROUPS,
+  MAX_LENGTH,
+} from './utils'
 
 const CreditCardNumber = ({ className, id, forwardedRef = null, onChange, ...rest }) => {
   const [value, setValue] = useState('')
   const [caretPosition, setCaretPosition] = useState(0)
   const input = useRef(null)
+  const { inputProps = {}, ...otherRest } = rest
 
   useImperativeHandle(forwardedRef, () => input)
-
-  useEffect(() => {
-    onChange(removeWhitespaces(value))
-  }, [value, onChange])
 
   useEffect(() => {
     setCaretToPosition(input.current, caretPosition)
@@ -28,12 +30,13 @@ const CreditCardNumber = ({ className, id, forwardedRef = null, onChange, ...res
     const newValue = event.target.value
     const digitsOnly = removeWhitespaces(newValue)
     const spacedValue = addWhitespaces(digitsOnly)
-    setValue(spacedValue)
-    console.log({ newValue }, { value })
-    if (endsWithWhitespace(value) && newValue.length >= value.length) {
-      newCaretPosition = newCaretPosition + parseInt(value.length / 4)
+    if (isAddingNewGroup(value, newValue)) {
+      newCaretPosition += parseInt(value.length / DIGITS_GROUPS)
     }
+
+    setValue(spacedValue)
     setCaretPosition(newCaretPosition)
+    onChange(digitsOnly)
   }
 
   return (
@@ -46,11 +49,12 @@ const CreditCardNumber = ({ className, id, forwardedRef = null, onChange, ...res
       inputProps={{
         'aria-label': 'credit-card number',
         maxLength: MAX_LENGTH,
+        ...inputProps,
       }}
       onChange={onChangeValue}
       startAdornment={<StartAdornment />}
       value={value}
-      {...rest}
+      {...otherRest}
     />
   )
 }
@@ -67,6 +71,10 @@ CreditCardNumber.propTypes = {
    * with no whitespaces.
    */
   onChange: PropTypes.func.isRequired,
+  /**
+   * The MUI OutlinedInput's props. See https://material-ui.com/api/outlined-input/.
+   */
+  rest: PropTypes.object,
 }
 
 export { CreditCardNumber }

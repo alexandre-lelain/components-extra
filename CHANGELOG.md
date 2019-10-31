@@ -1,3 +1,8 @@
+# 0.5.0
+
+* Add `CreditCardNumber` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Add react-hook eslint plugin. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.4.9
 
 * Fix wrong github `repository` value. ([@alexandre-lelain](https://github.com/alexandre-lelain))
