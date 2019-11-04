@@ -1,6 +1,7 @@
 export { default as BackToTop } from './components/BackToTop'
 export { default as Card } from './components/Card'
 export { default as CookiesBanner } from './components/CookiesBanner'
+export { default as CreditCardNumber } from './components/CreditCardNumber'
 export { default as Footer } from './components/Footer'
 export { default as Navbar } from './components/Navbar'
 export { default as StyledProvider } from './components/StyledProvider'
