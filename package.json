@@ -65,6 +65,7 @@
     "css-loader": "^3.2.0",
     "eslint": "^6.2.2",
     "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.2.0",
     "file-loader": "^4.2.0",
     "fs-extra": "^8.1.0",
     "husky": "^3.0.2",

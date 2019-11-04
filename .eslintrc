@@ -3,6 +3,9 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "plugins": [
+    "react-hooks"
+  ],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -14,7 +17,9 @@
       2, { "ignore": ["theme", "children", "className", "ref", "forwardedRef"] }
     ],
     "react/display-name": 0,
-    "react/no-unescaped-entities": 0
+    "react/no-unescaped-entities": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "react": {
