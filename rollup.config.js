@@ -1,10 +1,10 @@
 import path from 'path'
 
-import alias from 'rollup-plugin-alias'
+import alias from '@rollup/plugin-alias'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import replace from 'rollup-plugin-replace'
+import replace from '@rollup/plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
 import { sizeSnapshot } from "rollup-plugin-size-snapshot"
 import { terser } from 'rollup-plugin-terser'

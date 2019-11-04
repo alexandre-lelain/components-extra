@@ -1,3 +1,7 @@
+# 0.5.3
+
+* Updated dependencies. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.5.2
 
 * Fix `PropTypes.oneOfType` bad representation on API stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
