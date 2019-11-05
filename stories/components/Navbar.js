@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import { Navbar } from 'components/Navbar'
-import createApiStory from './helpers/createApiStory'
+import createApiStory from '../helpers/createApiStory'
 
 const navItems = [
   {

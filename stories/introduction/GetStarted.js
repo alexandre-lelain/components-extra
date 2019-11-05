@@ -1,10 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 import { storiesOf } from '@storybook/react'
 
-import theme from 'theme'
-const { main: color } = theme.palette.primary
+import Container from './components/Container'
 
 const content = `
 ## Getting started in only 2 steps
@@ -50,16 +48,6 @@ const App = () => {
 \`\`\`
 
 And voilà! you're all set and ready to create your website's interface.
-`
-
-const Container = styled.div`
-  margin: 40px auto;
-  width: 80%;
-
-  & > * {
-    color: ${color};
-    font-family: Roboto;
-  }
 `
 
 const GetStarted = () => {

@@ -1,6 +1,9 @@
-# 0.5.3
+# 0.6.0
 
 * Updated dependencies. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Add `StyledProvider` and `Customization` stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* **Breaking-change**: renamed `otherTheme` prop of *StyledProvider* to `theme`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.5.2
 

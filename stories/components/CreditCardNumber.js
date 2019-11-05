@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 
 import { Paragraph } from 'components/Paragraph'
 import { CreditCardNumber } from 'components/CreditCardNumber'
-import createApiStory from './helpers/createApiStory'
+import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|CreditCardNumber', module)
 

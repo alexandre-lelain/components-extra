@@ -120,10 +120,10 @@ And voilà! You're all set and ready to create your website's interface.
 ## Customization
 
 You can totally override the default **theme**. By default, the components use the
-following [custom theme](https://components-extra.netlify.com/?path=/story/theme--default).
+following [custom theme](https://components-extra.netlify.com/?path=/story/introduction-default-theme--values).
 This default theme is applied on top of the [material-ui](https://material-ui.com/customization/theming/) one.
 
-You can override this theme with the prop `otherTheme` of the `StyledProvider` component
+You can override this theme with the prop `theme` of the `StyledProvider` component
 mentionned above.
 
 Say, for example, you want to override the 2 main palette colors to have this:
@@ -152,7 +152,7 @@ import yourTheme from './YourTheme'
 const App = () => {
 
   return (
-    <StyledProvider otherTheme={yourTheme}>
+    <StyledProvider theme={yourTheme}>
       <BackToTop />
     </StyledProvider>
   )

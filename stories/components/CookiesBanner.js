@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { Typography } from '@material-ui/core'
 
 import StyledCookiesBanner, { CookiesBanner } from 'components/CookiesBanner'
-import createApiStory from './helpers/createApiStory'
+import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|CookiesBanner', module)
 

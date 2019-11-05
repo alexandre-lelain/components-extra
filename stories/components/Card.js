@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { Card } from 'components/Card'
 
-import createApiStory from './helpers/createApiStory'
+import createApiStory from '../helpers/createApiStory'
 
 const Container = styled.div`
   width: 70%;

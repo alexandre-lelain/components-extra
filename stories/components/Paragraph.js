@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { Paragraph } from 'components/Paragraph'
-import createApiStory from './helpers/createApiStory'
+import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|Paragraph', module)
 

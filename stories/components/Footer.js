@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { Link, Typography } from '@material-ui/core'
 
 import { Footer } from 'components/Footer'
-import createApiStory from './helpers/createApiStory'
+import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|Footer', module)
 

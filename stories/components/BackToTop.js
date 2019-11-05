@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography'
 import { storiesOf } from '@storybook/react'
 
 import { BackToTop } from 'components/BackToTop'
-import createApiStory from './helpers/createApiStory'
+import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|BackToTop', module)
 
