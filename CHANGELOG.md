@@ -1,3 +1,7 @@
+# 1.0.0
+
+* First major release of the project. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 0.6.0
 
 * Updated dependencies. ([@alexandre-lelain](https://github.com/alexandre-lelain))
