@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { Typography } from '@material-ui/core'
 
-import StyledCookiesBanner, { CookiesBanner } from 'components/CookiesBanner'
+import { CookiesBanner } from 'components/CookiesBanner'
 import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|CookiesBanner', module)
@@ -22,7 +22,7 @@ const MORE_INFO_BTN = {
   href: '/',
 }
 
-const FixedCookiesBanner = styled(StyledCookiesBanner)`
+const FixedCookiesBannerContainer = styled.div`
   position: fixed;
   width: 100%;
   ${({ isBottom }) => (isBottom ? 'bottom: 0;' : 'top: 0;')};
@@ -35,17 +35,21 @@ story.add('Default', () => (
 story.add('With one button only', () => <CookiesBanner rightBtn={GOT_IT_BTN} text={COOKIE_TEXT} />)
 
 story.add('Real life situation (top)', () => (
-  <div>
-    <FixedCookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
+  <>
+    <FixedCookiesBannerContainer>
+      <CookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
+    </FixedCookiesBannerContainer>
     <HugeText />
-  </div>
+  </>
 ))
 
 story.add('Real life situation (bottom)', () => (
-  <div>
-    <FixedCookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} isBottom />
+  <>
+    <FixedCookiesBannerContainer isBottom>
+      <CookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
+    </FixedCookiesBannerContainer>
     <HugeText />
-  </div>
+  </>
 ))
 
 createApiStory(story, CookiesBanner)
