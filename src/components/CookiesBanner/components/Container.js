@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Paragraph from '../../Paragraph'
 
-import CookieButton from './CookieButton'
+import CookiesButton from './CookiesButton'
 
 export default styled.div`
   display: flex;
@@ -14,14 +14,14 @@ export default styled.div`
     color: ${theme.palette.secondary.main};
     background-color: ${theme.palette.primary.main};
 
-    ${CookieButton}:last-of-type {
+    ${CookiesButton}:last-of-type {
       margin-left: 16px;
     }
 
     ${theme.breakpoints.down('xs')} {
       flex-direction: column;
 
-      ${CookieButton}:last-of-type {
+      ${CookiesButton}:last-of-type {
         margin-top: 16px;
       }
 

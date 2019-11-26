@@ -43,16 +43,26 @@ describe('CookiesBanner', () => {
     expect(textElement).toBeInTheDocument()
   })
 
-  test("it fires a provided button's onClick on this button's click event", () => {
-    const { getByText } = renderWithTheme(<CookiesBanner rightBtn={RIGHT_BTN} />)
-    const rightBtnElement = getByText(RIGHT_BTN.label)
+  test("it fires the button's onClick if provided and clicked", () => {
+    const { label, onClick } = RIGHT_BTN
+    const { getByText } = renderWithTheme(
+      <CookiesBanner>
+        <CookiesBanner.Button onClick={onClick}>{label}</CookiesBanner.Button>
+      </CookiesBanner>,
+    )
+    const rightBtnElement = getByText(label)
     fireEvent.click(rightBtnElement)
     expect(I_WAS_FIRED).toBeTruthy()
   })
 
-  test('it renders a link if an href is provided to one of the controls', () => {
-    const { getByRole } = renderWithTheme(<CookiesBanner leftBtn={LEFT_BTN} />)
+  test("it renders a link if the button's href is provided", () => {
+    const { label, href } = LEFT_BTN
+    const { getByRole } = renderWithTheme(
+      <CookiesBanner>
+        <CookiesBanner.Button href={href}>{label}</CookiesBanner.Button>
+      </CookiesBanner>,
+    )
     const leftBtnElement = getByRole('link')
-    expect(leftBtnElement).toHaveAttribute('href', LEFT_BTN.href)
+    expect(leftBtnElement).toHaveAttribute('href', href)
   })
 })
