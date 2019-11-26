@@ -4,23 +4,13 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { Typography } from '@material-ui/core'
 
-import { CookiesBanner } from 'components/CookiesBanner'
-import createApiStory from '../helpers/createApiStory'
+import CookiesBanner, { BaseCookiesBanner } from 'components/CookiesBanner'
+import createApiStory from '../../helpers/createApiStory'
 
 const story = storiesOf('Components|CookiesBanner', module)
 
 const COOKIE_TEXT =
   'Please be aware that this awesome cookies banner informs you that this awesome website uses cookies. Why ? Because cookies are an awesome delight of course!'
-
-const GOT_IT_BTN = {
-  label: 'Awesome, I got it!',
-  onClick: action('Got-it-button clicked!'),
-}
-
-const MORE_INFO_BTN = {
-  label: 'More information',
-  href: '/',
-}
 
 const FixedCookiesBannerContainer = styled.div`
   position: fixed;
@@ -29,15 +19,35 @@ const FixedCookiesBannerContainer = styled.div`
 `
 
 story.add('Default', () => (
-  <CookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
+  <CookiesBanner text={COOKIE_TEXT}>
+    <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
+    <CookiesBanner.Button onClick={action('Got-it-button clicked!')}>
+      Awesome, I got it!
+    </CookiesBanner.Button>
+  </CookiesBanner>
 ))
 
-story.add('With one button only', () => <CookiesBanner rightBtn={GOT_IT_BTN} text={COOKIE_TEXT} />)
+story.add('With one button only', () => (
+  <CookiesBanner text={COOKIE_TEXT}>
+    <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
+  </CookiesBanner>
+))
+
+story.add('With a custom component of your choice', () => (
+  <CookiesBanner text={COOKIE_TEXT}>
+    <button onClick={action('Got-it-button clicked!')}>Your awesome control component</button>
+  </CookiesBanner>
+))
 
 story.add('Real life situation (top)', () => (
   <>
     <FixedCookiesBannerContainer>
-      <CookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
+      <CookiesBanner text={COOKIE_TEXT}>
+        <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
+        <CookiesBanner.Button onClick={action('Got-it-button clicked!')}>
+          Awesome, I got it!
+        </CookiesBanner.Button>
+      </CookiesBanner>
     </FixedCookiesBannerContainer>
     <HugeText />
   </>
@@ -46,13 +56,18 @@ story.add('Real life situation (top)', () => (
 story.add('Real life situation (bottom)', () => (
   <>
     <FixedCookiesBannerContainer isBottom>
-      <CookiesBanner rightBtn={GOT_IT_BTN} leftBtn={MORE_INFO_BTN} text={COOKIE_TEXT} />
+      <CookiesBanner text={COOKIE_TEXT}>
+        <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
+        <CookiesBanner.Button onClick={action('Got-it-button clicked!')}>
+          Awesome, I got it!
+        </CookiesBanner.Button>
+      </CookiesBanner>
     </FixedCookiesBannerContainer>
     <HugeText />
   </>
 ))
 
-createApiStory(story, CookiesBanner)
+createApiStory(story, BaseCookiesBanner)
 
 const HugeText = () => (
   <Typography>
