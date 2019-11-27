@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Paragraph from '../../Paragraph'
 
-import CookiesButton from './CookiesButton'
+import CookiesButton from '../CookiesButton'
 
 export default styled.div`
   display: flex;

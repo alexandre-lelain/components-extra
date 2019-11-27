@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Paragraph from '../Paragraph'
 
-import CookiesButton from './components/CookiesButton'
+import CookiesButton from './CookiesButton'
 import CookieIcon from './components/CookieIcon'
 import Container from './components/Container'
 

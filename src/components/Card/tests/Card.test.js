@@ -8,14 +8,12 @@ let I_WAS_FIRED = false
 
 const TITLE = 'awesome title'
 const DESCRIPTION = 'awesome description'
-const ACTIONS = [
-  {
-    label: 'awesome label 1',
-    onClick: () => {
-      I_WAS_FIRED = true
-    },
+const BUTTON = {
+  label: 'awesome label 1',
+  onClick: () => {
+    I_WAS_FIRED = true
   },
-]
+}
 
 describe('Card', () => {
   const TestCard = () => {
@@ -50,11 +48,26 @@ describe('Card', () => {
     expect(description).toBeInTheDocument()
   })
 
-  test("it fires a provided action's onClick on this action's click event", () => {
-    const { getByText } = renderWithTheme(<Card actions={ACTIONS} title={TITLE} />)
-    const firstAction = ACTIONS[0]
-    const actionElement = getByText(firstAction.label)
-    fireEvent.click(actionElement)
+  test('it renders a Card.Button if provided', () => {
+    const { label, onClick } = BUTTON
+    const { getByText } = renderWithTheme(
+      <Card title={TITLE}>
+        <Card.Button onClick={onClick}>{label}</Card.Button>
+      </Card>,
+    )
+    const element = getByText(label)
+    expect(element).toBeInTheDocument()
+  })
+
+  test("it fires a Card.Button's onclick function if provided", () => {
+    const { label, onClick } = BUTTON
+    const { getByText } = renderWithTheme(
+      <Card title={TITLE}>
+        <Card.Button onClick={onClick}>{label}</Card.Button>
+      </Card>,
+    )
+    const element = getByText(label)
+    fireEvent.click(element)
     expect(I_WAS_FIRED).toBeTruthy()
   })
 })
