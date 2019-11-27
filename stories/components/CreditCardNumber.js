@@ -1,63 +1,56 @@
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { Link } from '@material-ui/core'
 import { action } from '@storybook/addon-actions'
 
-import { Paragraph } from 'components/Paragraph'
-import { CreditCardNumber } from 'components/CreditCardNumber'
+import CreditCardNumber, { BaseCreditCardNumber } from 'components/CreditCardNumber'
 import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|CreditCardNumber', module)
 
-story.add('Default', () => (
-  <>
-    <CreditCardNumber id="card-number" onChange={action('onChange')} />
-  </>
-))
+story.add('Default', () => <CreditCardNumber id="card-number" onChange={action('onChange')} />)
 
-story.add('With value validation', () => {
-  const [value, setValue] = useState('')
-  const [isError, setError] = useState(false)
+story.add(
+  'With value validation',
+  () => {
+    const [value, setValue] = useState('')
+    const [isError, setError] = useState(false)
 
-  useEffect(() => {
-    setError(!isValueValid(value))
-  }, [setError, value])
+    useEffect(() => {
+      setError(!isValueValid(value))
+    }, [setError, value])
 
-  const isValueValid = value => {
-    const regex = RegExp(/[\D]+/)
-    return value === '' || !regex.test(value)
-  }
+    const isValueValid = value => {
+      const regex = RegExp(/[\D]+/)
+      return value === '' || !regex.test(value)
+    }
 
-  return (
-    <>
-      <Paragraph>
-        Here, the value validation is happening in the parent component. The error will be triggered
-        if the card number contains a character that is not a digit.
-      </Paragraph>
-      <br />
-      <CreditCardNumber error={isError} id="card-number" onChange={setValue} />
-    </>
-  )
-})
+    return <CreditCardNumber error={isError} id="card-number" onChange={setValue} />
+  },
+  {
+    info: `Here, the value validation is happening in the parent component. The error will be triggered
+if the card number contains a character that is not a digit.`,
+  },
+)
 
 story.add('Disabled', () => (
-  <>
-    <CreditCardNumber id="card-number" onChange={action('onChange')} disabled />
-  </>
+  <CreditCardNumber id="card-number" onChange={action('onChange')} disabled />
 ))
 
-story.add('Note', () => (
-  <Paragraph>
-    The <b>CreditCardNumber</b> component is built on top of Material-UI's <b>OutlinedInput</b>, so
-    in addition to the
-    <b> props</b> visible in the{' '}
-    <Link href="/?path=/story/components-creditcardnumber--api">API story</Link> of the component,
-    you can also use all the available props of the
-    <b> OutlinedInput</b> component. Its API is{' '}
-    <Link href="https://material-ui.com/api/outlined-input/" target="_blank">
-      available here.
-    </Link>
-  </Paragraph>
-))
+const StyledInput = styled(CreditCardNumber)`
+  background-color: #3377ff;
+  color: #e6e6e6;
+`
 
-createApiStory(story, CreditCardNumber)
+story.add('Extended', () => <StyledInput id="card-number" onChange={action('onChange')} />, {
+  info:
+    'This CreditCardNumber component was extended using styled(CreditCardNumber) from styled-components.',
+})
+
+const info = `
+The **CreditCardNumber** component is built on top of Material-UI's **OutlinedInput**, so
+in addition to the **props** visible in the API story of the component,
+you can also use all the available props of the **OutlinedInput** component. Its API is
+available here: https://material-ui.com/api/outlined-input/.
+`
+createApiStory(story, BaseCreditCardNumber, info)
