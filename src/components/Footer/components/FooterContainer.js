@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
-export default styled.footer`
+const FooterContainer = styled.footer`
   width: 100%;
 `
+
+export default FooterContainer

@@ -14,7 +14,7 @@ import {
 
 import isEmpty from 'utils/isEmpty'
 
-import CardButton from './CardButton'
+import CardButton from './components/CardButton'
 
 const useStyles = makeStyles({
   media: {

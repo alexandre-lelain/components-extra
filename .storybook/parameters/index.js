@@ -4,17 +4,6 @@ import PropsTable from '../components/PropsTable'
 import defaultTheme from '../../src/theme'
 const addonInfoPrimary = defaultTheme.palette.primary.main
 
-const storySort = (a, b) => {
-  const left = a[1]
-  const right = b[1]
-  if (left.kind !== right.kind || right.name === 'API') {
-    return 0
-  } else if (left.name === 'Default') {
-    return -1
-  }
-  return left.id.localeCompare(right.id, { numeric: true })
-}
-
 const theme = create({
   brandTitle: 'components-extra',
 })
@@ -24,7 +13,6 @@ export default {
     theme,
     panelPosition: 'right',
     showPanel: true,
-    storySort,
   },
 }
 

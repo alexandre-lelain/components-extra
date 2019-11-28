@@ -7,6 +7,8 @@ import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|BackToTop', module)
 
+Typography.displayName = 'p'
+
 story.add('Default', () => (
   <>
     <Typography>Scroll down... ;) </Typography>

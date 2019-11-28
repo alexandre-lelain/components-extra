@@ -9,8 +9,8 @@ import createApiStory from '../../helpers/createApiStory'
 const story = storiesOf('Components|CookiesBanner/Button', module)
 
 const info = `
-Has to be used inside a **<CookiesBanner>** component. 
-You can use all the props available in the Material-ui's Button: https://material-ui.com/api/button/.
+Has to be used inside a \`<CookiesBanner>\` component. 
+You can use all the props available in the Material-ui's \`Button\`: https://material-ui.com/api/button/.
 `
 
 const ExtendedButton = styled(CookiesBanner.Button)`
@@ -49,7 +49,7 @@ story.add(
 story.add(
   'Extended',
   () => <ExtendedButton onClick={action('onClick')}>Extended Button</ExtendedButton>,
-  { info: info + '\n This Button was extended using styled() from styled-components.' },
+  { info: info + '\n This `Button` was extended using styled() from styled-components.' },
 )
 
 createApiStory(story, CookiesBanner.Button.target)

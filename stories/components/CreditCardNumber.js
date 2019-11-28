@@ -44,13 +44,13 @@ const StyledInput = styled(CreditCardNumber)`
 
 story.add('Extended', () => <StyledInput id="card-number" onChange={action('onChange')} />, {
   info:
-    'This CreditCardNumber component was extended using styled(CreditCardNumber) from styled-components.',
+    'This `CreditCardNumber` component was extended using styled(CreditCardNumber) from styled-components.',
 })
 
 const info = `
-The **CreditCardNumber** component is built on top of Material-UI's **OutlinedInput**, so
+The \`CreditCardNumber\` component is built on top of Material-UI's \`OutlinedInput\`, so
 in addition to the **props** visible in the API story of the component,
-you can also use all the available props of the **OutlinedInput** component. Its API is
+you can also use all the available props of the \`OutlinedInput\` component. Its API is
 available here: https://material-ui.com/api/outlined-input/.
 `
 createApiStory(story, BaseCreditCardNumber, info)

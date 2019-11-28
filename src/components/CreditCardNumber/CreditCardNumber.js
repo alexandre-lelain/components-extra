@@ -65,8 +65,8 @@ CreditCardNumber.propTypes = {
    */
   id: PropTypes.string.isRequired,
   /**
-   * The input's onChange function. Its sole argument is the credit's card number
-   * with no whitespaces.
+   * The input's onChange function. Its sole argument is a string corresponding to the credit's card number
+   * with no whitespaces. (cardNumber: string) => void
    */
   onChange: PropTypes.func.isRequired,
   /**
