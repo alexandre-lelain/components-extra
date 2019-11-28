@@ -1,29 +1,11 @@
-import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { CardMedia } from '@material-ui/core'
 
-const getBackgroundStyle = ({ image = null, theme }) => {
-  return image
-    ? css`
-        background-image: url(${image});
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-      `
-    : css`
-        background-color: ${theme.palette.primary.main};
-      `
-}
-
-const TopContainer = styled.div`
-  ${getBackgroundStyle};
+const TopContainer = styled(CardMedia)`
+  ${({ theme }) => `
+    background-color: ${theme.palette.primary.main};
+  `};
   padding: 36px;
 `
-
-TopContainer.propTypes = {
-  /**
-   * The footer's background image. Optional.
-   */
-  image: PropTypes.string,
-}
 
 export default TopContainer

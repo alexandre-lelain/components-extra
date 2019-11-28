@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.div`
+const BottomBanner = styled.div`
   text-align: center;
   padding: 16px 12px;
   ${({ theme: { palette } }) => `
@@ -8,3 +8,7 @@ export default styled.div`
     background-color: ${palette.primary.dark};
  `}
 `
+
+BottomBanner.displayName = 'Footer.BottomBanner'
+
+export default BottomBanner
