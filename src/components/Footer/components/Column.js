@@ -16,7 +16,7 @@ const Title = styled(Typography)`
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 12px 0px;
   ${({ isInline }) => `
@@ -49,11 +49,11 @@ const Column = ({ children, className, isInline = false, title = null, ...rest }
 
 Column.propTypes = {
   /**
-   * The column's title..
+   * The column's title.
    */
   title: PropTypes.string,
   /**
-   * Set to true if you want to have the items on one line instead of a column;
+   * Set to true if you want to align the column's items on one horizontal line.
    */
   isInline: PropTypes.bool,
 }
