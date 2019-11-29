@@ -33,13 +33,13 @@ describe('Footer', () => {
       })
     }, [ref])
 
-    return <Footer ref={ref} />
+    return <Footer ref={ref}>content</Footer>
   }
 
   renderWithTheme(<TestFooter />)
 
   test('it renders correctly', () => {
-    const { container } = renderWithTheme(<Footer />)
+    const { container } = renderWithTheme(<Footer>content</Footer>)
     const footer = container.firstChild
     expect(footer).toBeInTheDocument()
   })
@@ -51,23 +51,35 @@ describe('Footer', () => {
   })
 
   test('the banner is rendered if provided', () => {
-    const { getByText } = renderWithTheme(<Footer bannerContent={bannerContent} />)
+    const { getByText } = renderWithTheme(<Footer bottomBanner={bannerContent} />)
     const bannerElement = getByText(BANNER_CONTENT)
     expect(bannerElement).toBeInTheDocument()
   })
 
   test("it fires an item`s onClick function on it's click event", () => {
-    const { getByText } = renderWithTheme(<Footer items={ITEMS} />)
-    const firstItem = ITEMS[0]
-    const itemElement = getByText(firstItem.label)
+    const { label, onClick } = ITEMS[0]
+    const { getByText } = renderWithTheme(
+      <Footer>
+        <Footer.Column>
+          <Footer.Item onClick={onClick}>{label}</Footer.Item>
+        </Footer.Column>
+      </Footer>,
+    )
+    const itemElement = getByText(label)
     fireEvent.click(itemElement)
     expect(I_WAS_FIRED).toBeTruthy()
   })
 
   test("it renders an item as a link if an item's href is provided", () => {
-    const { getByText } = renderWithTheme(<Footer items={ITEMS} />)
-    const secondItem = ITEMS[1]
-    const itemElement = getByText(secondItem.label)
+    const { label, href } = ITEMS[1]
+    const { getByRole } = renderWithTheme(
+      <Footer>
+        <Footer.Column>
+          <Footer.Item href={href}>{label}</Footer.Item>
+        </Footer.Column>
+      </Footer>,
+    )
+    const itemElement = getByRole('link')
     expect(itemElement).toHaveAttribute('href', LINK)
   })
 })

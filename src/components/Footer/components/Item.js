@@ -5,9 +5,6 @@ import { makeStyles } from '@material-ui/styles'
 import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles({
-  icon: {
-    marginRight: 8,
-  },
   button: {
     textTransform: 'none',
   },
@@ -18,7 +15,7 @@ const Container = styled.li`
   align-items: center;
 `
 
-const Item = ({ className, children, icon: Icon, href = null, onClick = null, ...rest }) => {
+const Item = ({ className, children, icon: Icon = null, href = null, onClick = null, ...rest }) => {
   const classes = useStyles()
 
   return (
@@ -28,7 +25,7 @@ const Item = ({ className, children, icon: Icon, href = null, onClick = null, ..
         color="secondary"
         href={href}
         onClick={onClick}
-        startIcon={<Icon />}
+        startIcon={Icon ? <Icon /> : undefined}
         {...rest}
       >
         {children}

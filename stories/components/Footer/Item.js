@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
 import Footer from 'components/Footer'
 import createApiStory from '../../helpers/createApiStory'
 
 const story = storiesOf('Components|Footer/Item', module)
 
-import { AccountCircle } from './Icons'
+import { AccountCircle, Code, Email } from './Icons'
 
 const StyledItem = styled(Footer.Item)`
   width: max-content;
@@ -22,6 +23,30 @@ story.add('Default', () => (
     My Account
   </StyledItem>
 ))
+
+story.add('As a button', () => (
+  <StyledItem icon={Code} onClick={action('clicked!')}>
+    I'm a button
+  </StyledItem>
+))
+
+const ExtendedItem = styled(Footer.Item)`
+  * {
+    color: white;
+  }
+  background-color: blue;
+  border-radius: 3px;
+  width: max-content;
+`
+story.add(
+  'Extended',
+  () => (
+    <ExtendedItem icon={Email} href="#">
+      I'm a button
+    </ExtendedItem>
+  ),
+  { info: 'This `Footer.Item` was extended using `styled()` from styled-components.' },
+)
 
 const info = `
 Has to be used in a \`<Footer>\` component.

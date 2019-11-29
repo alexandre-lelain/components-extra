@@ -24,7 +24,7 @@ const Footer = ({
   const { component, src } = image
   return (
     <FooterContainer className={className} ref={forwardedRef} {...rest}>
-      <TopContainer image={src} component={component} alt={title} title={title}>
+      <TopContainer image={src} component={component} alt={title}>
         {!!title && <Title text={title} />}
         {!isEmpty(children) && <ItemsContainer>{children}</ItemsContainer>}
       </TopContainer>
@@ -43,10 +43,10 @@ Footer.propTypes = {
    */
   bottomBanner: PropTypes.oneOfType([PropTypes.node, PropTypes.elementType]),
   /**
-   * The footer's background image. It can either be an url or base64 string.
+   * The footer's background image. 'component' can either be a string 'ex: 'section', or a component.
    */
   image: PropTypes.shape({
-    component: PropTypes.node,
+    component: PropTypes.elementType,
     src: PropTypes.string,
   }),
   /**

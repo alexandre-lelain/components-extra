@@ -67,7 +67,11 @@ story.add('Real life situation (bottom)', () => (
   </>
 ))
 
-createApiStory(story, BaseCookiesBanner)
+const info = `
+See also:
+- [CookiesBanner.Button](/?path=/story/components-cookiesbanner-button--api)
+`
+createApiStory(story, BaseCookiesBanner, info)
 
 const HugeText = () => (
   <Typography>

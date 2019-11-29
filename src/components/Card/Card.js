@@ -71,10 +71,10 @@ Card.propTypes = {
    */
   description: PropTypes.string,
   /**
-   * The Card's image media.
+   * The Card's image media. 'component' can either be a string (ex: 'section'), or a component.
    */
   image: PropTypes.shape({
-    component: PropTypes.node,
+    component: PropTypes.elementType,
     src: PropTypes.string,
   }),
   /**

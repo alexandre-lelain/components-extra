@@ -2,10 +2,12 @@
 
 ## Breaking changes
 
-* The Compound Pattern was applied to all components. . ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `Card` now have `Card.Button` for the controls. . ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* The Compound Pattern was applied to all components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `Card` now have `Card.Button` for the controls. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Renamed *onCardClick* prop of `Card` component to *onClick*. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `CookiesBanner` now have `CookiesBanner.Button` for the controls. . ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `CookiesBanner` now have `CookiesBanner.Button` for the controls. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `Footer` now have `Footer.Column` & `Footer.Item` inner components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Renamed `bannerContent` prop of `Footer` to `bottomBanner`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 1.0.0
 

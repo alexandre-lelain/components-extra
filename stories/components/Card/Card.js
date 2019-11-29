@@ -62,4 +62,8 @@ story.add('With your own custom button', () => (
   </StyledCard>
 ))
 
-createApiStory(story, BaseCard)
+const info = `
+See also:
+- [Card.Button](/?path=/story/components-card-button--api)
+`
+createApiStory(story, BaseCard, info)

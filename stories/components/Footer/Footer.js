@@ -74,17 +74,125 @@ story.add('Big Footer', () => (
   </Footer>
 ))
 
-story.add('With bottom banner', () => <Footer title="Awesome footer">qsdsq</Footer>)
+story.add('Without bottom banner', () => (
+  <Footer title="Awesome footer">
+    <Footer.Column isInline>
+      <Footer.Item icon={AccountCircle} href="#">
+        My Account
+      </Footer.Item>
+      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+        Start Coding
+      </Footer.Item>
+      <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
+        Contact Us
+      </Footer.Item>
+    </Footer.Column>
+  </Footer>
+))
 
 story.add('With background-image', () => (
   <Footer
     title="Awesome footer"
-    image={{ src: '//cdn.pixabay.com/photo/2016/11/29/11/46/blurred-1869271_960_720.jpg' }}
+    image={{ src: 'https://ak4.picdn.net/shutterstock/videos/3200194/thumb/9.jpg' }}
   >
-    qsdsq
+    <Footer.Column>
+      <Footer.Item icon={AccountCircle} href="#">
+        My Account
+      </Footer.Item>
+      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+        Start Coding
+      </Footer.Item>
+      <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
+        Contact Us
+      </Footer.Item>
+    </Footer.Column>
+    <Footer.Column>
+      <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
+        Contact Us
+      </Footer.Item>
+      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+        Start Coding
+      </Footer.Item>
+      <Footer.Item icon={AccountCircle} href="#">
+        My Account
+      </Footer.Item>
+    </Footer.Column>
   </Footer>
 ))
 
-story.add('With no title', () => <Footer>qsd</Footer>)
+story.add('With no title', () => (
+  <Footer>
+    <Footer.Column isInline>
+      <Footer.Item icon={AccountCircle} href="#">
+        My Account
+      </Footer.Item>
+      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+        Start Coding
+      </Footer.Item>
+      <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
+        Contact Us
+      </Footer.Item>
+    </Footer.Column>
+  </Footer>
+))
 
-createApiStory(story, BaseFooter)
+story.add('With no icons on items', () => (
+  <Footer title="Awesome footer">
+    <Footer.Column title="Awesome column A">
+      <Footer.Item href="#">My Account</Footer.Item>
+      <Footer.Item onClick={action('Starting coding now!')}>Start Coding</Footer.Item>
+      <Footer.Item href="lelain-dot-alexandre-at-gmail-dot-com">Contact Us</Footer.Item>
+    </Footer.Column>
+    <Footer.Column title="Awesome column B">
+      <Footer.Item href="lelain-dot-alexandre-at-gmail-dot-com">Contact Us</Footer.Item>
+      <Footer.Item onClick={action('Starting coding now!')}>Start Coding now !! sqd sd</Footer.Item>
+      <Footer.Item href="#">My Account</Footer.Item>
+    </Footer.Column>
+  </Footer>
+))
+
+const ExtendedFooter = styled(Footer)`
+  background-color: green;
+  border-radius: 32px;
+`
+const ExtendedColumn = styled(Footer.Column)`
+  box-shadow: 2px 2px 2px 2px white;
+  border-radius: 3px;
+`
+const ExtendedItem = styled(Footer.Item)`
+  * {
+    color: #ccccff;
+    font-size: 24px;
+  }
+`
+
+story.add(
+  'Extended',
+  () => (
+    <ExtendedFooter>
+      <ExtendedColumn isInline>
+        <ExtendedItem icon={AccountCircle} href="#">
+          My Account
+        </ExtendedItem>
+        <ExtendedItem icon={Code} onClick={action('Starting coding now!')}>
+          Start Coding
+        </ExtendedItem>
+        <ExtendedItem icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
+          Contact Us
+        </ExtendedItem>
+      </ExtendedColumn>
+    </ExtendedFooter>
+  ),
+  {
+    info: `
+This \`Footer\` was extended using \`styled()\` from styled-components.
+`,
+  },
+)
+
+const info = `
+See also:
+- [Footer.Column](/?path=/story/components-footer-column--api)
+- [Footer.Item](/?path=/story/components-footer-item--api)
+`
+createApiStory(story, BaseFooter, info)
