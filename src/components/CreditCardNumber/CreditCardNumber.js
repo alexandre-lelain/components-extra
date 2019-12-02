@@ -70,9 +70,9 @@ CreditCardNumber.propTypes = {
    */
   onChange: PropTypes.func.isRequired,
   /**
-   * The MUI OutlinedInput's props. See https://material-ui.com/api/outlined-input/.
+   * The MUI OutlinedInput's props. See https://material-ui.com/api/outlined-input/. You can as well pass other props.
    */
-  rest: PropTypes.object,
+  '...rest': PropTypes.object,
 }
 
 const DefaultComponent = styled(

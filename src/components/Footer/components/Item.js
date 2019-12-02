@@ -48,9 +48,9 @@ Item.propTypes = {
    */
   onClick: PropTypes.func,
   /**
-   * Material's UI Button props: https://material-ui.com/api/button/.
+   * Material's UI Button props: https://material-ui.com/api/button/. As well as any other prop you would like to pass to the button.
    */
-  rest: PropTypes.object,
+  '...rest': PropTypes.object,
 }
 
 const DefaultComponent = styled(Item)``

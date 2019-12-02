@@ -33,12 +33,13 @@ const Card = ({
   image = {},
   onClick = null,
   title,
+  ...rest
 }) => {
   const classes = useStyles()
-  const { component, src } = image
+  const { component, src, ...otherProps } = image
 
   return (
-    <MaterialCard className={className} ref={forwardedRef}>
+    <MaterialCard className={className} ref={forwardedRef} {...rest}>
       <CardActionArea onClick={onClick}>
         {!isEmpty(image) && (
           <CardMedia
@@ -47,6 +48,7 @@ const Card = ({
             component={component}
             image={src}
             title={title}
+            {...otherProps}
           />
         )}
         <CardContent className={classes.content}>
@@ -72,10 +74,12 @@ Card.propTypes = {
   description: PropTypes.string,
   /**
    * The Card's image media. 'component' can either be a string (ex: 'section'), or a component.
+   * You can also pass other props to the media container.
    */
   image: PropTypes.shape({
     component: PropTypes.elementType,
     src: PropTypes.string,
+    '...rest': PropTypes.object,
   }),
   /**
    * Function fired when the card is pressed or clicked.

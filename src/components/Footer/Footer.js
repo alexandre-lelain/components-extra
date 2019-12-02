@@ -21,10 +21,10 @@ const Footer = ({
   title = null,
   ...rest
 }) => {
-  const { component, src } = image
+  const { component, src, ...otherProps } = image
   return (
     <FooterContainer className={className} ref={forwardedRef} {...rest}>
-      <TopContainer image={src} component={component} alt={title}>
+      <TopContainer image={src} component={component} alt={title} {...otherProps}>
         {!!title && <Title text={title} />}
         {!isEmpty(children) && <ItemsContainer>{children}</ItemsContainer>}
       </TopContainer>
@@ -44,10 +44,12 @@ Footer.propTypes = {
   bottomBanner: PropTypes.oneOfType([PropTypes.node, PropTypes.elementType]),
   /**
    * The footer's background image. 'component' can either be a string 'ex: 'section', or a component.
+   * You can also pass other props to the media container.
    */
   image: PropTypes.shape({
     component: PropTypes.elementType,
     src: PropTypes.string,
+    '...rest': PropTypes.object,
   }),
   /**
    * The footer's title.

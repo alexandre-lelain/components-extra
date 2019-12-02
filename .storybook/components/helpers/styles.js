@@ -12,7 +12,10 @@ export const useStyles = makeStyles(theme => ({
     minWidth: 650,
   },
   type: {
-    minWidth: 250,
+    minWidth: 160,
+  },
+  defaultCell: {
+    minWidth: 100,
   },
   defaultValue: {
     color: '#3f51b5',

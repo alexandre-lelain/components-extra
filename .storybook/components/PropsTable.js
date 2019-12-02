@@ -15,13 +15,13 @@ const PropsTable = ({ propDefinitions = [] }) => {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>
+            <TableCell className={classes.defaultCell}>
               <HeaderTitle>Prop</HeaderTitle>
             </TableCell>
             <TableCell className={classes.type}>
               <HeaderTitle>Type</HeaderTitle>
             </TableCell>
-            <TableCell>
+            <TableCell className={classes.defaultCell}>
               <HeaderTitle>Default</HeaderTitle>
             </TableCell>
             <TableCell className={classes.description}>
