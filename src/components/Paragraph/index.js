@@ -18,6 +18,10 @@ Paragraph.propTypes = {
    * Material-ui's Typography 'variant' prop.
    */
   variant: PropTypes.string,
+  /**
+   * Material's UI Typography props: https://material-ui.com/api/typography/. As well as any other prop you would like to pass to the component.
+   */
+  '...rest': PropTypes.object,
 }
 
 Paragraph.displayName = 'Paragraph'

@@ -6,7 +6,7 @@ import Button from './components/Button'
 
 const START_HEIGHT = 20
 
-const BackToTop = ({ className, forwardedRef = null }) => {
+const BackToTop = ({ className, forwardedRef = null, ...rest }) => {
   const [display, setDisplay] = useState(false)
   const { body, documentElement } = document
 
@@ -33,6 +33,7 @@ const BackToTop = ({ className, forwardedRef = null }) => {
       isDisplayed={display}
       onClick={scrollToTop}
       ref={forwardedRef}
+      {...rest}
     >
       <ArrowUpward color="secondary" />
     </Button>

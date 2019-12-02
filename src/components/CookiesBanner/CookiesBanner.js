@@ -8,9 +8,9 @@ import CookiesButton from './components/CookiesButton'
 import CookieIcon from './components/CookieIcon'
 import Container from './components/Container'
 
-const CookiesBanner = ({ children, className, forwardedRef = null, text = null }) => {
+const CookiesBanner = ({ children, className, forwardedRef = null, text = null, ...rest }) => {
   return (
-    <Container className={className} ref={forwardedRef}>
+    <Container className={className} ref={forwardedRef} {...rest}>
       <CookieIcon />
       {text && <Paragraph color="secondary">{text}</Paragraph>}
       {children}
