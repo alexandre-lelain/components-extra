@@ -1,11 +1,15 @@
-import { createContext, useContext } from 'react'
+import React, { createContext, useContext } from 'react'
+import PropTypes from 'prop-types'
 
-const DEFAULT_LANGUAGE_CONTEXT = { languages: [], onSelectLanguage: () => {} }
+const OnCloseLanguageContext = createContext(null)
 
-const OptionsContext = createContext([])
-const LanguagesContext = createContext(DEFAULT_LANGUAGE_CONTEXT)
+const OnCloseLanguageProvider = ({ onClose, children }) => (
+  <OnCloseLanguageContext.Provider value={onClose}>{children}</OnCloseLanguageContext.Provider>
+)
+OnCloseLanguageProvider.propTypes = {
+  onClose: PropTypes.func,
+}
 
-const useOptions = () => useContext(OptionsContext) || []
-const useLanguages = () => useContext(LanguagesContext) || DEFAULT_LANGUAGE_CONTEXT
+const useLanguageOnClose = () => useContext(OnCloseLanguageContext)
 
-export { LanguagesContext, OptionsContext, useLanguages, useOptions }
+export { OnCloseLanguageProvider, useLanguageOnClose }

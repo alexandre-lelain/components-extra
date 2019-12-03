@@ -1,65 +1,61 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { Button, Menu } from '@material-ui/core'
 
-import { IconButton, Typography } from '@material-ui/core'
+import { OnCloseLanguageProvider } from '../hooks'
 
-import LanguagesMenu from './LanguagesMenu'
+import DownArrowIcon from './DownArrowIcon'
 import TranslateIcon from './TranslateIcon'
 
-import isEmpty from 'utils/isEmpty'
-
-import { useLanguages } from '../hooks'
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const Locale = styled(Typography).attrs(() => ({
-  variant: 'body2',
-}))`
-  margin-right: 12px;
-  margin-left: 4px;
-`
-
-const Language = () => {
-  const { languages } = useLanguages()
-  const [currentLang, setCurrentLang] = useState({})
+const Language = ({ className, children, selectedLanguage = '', ...rest }) => {
   const [langAnchor, setLangAnchor] = useState(null)
 
-  useEffect(() => {
-    const initLang = languages.find(language => language.isDefault) || languages[0] || {}
-    setCurrentLang(initLang)
-  }, [languages])
+  const onOpenMenu = event => {
+    setLangAnchor(event.currentTarget)
+  }
 
-  const { locale } = currentLang
+  const onCloseMenu = () => setLangAnchor(null)
 
   return (
-    !isEmpty(languages) && (
-      <>
-        <Container>
-          <IconButton
-            aria-label="Change language"
-            color="secondary"
-            onClick={e => setLangAnchor(e.currentTarget)}
-            title="Change language"
-          >
-            <TranslateIcon />
-          </IconButton>
-          {locale && (
-            <Locale color="secondary" title="current-locale">
-              {locale}
-            </Locale>
-          )}
-        </Container>
-        <LanguagesMenu
-          langAnchor={langAnchor}
-          onClose={() => setLangAnchor(null)}
-          setCurrentLang={setCurrentLang}
-        />
-      </>
-    )
+    <OnCloseLanguageProvider onClose={onCloseMenu}>
+      <Button
+        color="secondary"
+        endIcon={<DownArrowIcon />}
+        startIcon={<TranslateIcon />}
+        onClick={onOpenMenu}
+        {...rest}
+      >
+        {selectedLanguage}
+      </Button>
+      <Menu
+        anchorEl={langAnchor}
+        className={className}
+        keepMounted
+        open={Boolean(langAnchor)}
+        onClose={onCloseMenu}
+        {...rest}
+      >
+        {children}
+      </Menu>
+    </OnCloseLanguageProvider>
   )
 }
 
-export default Language
+Language.propTypes = {
+  /**
+   * The language's menu selected language.
+   */
+  selectedLanguage: PropTypes.string,
+  /**
+   * Material's UI Button props: https://material-ui.com/api/button/. As well as any other prop you would like to pass to the button.
+   */
+  '...rest': PropTypes.object,
+}
+
+const DefaultComponent = styled(Language)``
+DefaultComponent.displayName = 'Navbar.Language'
+DefaultComponent.propTypes = Language.propTypes
+
+export { Language as BaseLanguage }
+export default DefaultComponent

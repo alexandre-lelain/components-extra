@@ -2,6 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
+
+import isEmpty from 'utils/isEmpty'
+
+const useStyles = makeStyles({
+  title: {
+    lineHeight: 'normal',
+  },
+})
 
 const IconContainer = styled.div`
   width: 24px;
@@ -30,24 +39,36 @@ const BrandContainer = styled.div`
   flex-grow: 1;
 `
 
-const Brand = ({ brandIcon: BrandIcon, title }) => {
+const Brand = ({ className, children, href = '', title, ...rest }) => {
+  const classes = useStyles()
   return (
-    <BrandContainer>
-      <BrandLink href="/">
-        {BrandIcon && (
-          <IconContainer>
-            <BrandIcon />
-          </IconContainer>
+    <BrandContainer className={className} {...rest}>
+      <BrandLink href={href}>
+        {!isEmpty(children) && <IconContainer>{children}</IconContainer>}
+        {title && (
+          <Typography className={classes.title} variant="h6">
+            {title}
+          </Typography>
         )}
-        {title && <Typography variant="h6">{title}</Typography>}
       </BrandLink>
     </BrandContainer>
   )
 }
 
 Brand.propTypes = {
-  brandIcon: PropTypes.func,
+  /**
+   * The navbar's brand link. By default it links to the same page.
+   */
+  href: PropTypes.string,
+  /**
+   * The navbar's title.
+   */
   title: PropTypes.string,
 }
 
-export default Brand
+const DefaultComponent = styled(Brand)``
+DefaultComponent.displayName = 'Navbar.Brand'
+DefaultComponent.propTypes = Brand.propTypes
+
+export { Brand as BaseBrand }
+export default DefaultComponent

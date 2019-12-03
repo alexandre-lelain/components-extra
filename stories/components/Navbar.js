@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import { Navbar } from 'components/Navbar'
+import Navbar, { BaseNavbar } from 'components/Navbar'
 import createApiStory from '../helpers/createApiStory'
 
 const navItems = [
@@ -37,9 +37,10 @@ const languages = [
   },
 ]
 
-const StoryContainer = styled.div`
+const StoryNavbar = styled(Navbar)`
   margin-top: 32px;
 `
+StoryNavbar.displayName = 'Navbar'
 
 const BrandIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -50,32 +51,58 @@ const BrandIcon = () => (
     <path d="M0 0h24v24H0z" fill="none" />
   </svg>
 )
+BrandIcon.displayName = 'YourCustomIcon'
+
+const FlagIcon = ({ color }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path fill={color} d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z" />
+    <path d="M0 0h24v24H0z" fill="none" />
+  </svg>
+)
 
 const story = storiesOf('Components|Navbar', module)
 
 story.add('Default', () => (
-  <StoryContainer>
-    <Navbar navItems={navItems} brandIcon={BrandIcon} title="Awesome Navbar" />
-  </StoryContainer>
+  <StoryNavbar>
+    <Navbar.Brand title="Awesome Navbar">
+      <BrandIcon />
+    </Navbar.Brand>
+  </StoryNavbar>
 ))
 
 story.add('Sticky', () => (
-  <StoryContainer>
-    <Navbar navItems={navItems} brandIcon={BrandIcon} title="Awesome Navbar" isSticky />
-    <div style={{ height: '1800px' }}></div>
-  </StoryContainer>
+  <>
+    <StoryNavbar isSticky>
+      <Navbar.Brand title="Awesome Navbar">
+        <BrandIcon />
+      </Navbar.Brand>
+    </StoryNavbar>
+    <div style={{ height: '1000px' }} />
+  </>
+))
+
+story.add('Without Brand Icon', () => (
+  <StoryNavbar>
+    <Navbar.Brand title="Awesome Navbar" />
+  </StoryNavbar>
 ))
 
 story.add('With Language', () => (
-  <StoryContainer>
-    <Navbar
-      languages={languages}
-      onSelectLanguage={action('onClickLanguage')}
-      navItems={navItems}
-      brandIcon={BrandIcon}
-      title="Awesome Navbar"
-    />
-  </StoryContainer>
+  <StoryNavbar>
+    <Navbar.Brand title="Awesome Navbar">
+      <BrandIcon />
+    </Navbar.Brand>
+    <Navbar.Language selectedLanguage="English">
+      <Navbar.LanguageItem label="english" onClick={action('Language changed to English')}>
+        <FlagIcon color="red" />
+        English
+      </Navbar.LanguageItem>
+      <Navbar.LanguageItem label="french" onClick={action('Language changed to French')}>
+        <FlagIcon color="blue" />
+        French
+      </Navbar.LanguageItem>
+    </Navbar.Language>
+  </StoryNavbar>
 ))
 
-createApiStory(story, Navbar)
+createApiStory(story, BaseNavbar)
