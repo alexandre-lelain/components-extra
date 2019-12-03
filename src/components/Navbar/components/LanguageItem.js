@@ -48,5 +48,5 @@ const DefaultComponent = styled(
 DefaultComponent.displayName = 'Navbar.LanguageItem'
 DefaultComponent.propTypes = LanguageItem.propTypes
 
-export { LanguageItem as BasLanguageItem }
+export { LanguageItem as BaseLanguageItem }
 export default DefaultComponent
