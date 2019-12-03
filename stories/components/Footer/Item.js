@@ -10,6 +10,10 @@ const story = storiesOf('Components|Footer/Item', module)
 
 import { AccountCircle, Code, Email } from './Icons'
 
+const info = `
+Has to be used inside a \`<Footer.Column>\` component. 
+`
+
 const StyledItem = styled(Footer.Item)`
   width: max-content;
   ${({ theme }) => `
@@ -18,17 +22,25 @@ const StyledItem = styled(Footer.Item)`
 `
 StyledItem.displayName = Footer.Item.displayName
 
-story.add('Default', () => (
-  <StyledItem icon={AccountCircle} href="#">
-    My Account
-  </StyledItem>
-))
+story.add(
+  'Default',
+  () => (
+    <StyledItem icon={AccountCircle} href="#">
+      My Account
+    </StyledItem>
+  ),
+  { info },
+)
 
-story.add('As a button', () => (
-  <StyledItem icon={Code} onClick={action('clicked!')}>
-    I'm a button
-  </StyledItem>
-))
+story.add(
+  'As a button',
+  () => (
+    <StyledItem icon={Code} onClick={action('clicked!')}>
+      I'm a button
+    </StyledItem>
+  ),
+  { info },
+)
 
 const ExtendedItem = styled(Footer.Item)`
   * {
@@ -45,12 +57,12 @@ story.add(
       I'm a button
     </ExtendedItem>
   ),
-  { info: 'This `Footer.Item` was extended using `styled()` from styled-components.' },
+  { info: info + '\nThis `Footer.Item` was extended using `styled()` from styled-components.' },
 )
 
-const info = `
-Has to be used in a \`<Footer>\` component.
+const apiInfo =
+  info +
+  `\n
 You can use all the props available in the Material-ui's \`Button\`: https://material-ui.com/api/button/.
 `
-
-createApiStory(story, Footer.Item.target, info)
+createApiStory(story, Footer.Item.target, apiInfo)

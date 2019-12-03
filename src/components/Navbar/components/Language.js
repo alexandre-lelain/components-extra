@@ -20,6 +20,7 @@ const Language = ({ className, children, selectedLanguage = '', ...rest }) => {
   return (
     <OnCloseLanguageProvider onClose={onCloseMenu}>
       <Button
+        className={className}
         color="secondary"
         endIcon={<DownArrowIcon />}
         startIcon={<TranslateIcon />}
@@ -28,14 +29,7 @@ const Language = ({ className, children, selectedLanguage = '', ...rest }) => {
       >
         {selectedLanguage}
       </Button>
-      <Menu
-        anchorEl={langAnchor}
-        className={className}
-        keepMounted
-        open={Boolean(langAnchor)}
-        onClose={onCloseMenu}
-        {...rest}
-      >
+      <Menu anchorEl={langAnchor} keepMounted open={Boolean(langAnchor)} onClose={onCloseMenu}>
         {children}
       </Menu>
     </OnCloseLanguageProvider>
