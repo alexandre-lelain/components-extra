@@ -76,4 +76,10 @@ story.add('With Language', () => {
   )
 })
 
-createApiStory(story, BaseNavbar)
+const info = `
+See also:
+- [Navbar.Brand](/?path=/story/components-navbar-brand--api)
+- [Navbar.Language](/?path=/story/components-navbar-language--api)
+- [Navbar.LanguageItem](/?path=/story/components-navbar-languageitem--api)
+`
+createApiStory(story, BaseNavbar, info)

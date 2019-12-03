@@ -29,22 +29,6 @@ Navbar.propTypes = {
    */
   isSticky: PropTypes.bool,
   /**
-   * The languages items. The language dropdown menu won't be
-   * dislayed if this prop is ignored.
-   * Set `isDefault` to true for the pre-selected language.
-   * The `label` stands for the label displayed in the dropdown.
-   * The `locale` will be displayed on the dropdown's right & on
-   * the `label`'s left. Ex: 'EN' for english.
-   */
-
-  languages: PropTypes.arrayOf(
-    PropTypes.shape({
-      isDefault: PropTypes.bool,
-      label: PropTypes.string.isRequired,
-      locale: PropTypes.string.isRequired,
-    }),
-  ),
-  /**
    * The component you want to render the navigation items with.
    * You can use either your own component or a third-party
    * component. Defaults to HTML link <a>.
@@ -61,12 +45,6 @@ Navbar.propTypes = {
       label: PropTypes.string.isRequired,
     }),
   ),
-  /**
-   * Function fired on language selection.
-   * Params:
-   * - language: languageType (see content of above `languages` prop). The selected language.
-   */
-  onSelectLanguage: PropTypes.func,
 }
 
 const DefaultComponent = styled(
