@@ -8,7 +8,7 @@ import Card, { BaseCard } from 'components/Card'
 import createApiStory from '../../helpers/createApiStory'
 
 const StyledCard = styled(Card)`
-  width: 70%;
+  width: 60%;
   margin: auto;
   text-align: center;
 `
@@ -61,6 +61,26 @@ story.add('With your own custom button', () => (
     </button>
   </StyledCard>
 ))
+
+const CardExtended = styled(Card)`
+  width: 40%;
+  margin: auto;
+`
+story.add(
+  'Extended - smaller',
+  () => (
+    <CardExtended
+      description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+      image={{ src: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+      onClick={action('Awesome card clicked!')}
+      title="Awesome card"
+    >
+      <Card.Button onClick={action('Awesome button clicked!')}>Awesome button</Card.Button>
+      <Card.Button href="#">Awesome link</Card.Button>
+    </CardExtended>
+  ),
+  { info: 'This `Card` component was extended using `styled()` from styled-components.' },
+)
 
 const info = `
 See also:

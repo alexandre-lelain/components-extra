@@ -18,7 +18,8 @@ import CardButton from './components/CardButton'
 
 const useStyles = makeStyles({
   media: {
-    height: 200,
+    height: 0,
+    paddingTop: '56.25%', //16:9
   },
   content: {
     textAlign: 'left',
