@@ -11,9 +11,9 @@ const BrandIcon = () => (
 )
 BrandIcon.displayName = 'YourCustomIcon'
 
-const FlagIcon = ({ color }) => (
+const FlagIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path fill={color} d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z" />
+    <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z" />
     <path d="M0 0h24v24H0z" fill="none" />
   </svg>
 )
@@ -31,7 +31,7 @@ const AmericaFlag = () => (
     <path
       d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0"
       stroke="#fff"
-      stroke-width="300"
+      strokeWidth="300"
     />
     <rect width="2964" height="2100" fill="#3c3b6e" />
     <g fill="#fff">

@@ -12,7 +12,7 @@ export const useStyles = makeStyles(theme => ({
     minWidth: 650,
   },
   type: {
-    minWidth: 160,
+    minWidth: 170,
   },
   defaultCell: {
     minWidth: 100,

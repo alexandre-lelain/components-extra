@@ -4,30 +4,9 @@ import { fireEvent } from '@testing-library/react'
 import { renderWithTheme } from 'test'
 import Navbar from '..'
 
-let LANGUAGE_WAS_CHANGED = 0
 const TITLE = 'awesome title'
-const LANGUAGES = [
-  {
-    label: 'french',
-    locale: 'FR',
-  },
-  {
-    label: 'English',
-    locale: 'EN',
-  },
-]
-const LANGUAGES_WITH_DEFAULT = [
-  {
-    label: 'french',
-    locale: 'FR',
-  },
-  {
-    label: 'English',
-    locale: 'EN',
-    isDefault: true,
-  },
-]
-const onSelectLanguage = () => LANGUAGE_WAS_CHANGED++
+const SELECTED_LANGUAGE = 'English'
+const ITEM = 'awesome item'
 
 describe('Navbar', () => {
   const TestNavbar = () => {
@@ -39,71 +18,73 @@ describe('Navbar', () => {
       })
     }, [ref])
 
-    return <Navbar ref={ref} title={TITLE} />
+    return <Navbar ref={ref} />
   }
 
   renderWithTheme(<TestNavbar />)
 
   test('it renders correctly', () => {
-    const { container } = renderWithTheme(<Navbar title={TITLE} />)
+    const { container } = renderWithTheme(<Navbar>Random stuff</Navbar>)
     const navbar = container.firstChild
     expect(navbar).toBeInTheDocument()
   })
 
   test('it contains the title if provided', () => {
-    const { getByText } = renderWithTheme(<Navbar title={TITLE} />)
+    const { getByText } = renderWithTheme(
+      <Navbar>
+        <Navbar.Brand title={TITLE} />
+      </Navbar>,
+    )
     const title = getByText(TITLE)
     expect(title).toBeInTheDocument()
   })
 
   test('it has a static-position by default', () => {
-    const { container } = renderWithTheme(<Navbar title={TITLE} />)
+    const { container } = renderWithTheme(<Navbar />)
     const navbar = container.firstChild
     expect(navbar).toHaveStyle('position: static')
   })
 
   test('it has a sticky-position if isSticky is provided', () => {
-    const { container } = renderWithTheme(<Navbar title={TITLE} isSticky />)
+    const { container } = renderWithTheme(<Navbar isSticky />)
     const navbar = container.firstChild
     expect(navbar).toHaveStyle('position: sticky')
   })
 
-  test('it fires the onSelectLanguage prop on language change if provided, on both mobile & desktop', () => {
-    const { getAllByTitle } = renderWithTheme(
-      <Navbar title={TITLE} languages={LANGUAGES} onSelectLanguage={onSelectLanguage} />,
+  test('it displays the selectedLanguage if provided to the Navbar.Language component', () => {
+    const { getByText } = renderWithTheme(
+      <Navbar>
+        <Navbar.Brand title={TITLE} />
+        <Navbar.Language selectedLanguage={SELECTED_LANGUAGE} />
+      </Navbar>,
     )
-    const fr = LANGUAGES[0]
-    const langElements = getAllByTitle(fr.label)
-    const [langDesktop, langMobile] = langElements
-    fireEvent.click(langDesktop)
-    fireEvent.click(langMobile)
-    expect(LANGUAGE_WAS_CHANGED).toEqual(2)
+    const language = getByText(SELECTED_LANGUAGE)
+    expect(language).toBeInTheDocument()
   })
 
-  test('it displays the first item of languages array if no default locale is provided', () => {
-    const { getAllByTitle } = renderWithTheme(<Navbar title={TITLE} languages={LANGUAGES} />)
-    const [fr] = LANGUAGES
-    const [currentLocaleDesktopElement] = getAllByTitle('current-locale')
-    expect(currentLocaleDesktopElement).toHaveTextContent(fr.locale)
+  test('it displays a MenuItem if provided', () => {
+    const { getByText } = renderWithTheme(
+      <Navbar>
+        <Navbar.Brand title={TITLE} />
+        <Navbar.Menu>
+          <Navbar.MenuItem>{ITEM}</Navbar.MenuItem>
+        </Navbar.Menu>
+      </Navbar>,
+    )
+    const menuItem = getByText(ITEM)
+    expect(menuItem).toBeInTheDocument()
   })
 
-  test('it displays the default language item if a default locale is provided', () => {
-    const { getAllByTitle } = renderWithTheme(
-      <Navbar title={TITLE} languages={LANGUAGES_WITH_DEFAULT} />,
+  test('it displays a LanguageItem if provided', () => {
+    const { getByText } = renderWithTheme(
+      <Navbar>
+        <Navbar.Brand title={TITLE} />
+        <Navbar.Language>
+          <Navbar.LanguageItem>{ITEM}</Navbar.LanguageItem>
+        </Navbar.Language>
+      </Navbar>,
     )
-    const [, en] = LANGUAGES
-    const [currentLocaleDesktopElement] = getAllByTitle('current-locale')
-    expect(currentLocaleDesktopElement).toHaveTextContent(en.locale)
-  })
-
-  test('it changes the displayed selected locale on language change', () => {
-    const { getAllByTitle } = renderWithTheme(
-      <Navbar title={TITLE} languages={LANGUAGES_WITH_DEFAULT} />,
-    )
-    const [fr] = LANGUAGES
-    const [langDesktop] = getAllByTitle(fr.label)
-    const [currentLocaleDesktopElement] = getAllByTitle('current-locale')
-    fireEvent.click(langDesktop)
-    expect(currentLocaleDesktopElement).toHaveTextContent(fr.locale)
+    const languageItem = getByText(ITEM)
+    expect(languageItem).toBeInTheDocument()
   })
 })
