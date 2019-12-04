@@ -5,10 +5,10 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 
 import Brand from './components/Brand'
-//import DesktopItems from './components/DesktopItems'
 import Language from './components/Language'
 import LanguageItem from './components/LanguageItem'
-//import MobileItems from './components/MobileItems'
+import Menu from './components/Menu'
+import MenuItem from './components/MenuItem'
 
 const Navbar = ({ className, children, forwardedRef = null, isSticky = false, ...rest }) => {
   return (
@@ -25,26 +25,10 @@ const Navbar = ({ className, children, forwardedRef = null, isSticky = false, ..
 
 Navbar.propTypes = {
   /**
-   * Is the Navbar in sticky mode ?
+   * Set to true if you want the Navbar to stick to its initial position. It will give the
+   * 'position: sticky' css rule to the main container.
    */
   isSticky: PropTypes.bool,
-  /**
-   * The component you want to render the navigation items with.
-   * You can use either your own component or a third-party
-   * component. Defaults to HTML link <a>.
-   */
-
-  linkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.string]),
-  /**
-   * The navigation items of the navbar. You can also add any additional property in the
-   * PropTypes.shape() object in case you use a third-party 'linkComponent'. See prop definition above.
-   */
-  navItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      href: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    }),
-  ),
 }
 
 const DefaultComponent = styled(
@@ -56,6 +40,8 @@ const DefaultComponent = styled(
 DefaultComponent.Brand = Brand
 DefaultComponent.Language = Language
 DefaultComponent.LanguageItem = LanguageItem
+DefaultComponent.Menu = Menu
+DefaultComponent.MenuItem = MenuItem
 
 DefaultComponent.displayName = 'Navbar'
 DefaultComponent.propTypes = Navbar.propTypes

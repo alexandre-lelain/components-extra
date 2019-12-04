@@ -1,5 +1,6 @@
 import React, { createContext, useContext } from 'react'
 import PropTypes from 'prop-types'
+import { useMediaQuery } from '@material-ui/core'
 
 const OnCloseLanguageContext = createContext(null)
 
@@ -12,4 +13,6 @@ OnCloseLanguageProvider.propTypes = {
 
 const useLanguageOnClose = () => useContext(OnCloseLanguageContext)
 
-export { OnCloseLanguageProvider, useLanguageOnClose }
+const useIsDesktop = () => useMediaQuery(theme => theme.breakpoints.up('md'))
+
+export { OnCloseLanguageProvider, useIsDesktop, useLanguageOnClose }

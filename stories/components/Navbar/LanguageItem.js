@@ -35,7 +35,7 @@ story.add(
   () => (
     <StyledLanguageItem label="english" onClick={action('clicked!')}>
       <AmericaFlag />
-      <p style={{ paddingLeft: '8px' }}>English yeah! 🤘</p>
+      <p style={{ paddingLeft: '8px', margin: '4px' }}>English yeah! 🤘</p>
     </StyledLanguageItem>
   ),
   { info },

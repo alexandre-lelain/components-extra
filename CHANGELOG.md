@@ -9,6 +9,8 @@
 * `Footer` now have `Footer.Column` & `Footer.Item` inner components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Renamed `bannerContent` prop of `Footer` to `bottomBanner`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Updated all stories with latest changes. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `Navbar` now follow compound pattern. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Added copy&paste example in the storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 1.0.0
 
