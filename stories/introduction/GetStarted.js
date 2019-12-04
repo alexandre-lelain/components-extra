@@ -27,8 +27,8 @@ const App = () => {
 }
 \`\`\`
 
-Doing so will forward the **theme** object to all the children recursively. Not using it
-will result in an JS error.
+Doing so will forward the **theme** object to all the children recursively. Not using this Provider above
+the other components will result in an JS error.
 
 ### Step 2
 
