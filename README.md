@@ -20,16 +20,18 @@
 
 ## Motivation
 
-Do you have a web app to develop as soon as possible ? With extremely short deadlines ?
+Do you have a web application to develop as soon as possible ? Are you tired of duplicating components such as a Navbar or a CookiesBanner across all your applications ?
 Do you want to use [material-design](material.io/design/) standards ?
 
 Well, you are in the right place. This lib was made **just** for **you**.
 
-The aim of the project is to provide **complex** components (like a Navbar, a CookiesBanner, and so on) built on top of material-ui components & standards.
+The aim of the project is to provide fast-to-use **molecule** components (like a Navbar, a CookiesBanner, and so on) built on top of material-ui components & standards.
 
-The components are not too generic for this very simple purpose: **save you time**. They focus
-on what they were made for. They have very few props so you can integrate them **right-away**.
-While you may not be able to customize them from the bottom to the top,
+The components are built under the [compound pattern](https://kentcdodds.com/blog/compound-components-with-react-hooks) with this very simple purpose: **save you time**. They focus
+on what they were made for. They have very few props so you can integrate them **right-away** as they all have
+a built-in default behavior.
+
+The compound pattern allows you to customize easily any single inner component of a molecule component, and
 you can bring your own **theme** to customize them with your own styleguide.
 
 ## Menu
@@ -45,13 +47,13 @@ you can bring your own **theme** to customize them with your own styleguide.
 
 ## UI components
 
-[Cick here](https://components-extra.netlify.com) to see the list of available components the lib has to offer. To see the API of each component, simply visit their `API` story on the storybook. You can also see the **source code** of each story by clicking the "*show info*" button on the
+[Cick here](https://components-extra.netlify.com) to see the list of available components the lib has to offer. To see the API of each component, simply visit their `API` story on the storybook. You can also see the **source code** of each story by clicking the "**show info**" button on the
 top-right corner. The source code examples will help you to integrate the components easily.
 
 
 ## Requirements
 
-In order for the lib to be the smallest as possible, the three following dependencies are externals to the lib.
+In order for the lib to be the smallest possible, the three following dependencies are externals to the lib.
 So you will need to have those three installed on your app:
 
 - **[react](https://www.npmjs.com/package/react)**
@@ -70,8 +72,7 @@ or
 npm -i components-extra
 ```
 
-
-This library is **tree-shakeable** and **side-effect free**! It also supports older builds like cjs and umd if needed.
+Some more good news: This library is **tree-shakeable** and **side-effect free**! It also supports older builds like cjs and umd if needed.
 
 ## Getting started in only 2 steps
 
@@ -95,8 +96,8 @@ const App = () => {
 }
 ```
 
-Doing so will forward the **theme** object to all the children recursively. Not using it
-will result in an JS error.
+Doing so will forward the **theme** object to all the children recursively. Not using this Provider above
+the other components will result in an JS error.
 
 ### Step 2
 
@@ -236,17 +237,12 @@ Do you want to fix a broken feature ? Please, go ahead :)
 
 Any ideas, suggestions ? Feel free to open an issue!
 
-If you open a PR, please run the following command to ensure your code meets the lint config, and that it builds correctly. Your code will be prettier-ed automatically when you commit thanks to a pre-commit hook.
+If you open a PR, please run the following command to ensure your code meets the lint config, that it builds correctly, and that it meets the linter set up rules. Your code will be prettier-ed automatically when you commit thanks to a pre-commit hook.
 
 ```
-yarn lint && yarn build
+yarn validate
 ```
 
-Please also check that the tests are all passing correctly:
-
-```
-yarn test
-```
 
 If one component's test function doesn't make sense anymore with your changes, don't hesitate to update
 its source code accordingly. Tests are here to make sure no regression happens and that the components' DOM
