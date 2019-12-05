@@ -4,9 +4,19 @@ import { withInfo } from '@storybook/addon-info'
 import { withThemeProvider } from './decorators'
 import parameters, { infoConfig } from './parameters'
 
-function loadStories() {
+const loadIntroductionStories = () => {
+  const req = require.context('../stories/introduction', true, /GetStarted*\.js$/)
+  req.keys().forEach(filename => req(filename))
+}
+
+const loadOtherStories = () => {
   const req = require.context('../stories', true, /\.*\.js$/)
   req.keys().forEach(filename => req(filename))
+}
+
+const loadStories = () => {
+  loadIntroductionStories()
+  loadOtherStories()
 }
 
 addParameters(parameters)
