@@ -74,6 +74,16 @@ npm -i components-extra
 
 Some more good news: This library is **tree-shakeable** and **side-effect free**! It also supports older builds like cjs and umd if needed.
 
+### Fonts
+
+Like Material-UI, the components all use **[Roboto](https://fonts.google.com/specimen/Roboto)** font-familly as their main option, but it is not included in **components-extra** to provide more freedom to the developers.
+
+You have to manually use the following CDN link to include the Roboto font in your application:
+
+```html
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+```
+
 ## Getting started in only 2 steps
 
 ### Step 1

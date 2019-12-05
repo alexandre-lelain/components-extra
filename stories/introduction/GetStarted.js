@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
 import { storiesOf } from '@storybook/react'
 
 import Container from './components/Container'
 
-const content = `
+const getStarted = `
 ## Getting started in only 2 steps
 
 ### Step 1
@@ -50,16 +51,34 @@ const App = () => {
 And voilà! you're all set and ready to create your website's interface.
 `
 
-const GetStarted = () => {
+const fonts = `
+## Fonts
+
+Like Material-UI, the components all use **[Roboto](https://fonts.google.com/specimen/Roboto)** font-familly as their main option,
+but it is not included in **components-extra** to provide more freedom to the developers.
+
+You have to manually use the following CDN link to include the Roboto font in your application:
+
+\`\`\`html
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+\`\`\`
+`
+
+const Preview = ({ content }) => {
   return (
     <Container>
       <ReactMarkdown source={content} />
     </Container>
   )
 }
+Preview.propTypes = {
+  content: PropTypes.string,
+}
 
-storiesOf('Introduction|Get started', module).add(
-  'How to use components-extra',
-  () => <GetStarted />,
-  { info: { disable: true } },
-)
+const story = storiesOf('Introduction|Get started', module)
+
+story.add('How to use components-extra', () => <Preview content={getStarted} />, {
+  info: { disable: true },
+})
+
+story.add('Typography fonts', () => <Preview content={fonts} />, { info: { disable: true } })

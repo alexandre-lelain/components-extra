@@ -1,3 +1,9 @@
+# 2.0.1
+
+## Features
+
+* Add `fonts` section to README & stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.0.0
 
 ## Breaking changes
