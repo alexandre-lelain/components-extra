@@ -1,3 +1,9 @@
+# 2.0.2
+
+## Fixes
+
+* Fixed `Paragraph` component not being exported. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.0.1
 
 ## Features
