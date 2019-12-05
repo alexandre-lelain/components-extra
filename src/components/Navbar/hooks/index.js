@@ -14,5 +14,6 @@ OnCloseLanguageProvider.propTypes = {
 const useLanguageOnClose = () => useContext(OnCloseLanguageContext)
 
 const useIsDesktop = () => useMediaQuery(theme => theme.breakpoints.up('md'))
+const useIsVerySmallScreen = () => useMediaQuery(theme => theme.breakpoints.down('sm'))
 
-export { OnCloseLanguageProvider, useIsDesktop, useLanguageOnClose }
+export { OnCloseLanguageProvider, useIsDesktop, useIsVerySmallScreen, useLanguageOnClose }

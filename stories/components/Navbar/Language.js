@@ -56,6 +56,24 @@ story.add(
 )
 
 story.add(
+  'Without cutting selectedLanguage for small screens',
+  () => {
+    const [selectedLanguage, setLang] = React.useState('English')
+    return (
+      <StyledLanguage selectedLanguage={selectedLanguage} smallScreenSupport={false}>
+        <Navbar.LanguageItem label="english" onClick={() => setLang('English')}>
+          English
+        </Navbar.LanguageItem>
+        <Navbar.LanguageItem label="french" onClick={() => setLang('Français')}>
+          Français
+        </Navbar.LanguageItem>
+      </StyledLanguage>
+    )
+  },
+  { info },
+)
+
+story.add(
   'With your custom items',
   () => {
     const [selectedLanguage, setLang] = React.useState('English')

@@ -1,3 +1,9 @@
+# 2.0.3
+
+## Features
+
+* `Navbar.Language` now have `smallScreenSupport` bool prop to cut the selectedLanguage on very small screens. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.0.2
 
 ## Fixes
