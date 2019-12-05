@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import CreditCardNumber, { BaseCreditCardNumber } from 'components/CreditCardNumber'
 import createApiStory from '../helpers/createApiStory'
 
 const story = storiesOf('Components|CreditCardNumber', module)
 
-story.add('Default', () => <CreditCardNumber id="card-number" onChange={action('onChange')} />)
+story.add('Default', () => (
+  <CreditCardNumber id="card-number" onChange={() => console.log('onChange')} />
+))
 
 story.add(
   'With value validation',
@@ -34,7 +35,7 @@ if the card number contains a character that is not a digit.`,
 )
 
 story.add('Disabled', () => (
-  <CreditCardNumber id="card-number" onChange={action('onChange')} disabled />
+  <CreditCardNumber id="card-number" onChange={() => console.log('onChange')} disabled />
 ))
 
 const StyledInput = styled(CreditCardNumber)`
@@ -42,10 +43,14 @@ const StyledInput = styled(CreditCardNumber)`
   color: #e6e6e6;
 `
 
-story.add('Extended', () => <StyledInput id="card-number" onChange={action('onChange')} />, {
-  info:
-    'This `CreditCardNumber` component was extended using styled(CreditCardNumber) from styled-components.',
-})
+story.add(
+  'Extended',
+  () => <StyledInput id="card-number" onChange={() => console.log('onChange')} />,
+  {
+    info:
+      'This `CreditCardNumber` component was extended using styled(CreditCardNumber) from styled-components.',
+  },
+)
 
 const info = `
 The \`CreditCardNumber\` component is built on top of Material-UI's \`OutlinedInput\`, so

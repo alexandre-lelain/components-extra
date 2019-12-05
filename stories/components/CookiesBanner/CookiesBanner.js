@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 import { Typography } from '@material-ui/core'
 
 import CookiesBanner, { BaseCookiesBanner } from 'components/CookiesBanner'
@@ -21,7 +20,7 @@ const FixedCookiesBannerContainer = styled.div`
 story.add('Default', () => (
   <CookiesBanner text={COOKIE_TEXT}>
     <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
-    <CookiesBanner.Button onClick={action('Got-it-button clicked!')}>
+    <CookiesBanner.Button onClick={() => console.log('Got-it-button clicked!')}>
       Awesome, I got it!
     </CookiesBanner.Button>
   </CookiesBanner>
@@ -35,7 +34,9 @@ story.add('With one button only', () => (
 
 story.add('With a custom component of your choice', () => (
   <CookiesBanner text={COOKIE_TEXT}>
-    <button onClick={action('Got-it-button clicked!')}>Your awesome control component</button>
+    <button onClick={() => console.log('Got-it-button clicked!')}>
+      Your awesome control component
+    </button>
   </CookiesBanner>
 ))
 
@@ -44,7 +45,7 @@ story.add('Real life situation (top)', () => (
     <FixedCookiesBannerContainer>
       <CookiesBanner text={COOKIE_TEXT}>
         <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
-        <CookiesBanner.Button onClick={action('Got-it-button clicked!')}>
+        <CookiesBanner.Button onClick={() => console.log('Got-it-button clicked!')}>
           Awesome, I got it!
         </CookiesBanner.Button>
       </CookiesBanner>
@@ -58,7 +59,7 @@ story.add('Real life situation (bottom)', () => (
     <FixedCookiesBannerContainer isBottom>
       <CookiesBanner text={COOKIE_TEXT}>
         <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
-        <CookiesBanner.Button onClick={action('Got-it-button clicked!')}>
+        <CookiesBanner.Button onClick={() => console.log('Got-it-button clicked!')}>
           Awesome, I got it!
         </CookiesBanner.Button>
       </CookiesBanner>

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import Navbar from 'components/Navbar'
 import { BaseMenuItem } from 'components/Navbar/components/MenuItem'
@@ -24,14 +23,14 @@ story.add('Default', () => <StoryMenuItem href="#">Awesome Link</StoryMenuItem>,
 
 story.add(
   'As a button',
-  () => <StoryMenuItem onClick={action('clicked!')}>Awesome Link</StoryMenuItem>,
+  () => <StoryMenuItem onClick={() => console.log('clicked!')}>Awesome Link</StoryMenuItem>,
   { info },
 )
 
 story.add(
   'With fancy children',
   () => (
-    <StoryMenuItem onClick={action('clicked!')}>
+    <StoryMenuItem onClick={() => console.log('clicked!')}>
       <BrandIcon />
       <p style={{ paddingLeft: '8px', paddingRight: '8px', margin: '0px' }}>Awesome Link</p>
       <AmericaFlag />

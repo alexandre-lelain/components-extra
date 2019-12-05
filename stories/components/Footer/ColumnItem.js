@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import Footer from 'components/Footer'
 import createApiStory from '../../helpers/createApiStory'
@@ -35,7 +34,7 @@ story.add(
 story.add(
   'As a button',
   () => (
-    <StyledItem icon={Code} onClick={action('clicked!')}>
+    <StyledItem icon={Code} onClick={() => console.log('clicked!')}>
       I'm a button
     </StyledItem>
   ),

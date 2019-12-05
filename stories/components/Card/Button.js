@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 import styled from 'styled-components'
 
 import Card from 'components/Card'
@@ -22,7 +21,7 @@ const StyledButton = styled(Card.Button)`
 
 story.add(
   'Default',
-  () => <Card.Button onClick={action('clicked')}>I'm a card button</Card.Button>,
+  () => <Card.Button onClick={() => console.log('clicked')}>I'm a card button</Card.Button>,
   { info },
 )
 
@@ -30,7 +29,9 @@ story.add('As a link', () => <Card.Button href="#">I'm a card link-button</Card.
 
 story.add(
   'Extended',
-  () => <StyledButton onClick={action('clicked')}>I'm a card button extended</StyledButton>,
+  () => (
+    <StyledButton onClick={() => console.log('clicked')}>I'm a card button extended</StyledButton>
+  ),
   { info: info + '\n This `Button` was extended using styled() from styled-components.' },
 )
 

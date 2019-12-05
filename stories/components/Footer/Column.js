@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import Footer from 'components/Footer'
 import createApiStory from '../../helpers/createApiStory'
@@ -29,7 +28,7 @@ story.add(
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
@@ -47,7 +46,7 @@ story.add(
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
@@ -65,7 +64,7 @@ story.add(
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
@@ -89,7 +88,7 @@ story.add(
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import Navbar from 'components/Navbar'
 import { BaseLanguageItem } from 'components/Navbar/components/LanguageItem'
@@ -23,7 +22,7 @@ StyledLanguageItem.displayName = 'Navbar.LanguageItem'
 story.add(
   'Default',
   () => (
-    <StyledLanguageItem label="english" onClick={action('clicked!')}>
+    <StyledLanguageItem label="english" onClick={() => console.log('clicked!')}>
       English
     </StyledLanguageItem>
   ),
@@ -33,7 +32,7 @@ story.add(
 story.add(
   'With fancy children',
   () => (
-    <StyledLanguageItem label="english" onClick={action('clicked!')}>
+    <StyledLanguageItem label="english" onClick={() => console.log('clicked!')}>
       <AmericaFlag />
       <p style={{ paddingLeft: '8px', margin: '4px' }}>English yeah! 🤘</p>
     </StyledLanguageItem>
@@ -53,7 +52,7 @@ const LanguageItemExtended = styled(Navbar.LanguageItem)`
 story.add(
   'Extended',
   () => (
-    <LanguageItemExtended label="english" onClick={action('clicked!')}>
+    <LanguageItemExtended label="english" onClick={() => console.log('clicked!')}>
       English
     </LanguageItemExtended>
   ),

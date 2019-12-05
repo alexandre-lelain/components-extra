@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 import { Link, Typography } from '@material-ui/core'
 
 import Footer, { BaseFooter } from 'components/Footer'
@@ -26,7 +25,7 @@ story.add('Default', () => (
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
@@ -42,7 +41,7 @@ story.add('Big Footer', () => (
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
@@ -50,7 +49,7 @@ story.add('Big Footer', () => (
       </Footer.Item>
     </Footer.Column>
     <Footer.Column title="Awesome Column B">
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={AccountCircle} href="#">
@@ -64,7 +63,7 @@ story.add('Big Footer', () => (
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
         Contact Us
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={AccountCircle} href="#">
@@ -80,7 +79,7 @@ story.add('Without bottom banner', () => (
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
@@ -99,7 +98,7 @@ story.add('With background-image', () => (
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
@@ -110,7 +109,7 @@ story.add('With background-image', () => (
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
         Contact Us
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={AccountCircle} href="#">
@@ -126,7 +125,7 @@ story.add('With no title', () => (
       <Footer.Item icon={AccountCircle} href="#">
         My Account
       </Footer.Item>
-      <Footer.Item icon={Code} onClick={action('Starting coding now!')}>
+      <Footer.Item icon={Code} onClick={() => console.log('Starting coding now!')}>
         Start Coding
       </Footer.Item>
       <Footer.Item icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">
@@ -140,12 +139,14 @@ story.add('With no icons on items', () => (
   <Footer title="Awesome footer">
     <Footer.Column title="Awesome column A">
       <Footer.Item href="#">My Account</Footer.Item>
-      <Footer.Item onClick={action('Starting coding now!')}>Start Coding</Footer.Item>
+      <Footer.Item onClick={() => console.log('Starting coding now!')}>Start Coding</Footer.Item>
       <Footer.Item href="lelain-dot-alexandre-at-gmail-dot-com">Contact Us</Footer.Item>
     </Footer.Column>
     <Footer.Column title="Awesome column B">
       <Footer.Item href="lelain-dot-alexandre-at-gmail-dot-com">Contact Us</Footer.Item>
-      <Footer.Item onClick={action('Starting coding now!')}>Start Coding now !! sqd sd</Footer.Item>
+      <Footer.Item onClick={() => console.log('Starting coding now!')}>
+        Start Coding now !! sqd sd
+      </Footer.Item>
       <Footer.Item href="#">My Account</Footer.Item>
     </Footer.Column>
   </Footer>
@@ -174,7 +175,7 @@ story.add(
         <ExtendedItem icon={AccountCircle} href="#">
           My Account
         </ExtendedItem>
-        <ExtendedItem icon={Code} onClick={action('Starting coding now!')}>
+        <ExtendedItem icon={Code} onClick={() => console.log('Starting coding now!')}>
           Start Coding
         </ExtendedItem>
         <ExtendedItem icon={Email} href="lelain-dot-alexandre-at-gmail-dot-com">

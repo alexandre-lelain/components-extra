@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import CookiesBanner from 'components/CookiesBanner'
 import createApiStory from '../../helpers/createApiStory'
@@ -21,7 +20,7 @@ const ExtendedButton = styled(CookiesBanner.Button)`
 
 story.add(
   'Default',
-  () => <CookiesBanner.Button onClick={action('onClick')}>I agree</CookiesBanner.Button>,
+  () => <CookiesBanner.Button onClick={() => console.log('onClick')}>I agree</CookiesBanner.Button>,
   { info },
 )
 
@@ -36,7 +35,7 @@ story.add(
   () => (
     <CookiesBanner.Button
       color="primary"
-      onClick={action('onClick')}
+      onClick={() => console.log('onClick')}
       size="large"
       endIcon={<p>:)</p>}
     >
@@ -48,7 +47,7 @@ story.add(
 
 story.add(
   'Extended',
-  () => <ExtendedButton onClick={action('onClick')}>Extended Button</ExtendedButton>,
+  () => <ExtendedButton onClick={() => console.log('onClick')}>Extended Button</ExtendedButton>,
   { info: info + '\n This `Button` was extended using styled() from styled-components.' },
 )
 
