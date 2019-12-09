@@ -1,3 +1,9 @@
+# 2.1.0
+
+## Features
+
+* Added `resetCSS` helper to exports. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.0.3
 
 ## Features
