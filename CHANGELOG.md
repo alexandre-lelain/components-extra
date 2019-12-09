@@ -1,9 +1,14 @@
+# 2.1.4
+
+## Features
+
+* Set default dimensions props on `Navbar` icons to improve display on SSR rendering. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.1.3
 
 ## Fix
 
 * Fix `BackToTop` component crashing on SSR build. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-
 
 # 2.1.2
 
