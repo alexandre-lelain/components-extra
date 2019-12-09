@@ -8,7 +8,7 @@ const START_HEIGHT = 20
 
 const BackToTop = ({ className, forwardedRef = null, ...rest }) => {
   const [display, setDisplay] = useState(false)
-  const { body, documentElement } = document
+  const { body = {}, documentElement = {} } = typeof window === 'undefined' ? {} : document
 
   useEffect(() => {
     const onScroll = () => {
@@ -19,13 +19,12 @@ const BackToTop = ({ className, forwardedRef = null, ...rest }) => {
       }
     }
 
-    if (typeof window !== 'undefined') {
-      document.addEventListener('scroll', onScroll)
-      return () => document.removeEventListener('scroll', onScroll)
-    }
+    document.addEventListener('scroll', onScroll)
+    return () => document.removeEventListener('scroll', onScroll)
   }, [body.scrollTop, documentElement.scrollTop])
 
-  const scrollToTop = () => documentElement.scrollIntoView({ behavior: 'smooth' })
+  const scrollToTop = () =>
+    documentElement && documentElement.scrollIntoView({ behavior: 'smooth' })
 
   return (
     <Button
