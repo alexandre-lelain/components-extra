@@ -4,6 +4,10 @@
 
 * Added `resetCSS` helper to exports. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
+## Chore
+
+* Bump react & react-dom to 16.12.0. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.0.3
 
 ## Features
