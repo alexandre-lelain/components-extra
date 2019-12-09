@@ -1,3 +1,9 @@
+# 2.1.2
+
+## Fix
+
+* Added check for SSR on `BackToTop` button. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.1.1
 
 ## Features
