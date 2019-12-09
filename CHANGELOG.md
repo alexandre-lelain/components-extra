@@ -1,3 +1,9 @@
+# 2.1.1
+
+## Features
+
+* Added `big` prop to `Card`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.1.0
 
 ## Features

@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button } from '@material-ui/core'
 
+import { useBig } from '../hooks/Context'
+
 const useStyles = makeStyles(theme => ({
   button: {
     color: theme.components.links,
@@ -13,6 +15,7 @@ const useStyles = makeStyles(theme => ({
 
 const CardButton = ({ className, children, href = null, onClick = null, ...rest }) => {
   const classes = useStyles()
+  const big = useBig()
 
   return (
     <Button
@@ -20,8 +23,8 @@ const CardButton = ({ className, children, href = null, onClick = null, ...rest 
       color="inherit"
       href={href}
       onClick={onClick}
-      size="small"
       {...rest}
+      size={big ? 'medium' : 'small'}
     >
       {children}
     </Button>

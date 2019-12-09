@@ -14,6 +14,7 @@ import {
 
 import isEmpty from 'utils/isEmpty'
 
+import { BigProvider } from './hooks/Context'
 import CardButton from './components/CardButton'
 
 const useStyles = makeStyles({
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 })
 
 const Card = ({
+  big = false,
   children,
   className,
   description = null,
@@ -40,35 +42,41 @@ const Card = ({
   const { component, src, ...otherProps } = image
 
   return (
-    <MaterialCard className={className} ref={forwardedRef} {...rest}>
-      <CardActionArea onClick={onClick}>
-        {!isEmpty(image) && (
-          <CardMedia
-            alt={title}
-            className={classes.media}
-            component={component}
-            image={src}
-            title={title}
-            {...otherProps}
-          />
-        )}
-        <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h5">
-            {title}
-          </Typography>
-          {description && (
-            <Typography variant="body2" color="textSecondary">
-              {description}
-            </Typography>
+    <BigProvider value={big}>
+      <MaterialCard className={className} ref={forwardedRef} {...rest}>
+        <CardActionArea onClick={onClick}>
+          {!isEmpty(image) && (
+            <CardMedia
+              alt={title}
+              className={classes.media}
+              component={component}
+              image={src}
+              title={title}
+              {...otherProps}
+            />
           )}
-        </CardContent>
-      </CardActionArea>
-      {!isEmpty(children) && <CardActions>{children}</CardActions>}
-    </MaterialCard>
+          <CardContent className={classes.content}>
+            <Typography gutterBottom variant={big ? 'h4' : 'h5'}>
+              {title}
+            </Typography>
+            {description && (
+              <Typography variant={big ? 'body1' : 'body2'} color="textSecondary">
+                {description}
+              </Typography>
+            )}
+          </CardContent>
+        </CardActionArea>
+        {!isEmpty(children) && <CardActions>{children}</CardActions>}
+      </MaterialCard>
+    </BigProvider>
   )
 }
 
 Card.propTypes = {
+  /**
+   * Set to true if you want to have font-sizes bigger. Useful for large cards' widths. False by default.
+   */
+  big: PropTypes.bool,
   /**
    * The Card's description.
    */
