@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import ReactMarkdown from 'react-markdown'
 import { storiesOf } from '@storybook/react'
 
 import resetCSS from 'utils/resetCSS'
 
-import Container from '../introduction//components/Container'
+import Preview from '../helpers/Preview'
 
 const story = storiesOf('Utils|resetCSS', module)
 
@@ -21,7 +20,7 @@ const content = `
 This helper will reset some of the default browser styles. You can use it as a css object inside your
 styled-components as follow:
 
-\`\`\`
+\`\`\`jsx
 import { resetCSS } from 'components-extra'
 
 export default styled.h1\`
@@ -33,12 +32,4 @@ export default styled.h1\`
 
 **Note:** it is important to place the resetCSS helper first.
 `
-story.add(
-  'How to use',
-  () => (
-    <Container>
-      <ReactMarkdown source={content} />
-    </Container>
-  ),
-  { info: { disable: true } },
-)
+story.add('How to use', () => <Preview content={content} />, { info: { disable: true } })

@@ -1,8 +1,7 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import { storiesOf } from '@storybook/react'
 
-import Container from './components/Container'
+import Preview from '../helpers/Preview'
 
 const content = `
 # Customization
@@ -17,7 +16,7 @@ mentionned above.
 
 Say, for example, you want to override the 2 main palette colors to have this:
 
-\`\`\`js
+\`\`\`jsx
 // YourTheme.js
 export default {
   palette: {
@@ -33,7 +32,7 @@ export default {
 
 You can apply it this way:
 
-\`\`\`js
+\`\`\`jsx
 // index.js
 import { BackToTop, StyledProvider } from 'components-extra'
 import yourTheme from './YourTheme'
@@ -56,7 +55,7 @@ use them as styled selectors.
 
 For example, to extend the **BackToTop** component:
 
-\`\`\`js
+\`\`\`jsx
 import { BackToTop, StyledProvider } from 'components-extra'
 import styled from 'styled-components'
 
@@ -76,7 +75,7 @@ const App = () => {
 
 Or to use it as a styled selector:
 
-\`\`\`js
+\`\`\`jsx
 import { BackToTop, StyledProvider } from 'components-extra'
 import styled from 'styled-components'
 
@@ -99,16 +98,8 @@ const App = () => {
 \`\`\`
 `
 
-const Customization = () => {
-  return (
-    <Container>
-      <ReactMarkdown source={content} />
-    </Container>
-  )
-}
-
 storiesOf('Introduction|Customization', module).add(
   'How to style the components',
-  () => <Customization />,
+  () => <Preview content={content} />,
   { info: { disable: true } },
 )

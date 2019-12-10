@@ -1,8 +1,7 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import { storiesOf } from '@storybook/react'
 
-import Container from './components/Container'
+import Preview from '../helpers/Preview'
 
 const content = `
 # Ready-to-go example of the \`CookiesBanner\` component
@@ -10,7 +9,7 @@ const content = `
 ## If you have the \`StyledProvider\` at the root of your App
 // Example.js
 
-\`\`\`
+\`\`\`jsx
 import React from 'react'
 import { CookiesBanner } from 'components-extra'
 
@@ -27,7 +26,7 @@ export default () => (
 ## If you don't have the \`StyledProvider\` at the root of your App
 // Example.js
 
-\`\`\`
+\`\`\`jsx
 import React from 'react'
 import { CookiesBanner, StyledProvider } from 'components-extra'
 
@@ -45,16 +44,8 @@ export default () => (
 \`\`\`
 `
 
-const CopyPasteExample = () => {
-  return (
-    <Container>
-      <ReactMarkdown source={content} />
-    </Container>
-  )
-}
-
 storiesOf('Introduction|Copy & Paste examples', module).add(
   'CookiesNavbar example',
-  () => <CopyPasteExample />,
+  () => <Preview content={content} />,
   { info: { disable: true } },
 )

@@ -1,9 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import ReactMarkdown from 'react-markdown'
 import { storiesOf } from '@storybook/react'
 
-import Container from './components/Container'
+import Preview from '../helpers/Preview'
 
 const getStarted = `
 ## Getting started in only 2 steps
@@ -15,7 +13,7 @@ as well as the [styled-components](https://www.styled-components.com/docs/advanc
 
 So the first step consists into wrapping your web application in **components-extra**'s default theme provider **StyledProvider**:
 
-\`\`\`js
+\`\`\`jsx
 import { StyledProvider } from 'components-extra'
 
 const App = () => {
@@ -35,7 +33,7 @@ the other components will result in an JS error.
 
 Import the component you want to use. For example, the **BackToTop** button:
 
-\`\`\`js
+\`\`\`jsx
 import { BackToTop, StyledProvider } from 'components-extra'
 
 const App = () => {
@@ -63,17 +61,6 @@ You have to manually use the following CDN link to include the Roboto font in yo
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 \`\`\`
 `
-
-const Preview = ({ content }) => {
-  return (
-    <Container>
-      <ReactMarkdown source={content} />
-    </Container>
-  )
-}
-Preview.propTypes = {
-  content: PropTypes.string,
-}
 
 const story = storiesOf('Introduction|Get started', module)
 
