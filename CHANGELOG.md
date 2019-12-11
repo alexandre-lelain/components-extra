@@ -1,3 +1,14 @@
+# next
+
+## Docs
+
+* Added `SSR` section to storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Code snippets of storybook are now styled with `react-syntax-highlighter`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Chores
+
+* Updated `rollup-plugin-terser` dev dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.1.4
 
 ## Features

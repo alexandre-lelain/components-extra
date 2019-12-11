@@ -11,6 +11,7 @@ const theme = create({
 export default {
   options: {
     theme,
+    sidebarAnimations: false,
     panelPosition: 'right',
     showPanel: true,
   },
