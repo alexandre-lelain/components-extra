@@ -5,9 +5,13 @@
 * Added `SSR` section to storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Code snippets of storybook are now styled with `react-syntax-highlighter`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
+## Fixes
+
+* Added missing `babel-plugin-transform-react-remove-prop-types` dev dep. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 ## Chores
 
-* Updated `rollup-plugin-terser` dev dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Bump `rollup-plugin-terser` & `@storybook/react` versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.1.4
 
