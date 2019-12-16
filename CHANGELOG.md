@@ -1,5 +1,9 @@
 # next
 
+## Tests
+
+* Added more accurate tests on forwarded refs. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 ## Docs
 
 * Added `SSR` section to storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))

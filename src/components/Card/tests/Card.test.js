@@ -21,7 +21,7 @@ describe('Card', () => {
 
     useLayoutEffect(() => {
       test('it forwards the given ref correctly', () => {
-        expect(ref.current).not.toBeFalsy()
+        expect(ref.current instanceof HTMLDivElement).toBeTruthy()
       })
     }, [ref])
 
@@ -69,5 +69,27 @@ describe('Card', () => {
     const element = getByText(label)
     fireEvent.click(element)
     expect(I_WAS_FIRED).toBeTruthy()
+  })
+
+  test('it renders the title in bigger size if Card is in big mode', () => {
+    const { getAllByText } = renderWithTheme(
+      <React.Fragment>
+        <Card title={TITLE} />
+        <Card title={TITLE} big />
+      </React.Fragment>,
+    )
+    const [normalTitle, bigTitle] = getAllByText(TITLE)
+    expect(normalTitle).not.toEqual(bigTitle)
+  })
+
+  test('it renders the description in bigger size if Card is in big mode', () => {
+    const { getAllByText } = renderWithTheme(
+      <React.Fragment>
+        <Card title={TITLE} description={DESCRIPTION} />
+        <Card title={TITLE} description={DESCRIPTION} big />
+      </React.Fragment>,
+    )
+    const [normalDesc, bigDesc] = getAllByText(DESCRIPTION)
+    expect(normalDesc).not.toEqual(bigDesc)
   })
 })

@@ -19,7 +19,7 @@ const CreditCardNumber = ({ className, id, forwardedRef = null, onChange, ...res
   const input = useRef(null)
   const { inputProps = {}, ...otherRest } = rest
 
-  useImperativeHandle(forwardedRef, () => input)
+  useImperativeHandle(forwardedRef, () => input.current)
 
   useEffect(() => {
     setCaretToPosition(input.current, caretPosition)

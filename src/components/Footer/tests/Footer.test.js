@@ -29,7 +29,7 @@ describe('Footer', () => {
 
     useLayoutEffect(() => {
       test('it forwards the given ref correctly', () => {
-        expect(ref.current).not.toBeFalsy()
+        expect(ref.current instanceof HTMLElement).toBeTruthy()
       })
     }, [ref])
 
@@ -56,7 +56,7 @@ describe('Footer', () => {
     expect(bannerElement).toBeInTheDocument()
   })
 
-  test("it fires an item`s onClick function on it's click event", () => {
+  test("it fires an item's onClick function on its click event", () => {
     const { label, onClick } = ITEMS[0]
     const { getByText } = renderWithTheme(
       <Footer>

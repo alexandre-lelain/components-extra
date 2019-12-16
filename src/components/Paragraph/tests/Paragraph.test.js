@@ -8,7 +8,7 @@ describe('Paragraph', () => {
 
     useLayoutEffect(() => {
       test('it forwards the given ref correctly', () => {
-        expect(ref.current).not.toBeFalsy()
+        expect(ref.current instanceof HTMLElement).toBeTruthy()
       })
     }, [ref])
 
