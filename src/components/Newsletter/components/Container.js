@@ -7,6 +7,6 @@ export default styled(Paper)`
   align-items: center;
   padding: 16px;
   ${({ theme }) => `
-    background-color: ${theme.palette.secondary.light};
+    background-color: ${theme.palette.secondary.main};
   `}
 `

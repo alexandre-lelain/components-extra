@@ -1,5 +1,9 @@
 # next
 
+## Features
+
+* Added `Newsletter` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 ## Tests
 
 * Added more accurate tests on forwarded refs. ([@alexandre-lelain](https://github.com/alexandre-lelain))
@@ -16,6 +20,8 @@
 ## Chores
 
 * Bump `rollup-plugin-terser` & `@storybook/react` versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Bump latest material-ui versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Added external plugin to rollup for umd build. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.1.4
 
