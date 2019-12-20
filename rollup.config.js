@@ -3,6 +3,7 @@ import path from 'path'
 import alias from '@rollup/plugin-alias'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
+import externals from 'rollup-plugin-node-externals'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import replace from '@rollup/plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
@@ -13,6 +14,7 @@ const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
   'styled-components': 'styled',
+  'react-is': 'reactIs,'
 }
 
 const plugins = [
@@ -27,9 +29,11 @@ const plugins = [
   commonjs({ 
     include: /node_modules/,
     namedExports: {
-      'react-is': ['ForwardRef'],
       'prop-types': ['elementType'],
     }
+  }),
+  externals({
+    include: 'react-is',
   }),
   peerDepsExternal(),
   replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),

@@ -6,6 +6,18 @@ import Preview from '../helpers/Preview'
 const getStarted = `
 ## Getting started in only 2 steps
 
+Thanks for using **components-extra** <3
+
+Here you will learn how to set up in 2 minutes the lib inside your app.
+
+### Prerequisites
+
+Before anything, please make you to have the three following packages installed:
+
+- **[react > 16.8.0](https://www.npmjs.com/package/react)**
+- **[react-dom > 16.8.0](https://www.npmjs.com/package/react-dom)**
+- **[styled-components](https://www.npmjs.com/package/styled-components)**
+
 ### Step 1
 
 **components-extra** relies on both [material-ui theme](https://material-ui.com/customization/theming/) configuration

@@ -1,12 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Button as MuiButton } from '@material-ui/core'
 
-const Button = ({ className, ...rest }) => {
-  return <MuiButton color="primary" className={className} size="small" {...rest} />
+const StyledButton = styled(MuiButton)`
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+`
+
+const Button = ({ className, onClick, ...rest }) => {
+  return (
+    <StyledButton
+      className={className}
+      color="primary"
+      onClick={onClick}
+      variant="contained"
+      {...rest}
+    />
+  )
 }
 
-Button.propTypes = {}
+Button.propTypes = {
+  /**
+   * Function called on button's click.
+   */
+  onClick: PropTypes.func,
+  /**
+   * Material's UI Button props: https://material-ui.com/api/button/. As well as any other prop you would like to pass to the button.
+   */
+  '...rest': PropTypes.object,
+}
 
 Button.displayName = 'Newsletter.Button'
 

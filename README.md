@@ -56,8 +56,8 @@ top-right corner. The source code examples will help you to integrate the compon
 In order for the lib to be the smallest possible, the three following dependencies are externals to the lib.
 So you will need to have those three installed on your app:
 
-- **[react](https://www.npmjs.com/package/react)**
-- **[react-dom](https://www.npmjs.com/package/react-dom)**
+- **[react > 16.8.0](https://www.npmjs.com/package/react)**
+- **[react-dom > 16.8.0](https://www.npmjs.com/package/react-dom)**
 - **[styled-components](https://www.npmjs.com/package/styled-components)**
 
 ## Installation
