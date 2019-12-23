@@ -1,3 +1,9 @@
+# 2.2.1
+
+## Refactor
+
+* Reduce bundle size by replacing `TextField` with `OutlinedInput` in `Newsletter` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.2.0
 
 ## Features

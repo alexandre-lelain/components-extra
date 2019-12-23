@@ -9,7 +9,7 @@ const story = storiesOf('Components|Newsletter/Input', module)
 
 const info = `
 Has to be used in a \`<Newsletter>\` component.
-You can use all the props available in the Material-ui's \`TextField\`: https://material-ui.com/api/text-field/.
+You can use all the props available in the Material-ui's \`OutlinedInput\`: https://material-ui.com/api/outlined-input/.
 `
 
 story.add(
@@ -27,11 +27,12 @@ story.add(
     const [email, setEmail] = useState('')
     return (
       <Newsletter.Input
+        endAdornment={<span>:)</span>}
         id="email"
+        color="secondary"
         placeholder="components-extra@gmail.com"
         value={email}
         onChange={setEmail}
-        variant="filled"
         label="Email"
       />
     )

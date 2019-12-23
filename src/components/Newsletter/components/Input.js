@@ -1,29 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { TextField } from '@material-ui/core'
+import { OutlinedInput } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
 
-const StyledInput = styled(TextField)`
-  background-color: white;
-  ${({ theme }) => `
-    border-top-left-radius: ${theme.shape.borderRadius}px;
-    border-bottom-left-radius: ${theme.shape.borderRadius}px;
-  `};
-
-  * {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
-`
+const useStyles = makeStyles(theme => ({
+  root: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: theme.shape.borderRadius,
+    borderBottomLeftRadius: theme.shape.borderRadius,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  input: {
+    padding: '10px 14px',
+  },
+}))
 
 const Input = ({ className, id, onChange, value, ...rest }) => {
+  const classes = useStyles()
   const onChangeEmail = event => onChange && onChange(event.target.value)
   return (
-    <StyledInput
+    <OutlinedInput
+      classes={classes}
       className={className}
       id={id}
       onChange={onChangeEmail}
-      size="small"
       type="email"
       value={value}
       variant="outlined"
@@ -47,7 +49,7 @@ Input.propTypes = {
    */
   value: PropTypes.string.isRequired,
   /**
-   * The MUI TextField's props. See https://material-ui.com/api/text-field/. You can as well pass other props.
+   * The MUI OutlinedInput's props. See https://material-ui.com/api/outlined-input/. You can as well pass other props.
    */
   '...rest': PropTypes.object,
 }
