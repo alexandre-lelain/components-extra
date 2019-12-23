@@ -16,6 +16,7 @@
 ## Fixes
 
 * Added missing `babel-plugin-transform-react-remove-prop-types` dev dep. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Fix `Navbar` menu not closing on Mobile. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Chores
 

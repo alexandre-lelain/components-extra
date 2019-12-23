@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { IconButton, Menu as MuiMenu } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
-import { useIsDesktop } from '../hooks'
+import { OnCloseMenuProvider, useIsDesktop } from '../hooks'
 import MenuIcon from './MenuIcon'
 
 const useStyles = makeStyles(theme => ({
@@ -43,15 +43,17 @@ const Menu = ({ className, children, label = '', ...rest }) => {
       >
         <MenuIcon />
       </IconButton>
-      <MuiMenu
-        anchorEl={menuAnchor}
-        classes={{ paper: classes.menu }}
-        keepMounted
-        open={Boolean(menuAnchor)}
-        onClose={onMenuClose}
-      >
-        {children}
-      </MuiMenu>
+      <OnCloseMenuProvider onClose={onMenuClose}>
+        <MuiMenu
+          anchorEl={menuAnchor}
+          classes={{ paper: classes.menu }}
+          keepMounted
+          open={Boolean(menuAnchor)}
+          onClose={onMenuClose}
+        >
+          {children}
+        </MuiMenu>
+      </OnCloseMenuProvider>
     </>
   )
 }
