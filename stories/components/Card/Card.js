@@ -7,6 +7,7 @@ import Card, { BaseCard } from 'components/Card'
 import createApiStory from '../../helpers/createApiStory'
 
 const StyledCard = styled(Card)`
+  min-width: 250px;
   width: 50%;
   margin: auto;
   text-align: center;
@@ -76,6 +77,7 @@ story.add('With your own custom button', () => (
 
 const CardExtended = styled(Card)`
   width: 30%;
+  min-width: 250px;
   margin: auto;
 `
 story.add(
