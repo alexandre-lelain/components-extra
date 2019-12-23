@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Button, MenuItem as MuiMenuItem } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
-import { useIsDesktop } from '../hooks'
+import { useIsDesktop, useMenuOnClose } from '../hooks'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +33,12 @@ const MenuItem = ({
 }) => {
   const isDesktop = useIsDesktop()
   const classes = useStyles()
+  const closeMenu = useMenuOnClose()
+
+  const onMobileItemClick = () => {
+    onClick && onClick()
+    closeMenu && closeMenu()
+  }
 
   return isDesktop ? (
     <StyledButton
@@ -50,7 +56,7 @@ const MenuItem = ({
       className={`${className} ${classes.root}`}
       component={component}
       href={href}
-      onClick={onClick}
+      onClick={onMobileItemClick}
       ref={forwardedRef}
       {...rest}
     >
