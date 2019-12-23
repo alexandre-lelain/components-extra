@@ -1,3 +1,9 @@
+# 2.2.2
+
+## Fixes
+
+* Fixed text content of `Newsletter` not being centered. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.2.1
 
 ## Refactor

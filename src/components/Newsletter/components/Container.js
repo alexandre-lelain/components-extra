@@ -3,6 +3,7 @@ import { Paper } from '@material-ui/core'
 
 export default styled(Paper)`
   display: inline-flex;
+  text-align: center;
   flex-direction: column;
   align-items: center;
   padding: 16px;
