@@ -1,8 +1,14 @@
+# 2.2.3
+
+* `Card`'s description is now of type `node`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `Card`'s content will now render inside a `div` instead of a `button` if no onClick function is provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.2.2
 
 ## Fixes
 
 * Fixed text content of `Newsletter` not being centered. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Navbar's title now has a normal line-height. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.2.1
 

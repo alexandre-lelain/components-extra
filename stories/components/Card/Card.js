@@ -1,4 +1,5 @@
 import React from 'react'
+import { Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import styled from 'styled-components'
 
@@ -60,6 +61,44 @@ story.add('Without buttons', () => (
     onClick={() => console.log('Awesome card clicked!')}
     title="Awesome card"
   />
+))
+
+story.add('Without action on Card', () => (
+  <StyledCard
+    description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+    image={{ src: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+    title="Awesome card"
+  >
+    <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+    <Card.Button href="#">Awesome link</Card.Button>
+  </StyledCard>
+))
+
+const Description = () => (
+  <>
+    <Typography paragraph variant="body2">
+      This is an awesome card.
+    </Typography>
+    <Typography paragraph variant="body2">
+      An awesome card is easy to use and only have a few props so you can implement it very quickly,
+      while you can still customize its colors.
+    </Typography>
+    <Typography variant="body2">
+      Did you know this component is built on top of material-ui's Card ?
+    </Typography>
+  </>
+)
+
+story.add('With a custom description', () => (
+  <StyledCard
+    description={<Description />}
+    image={{ src: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+    onClick={() => console.log('Awesome card clicked!')}
+    title="Awesome card"
+  >
+    <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+    <Card.Button href="#">Awesome link</Card.Button>
+  </StyledCard>
 ))
 
 story.add('With your own custom button', () => (

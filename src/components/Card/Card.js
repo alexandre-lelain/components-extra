@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core'
 
 import isEmpty from 'utils/isEmpty'
+import isString from 'utils/isString'
 
 import { BigProvider } from './hooks/Context'
 import CardButton from './components/CardButton'
@@ -34,17 +35,21 @@ const Card = ({
   description = null,
   forwardedRef = null,
   image = {},
-  onClick = null,
+  onClick = undefined,
   title,
   ...rest
 }) => {
   const classes = useStyles()
   const { component, src, ...otherProps } = image
 
+  const CardContentWrapper = onClick
+    ? ({ children }) => <CardActionArea onClick={onClick}>{children}</CardActionArea>
+    : React.Fragment
+
   return (
     <BigProvider value={big}>
       <MaterialCard className={className} ref={forwardedRef} {...rest}>
-        <CardActionArea onClick={onClick}>
+        <CardContentWrapper>
           {!isEmpty(image) && (
             <CardMedia
               alt={title}
@@ -60,12 +65,16 @@ const Card = ({
               {title}
             </Typography>
             {description && (
-              <Typography variant={big ? 'body1' : 'body2'} color="textSecondary">
+              <Typography
+                component={isString(description) ? 'p' : 'div'}
+                variant={big ? 'body1' : 'body2'}
+                color="textSecondary"
+              >
                 {description}
               </Typography>
             )}
           </CardContent>
-        </CardActionArea>
+        </CardContentWrapper>
         {!isEmpty(children) && <CardActions>{children}</CardActions>}
       </MaterialCard>
     </BigProvider>
@@ -78,9 +87,9 @@ Card.propTypes = {
    */
   big: PropTypes.bool,
   /**
-   * The Card's description.
+   * The Card's description. It can be some string, or some elements if you want to render a custom description.
    */
-  description: PropTypes.string,
+  description: PropTypes.node,
   /**
    * The Card's image media. 'component' can either be a string (ex: 'section'), or a component.
    * You can also pass other props to the media container.
@@ -91,7 +100,8 @@ Card.propTypes = {
     '...rest': PropTypes.object,
   }),
   /**
-   * Function fired when the card is pressed or clicked.
+   * Function fired when the card is pressed or clicked. If you leave it undefined, the card's content will be rendered
+   * in a div instead of a button.
    */
   onClick: PropTypes.func,
   /**
