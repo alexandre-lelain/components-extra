@@ -1,5 +1,7 @@
 # 2.2.3
 
+## Features
+
 * `Card`'s description is now of type `node`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * `Card`'s content will now render inside a `div` instead of a `button` if no onClick function is provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 

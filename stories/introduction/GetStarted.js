@@ -4,19 +4,34 @@ import { storiesOf } from '@storybook/react'
 import Preview from '../helpers/Preview'
 
 const getStarted = `
+
+<div style="text-align: center;margin-bottom: 64px;color: cadetblue;">
+
+# components-extra
+
+<hr style="width: 40%;color: lightgrey;"/>
+
+</div>
+
+<div style="margin-bottom: 32px;">
+
+Thank you for using **components-extra** <3. Here you will learn how to set up in 2 minutes the lib inside your app.
+
+</div>
+
 ## Getting started in only 2 steps
-
-Thanks for using **components-extra** <3
-
-Here you will learn how to set up in 2 minutes the lib inside your app.
 
 ### Prerequisites
 
+<div style="margin-bottom: 48px;">
+
 Before anything, please make you to have the three following packages installed:
 
-- **[react > 16.8.0](https://www.npmjs.com/package/react)**
-- **[react-dom > 16.8.0](https://www.npmjs.com/package/react-dom)**
-- **[styled-components](https://www.npmjs.com/package/styled-components)**
+- [react >= 16.8.0](https://www.npmjs.com/package/react)
+- [react-dom >= 16.8.0](https://www.npmjs.com/package/react-dom)
+- [styled-components](https://www.npmjs.com/package/styled-components)
+
+</div>
 
 ### Step 1
 
@@ -38,8 +53,12 @@ const App = () => {
 }
 \`\`\`
 
+<div style="margin-bottom: 48px;">
+
 Doing so will forward the **theme** object to all the children recursively. Not using this Provider above
 the other components will result in an JS error.
+
+</div>
 
 ### Step 2
 
@@ -74,7 +93,7 @@ You have to manually use the following CDN link to include the Roboto font in yo
 \`\`\`
 `
 
-const story = storiesOf('Introduction|Get started', module)
+const story = storiesOf('Introduction|Get Started', module)
 
 story.add('How to use components-extra', () => <Preview content={getStarted} />, {
   info: { disable: true },

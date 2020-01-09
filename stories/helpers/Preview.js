@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/with-html'
 import PropTypes from 'prop-types'
 
 import Container from './Container'
@@ -8,7 +8,7 @@ import CodeBlock from './CodeBlock'
 const Preview = ({ content }) => {
   return (
     <Container>
-      <ReactMarkdown source={content} renderers={{ code: CodeBlock }} />
+      <ReactMarkdown escapeHtml={false} source={content} renderers={{ code: CodeBlock }} />
     </Container>
   )
 }
