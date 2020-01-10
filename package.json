@@ -1,7 +1,7 @@
 {
   "name": "components-extra",
   "version": "2.2.4",
-  "description": "React UI components based on styled-components & material-ui.",
+  "description": "React UI molecule components based on styled-components & material-ui.",
   "repository": {
     "type": "git",
     "url": "https://github.com/alexandre-lelain/components-extra.git"
