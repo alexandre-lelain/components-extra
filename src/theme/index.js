@@ -1,4 +1,7 @@
 export default {
+  elevations: {
+    cookiesBanner: 10,
+  },
   components: {
     links: '#1976d2',
   },

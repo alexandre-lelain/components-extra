@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Paragraph from '../../Paragraph'
 
 import CookiesButton from './CookiesButton'
+import CookieIcon from './CookieIcon'
 
 export default styled.div`
   display: flex;
@@ -13,6 +14,7 @@ export default styled.div`
   ${({ theme }) => `
     color: ${theme.palette.secondary.main};
     background-color: ${theme.palette.primary.main};
+    z-index: ${theme.elevations.cookiesBanner};
 
     ${CookiesButton}:last-of-type {
       margin-left: 16px;
@@ -20,6 +22,10 @@ export default styled.div`
 
     ${theme.breakpoints.down('xs')} {
       flex-direction: column;
+
+      ${CookieIcon} {
+        margin-right: 0px;
+      }
 
       ${CookiesButton}:last-of-type {
         margin-top: 16px;

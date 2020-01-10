@@ -1,3 +1,14 @@
+# 2.2.4
+
+## Docs
+
+* add `Troubleshooting` section in storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Fixes
+
+* fix `CookiesBanner`'s cookie icon display on sm screens. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* fix `CookiesBanner`'s elevation. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.2.3
 
 ## Features
