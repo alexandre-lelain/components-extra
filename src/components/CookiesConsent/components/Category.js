@@ -10,12 +10,18 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
+import { useIsSmallScreen } from 'hooks'
+
 import ArrowIcon from './ArrowIcon'
 
 const Title = styled(Typography)`
-  margin: 0px 8px;
-  flex-basis: 28%;
+  padding: 0px 12px;
   flex-shrink: 0;
+  ${({ theme }) => `
+    ${theme.breakpoints.up('sm')} {
+      flex-basis: 20%;
+    }
+  `}
 `
 
 const Description = styled(Typography).attrs({
@@ -30,8 +36,13 @@ const useStyles = makeStyles({
   },
 })
 
+const StyledExpansionPanel = styled(ExpansionPanel)`
+  overflow-x: auto;
+`
+
 const Category = ({ children, description, title, ...rest }) => {
   const classes = useStyles()
+  const isSmallScreen = useIsSmallScreen()
   const [expanded, setExpanded] = useState(null)
   const [isCheck, setIsCheck] = useState(false)
 
@@ -45,7 +56,11 @@ const Category = ({ children, description, title, ...rest }) => {
   }
 
   return (
-    <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')} {...rest}>
+    <StyledExpansionPanel
+      expanded={expanded === 'panel1'}
+      onChange={handleChange('panel1')}
+      {...rest}
+    >
       <ExpansionPanelSummary
         expandIcon={<ArrowIcon />}
         aria-controls="panel1bh-content"
@@ -62,11 +77,14 @@ const Category = ({ children, description, title, ...rest }) => {
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
 
-        <Title>{title}</Title>
-        {description && <Description>{description}</Description>}
+        <Title isSmallScreen={isSmallScreen}>{title}</Title>
+        {description && !isSmallScreen && <Description>{description}</Description>}
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>{children}</ExpansionPanelDetails>
-    </ExpansionPanel>
+      <ExpansionPanelDetails>
+        {isSmallScreen && <Description>{description}</Description>}
+        {children}
+      </ExpansionPanelDetails>
+    </StyledExpansionPanel>
   )
 }
 

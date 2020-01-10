@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Button, Menu } from '@material-ui/core'
 
-import { OnCloseLanguageProvider, useIsVerySmallScreen } from '../hooks'
+import { useIsSmallScreen } from 'hooks'
+
+import { OnCloseLanguageProvider } from '../hooks'
 
 import DownArrowIcon from './DownArrowIcon'
 import TranslateIcon from './TranslateIcon'
@@ -16,7 +18,7 @@ const Language = ({
   ...rest
 }) => {
   const [langAnchor, setLangAnchor] = useState(null)
-  const isVerySmallScreen = useIsVerySmallScreen()
+  const isVerySmallScreen = useIsSmallScreen()
   const currentLanguage =
     smallScreenSupport && isVerySmallScreen ? selectedLanguage.substr(0, 2) : selectedLanguage
 

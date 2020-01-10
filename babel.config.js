@@ -50,6 +50,7 @@ else {
         alias: {
           theme: './src/theme',
           utils: './src/utils',
+          hooks: './src/hooks',
         }
       }]
     ],

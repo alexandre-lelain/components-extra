@@ -9,7 +9,7 @@ import CookiesConsent, { BaseCookiesConsent } from 'components/CookiesConsent'
 const story = storiesOf('Components|CookiesConsent', module)
 
 const StyledCookiesConsent = styled(CookiesConsent)`
-  width: 60%;
+  width: 100%;
 `
 StyledCookiesConsent.displayName = 'CookiesConsent'
 
