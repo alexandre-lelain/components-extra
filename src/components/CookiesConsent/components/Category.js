@@ -15,11 +15,12 @@ import { useIsSmallScreen } from 'hooks'
 import ArrowIcon from './ArrowIcon'
 
 const Title = styled(Typography)`
-  padding: 0px 12px;
+  padding: 0px 4px;
   flex-shrink: 0;
   ${({ theme }) => `
     ${theme.breakpoints.up('sm')} {
       flex-basis: 20%;
+      padding: 0px 12px;
     }
   `}
 `
@@ -40,63 +41,67 @@ const StyledExpansionPanel = styled(ExpansionPanel)`
   overflow-x: auto;
 `
 
-const Category = ({ children, description, title, ...rest }) => {
+const StyledExpansionPanelDetails = styled(ExpansionPanelDetails)`
+  display: flex;
+  flex-direction: column;
+`
+
+const Category = ({ children, checked = false, description, onChange, title, ...rest }) => {
   const classes = useStyles()
   const isSmallScreen = useIsSmallScreen()
   const [expanded, setExpanded] = useState(null)
-  const [isCheck, setIsCheck] = useState(false)
-
-  const handleChange = panel => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false)
-  }
+  const [isChecked, setIsChecked] = useState(checked)
 
   const onToggle = event => {
-    event.stopPropagation()
-    setIsCheck(isCheck => !isCheck)
+    stopPropagation(event)
+    setIsChecked(isChecked => !isChecked)
   }
 
+  const stopPropagation = event => event.stopPropagation()
+
   return (
-    <StyledExpansionPanel
-      expanded={expanded === 'panel1'}
-      onChange={handleChange('panel1')}
-      {...rest}
-    >
-      <ExpansionPanelSummary
-        expandIcon={<ArrowIcon />}
-        aria-controls="panel1bh-content"
-        id="panel1bh-header"
-        classes={{ content: classes.content }}
-      >
+    <StyledExpansionPanel expanded={expanded} onChange={() => setExpanded(prev => !prev)} {...rest}>
+      <ExpansionPanelSummary expandIcon={<ArrowIcon />} classes={{ content: classes.content }}>
         <Switch
-          checked={isCheck}
+          checked={isChecked}
           onChange={onToggle}
-          onClick={event => event.stopPropagation()}
-          onFocus={event => event.stopPropagation()}
-          value="checkedB"
+          onClick={stopPropagation}
+          onFocus={stopPropagation}
           color="primary"
-          inputProps={{ 'aria-label': 'primary checkbox' }}
         />
 
-        <Title isSmallScreen={isSmallScreen}>{title}</Title>
+        <Title>{title}</Title>
         {description && !isSmallScreen && <Description>{description}</Description>}
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      <StyledExpansionPanelDetails>
         {isSmallScreen && <Description>{description}</Description>}
         {children}
-      </ExpansionPanelDetails>
+      </StyledExpansionPanelDetails>
     </StyledExpansionPanel>
   )
 }
 
 Category.propTypes = {
   /**
+   * If true, the switch is checked and the category is on.
+   */
+  checked: PropTypes.bool,
+  /**
    * A brief description of the cookies category.
    */
   description: PropTypes.string,
   /**
+   * Function called on switch change. Signature: (checked: bool) => void.
+   */
+  onChange: PropTypes.func,
+  /**
    * The title of the cookies category. Required.
    */
   title: PropTypes.string,
+  /**
+   * The other props of Material-ui's ExpansionPanel component. See https://material-ui.com/api/expansion-panel/.
+   */
+  '...rest': PropTypes.object,
 }
 Category.displayName = 'CookiesConsent.Category'
 
