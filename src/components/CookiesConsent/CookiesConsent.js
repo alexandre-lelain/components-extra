@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Category from './components/Category'
+import ConsentButton from './components/ConsentButton'
+import Controls from './components/Controls'
 import Container from './components/Container'
 import MainTitle from './components/MainTitle'
 
@@ -28,6 +30,8 @@ const DefaultComponent = styled(
 )``
 /** Exposed components */
 DefaultComponent.Category = Category
+DefaultComponent.Controls = Controls
+DefaultComponent.Button = ConsentButton
 
 DefaultComponent.displayName = CookiesConsent.displayName
 DefaultComponent.propTypes = CookiesConsent.propTypes

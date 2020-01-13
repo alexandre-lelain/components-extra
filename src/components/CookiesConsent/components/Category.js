@@ -11,24 +11,21 @@ import {
 import { makeStyles } from '@material-ui/styles'
 
 import { useIsSmallScreen } from 'hooks'
+import { isBoolean } from 'utils'
 
 import ArrowIcon from './ArrowIcon'
-
-const Title = styled(Typography)`
-  padding: 0px 4px;
-  flex-shrink: 0;
-  ${({ theme }) => `
-    ${theme.breakpoints.up('sm')} {
-      flex-basis: 20%;
-      padding: 0px 12px;
-    }
-  `}
-`
+import CategoryTitle from './CategoryTitle'
 
 const Description = styled(Typography).attrs({
   variant: 'body2',
   color: 'textSecondary',
-})``
+})`
+  ${({ theme }) => `
+    ${theme.breakpoints.down('sm')} {
+      margin-bottom: 24px;
+    }
+  `}
+`
 
 const useStyles = makeStyles({
   content: {
@@ -46,15 +43,25 @@ const StyledExpansionPanelDetails = styled(ExpansionPanelDetails)`
   flex-direction: column;
 `
 
-const Category = ({ children, checked = false, description, onChange, title, ...rest }) => {
+const Category = ({
+  children,
+  checked = undefined,
+  description = null,
+  onChange = undefined,
+  title,
+  ...rest
+}) => {
   const classes = useStyles()
   const isSmallScreen = useIsSmallScreen()
-  const [expanded, setExpanded] = useState(null)
-  const [isChecked, setIsChecked] = useState(checked)
+  const [expanded, setExpanded] = useState(false)
+  const [isChecked, setIsChecked] = useState(false)
 
   const onToggle = event => {
     stopPropagation(event)
-    setIsChecked(isChecked => !isChecked)
+    onChange && onChange(event.target.checked)
+    if (!isBoolean(checked)) {
+      setIsChecked(isChecked => !isChecked)
+    }
   }
 
   const stopPropagation = event => event.stopPropagation()
@@ -63,14 +70,13 @@ const Category = ({ children, checked = false, description, onChange, title, ...
     <StyledExpansionPanel expanded={expanded} onChange={() => setExpanded(prev => !prev)} {...rest}>
       <ExpansionPanelSummary expandIcon={<ArrowIcon />} classes={{ content: classes.content }}>
         <Switch
-          checked={isChecked}
+          checked={isBoolean(checked) ? checked : isChecked}
           onChange={onToggle}
           onClick={stopPropagation}
           onFocus={stopPropagation}
           color="primary"
         />
-
-        <Title>{title}</Title>
+        <CategoryTitle>{title}</CategoryTitle>
         {description && !isSmallScreen && <Description>{description}</Description>}
       </ExpansionPanelSummary>
       <StyledExpansionPanelDetails>
@@ -97,7 +103,7 @@ Category.propTypes = {
   /**
    * The title of the cookies category. Required.
    */
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   /**
    * The other props of Material-ui's ExpansionPanel component. See https://material-ui.com/api/expansion-panel/.
    */
