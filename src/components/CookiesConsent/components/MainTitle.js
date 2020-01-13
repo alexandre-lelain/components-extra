@@ -6,7 +6,7 @@ export default styled(Typography).attrs({
   color: 'secondary',
 })`
   text-align: center;
-  padding: 16px 0px;
+  padding: 16px 8px;
   ${({ theme }) => `
     background-color: ${theme.palette.primary.main};
     border-radius: ${theme.shape.borderRadius}px;
