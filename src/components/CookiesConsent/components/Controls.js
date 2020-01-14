@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Switch, Typography } from '@material-ui/core'
+import { Switch } from '@material-ui/core'
+
+import { isBoolean } from 'utils'
 
 import CategoryTitle from './CategoryTitle'
 
@@ -10,8 +12,8 @@ const Container = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   ${({ theme }) => `
+    background-color: ${theme.palette.secondary.light};
     ${theme.breakpoints.down('sm')} {
       flex-direction: column;
       align-items: flex-start;
@@ -27,6 +29,11 @@ const SwitchContainer = styled('div')`
 `
 
 const ChildrenContainer = styled('div')`
+  display: flex;
+  align-items: center;
+  &:last-child {
+    margin-left: auto;
+  }
   ${({ theme }) => `
     ${theme.breakpoints.down('sm')} {
       margin-top: 12px;
@@ -34,13 +41,34 @@ const ChildrenContainer = styled('div')`
   `}
 `
 
-const Controls = ({ checked = false, children, onChange, switchLabel = null, ...rest }) => {
+const Controls = ({
+  checked = undefined,
+  children,
+  onChange = undefined,
+  switchLabel = null,
+  ...rest
+}) => {
+  const [localChecked, setLocalChecked] = useState(false)
+
+  const onToggle = event => {
+    onChange && onChange(event.target.checked)
+    if (!isBoolean(checked)) {
+      setLocalChecked(localChecked => !localChecked)
+    }
+  }
+
   return (
     <Container {...rest}>
-      <SwitchContainer>
-        <Switch checked={checked} onChange={onChange} color="primary" />
-        {switchLabel && <CategoryTitle>{switchLabel}</CategoryTitle>}
-      </SwitchContainer>
+      {onChange && (
+        <SwitchContainer>
+          <Switch
+            checked={isBoolean(checked) ? checked : localChecked}
+            onChange={onToggle}
+            color="primary"
+          />
+          {switchLabel && <CategoryTitle>{switchLabel}</CategoryTitle>}
+        </SwitchContainer>
+      )}
       <ChildrenContainer>{children}</ChildrenContainer>
     </Container>
   )
@@ -48,11 +76,13 @@ const Controls = ({ checked = false, children, onChange, switchLabel = null, ...
 
 Controls.propTypes = {
   /**
-   * If true, the switch is checked and the category is on.
+   * If true, the switch is checked and the category is on. Leave to undefined if you don't
+   * need to control the component.
    */
   checked: PropTypes.bool,
   /**
    * Function called on switch change. Signature: (checked: bool) => void.
+   * If you don't provide an onChange function, the switch will not be displayed.
    */
   onChange: PropTypes.func,
   /**
@@ -61,7 +91,11 @@ Controls.propTypes = {
   switchLabel: PropTypes.string,
 }
 
+Controls.displayName = 'CookiesConsent.Controls'
+
 const DefaultComponent = styled(Controls)``
+DefaultComponent.displayName = Controls.displayName
+DefaultComponent.propTypes = Controls.propTypes
 
 export { Controls as BaseControls }
 export default DefaultComponent

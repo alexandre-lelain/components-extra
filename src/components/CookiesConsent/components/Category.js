@@ -90,6 +90,7 @@ const Category = ({
 Category.propTypes = {
   /**
    * If true, the switch is checked and the category is on.
+   * Leave to undefined if you don't need to control the component.
    */
   checked: PropTypes.bool,
   /**

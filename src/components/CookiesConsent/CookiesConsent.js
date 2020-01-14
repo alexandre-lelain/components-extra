@@ -28,6 +28,7 @@ CookiesConsent.displayName = 'CookiesConsent'
 const DefaultComponent = styled(
   forwardRef((props, ref) => <CookiesConsent forwardedRef={ref} {...props} />),
 )``
+
 /** Exposed components */
 DefaultComponent.Category = Category
 DefaultComponent.Controls = Controls

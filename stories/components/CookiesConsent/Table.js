@@ -12,6 +12,12 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  head: {
+    backgroundColor: '#404040',
+  },
+  headCell: {
+    color: 'white',
+  },
 })
 
 function createData(name, value, expires, description) {
@@ -31,12 +37,18 @@ export default function YourTable() {
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="cookies table">
-        <TableHead>
+        <TableHead className={classes.head}>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Value</TableCell>
-            <TableCell align="right">Expires</TableCell>
-            <TableCell align="right">Description</TableCell>
+            <TableCell className={classes.headCell}>Name</TableCell>
+            <TableCell align="right" className={classes.headCell}>
+              Value
+            </TableCell>
+            <TableCell align="right" className={classes.headCell}>
+              Expires
+            </TableCell>
+            <TableCell align="right" className={classes.headCell}>
+              Description
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
