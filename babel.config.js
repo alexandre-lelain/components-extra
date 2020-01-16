@@ -58,6 +58,7 @@ else {
       /@babel[\\|/]runtime/,// Fix a Windows issue.
       'src/test/**',
       'src/**/*.test.js',
+      'src/gatsby-theme-docz/**',
     ], 
     env: {
       cjs: { plugins: productionPlugins },
