@@ -1,6 +1,6 @@
 {
   "name": "components-extra",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "React UI molecule components based on styled-components & material-ui.",
   "repository": {
     "type": "git",
