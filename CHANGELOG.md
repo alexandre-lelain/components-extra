@@ -1,3 +1,9 @@
+# 2.3.0
+
+## Features
+
+* add `CookiesConsent` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.2.4
 
 ## Docs
