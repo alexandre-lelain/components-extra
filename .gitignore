@@ -4,3 +4,4 @@ build
 .eslintcache
 storybook-static
 .docz
+docs-build
