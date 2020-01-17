@@ -11,6 +11,7 @@ export default ({ children }) => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
+        <link rel="icon" type="image/webp" href="/public/favicon.ico" />
       </Helmet>
       <StyledProvider>{children}</StyledProvider>
     </>

@@ -20,6 +20,7 @@
   "sideEffects": false,
   "scripts": {
     "start": "cross-env BABEL_ENV=dev docz dev -p 4242",
+    "serve": "cross-env BABEL_ENV=dev docz serve docs-build",
     "build": "rimraf build && yarn build:cjs && yarn build:esm && yarn build:es && yarn build:umd && yarn build:after",
     "build:umd": "cross-env NODE_ENV=production BABEL_ENV=production-umd rollup -c",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./build",
