@@ -1,0 +1,44 @@
+---
+name: Examples
+route: /examples
+---
+
+# Examples
+
+Here are some examples you can copy-paste directly in your app. No set up needed. Just an old ctrl+c & ctrlv+v!
+
+## If you have the `StyledProvider` at the root of your App
+
+```jsx
+// Example.js
+import React from 'react'
+import { CookiesBanner } from 'components-extra'
+
+export default () => (
+  <CookiesBanner text="Your description">
+    <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
+    <CookiesBanner.Button onClick={alert('do something')}>
+      Awesome, I got it!
+    </CookiesBanner.Button>
+  </CookiesBanner>
+)
+```
+
+## If you don't have the `StyledProvider` at the root of your App
+
+```jsx
+// Example.js
+import React from 'react'
+import { CookiesBanner, StyledProvider } from 'components-extra'
+
+export default () => (
+  <StyledProvider>
+    <CookiesBanner text="Your description">
+      <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
+      <CookiesBanner.Button onClick={alert('do something')}>
+        Awesome, I got it!
+      </CookiesBanner.Button>
+    </CookiesBanner>
+  </StyledProvider>
+)
+```
