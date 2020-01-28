@@ -27,6 +27,22 @@ export default ({ children }) => {
   return (
     <>
       <Helmet>
+        <meta
+          name="description"
+          content="React UI molecule components based on styled-components & material-ui."
+        />
+        <meta name="author" content="Alexandre Le Lain" />
+        <meta name="application-name" content="components-extra" />
+        <meta
+          name="keywords"
+          content="components-extra, react, components, molecules, ui, material design, cookies, navbar, footer"
+        />
+        <meta name="og:url" content="https://components-extra.netlify.com" />
+        <meta property="og:title" content="components-extra" />
+        <meta
+          property="og:description"
+          content="React UI molecule components based on styled-components & material-ui."
+        />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
