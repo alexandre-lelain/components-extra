@@ -16,10 +16,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    margin: 48px 0px 32px 0px;
+    margin: 54px 0px 32px 0px;
   }
 
-  h1, h2 {
+  h3 {
+    margin: 32px 0px 24px 0px;
+  }
+
+  h1, h2, h3 {
     word-break: break-word;
   }
 
