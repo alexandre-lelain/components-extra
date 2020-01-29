@@ -2,6 +2,7 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet-async'
 
+import BackToTop from 'components/BackToTop'
 import StyledProvider from 'components/StyledProvider'
 
 const GlobalStyle = createGlobalStyle`
@@ -20,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2 {
     word-break: break-word;
+  }
+
+  p {
+    font-size: 18px;
   }
 `
 
@@ -50,7 +55,12 @@ export default ({ children }) => {
         <link rel="icon" type="image/webp" href="/public/favicon.ico" />
       </Helmet>
       <GlobalStyle />
-      <StyledProvider>{children}</StyledProvider>
+      <StyledProvider>
+        <>
+          {children}
+          <BackToTop title="Fun fact - this is the BackToTop component ;)" />
+        </>
+      </StyledProvider>
     </>
   )
 }
