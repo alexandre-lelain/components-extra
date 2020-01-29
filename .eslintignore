@@ -2,3 +2,4 @@
 jest.*.js
 build
 node_modules
+docs
