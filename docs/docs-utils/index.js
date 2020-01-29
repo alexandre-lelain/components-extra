@@ -1,3 +1,4 @@
+export * from './Card'
 export * from './CookiesBanner'
 
 export { default as Extended } from './Extended'
