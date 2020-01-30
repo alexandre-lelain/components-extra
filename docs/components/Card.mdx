@@ -5,9 +5,14 @@ route: /components/card
 ---
 
 import { Playground } from 'docz'
-import { Card, Props } from '../docs-utils'
+import { Card, Extended, ExtendedCard, ExtendedCardButton, Props } from '../docs-utils'
 
 # Card
+
+<br/>
+
+- [Card](#)
+  - [Card.Button](#cardbutton)
 
 ## Default
 
@@ -22,6 +27,81 @@ import { Card, Props } from '../docs-utils'
     <Card.Button href="#">Awesome link</Card.Button>
   </Card>
 </Playground>
+
+## Big mode
+
+<Playground>
+  <Card
+    description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+    image={{ src: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+    onClick={() => console.log('Awesome card clicked!')}
+    title="Awesome card"
+    big
+  >
+    <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+    <Card.Button href="#">Awesome link</Card.Button>
+  </Card>
+</Playground>
+
+## No media
+
+<Playground>
+  <Card
+    description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+    onClick={() => console.log('Awesome card clicked!')}
+    title="Awesome card"
+  >
+    <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+    <Card.Button href="#">Awesome link</Card.Button>
+  </Card>
+</Playground>
+
+## No buttons
+
+<Playground>
+  <Card
+    description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+    image={{ src: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+    onClick={() => console.log('Awesome card clicked!')}
+    title="Awesome card"
+  />
+</Playground>
+
+## No action
+
+<Playground>
+  <Card
+    description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+    image={{ src: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+    title="Awesome card"
+  >
+    <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+    <Card.Button href="#">Awesome link</Card.Button>
+  </Card>
+</Playground>
+
+## Custom controls
+
+<Playground>
+  <Card
+    description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+    title="Awesome card"
+  >
+    <button>A very ultra basic button</button>
+  </Card>
+</Playground>
+
+## Extended
+
+<Extended name="Card">
+  <ExtendedCard
+    description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+    title="Awesome card"
+  >
+    <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+    <Card.Button href="#">Awesome link</Card.Button>
+  </ExtendedCard>
+</Extended>
 
 ## Props
 
@@ -39,6 +119,25 @@ import { Card, Props } from '../docs-utils'
   </Card.Button>
 </Playground>
 
+### As a link
+
+<Playground>
+  <Card.Button href="#">
+    Visit the store
+  </Card.Button>
+</Playground>
+
+
+### Extended
+
+<Extended name="Card.Button">
+  <ExtendedCardButton>
+    I am an extended card-button
+  </ExtendedCardButton>
+</Extended>
+
 ### Props
+
+This component extends `Material's UI Button` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
 
 <Props of={Card.Button} />
