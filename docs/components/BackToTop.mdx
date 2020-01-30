@@ -1,0 +1,42 @@
+---
+name: BackToTop
+menu: Components
+route: /components/back-to-top
+---
+
+import { Playground } from 'docz'
+import { BackToTop, Extended, ExtendedBackToTop, Props } from '../docs-utils'
+
+# BackToTop
+
+<br />
+
+This is the component you can see at the bottom-right corner of your window when you scroll down.
+
+> Note: clicking on the button in the stories will bring you back to the top of the window ;)
+
+## Default
+
+<Playground>
+  <BackToTop />
+</Playground>
+
+## Small
+
+<Playground>
+  <BackToTop size="small"/>
+</Playground>
+
+## Extended
+
+<Extended name="BackToTop">
+  <ExtendedBackToTop />
+</Extended>
+
+## Props
+
+This component extends `Material's UI Fab` so you can use all its props. Check out its [Api](https://material-ui.com/api/fab/).
+
+<Props of={BackToTop} />
+
+> No props needed to use the component as is! But you can use the ones above :)
