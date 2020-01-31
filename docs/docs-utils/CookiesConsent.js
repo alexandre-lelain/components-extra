@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 import MuiTable from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -70,50 +71,44 @@ export const Table = () => {
   )
 }
 
-export const DefaultCookiesConsent = () => {
-  const [cookies, setCookies] = React.useState({
-    analytics: false,
-    functional: true,
-    tracking: false,
-  })
+export const ExtendedCookiesConsent = styled(CookiesConsent)`
+  width: 50%;
+  background-color: green;
+`
 
-  const toggleAll = isOn =>
-    setCookies({
-      analytics: isOn,
-      functional: isOn,
-      tracking: isOn,
-    })
+export const ExtendedCategory = styled(CookiesConsent.Category)`
+  background-color: green;
+  p {
+    color: white;
+  }
+`
 
-  return (
-    <CookiesConsent title="Manage Cookies Preferences">
-      <CookiesConsent.Category
-        checked={cookies.analytics}
-        description="Theses cookies help us to analyze what you are doing on our site"
-        title="Analytics cookies"
-        onChange={checked => setCookies(cookies => ({ ...cookies, analytics: checked }))}
-      >
-        <Table />
-      </CookiesConsent.Category>
-      <CookiesConsent.Category
-        checked={cookies.functional}
-        description="Theses cookies enable us to offer you a personalized experience on our site"
-        title="Functional cookies"
-        onChange={checked => setCookies(cookies => ({ ...cookies, functional: checked }))}
-      >
-        <Table />
-      </CookiesConsent.Category>
-      <CookiesConsent.Category
-        checked={cookies.tracking}
-        description="Theses cookies helps us to track you. You cannot escape!"
-        title="Tracking cookies"
-        onChange={checked => setCookies(cookies => ({ ...cookies, tracking: checked }))}
-      >
-        <Table />
-      </CookiesConsent.Category>
-      <CookiesConsent.Controls switchLabel="All cookies" onChange={toggleAll}>
-        <CookiesConsent.Button>Cancel</CookiesConsent.Button>
-        <CookiesConsent.Button>Confirm</CookiesConsent.Button>
-      </CookiesConsent.Controls>
-    </CookiesConsent>
-  )
+export const ExtendedButton = styled(CookiesConsent.Button)`
+  background-color: green;
+  border-radius: 18px;
+  box-shadow: 2px 2px 2px 2px grey;
+  * {
+    color: white;
+  }
+`
+
+const ExtendedControls = styled(CookiesConsent.Controls)`
+  padding: 4px;
+  background-color: green;
+  border-radius: 6px;
+  p {
+    color: white;
+  }
+`
+
+export const ExtendedControlsStory = () => {
+  const [isOn, setIsOn] = React.useState(false)
+    return (
+      <CookiesConsent>
+        <ExtendedControls switchLabel="Extended cookies" checked={isOn} onChange={setIsOn}>
+          <CookiesConsent.Button>Cancel</CookiesConsent.Button>
+          <CookiesConsent.Button>Confirm</CookiesConsent.Button>
+        </ExtendedControls>
+      </CookiesConsent>
+    )
 }

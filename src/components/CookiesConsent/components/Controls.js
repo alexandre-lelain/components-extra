@@ -7,6 +7,14 @@ import { isBoolean } from 'utils'
 
 import CategoryTitle from './CategoryTitle'
 
+const SwitchLabel = styled(CategoryTitle)`
+  ${({ theme }) => `
+  ${theme.breakpoints.up('sm')} {
+    flex-basis: 50%;
+  }
+`}
+`
+
 const Container = styled('div')`
   padding: 12px 24px;
   display: flex;
@@ -66,7 +74,7 @@ const Controls = ({
             onChange={onToggle}
             color="primary"
           />
-          {switchLabel && <CategoryTitle>{switchLabel}</CategoryTitle>}
+          {switchLabel && <SwitchLabel>{switchLabel}</SwitchLabel>}
         </SwitchContainer>
       )}
       <ChildrenContainer>{children}</ChildrenContainer>
