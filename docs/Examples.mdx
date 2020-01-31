@@ -5,7 +5,9 @@ route: /examples
 
 # Examples
 
-Here are some examples you can copy-paste directly in your app. No set up needed. Just an old ctrl+c & ctrlv+v!
+<br />
+
+Here are some examples you can copy-paste directly in your app. No set up needed. Just the ol' **ctrl+c** & **ctrl+v**!
 
 ## If you have the `StyledProvider` at the root of your App
 
@@ -17,7 +19,7 @@ import { CookiesBanner } from 'components-extra'
 export default () => (
   <CookiesBanner text="Your description">
     <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
-    <CookiesBanner.Button onClick={alert('do something')}>
+    <CookiesBanner.Button onClick={() => alert('do something')}>
       Awesome, I got it!
     </CookiesBanner.Button>
   </CookiesBanner>
@@ -35,7 +37,7 @@ export default () => (
   <StyledProvider>
     <CookiesBanner text="Your description">
       <CookiesBanner.Button href="#">More information</CookiesBanner.Button>
-      <CookiesBanner.Button onClick={alert('do something')}>
+      <CookiesBanner.Button onClick={() => alert('do something')}>
         Awesome, I got it!
       </CookiesBanner.Button>
     </CookiesBanner>

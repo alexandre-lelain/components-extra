@@ -73,18 +73,18 @@ export const Table = () => {
 
 export const ExtendedCookiesConsent = styled(CookiesConsent)`
   width: 50%;
-  background-color: green;
+  background-color: #3377ff;
 `
 
 export const ExtendedCategory = styled(CookiesConsent.Category)`
-  background-color: green;
+  background-color: #3377ff;
   p {
     color: white;
   }
 `
 
 export const ExtendedButton = styled(CookiesConsent.Button)`
-  background-color: green;
+  background-color: #3377ff;
   border-radius: 18px;
   box-shadow: 2px 2px 2px 2px grey;
   * {
@@ -94,7 +94,7 @@ export const ExtendedButton = styled(CookiesConsent.Button)`
 
 const ExtendedControls = styled(CookiesConsent.Controls)`
   padding: 4px;
-  background-color: green;
+  background-color: #3377ff;
   border-radius: 6px;
   p {
     color: white;

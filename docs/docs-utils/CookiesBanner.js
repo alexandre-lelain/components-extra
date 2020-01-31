@@ -7,14 +7,14 @@ export const StyledCookiesBanner = styled(CookiesBanner)`
 `
 
 export const ExtendedCookiesBanner = styled(CookiesBanner)`
-  background-color: green;
+  background-color: #3377ff;
   padding: 38px;
   border-radius: 12px;
   box-shadow: 2px 2px 2px 2px grey;
 `
 
 export const ExtendedButton = styled(CookiesBanner.Button)`
-  background-color: green;
+  background-color: #3377ff;
   color: white;
   border-radius: 32px;
 `

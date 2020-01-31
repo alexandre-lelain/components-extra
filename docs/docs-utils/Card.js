@@ -10,7 +10,7 @@ export const Card = styled(RealCard)`
 export const ExtendedCard = styled(RealCard)`
   width: 90%;
   margin: auto;
-  background-color: green;
+  background-color: #3377ff;
   border-radius: 18px;
   box-shadow: 2px 2px 2px 2px grey;
   * {
@@ -19,7 +19,7 @@ export const ExtendedCard = styled(RealCard)`
 `
 
 export const ExtendedCardButton = styled(RealCard.Button)`
-  background-color: green;
+  background-color: #3377ff;
   border-radius: 18px;
   box-shadow: 2px 2px 2px 2px grey;
   * {

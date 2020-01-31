@@ -5,12 +5,19 @@ route: /customization
 
 # Customization
 
+## Components-extra's theming system
+
+All the components are built on top of the default [material-ui's theme](https://material-ui.com/customization/theming/).
+
+**components-extra** simply overrides the `primary`/`secondary` color system to provide a consistent & customized design across
+all the components. You can check out this custom theme [here](#default-theme).
+
 ## Bring your own theme
 
-You can totally override the default `theme`. By default, the components use the following [custom theme](https://components-extra.netlify.com/?path=/story/theme--default).
+You can totally override the default `theme` mentionned in the previous section, and also override the material-ui's one.
+You can override this theme with the prop `theme` of the `<StyledProvider>` provider.
 
-This default theme is applied on top of the [material-ui](https://material-ui.com/customization/theming/) one.
-You can override this theme with the prop `theme` of the `StyledProvider` component mentionned above.
+> Note: your `theme` object needs to follow the structure of Material-ui's theme. You can find it here: https://material-ui.com/customization/default-theme/
 
 Say, for example, you want to override the 2 main palette colors to have this:
 
@@ -43,6 +50,8 @@ const App = () => {
   )
 }
 ```
+
+Here, the colors you set up in your `theme` will be applied to all the components that live in the `<StyledProvider>`.
 
 ## Extend the components
 

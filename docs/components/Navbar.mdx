@@ -1,0 +1,174 @@
+---
+name: Navbar
+menu: Components
+route: /components/navbar
+---
+
+import { Playground } from 'docz'
+import Navbar from 'components/Navbar'
+import {
+  AmericaFlag,
+  BrandIcon,
+  FlagIcon,
+  Extended,
+  ExtendedNavbar,
+  Props,
+} from '../docs-utils'
+
+# Navbar
+
+<br/>
+
+- [Navbar](#)
+  - [Navbar.Brand](#navbarbrand)
+  - [Navbar.Menu](#navbarmenu)
+    - [Navbar.MenuItem](#navbarmenuitem)
+  - [Navbar.Language](#navbarlanguage)
+    - [Navbar.LanguageItem](#navbarlanguageitem)
+
+If you play around with your browser’s window size, you will see that the menu automatically switches from `mobile` to `desktop` mode and vice versa.
+No config or prop needed on your side! This Navbar does it for you :)
+
+By default, it switches to `desktop` mode once the `theme.breakpoints.md` (default: **960px**) is reached. 
+You can of course override it when you bring your own theme in the StyledProvider provider at the root of your app.
+
+Click [here](https://material-ui.com/customization/default-theme/) to know more about the breakpoints.
+
+> Note: the components such as the icons `<BrandIcon>` and `<AmericaFlag>` used in the following stories are not included. You
+can bring any component of your choice!
+
+
+## Default
+
+<Playground>
+  {() => {
+     const [selectedLanguage, setLang] = React.useState('English')
+    const isEnglish = selectedLanguage === 'English'
+    return (
+      <Navbar>
+        <Navbar.Brand title="Components-extra">
+          <BrandIcon />
+        </Navbar.Brand>
+        <Navbar.Language selectedLanguage={selectedLanguage}>
+          <Navbar.LanguageItem label="english" onClick={() => setLang('English')}>
+            English
+          </Navbar.LanguageItem>
+          <Navbar.LanguageItem label="french" onClick={() => setLang('Français')}>
+            Français
+          </Navbar.LanguageItem>
+        </Navbar.Language>
+        <Navbar.Menu>
+          <Navbar.MenuItem href="/">
+            {isEnglish ? 'Visit Storybook' : 'Visiter le Storybook'}
+          </Navbar.MenuItem>
+          <Navbar.MenuItem href="https://github.com/alexandre-lelain/components-extra/issues">
+            {isEnglish ? 'Open an issue' : 'Ouvrir une issue'}
+          </Navbar.MenuItem>
+          <Navbar.MenuItem href="https://github.com/alexandre-lelain/components-extra/pulls">
+            {isEnglish ? 'Open a PR' : 'Faire une PR'}
+          </Navbar.MenuItem>
+        </Navbar.Menu>
+      </Navbar>
+    )
+  }}
+</Playground>
+
+> Note: here the language menu was before the menu options, but you can of course change that the way
+you want it to be :)
+
+## No Language
+
+<Playground>
+  <Navbar>
+    <Navbar.Brand title="Awesome Navbar">
+      <BrandIcon />
+    </Navbar.Brand>
+    <Navbar.Menu>
+      <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+      <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+      <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+    </Navbar.Menu>
+  </Navbar>
+</Playground>
+
+## Sticky
+
+<Playground>
+  <div style={{ height: 300, overflow: 'auto' }}>
+    <Navbar isSticky>
+      <Navbar.Brand title="Awesome Navbar">
+        <BrandIcon />
+      </Navbar.Brand>
+      <Navbar.Menu>
+        <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+        <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+        <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+      </Navbar.Menu>
+    </Navbar>
+    <div style={{ height: 800 }} />
+  </div>
+</Playground>
+
+## No brand icon
+
+<Playground>
+  <Navbar>
+    <Navbar.Brand title="Awesome Navbar" />
+  </Navbar>
+</Playground>
+
+## Extended
+
+<Extended name="Navbar">
+  <ExtendedNavbar>
+    <Navbar.Brand title="Awesome Navbar" />
+    <Navbar.Menu>
+      <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+      <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+      <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+    </Navbar.Menu>
+  </ExtendedNavbar>
+</Extended>
+
+## Props
+
+<Props of={Navbar}/>
+
+<br />
+<hr />
+
+## 
+
+<Playground>
+
+</Playground>
+
+## 
+
+<Playground>
+
+</Playground>
+
+## 
+
+<Playground>
+
+</Playground>
+
+## 
+
+<Playground>
+
+</Playground>
+
+## 
+
+<Playground>
+
+</Playground>
+
+## 
+
+<Playground>
+
+</Playground>

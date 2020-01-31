@@ -10,7 +10,7 @@ export const BackToTop = styled(RealBackToTop)`
 `
 
 export const ExtendedBackToTop = styled(BackToTop)`
-  background-color: green;
+  background-color: #3377ff;
   padding: 38px;
   border-radius: 12px;
   box-shadow: 2px 2px 2px 2px grey;
