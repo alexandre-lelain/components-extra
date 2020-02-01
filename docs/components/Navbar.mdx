@@ -8,10 +8,15 @@ import { Playground } from 'docz'
 import Navbar from 'components/Navbar'
 import {
   AmericaFlag,
+  BrandExtended,
   BrandIcon,
   FlagIcon,
   Extended,
   ExtendedNavbar,
+  LanguageExtended,
+  LanguageItemExtended,
+  MenuExtended,
+  MenuItemExtended,
   Props,
 } from '../docs-utils'
 
@@ -137,38 +142,212 @@ you want it to be :)
 <br />
 <hr />
 
-## 
+## Navbar.Brand
+
+### Default
 
 <Playground>
-
+  <Navbar.Brand title="Awesome Navbar" style={{ width: "max-content", backgroundColor: "#404040"}}>
+    <BrandIcon />
+  </Navbar.Brand>
 </Playground>
 
-## 
+### No icon
 
 <Playground>
-
+  <Navbar.Brand title="Awesome Navbar" style={{ width: "max-content", backgroundColor: "#404040"}}/>
 </Playground>
 
-## 
+### Custom url
 
 <Playground>
-
+  <Navbar.Brand
+    href="https://www.youtube.com/watch?v=Ckom3gf57Yw"
+    title="Awesome Navbar"
+    style={{ width: "max-content", backgroundColor: "#404040"}}
+  >
+    <BrandIcon />
+  </Navbar.Brand>
 </Playground>
 
-## 
+### Extended
+
+<Extended name="Navbar.Brand">
+  <BrandExtended title="Awesome Navbar" href="https://www.youtube.com/watch?v=Ckom3gf57Yw">
+    <BrandIcon />
+  </BrandExtended>
+</Extended>
+
+### Props
+
+<Props of={Navbar.Brand} />
+
+<br />
+<hr />
+
+## Navbar.Language
+
+### Default
 
 <Playground>
-
+  {() => {
+    const [selectedLanguage, setLang] = React.useState('English')
+    return (
+      <Navbar.Language selectedLanguage={selectedLanguage} color="primary">
+        <Navbar.LanguageItem label="english" onClick={() => setLang('English')}>
+          English
+        </Navbar.LanguageItem>
+        <Navbar.LanguageItem label="french" onClick={() => setLang('Français')}>
+          Français
+        </Navbar.LanguageItem>
+      </Navbar.Language>
+    )
+  }}
 </Playground>
 
-## 
+### Custom items
 
 <Playground>
-
+  {() => {
+    const [selectedLanguage, setLang] = React.useState('English')
+    return (
+      <Navbar.Language selectedLanguage={selectedLanguage} color="primary">
+        <button label="english" onClick={() => setLang('English')}>
+          English
+        </button>
+        <button label="french" onClick={() => setLang('Français')}>
+          Français
+        </button>
+      </Navbar.Language>
+    )
+  }}
 </Playground>
 
-## 
+### Extended
+
+<Extended name="Navbar.Language">
+  <LanguageExtended />
+</Extended>
+
+### Props
+
+This component extends `Material's UI Button` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
+
+<Props of={Navbar.Language} />
+
+<br />
+<hr />
+
+## Navbar.LanguageItem
+
+### Default
 
 <Playground>
-
+  <Navbar.LanguageItem label="english" onClick={() => console.log('clicked!')} color="primary">
+    English
+  </Navbar.LanguageItem>
 </Playground>
+
+### Fancy children
+
+<Playground>
+  <Navbar.LanguageItem label="english" onClick={() => console.log('clicked!')} color="primary">
+    <AmericaFlag />
+    <p style={{ paddingLeft: '8px', margin: '4px' }}>English yeah! 🤘</p>
+  </Navbar.LanguageItem>
+</Playground>
+
+### Extended
+
+<Extended name="Navbar.LanguageItem">
+  <LanguageItemExtended label="english" onClick={() => console.log('clicked!')}>
+    English
+  </LanguageItemExtended>
+</Extended>
+
+### Props
+
+This component extends `Material's UI MenuItem` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/menu-item/).
+
+<Props of={Navbar.LanguageItem}/>
+
+<br />
+<hr />
+
+## Navbar.Menu
+
+### Default
+
+<Playground>
+  <Navbar.Menu label="open-menu" style={{ width: "max-content", backgroundColor: "#404040"}}>
+    <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+    <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+    <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+  </Navbar.Menu>
+</Playground>
+
+### Fancy items
+
+<Playground>
+  <Navbar.Menu style={{ width: "max-content", backgroundColor: "#404040"}}>
+    <Navbar.MenuItem href="#">
+      <BrandIcon />
+      Awesome Link 1
+    </Navbar.MenuItem>
+    <Navbar.MenuItem href="#">
+      <AmericaFlag />
+    </Navbar.MenuItem>
+    <Navbar.MenuItem href="#">
+      <BrandIcon />
+    </Navbar.MenuItem>
+  </Navbar.Menu>
+</Playground>
+
+### Extended
+
+<Extended name="Navbar.Menu">
+  <MenuExtended>
+    <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+    <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+    <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+  </MenuExtended>
+</Extended>
+
+### Props
+
+<Props of={Navbar.Menu}/>
+
+## Navbar.MenuItem
+
+### Default
+
+<Playground>
+  <Navbar.MenuItem
+    onClick={() => console.log('clicked!')}
+    style={{ width: "max-content", backgroundColor: "#404040"}}
+  >
+    Awesome Link
+  </Navbar.MenuItem>
+</Playground>
+
+### Fancy children
+
+<Playground>
+  <Navbar.MenuItem onClick={() => console.log('clicked!')} style={{ width: "max-content", backgroundColor: "#404040"}}>
+    <BrandIcon />
+    <p style={{ paddingLeft: '8px', paddingRight: '8px', margin: '0px' }}>Awesome Link</p>
+    <AmericaFlag />
+  </Navbar.MenuItem>
+</Playground>
+
+### Extended
+
+<Extended name="Navbar.MenuItem">
+  <MenuItemExtended href="#">Extended MenuItem</MenuItemExtended>
+</Extended>
+
+### Props
+
+This component extends `Material's UI Button` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
+
+<Props of={Navbar.MenuItem}/>
