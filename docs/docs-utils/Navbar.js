@@ -65,6 +65,69 @@ export const ExtendedNavbar = styled(Navbar)`
   background-color: #3377ff;
   border-radius: 3px;
   * {
-    color: lightsalmon;
+    color: lightblue;
+  }
+`
+
+export const BrandExtended = styled(Navbar.Brand)`
+  background-color: #3377ff;
+  width: max-content;
+  * {
+    color: lightblue;
+    font-size: 36px;
+  }
+`
+
+const LanguageExtendedStyled = styled(Navbar.Language)`
+  background-color: #3377ff;
+  padding: 16px;
+  box-shadow: 2px 2px 2px 2px black;
+  &:hover {
+    background-color: red;
+  }
+  * {
+    color: dark;
+  }
+`
+
+export const LanguageExtended = () => {
+  const [selectedLanguage, setLang] = React.useState('English')
+    return (
+      <LanguageExtendedStyled selectedLanguage={selectedLanguage}>
+        <Navbar.LanguageItem label="english" onClick={() => setLang('English')}>
+          English
+        </Navbar.LanguageItem>
+        <Navbar.LanguageItem label="french" onClick={() => setLang('Français')}>
+          Français
+        </Navbar.LanguageItem>
+      </LanguageExtendedStyled>
+    )
+}
+
+export const LanguageItemExtended = styled(Navbar.LanguageItem)`
+  background-color: #3377ff;
+  width: max-content;
+  padding: 18px;
+  color: white;
+  &:hover {
+    background-color: black;
+  }
+`
+
+export const MenuExtended = styled(Navbar.Menu)`
+  background-color: #3377ff;
+  padding: 5px;
+  ${Navbar.MenuItem} {
+    margin: 14px;
+    font-size: 20px;
+  }
+`
+
+export const MenuItemExtended = styled(Navbar.MenuItem)`
+  background-color: #3377ff;
+  width: max-content;
+  padding: 8px;
+  &:hover {
+    background-color: red;
   }
 `
