@@ -28,14 +28,12 @@ export const ExtendedNewsletter = () => {
   const [email, setEmail] = React.useState('')
   return (
     <StyledNewsletter
-      title='Subscribe to our newsletter'
-      description='Get exclusive offers every week!'
+      title="Subscribe to our newsletter"
+      description="Get exclusive offers every week!"
       caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
     >
       <StyledInput id="email" placeholder="Email..." value={email} onChange={setEmail} />
-      <StyledButton onClick={() => console.log('Thanks for subscribing!')}>
-        Subscribe
-      </StyledButton>
+      <StyledButton onClick={() => console.log('Thanks for subscribing!')}>Subscribe</StyledButton>
     </StyledNewsletter>
   )
 }

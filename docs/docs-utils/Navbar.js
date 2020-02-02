@@ -92,16 +92,16 @@ const LanguageExtendedStyled = styled(Navbar.Language)`
 
 export const LanguageExtended = () => {
   const [selectedLanguage, setLang] = React.useState('English')
-    return (
-      <LanguageExtendedStyled selectedLanguage={selectedLanguage}>
-        <Navbar.LanguageItem label="english" onClick={() => setLang('English')}>
-          English
-        </Navbar.LanguageItem>
-        <Navbar.LanguageItem label="french" onClick={() => setLang('Français')}>
-          Français
-        </Navbar.LanguageItem>
-      </LanguageExtendedStyled>
-    )
+  return (
+    <LanguageExtendedStyled selectedLanguage={selectedLanguage}>
+      <Navbar.LanguageItem label="english" onClick={() => setLang('English')}>
+        English
+      </Navbar.LanguageItem>
+      <Navbar.LanguageItem label="french" onClick={() => setLang('Français')}>
+        Français
+      </Navbar.LanguageItem>
+    </LanguageExtendedStyled>
+  )
 }
 
 export const LanguageItemExtended = styled(Navbar.LanguageItem)`

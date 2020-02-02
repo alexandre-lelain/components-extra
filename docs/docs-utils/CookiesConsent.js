@@ -103,12 +103,12 @@ const ExtendedControls = styled(CookiesConsent.Controls)`
 
 export const ExtendedControlsStory = () => {
   const [isOn, setIsOn] = React.useState(false)
-    return (
-      <CookiesConsent>
-        <ExtendedControls switchLabel="Extended cookies" checked={isOn} onChange={setIsOn}>
-          <CookiesConsent.Button>Cancel</CookiesConsent.Button>
-          <CookiesConsent.Button>Confirm</CookiesConsent.Button>
-        </ExtendedControls>
-      </CookiesConsent>
-    )
+  return (
+    <CookiesConsent>
+      <ExtendedControls switchLabel="Extended cookies" checked={isOn} onChange={setIsOn}>
+        <CookiesConsent.Button>Cancel</CookiesConsent.Button>
+        <CookiesConsent.Button>Confirm</CookiesConsent.Button>
+      </ExtendedControls>
+    </CookiesConsent>
+  )
 }

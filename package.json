@@ -30,7 +30,7 @@
     "build:docs": "rimraf docs-build && cross-env BABEL_ENV=dev docz build",
     "validate": "yarn lint && yarn test && yarn build",
     "lint": "eslint --cache src/**/*.js",
-    "prettier": "prettier --write src/**/*.js",
+    "prettier": "prettier --write {src,docs}/**/*.js",
     "test": "cross-env BABEL_ENV=dev jest",
     "preversion": "yarn validate",
     "postversion": "git push && git push --tags",
@@ -95,7 +95,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged --pattern \"src/**/*.js\""
+      "pre-commit": "pretty-quick --staged --pattern \"{src,docs}/**/*.js\""
     }
   }
 }
