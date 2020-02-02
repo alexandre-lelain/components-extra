@@ -21,7 +21,7 @@ const StyledProvider = ({ children, theme = {} }) => {
 StyledProvider.propTypes = {
   /**
    * Your custom theme. It has to match Material-ui theming's syntax:
-   * https://material-ui.com/customization
+   * https://material-ui.com/customization/default-theme/
    */
   theme: PropTypes.object,
 }

@@ -1,0 +1,47 @@
+---
+name: Paragraph
+menu: Components
+route: /components/paragraph
+---
+
+import { Playground } from 'docz'
+import Paragraph from 'components/Paragraph'
+import { Extended, Props, StyledParagraph } from '../docs-utils'
+
+# Paragraph
+
+## Default
+
+<Playground>
+  <Paragraph>
+    This is an awesome paragraph. It is based on the awesome material-ui Typography component. Its
+    default variant is <code>body2</code>, and it has a maximal width of <b>650px</b>. According to awesome studies,
+    it is the range where the eye feels the most comfortable reading. In addition to its variant,
+    you can of course use all the{' '}
+    <a href="https://material-ui.com/api/typography/" target="_blank" rel="noreferrer noopener">
+      material-ui Typography component's props
+    </a>
+    .
+  </Paragraph>
+</Playground>
+
+## Extended
+
+<Extended name="Paragraph">
+  <StyledParagraph>
+    This is an awesome paragraph. It is based on the awesome material-ui Typography component. Its
+    default variant is body2, and it has a maximal width of <b>650px</b>. According to awesome studies,
+    it is the range where the eye feels the most comfortable reading. In addition to its variant,
+    you can of course use all the{' '}
+    <a href="https://material-ui.com/api/typography/" target="_blank" rel="noreferrer noopener">
+      material-ui Typography component's props
+    </a>
+    .
+  </StyledParagraph>
+</Extended>
+
+## Props
+
+This component extends `Material's UI Typography` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/typography/).
+
+<Props of={Paragraph}/>

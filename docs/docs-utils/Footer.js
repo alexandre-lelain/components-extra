@@ -4,12 +4,12 @@ import { Link, Typography } from '@material-ui/core'
 
 import Footer from 'components/Footer'
 
-const Icon = styled.svg.attrs({
+const Icon = styled.svg.attrs(() => ({
   'aria-hidden': 'true',
   focusable: false,
   viewBox: '0 0 24 24',
   xmlns: 'http://www.w3.org/2000/svg',
-})`
+}))`
   height: 24px;
   width: 24px;
 `

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { Typography } from '@material-ui/core'
 
-export default styled(Typography).attrs({
+export default styled(Typography).attrs(() => ({
   variant: 'h6',
   color: 'secondary',
-})`
+}))`
   text-align: center;
   padding: 12px;
   ${({ theme }) => `
