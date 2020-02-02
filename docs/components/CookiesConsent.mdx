@@ -33,7 +33,7 @@ You can append any content to each `<CookiesConsent.Category>`, meaning you can 
 your own table component, or a list, or even a simple paragraph. Here, the `Table` component
 is not included in `<CookiesConsent>`, it is a separate component for the sake of the demo.
 
-> By default, the Categories are uncontrolled. But you can also chose to control them with a *[checked, onChange]* set of props.
+> **Note:** By default, the Categories are uncontrolled. But you can also chose to control them with a *[checked, onChange]* set of props.
 
 ## Default
 
@@ -100,51 +100,26 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
 ## Table in categories
 
 <Playground>
-  {() => {
-    const [cookies, setCookies] = React.useState({
-      analytics: false,
-      functional: true,
-      tracking: false,
-    })
-    const toggleAll = isOn =>
-      setCookies({
-        analytics: isOn,
-        functional: isOn,
-        tracking: isOn,
-      })
-    return (
-      <CookiesConsent title="Manage Cookies Preferences">
-        <CookiesConsent.Category
-          checked={cookies.analytics}
-          description="Theses cookies help us to analyze what you are doing on our site"
-          title="Analytics cookies"
-          onChange={checked => setCookies(cookies => ({ ...cookies, analytics: checked }))}
-        >
-          <Table />
-        </CookiesConsent.Category>
-        <CookiesConsent.Category
-          checked={cookies.functional}
-          description="Theses cookies enable us to offer you a personalized experience on our site"
-          title="Functional cookies"
-          onChange={checked => setCookies(cookies => ({ ...cookies, functional: checked }))}
-        >
-          <Table />
-        </CookiesConsent.Category>
-        <CookiesConsent.Category
-          checked={cookies.tracking}
-          description="Theses cookies helps us to track you. You cannot escape!"
-          title="Tracking cookies"
-          onChange={checked => setCookies(cookies => ({ ...cookies, tracking: checked }))}
-        >
-          <Table />
-        </CookiesConsent.Category>
-        <CookiesConsent.Controls switchLabel="All cookies" onChange={toggleAll}>
-          <CookiesConsent.Button>Cancel</CookiesConsent.Button>
-          <CookiesConsent.Button>Confirm</CookiesConsent.Button>
-        </CookiesConsent.Controls>
-      </CookiesConsent>
-    )
-  }}
+  <CookiesConsent title="Manage Cookies Preferences">
+    <CookiesConsent.Category
+      description="Theses cookies help us to analyze what you are doing on our site"
+      title="Analytics cookies"
+    >
+      <Table />
+    </CookiesConsent.Category>
+    <CookiesConsent.Category
+      description="Theses cookies enable us to offer you a personalized experience on our site"
+      title="Functional cookies"
+    >
+      <Table />
+    </CookiesConsent.Category>
+    <CookiesConsent.Category
+      description="Theses cookies helps us to track you. You cannot escape!"
+      title="Tracking cookies"
+    >
+      <Table />
+    </CookiesConsent.Category>
+  </CookiesConsent>
 </Playground>
 
 ## No controls
@@ -287,48 +262,34 @@ This component extends `Material's UI Button` so you can use all its props as we
 ### Default
 
 <Playground>
-  {() => {
-    const [isOn, setIsOn] = React.useState(true)
-    return (
-      <CookiesConsent>
-        <CookiesConsent.Category
-          checked={isOn}
-          description="Theses cookies help us to analyze what you are doing on our site"
-          onChange={setIsOn}
-          title="Analytics cookies"
-        >
-          <Typography>
-            This is a paragprah about the category. This is a paragprah about the category. This is a
-            paragprah about the category.
-          </Typography>
-          <Typography>
-            This is a paragprah about the category. This is a paragprah about the category. This is a
-            paragprah about the category.
-          </Typography>
-        </CookiesConsent.Category>
-      </CookiesConsent>
-    )
-  }}
+   <CookiesConsent>
+    <CookiesConsent.Category
+      description="Theses cookies help us to analyze what you are doing on our site"
+      title="Analytics cookies"
+    >
+      <Typography>
+        This is a paragprah about the category. This is a paragprah about the category. This is a
+        paragprah about the category.
+      </Typography>
+      <Typography>
+        This is a paragprah about the category. This is a paragprah about the category. This is a
+        paragprah about the category.
+      </Typography>
+    </CookiesConsent.Category>
+  </CookiesConsent>
 </Playground>
 
 ### Table in content
 
 <Playground>
-  {() => {
-    const [isOn, setIsOn] = React.useState(true)
-    return (
-      <CookiesConsent>
-        <CookiesConsent.Category
-          checked={isOn}
-          description="Theses cookies help us to analyze what you are doing on our site"
-          onChange={setIsOn}
-          title="Analytics cookies"
-        >
-          <Table />
-        </CookiesConsent.Category>
-      </CookiesConsent>
-    )
-  }}
+  <CookiesConsent>
+    <CookiesConsent.Category
+      description="Theses cookies help us to analyze what you are doing on our site"
+      title="Analytics cookies"
+    >
+      <Table />
+    </CookiesConsent.Category>
+  </CookiesConsent>
 </Playground>
 
 ### No description

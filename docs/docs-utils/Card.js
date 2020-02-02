@@ -4,7 +4,6 @@ import RealCard from 'components/Card'
 
 export const Card = styled(RealCard)`
   width: 70%;
-  margin: auto;
 `
 
 export const ExtendedCard = styled(RealCard)`

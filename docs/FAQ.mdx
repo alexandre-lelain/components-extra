@@ -18,10 +18,12 @@ import { Typography } from '@material-ui/core';
 
 Your bundler will automatically look for *@material-ui/core* package in **components-extra** node module.
 
+> **Note:** in this case, you will import the version of **@material-ui/core** components-extra depends on.
+
 ## What if I want to use a specific version of @material-ui/core ?
 
 Well, in that case, you can totally install the version of **@material-ui/core** you need in your dependencies' list. The styles of the version
-you have installed will overwrite the ones from **components-extra**.
+you have installed will override the ones from **components-extra**.
 
 ## How to use components-extra with Gatsby.js ?
 
@@ -34,5 +36,5 @@ two plugins in your `gatsby-config.js` file to make **components-extra** work sm
 - [gatsby-plugin-styled-components](https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/)
 - [gatsby-plugin-material-ui](https://www.gatsbyjs.org/packages/gatsby-plugin-material-ui/)
 
-> Note: Those are not required to make your app compile correctly, however you might experience some display issues if you don't
+> **Note:** Those are not required to make your app compile correctly, however you might experience some display issues if you don't
 use them.

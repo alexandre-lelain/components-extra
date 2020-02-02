@@ -16,10 +16,10 @@ import { isBoolean } from 'utils'
 import ArrowIcon from './ArrowIcon'
 import CategoryTitle from './CategoryTitle'
 
-const Description = styled(Typography).attrs({
+const Description = styled(Typography).attrs(() => ({
   variant: 'body2',
   color: 'textSecondary',
-})`
+}))`
   ${({ theme }) => `
     ${theme.breakpoints.down('sm')} {
       margin-bottom: 24px;

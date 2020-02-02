@@ -9,6 +9,36 @@ import StyledProvider from 'components/StyledProvider'
 
 # StyledProvider
 
+<br />
+
+This is the `Provider` responsible for forwarding the `theme` recursively to all its children.
+You don't necessarily need to use it at the root of your App - you just need to make sure to
+wrap all the components from **components-extra** in it:
+
+```jsx
+import React from 'react'
+import { BackToTop, StyledProvider } from 'components-extra'
+
+const YourApp = () => {
+
+  return (
+    <YourContainer>
+      <SomeComponent />
+      <AnotherComponentOfYours/>
+      ...
+      <StyledProvider>
+        <BackToTop />
+      </StyledProvider>
+    </YourContainer>
+  )
+}
+```
+
+> **Note:** However, it's highly recommended to put the `<StyledProvider>` at the root of your App to avoid useless re-renders caused by the
+parents of the component where you implement it.
+
+If you don't put this `Provider` on top of the components, the `theme` will be undefined and it will result in a JS error on runtime.
+
 ## Props
 
 <Props of={StyledProvider} />

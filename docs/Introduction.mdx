@@ -32,9 +32,10 @@ Before anything, please make you to have the three following packages installed:
 **components-extra** relies on both [material-ui theme](https://material-ui.com/customization/theming/) configuration
 as well as the [styled-components](https://www.styled-components.com/docs/advanced) theming system.
 
-So the first step consists into wrapping your web application in **components-extra**'s default theme provider **StyledProvider**:
+The first step consists into wrapping your web application in **components-extra**'s default theme provider `<StyledProvider>`:
 
 ```jsx
+import React from 'react'
 import { StyledProvider } from 'components-extra'
 
 const App = () => {
@@ -47,15 +48,16 @@ const App = () => {
 }
 ```
 
-> The `StyledProvider` will forward the **theme** object to all the children recursively. Not using this Provider above the other components will result in an JS error,
+> **Note:** The `StyledProvider` will forward the **theme** object to all the children recursively. Not using this Provider above the other components will result in an JS error,
 and you will not be able to use not access the theme.
 
 
 ### Step 2
 
-Import the component you want to use. For example, the **BackToTop** button:
+Import the component you want to use. For example, the `<BackToTop>` button:
 
 ```jsx
+import React from 'react'
 import { BackToTop, StyledProvider } from 'components-extra'
 
 const App = () => {
@@ -80,3 +82,6 @@ You have to manually use the following CDN link to include the Roboto font in yo
 ```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 ```
+
+> **Note:** adding this `stylesheet` in the `<head>` of your page will fetch it in a synchronous way.
+There are [multiple techniques](https://www.filamentgroup.com/lab/load-css-simpler) to fetch it asynchronously to improve the performances of your app.
