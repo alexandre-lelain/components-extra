@@ -1,9 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet-async'
 
 import BackToTop from 'components/BackToTop'
 import StyledProvider from 'components/StyledProvider'
+
+const StyledBackToTop = styled(BackToTop)`
+  z-index: 12;
+`
 
 const GlobalStyle = createGlobalStyle`
   code {
@@ -62,7 +67,7 @@ export default ({ children }) => {
       <StyledProvider>
         <>
           {children}
-          <BackToTop title="Fun fact - this is the BackToTop component ;)" />
+          <StyledBackToTop title="Fun fact - this is the BackToTop component ;)" />
         </>
       </StyledProvider>
     </>
