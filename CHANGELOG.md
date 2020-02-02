@@ -4,6 +4,10 @@
 
 * fix to small switch-label's width in `CookiesConsent`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
+## Chores
+
+* Updated all dependencies to latest stable versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.3.0
 
 ## Features
