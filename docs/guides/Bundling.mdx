@@ -1,0 +1,29 @@
+---
+name: Bundling
+menu: Guides
+route: /guides/bundling
+---
+
+# Bundling components-extra in your project
+
+## Optimizing bundle size
+
+**components-extra** is tree-shakeable, meaning that you can import its components as named imports, like this:
+
+```jsx
+import { BackToTop } from 'components-extra'
+```
+
+If your bundler is set up to use the tree-shakeable libraries, it will automatically **only add the named imports
+you used**. In this example, only the `<BackToTop>` button will be included in your bundle.
+
+Else, if your bundler is not set up to use **esm/es** builds, you can still only include the components you need
+by importing them as defaults like this:
+
+```jsx
+import BackToTop from 'components-extra/components/BackToTop'
+```
+
+> **Note:** you can also set up aliases in your project to alias `components-extra/components` to `components-extra` if you want imports to
+look like `import BackToTop from 'components-extra/BackToTop'`. [Here](https://webpack.js.org/configuration/resolve/) is a link to set this up
+on webpack, and [here](https://www.npmjs.com/package/babel-plugin-module-resolver) is one plugin for babel.

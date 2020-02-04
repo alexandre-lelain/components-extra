@@ -226,7 +226,7 @@ const App = () => {
 
 **components-extra** is tree-shakeable, meaning that you can import its components as named imports, like this:
 
-```
+```jsx
 import { BackToTop } from 'components-extra'
 ```
 
@@ -236,9 +236,10 @@ you used**. In this example, only the `BackToTop` button will be included in you
 Else, if your bundler is not set up to use **esm/es** builds, you can still only include the components you need
 by importing them as defaults like this:
 
+```jsx
+import BackToTop from 'components-extra/components/BackToTop'
 ```
-import BackToTop from 'components-extra/BackToTop'
-```
+
 
 ## Contributing
 

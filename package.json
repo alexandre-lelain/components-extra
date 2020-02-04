@@ -26,7 +26,7 @@
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./build",
     "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel --config-file ./babel.config.js ./src --out-dir ./build/esm",
     "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --config-file ./babel.config.js ./src --out-dir ./build/es",
-    "build:after": "node ./scripts/afterBuild.js && cp -r build/components/* build",
+    "build:after": "node ./scripts/afterBuild.js",
     "build:docs": "rimraf docs-build .docz && cross-env BABEL_ENV=dev docz build",
     "validate": "yarn lint && yarn test && yarn build",
     "lint": "eslint --cache src/**/*.js",

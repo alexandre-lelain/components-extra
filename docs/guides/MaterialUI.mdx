@@ -1,0 +1,27 @@
+---
+name: Material-UI use
+menu: Guides
+route: /guides/material-ui-use
+---
+
+# Using Material-UI in your project
+
+## Can I use material-ui's library along with components-extra ?
+
+Yeah, totally. [@material-ui/core](https://www.npmjs.com/package/@material-ui/core) is a dependency of **components-extra**. So if you
+want to use some components from their library, **you don't even need to install it** aside in your *dependencies*' list.
+
+When doing imports like:
+
+```jsx
+import { Typography } from '@material-ui/core';
+```
+
+Your bundler will automatically look for *@material-ui/core* package in **components-extra** node module.
+
+> **Note:** in this case, you will import the version of **@material-ui/core** components-extra depends on.
+
+## What if I want to use a specific version of @material-ui/core ?
+
+Well, in that case, you can totally install the version of **@material-ui/core** you need in your dependencies' list. The styles of the version
+you have installed will override the ones from **components-extra**.

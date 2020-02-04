@@ -1,3 +1,10 @@
+# 2.3.3
+
+## Docs
+
+* Fix wrong import in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Added `Guides` reference to documentation site. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.3.2
 
 ## Docs
