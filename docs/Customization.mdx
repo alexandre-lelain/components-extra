@@ -39,7 +39,9 @@ You can apply it this way:
 
 ```jsx
 // index.js
+import React from 'react'
 import { BackToTop, StyledProvider } from 'components-extra'
+
 import yourTheme from './YourTheme'
 
 const App = () => {
@@ -61,8 +63,9 @@ use them as styled selectors.
 For example, to extend the `BackToTop` component:
 
 ```jsx
-import { BackToTop, StyledProvider } from 'components-extra'
+import React from 'react'
 import styled from 'styled-components'
+import { BackToTop, StyledProvider } from 'components-extra'
 
 const CustomBackToTop = styled(BackToTop)`
   opacity: 0.5;
@@ -80,8 +83,9 @@ const App = () => {
 Or to use it as a styled selector:
 
 ```jsx
-import { BackToTop, StyledProvider } from 'components-extra'
+import React from 'react'
 import styled from 'styled-components'
+import { BackToTop, StyledProvider } from 'components-extra'
 
 const Container = styled.div`
   ${BackToTop} {

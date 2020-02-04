@@ -1,3 +1,9 @@
+# 2.3.2
+
+## Docs
+
+* Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.3.1
 
 ## Fixes

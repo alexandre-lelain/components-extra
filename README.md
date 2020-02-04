@@ -47,8 +47,7 @@ you can bring your own **theme** to customize them with your own styleguide.
 
 ## UI components
 
-[Cick here](https://components-extra.netlify.com) to see the list of available components the lib has to offer. To see the API of each component, simply visit their `API` story on the storybook. You can also see the **source code** of each story by clicking the "**show info**" button on the
-top-right corner. The source code examples will help you to integrate the components easily.
+[Cick here](https://components-extra.netlify.com) to see the list of available components the lib has to offer. You can check out the props of each component, see the source code of the stories and even play with them live with the react-live editor.
 
 
 ## Requirements
@@ -56,8 +55,8 @@ top-right corner. The source code examples will help you to integrate the compon
 In order for the lib to be the smallest possible, the three following dependencies are externals to the lib.
 So you will need to have those three installed on your app:
 
-- **[react > 16.8.0](https://www.npmjs.com/package/react)**
-- **[react-dom > 16.8.0](https://www.npmjs.com/package/react-dom)**
+- **[react >= 16.8.0](https://www.npmjs.com/package/react)**
+- **[react-dom >= 16.8.0](https://www.npmjs.com/package/react-dom)**
 - **[styled-components](https://www.npmjs.com/package/styled-components)**
 
 ## Installation
@@ -88,12 +87,12 @@ You have to manually use the following CDN link to include the Roboto font in yo
 
 ### Step 1
 
-**components-extra** relies on both [material-ui theme](https://material-ui.com/customization/theming/) configuration
-as well as the [styled-components](https://www.styled-components.com/docs/advanced) theming system.
+**components-extra** relies on both [material-ui theme](https://material-ui.com/customization/theming/) configuration as well as the [styled-components](https://www.styled-components.com/docs/advanced) theming system.
 
 So the first step consists into wrapping your web application in **components-extra**'s default theme provider `<StyledProvider>`:
 
-```js
+```jsx
+import React from 'react'
 import { StyledProvider } from 'components-extra'
 
 const App = () => {
@@ -113,7 +112,8 @@ the other components will result in an JS error.
 
 Import the component you want to use. For example, the `BackToTop` button:
 
-```js
+```jsx
+import React from 'react'
 import { BackToTop, StyledProvider } from 'components-extra'
 
 const App = () => {
@@ -136,6 +136,8 @@ This default theme is applied on top of the [material-ui](https://material-ui.co
 
 You can override this theme with the prop `theme` of the `StyledProvider` component
 mentionned above.
+
+> **Note:** your theme object needs to follow the structure of Material-ui's theme. You can find it here: https://material-ui.com/customization/default-theme/
 
 Say, for example, you want to override the 2 main palette colors to have this:
 
