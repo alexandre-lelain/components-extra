@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet-async'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import BackToTop from 'components/BackToTop'
 import StyledProvider from 'components/StyledProvider'
@@ -38,25 +39,47 @@ const GlobalStyle = createGlobalStyle`
 `
 
 export default ({ children }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+            url
+            keywords
+            image
+          }
+        }
+      }
+    `,
+  )
+
+  const { author, description, image, keywords, title, url } = site.siteMetadata
+
   return (
     <>
       <Helmet>
-        <meta
-          name="description"
-          content="React UI molecule components based on styled-components & material-ui."
-        />
-        <meta name="author" content="Alexandre Le Lain" />
-        <meta name="application-name" content="components-extra" />
-        <meta
-          name="keywords"
-          content="components-extra, react, components, molecules, ui, material design, cookies, navbar, footer"
-        />
-        <meta name="og:url" content="https://components-extra.netlify.com" />
-        <meta property="og:title" content="components-extra" />
-        <meta
-          property="og:description"
-          content="React UI molecule components based on styled-components & material-ui."
-        />
+        <meta name="description" content={description} />
+        <meta name="author" content={author} />
+        <meta name="application-name" content={title} />
+        <meta name="keywords" content={keywords} />
+        <meta name="og:url" content={url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:image" content={image} />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:creator" content={author} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:site" content={author} />
+        <meta property="twitter:label1" content="Powered by" />
+        <meta property="twitter:data1" content="Material-UI, styled-components" />
+        <meta property="twitter:label2" content="Category" />
+        <meta property="twitter:data2" content="React blocks" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
