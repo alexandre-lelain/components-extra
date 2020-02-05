@@ -7,7 +7,7 @@ module.exports = {
     author: `Alexandre Le Lain <@a_lelain>`,
     url: "https://components-extra.netlify.com/",
     keywords: ["components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer"],
-    image: "https://components-extra.netlify.com/public/logo.webp",
+    image: "https://components-extra.netlify.com/public/icon.png",
   },
   plugins: [
     {
