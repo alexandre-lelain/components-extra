@@ -7,6 +7,13 @@ import { useStaticQuery, graphql } from 'gatsby'
 import BackToTop from 'components/BackToTop'
 import StyledProvider from 'components/StyledProvider'
 
+import { isServerSide } from 'utils'
+
+// Polyfill for Microsoft browsers, because we let nobody down.
+if (!isServerSide() && !('scrollBehavior' in document.documentElement.style)) {
+  import('scroll-behavior-polyfill')
+}
+
 const StyledBackToTop = styled(BackToTop)`
   z-index: 12;
 `
@@ -65,7 +72,7 @@ export default ({ children }) => {
         <meta name="author" content={author} />
         <meta name="application-name" content={title} />
         <meta name="keywords" content={keywords} />
-        <meta name="og:url" content={url} />
+        <meta property="og:url" content={url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:site_name" content={title} />

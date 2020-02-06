@@ -23,7 +23,6 @@ const COPY_LABELS = {
 const DELAY_BEFORE_RESET = 2000
 
 export const Playground = ({ code, scope, language = 'jsx' }) => {
-  console.log('RENDER')
   const {
     themeConfig: { showPlaygroundEditor },
   } = useConfig()

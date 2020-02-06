@@ -4,11 +4,13 @@ import styled from 'styled-components'
 import ArrowUpward from './components/ArrowUpward'
 import Button from './components/Button'
 
+import { isServerSide } from 'utils'
+
 const START_HEIGHT = 20
 
 const BackToTop = ({ className, forwardedRef = null, ...rest }) => {
   const [display, setDisplay] = useState(false)
-  const { body = {}, documentElement = {} } = typeof window === 'undefined' ? {} : document
+  const { body = {}, documentElement = {} } = isServerSide() ? {} : document
 
   useEffect(() => {
     const onScroll = () => {
