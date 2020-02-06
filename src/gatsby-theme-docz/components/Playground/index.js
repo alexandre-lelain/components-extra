@@ -22,6 +22,19 @@ const COPY_LABELS = {
 }
 const DELAY_BEFORE_RESET = 2000
 
+const resizableProps = {
+  enable: {
+    top: false,
+    right: true,
+    bottom: false,
+    left: false,
+    topRight: false,
+    bottomRight: false,
+    bottomLeft: false,
+    topLeft: false,
+  },
+}
+
 export const Playground = ({ code, scope, language = 'jsx' }) => {
   const {
     themeConfig: { showPlaygroundEditor },
@@ -49,7 +62,7 @@ export const Playground = ({ code, scope, language = 'jsx' }) => {
 
   return (
     <LiveProvider code={code} scope={scopeOnMount} language={language} theme={theme}>
-      <Resizable>
+      <Resizable {...resizableProps}>
         <div style={resizableStyle}>
           <LivePreview />
         </div>
