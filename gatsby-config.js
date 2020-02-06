@@ -23,5 +23,18 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-material-ui`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        display: `minimal-ui`,
+        name: `components-extra`,
+        short_name: `components-extra`,
+        start_url: `/`,
+        background_color: `#404040`,
+        theme_color: `#404040`,
+        icon: `../public/logo.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }
