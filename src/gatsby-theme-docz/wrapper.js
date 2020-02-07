@@ -19,6 +19,9 @@ const StyledBackToTop = styled(BackToTop)`
 `
 
 const GlobalStyle = createGlobalStyle`
+  h1, h2, h3, h4, h5, a, p, input {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  }
   code {
     margin: 0 3px;
     padding: 3px 5px;
@@ -90,6 +93,8 @@ export default ({ children }) => {
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          media="print"
+          onLoad="this.media='all'"
         />
         <link rel="icon" type="image/webp" href="/public/favicon.ico" />
       </Helmet>
