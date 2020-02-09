@@ -1,7 +1,7 @@
 <div align="center">
   <h1>components-extra</h1>
 
-  <p>React UI components built on top of <a href="https://styled-components.com">styled-components</a> & <a href="https://material-ui.com">material-ui components</a>.
+  <p>React UI molecule-components built on top of <a href="https://styled-components.com">styled-components</a> & <a href="https://material-ui.com">material-ui components</a>.
   </p>
 
   <br/>
