@@ -38,7 +38,7 @@ Item.propTypes = {
   /**
    * The item's icon.
    */
-  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.elementType]),
+  icon: PropTypes.elementType,
   /**
    * If this prop is set, the item becomes a link.
    */

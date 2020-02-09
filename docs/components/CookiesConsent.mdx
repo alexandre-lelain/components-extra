@@ -5,7 +5,6 @@ route: /components/cookies-consent
 ---
 
 import { Playground } from 'docz'
-import { Typography } from '@material-ui/core'
 
 import CookiesConsent from 'components/CookiesConsent'
 import {
@@ -58,11 +57,11 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
           title="Analytics cookies"
           onChange={checked => setCookies(cookies => ({ ...cookies, analytics: checked }))}
         >
-          <Typography>
+          <p>
             This is a parapgraph explaining how great are those cookies. This is a parapgraph
             explaining how great are those cookies. This is a parapgraph explaining how great are
             those cookies. This is a parapgraph explaining how great are those cookies.
-          </Typography>
+          </p>
         </CookiesConsent.Category>
         <CookiesConsent.Category
           checked={cookies.functional}
@@ -70,11 +69,11 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
           title="Functional cookies"
           onChange={checked => setCookies(cookies => ({ ...cookies, functional: checked }))}
         >
-          <Typography>
+          <p>
             This is a parapgraph explaining how great are those cookies. This is a parapgraph
             explaining how great are those cookies. This is a parapgraph explaining how great are
             those cookies. This is a parapgraph explaining how great are those cookies.
-          </Typography>
+          </p>
         </CookiesConsent.Category>
         <CookiesConsent.Category
           checked={cookies.tracking}
@@ -82,11 +81,11 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
           title="Tracking cookies"
           onChange={checked => setCookies(cookies => ({ ...cookies, tracking: checked }))}
         >
-          <Typography>
+          <p>
             This is a parapgraph explaining how great are those cookies. This is a parapgraph
             explaining how great are those cookies. This is a parapgraph explaining how great are
             those cookies. This is a parapgraph explaining how great are those cookies.
-          </Typography>
+          </p>
         </CookiesConsent.Category>
         <CookiesConsent.Controls switchLabel="All cookies" onChange={toggleAll}>
           <CookiesConsent.Button>Cancel</CookiesConsent.Button>
@@ -130,31 +129,31 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
       description="Theses cookies help us to analyze what you are doing on our site"
       title="Analytics cookies"
     >
-      <Typography>
+      <p>
         This is a parapgraph explaining how great are those cookies. This is a parapgraph
         explaining how great are those cookies. This is a parapgraph explaining how great are
         those cookies. This is a parapgraph explaining how great are those cookies.
-      </Typography>
+      </p>
     </CookiesConsent.Category>
     <CookiesConsent.Category
       description="Theses cookies enable us to offer you a personalized experience on our site"
       title="Functional cookies"
     >
-      <Typography>
+      <p>
         This is a parapgraph explaining how great are those cookies. This is a parapgraph
         explaining how great are those cookies. This is a parapgraph explaining how great are
         those cookies. This is a parapgraph explaining how great are those cookies.
-      </Typography>
+      </p>
     </CookiesConsent.Category>
     <CookiesConsent.Category
       description="Theses cookies helps us to track you. You cannot escape!"
       title="Tracking cookies"
     >
-      <Typography>
+      <p>
         This is a parapgraph explaining how great are those cookies. This is a parapgraph
         explaining how great are those cookies. This is a parapgraph explaining how great are
         those cookies. This is a parapgraph explaining how great are those cookies.
-      </Typography>
+      </p>
     </CookiesConsent.Category>
   </CookiesConsent>
 </Playground>
@@ -167,31 +166,31 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
       description="Theses cookies help us to analyze what you are doing on our site"
       title="Analytics cookies"
     >
-      <Typography>
+      <p>
         This is a parapgraph explaining how great are those cookies. This is a parapgraph
         explaining how great are those cookies. This is a parapgraph explaining how great are
         those cookies. This is a parapgraph explaining how great are those cookies.
-      </Typography>
+      </p>
     </CookiesConsent.Category>
     <CookiesConsent.Category
       description="Theses cookies enable us to offer you a personalized experience on our site"
       title="Functional cookies"
     >
-      <Typography>
+      <p>
         This is a parapgraph explaining how great are those cookies. This is a parapgraph
         explaining how great are those cookies. This is a parapgraph explaining how great are
         those cookies. This is a parapgraph explaining how great are those cookies.
-      </Typography>
+      </p>
     </CookiesConsent.Category>
     <CookiesConsent.Category
       description="Theses cookies helps us to track you. You cannot escape!"
       title="Tracking cookies"
     >
-      <Typography>
+      <p>
         This is a parapgraph explaining how great are those cookies. This is a parapgraph
         explaining how great are those cookies. This is a parapgraph explaining how great are
         those cookies. This is a parapgraph explaining how great are those cookies.
-      </Typography>
+      </p>
     </CookiesConsent.Category>
   </CookiesConsent>
 </Playground>
@@ -267,14 +266,14 @@ This component extends `Material's UI Button` so you can use all its props as we
       description="Theses cookies help us to analyze what you are doing on our site"
       title="Analytics cookies"
     >
-      <Typography>
+      <p>
         This is a paragprah about the category. This is a paragprah about the category. This is a
         paragprah about the category.
-      </Typography>
-      <Typography>
+      </p>
+      <p>
         This is a paragprah about the category. This is a paragprah about the category. This is a
         paragprah about the category.
-      </Typography>
+      </p>
     </CookiesConsent.Category>
   </CookiesConsent>
 </Playground>
@@ -297,10 +296,10 @@ This component extends `Material's UI Button` so you can use all its props as we
 <Playground>
   <CookiesConsent>
     <CookiesConsent.Category title="Analytics cookies">
-      <Typography>
+      <p>
         This is a paragprah about the category. This is a paragprah about the category. This is a
         paragprah about the category.
-      </Typography>
+      </p>
     </CookiesConsent.Category>
   </CookiesConsent>
 </Playground>
@@ -312,10 +311,10 @@ This component extends `Material's UI Button` so you can use all its props as we
     description="Theses cookies help us to analyze what you are doing on our site"
     title="Analytics cookies"
   >
-    <Typography>
+    <p>
       This is a paragprah about the category. This is a paragprah about the category. This is a
       paragprah about the category.
-    </Typography>
+    </p>
   </ExtendedCategory>
 </Extended>
 

@@ -1,3 +1,14 @@
+# 2.3.4
+
+## Docs
+
+* Remove usage of `Typography` in docs to make copy-paste easier for users. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Add link to Contributing.md in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Fixes
+
+* Fix wrong prop-type of `bottomBanner` prop (Footer) & `icon` prop (Footer.Item). ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.3.3
 
 ## Docs

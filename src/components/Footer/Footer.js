@@ -41,7 +41,7 @@ Footer.propTypes = {
   /**
    * The content of the bottom banner. Leave to undefined if you don't want one.
    */
-  bottomBanner: PropTypes.oneOfType([PropTypes.node, PropTypes.elementType]),
+  bottomBanner: PropTypes.elementType,
   /**
    * The footer's background image. 'component' can either be a string 'ex: 'section', or a component.
    * You can also pass other props to the media container.

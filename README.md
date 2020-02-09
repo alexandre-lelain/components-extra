@@ -240,7 +240,6 @@ by importing them as defaults like this:
 import BackToTop from 'components-extra/components/BackToTop'
 ```
 
-
 ## Contributing
 
 Do you have a component you would like to add in the library ? Please, open an issue and/or
@@ -250,14 +249,4 @@ Do you want to fix a broken feature ? Please, go ahead :)
 
 Any ideas, suggestions ? Feel free to open an issue!
 
-If you open a PR, please run the following command to ensure your code meets the lint config, that it builds correctly, and that it meets the linter set up rules. Your code will be prettier-ed automatically when you commit thanks to a pre-commit hook.
-
-```
-yarn validate
-```
-
-
-If one component's test function doesn't make sense anymore with your changes, don't hesitate to update
-its source code accordingly. Tests are here to make sure no regression happens and that the components' DOM
-reflects their specification. There also are some functional tests to make sure the components behave
-as expected.
+More about contributing guidelines & how to's can be found [here](https://github.com/alexandre-lelain/components-extra/blob/master/CONTRIBUTING.md).
