@@ -60,13 +60,14 @@ export default ({ children }) => {
             url
             keywords
             image
+            google
           }
         }
       }
     `,
   )
 
-  const { author, description, image, keywords, title, url } = site.siteMetadata
+  const { author, description, image, keywords, title, url, google } = site.siteMetadata
 
   return (
     <>
@@ -90,6 +91,7 @@ export default ({ children }) => {
         <meta property="twitter:data1" content="Material-UI, styled-components" />
         <meta property="twitter:label2" content="Category" />
         <meta property="twitter:data2" content="React blocks" />
+        <meta name="google-site-verification" content={google} />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
