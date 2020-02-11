@@ -53,7 +53,48 @@ const App = () => {
 }
 ```
 
-Here, the colors you set up in your `theme` will be applied to all the components that live in the `<StyledProvider>`.
+Here, the palette styleguide you set up in your `theme` will be applied to all the components that live in the `<StyledProvider>`.
+
+## Custom Variables
+
+In addition to the values of material-ui's [default theme](https://material-ui.com/customization/default-theme/), you can also totally
+add some custom variables to the theme.
+
+For example, if you want to create a variable `colors` containing a list of custom names:
+
+```js
+// YourTheme.js
+export default {
+  colors: {
+    grass: "#009933",
+    electric: "#003d99",
+  }
+}
+```
+
+## Accessing the theme
+
+### In a React component
+
+To access the `theme` from a React component, you can either use the `useTheme` hook or the `withTheme` HOC
+of Material-UI. You can find the documentation about it [here](https://material-ui.com/styles/advanced/#accessing-the-theme-in-a-component).
+
+### In a styled-component
+
+You can also access the `theme` from any **styled-component** wrapped inside the [StyledProvider](/utils/styled-provider).
+It will be **automatically** passed via the props.
+
+For example, if we use the [previous](#custom-variables) theme example:
+
+```jsx
+import styled from 'styled-components';
+
+const MyStyledComponent = styled.span`
+  ${({ theme }) => `
+    color: ${theme.colors.grass};
+  `};
+`
+```
 
 ## Extend the components
 
@@ -107,5 +148,7 @@ const App = () => {
 ## Default Theme
 
 import ThemeView from './docs-utils/ThemeView'
+
+Here's the default theme of **components-extra**. It overrides the material-ui's one.
 
 <ThemeView />
