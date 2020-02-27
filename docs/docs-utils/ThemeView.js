@@ -1,10 +1,14 @@
 import React from 'react'
 
 import createTheme from 'theme'
+import { useTheme } from '@material-ui/core'
 
-export default () => {
-  // TODO switch dark/light theme
+export default ({ full = false }) => {
   const theme = createTheme()
+  const fullTheme = useTheme()
+  const themeToDisplay = full ? fullTheme : theme
+  const collapsed = full ? 1 : false
+
   if (typeof window !== 'undefined') {
     const ReactJson = require('react-json-view').default
     return (
@@ -12,7 +16,8 @@ export default () => {
         style={{ fontSize: 16 }}
         name={null}
         theme="ocean"
-        src={theme}
+        src={themeToDisplay}
+        collapsed={collapsed}
         sortKeys
         displayDataTypes={false}
       />
