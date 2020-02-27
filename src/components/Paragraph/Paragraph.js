@@ -10,7 +10,13 @@ const StyledParagraph = styled(Typography)`
 `
 
 const Paragraph = ({ className, forwardedRef = null, variant = 'body2', ...rest }) => (
-  <StyledParagraph className={className} ref={forwardedRef} variant={variant} {...rest} />
+  <StyledParagraph
+    className={className}
+    ref={forwardedRef}
+    variant={variant}
+    color="textPrimary"
+    {...rest}
+  />
 )
 
 Paragraph.propTypes = {

@@ -1,8 +1,10 @@
 import React from 'react'
 
-import theme from 'theme'
+import createTheme from 'theme'
 
 export default () => {
+  // TODO switch dark/light theme
+  const theme = createTheme()
   if (typeof window !== 'undefined') {
     const ReactJson = require('react-json-view').default
     return (

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet-async'
 import { useStaticQuery, graphql } from 'gatsby'
+import { useColorMode } from 'theme-ui'
 
 import BackToTop from 'components/BackToTop'
 import StyledProvider from 'components/StyledProvider'
@@ -69,6 +70,8 @@ export default ({ children }) => {
 
   const { author, description, image, keywords, title, url, google } = site.siteMetadata
 
+  const [colorMode] = useColorMode()
+
   return (
     <>
       <Helmet>
@@ -101,7 +104,7 @@ export default ({ children }) => {
         <link rel="icon" type="image/webp" href="/public/favicon.ico" />
       </Helmet>
       <GlobalStyle />
-      <StyledProvider>
+      <StyledProvider dark={colorMode === 'dark'}>
         <>
           {children}
           <StyledBackToTop title="Fun fact - this is the BackToTop component ;)" />

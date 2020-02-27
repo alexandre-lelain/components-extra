@@ -9,7 +9,7 @@ import { useBig } from '../hooks/Context'
 
 const useStyles = makeStyles(theme => ({
   button: {
-    color: theme.components.links,
+    color: theme.palette.links,
   },
 }))
 
@@ -20,11 +20,10 @@ const CardButton = ({ className, children, href = null, onClick = null, ...rest 
   return (
     <Button
       className={`${className} ${classes.button}`}
-      color="inherit"
       href={href}
       onClick={onClick}
-      {...rest}
       size={big ? 'medium' : 'small'}
+      {...rest}
     >
       {children}
     </Button>
