@@ -2,7 +2,7 @@
 if (process.env.BABEL_ENV === 'dev') {
   module.exports = {
     "presets": ["@babel/preset-env", "@babel/preset-react"],
-    "plugins": ["@babel/plugin-proposal-class-properties"]
+    "plugins": ["@babel/plugin-proposal-class-properties",  ['@babel/plugin-transform-runtime', { useESModules: true }]]
   }
 }
 // Configuration for build mode.

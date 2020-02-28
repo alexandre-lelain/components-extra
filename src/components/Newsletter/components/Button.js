@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 import { Button as MuiButton } from '@material-ui/core'
 
 const StyledButton = styled(MuiButton)`
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  margin-left: 12px;
 `
 
 const Button = ({ className, onClick, ...rest }) => {

@@ -1,3 +1,9 @@
+# 2.4.0
+
+## Fixes
+
+* Fix label not changing value of switch in `CookiesConsent`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.3.4
 
 ## Docs

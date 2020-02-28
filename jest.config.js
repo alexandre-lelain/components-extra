@@ -6,6 +6,9 @@ module.exports = {
     "<rootDir>/build/",
     "<rootDir>/.docz/"
   ],
+  "transformIgnorePatterns": [
+    "<rootDir>/node_modules/!(lodash-es)"
+  ],
   "moduleNameMapper": {
     "^utils(.*)$": "<rootDir>/src/utils$1",
     "^theme(.*)$": "<rootDir>/src/theme$1",

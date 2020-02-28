@@ -17,7 +17,7 @@ You can of course override all those on your end. See [this page](/theming/custo
 
 **material-ui**'s default theme palette is available [here](https://material-ui.com/customization/palette/).
 
-import ColorBox from './docs-utils/ColorBox'
+import ColorBoxes from './docs-utils/ColorBoxes'
 import createTheme, { createInvertedTheme } from 'theme'
 const { palette: lightTheme } = createTheme()
 const { palette: darkTheme } = createTheme(true)
@@ -25,12 +25,15 @@ const { palette: invertedTheme } = createInvertedTheme()
 
 ### Light theme (default)
 
-{}
-<ColorBox color="#404040" name="primary.main"/>
+<ColorBoxes palette={lightTheme} />
 
 ### Dark theme
+
+<ColorBoxes palette={darkTheme} />
 
 ### Inverted main colors
 
 To invert the main colors of the theme (ie `primary` and `secondary`), you can pass the
 prop `invertMainColors` to `true` to the `<StyledProvider>`.
+
+<ColorBoxes palette={invertedTheme} />

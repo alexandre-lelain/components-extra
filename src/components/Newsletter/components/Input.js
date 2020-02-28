@@ -4,14 +4,7 @@ import styled from 'styled-components'
 import { OutlinedInput } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundColor: 'white',
-    borderTopLeftRadius: theme.shape.borderRadius,
-    borderBottomLeftRadius: theme.shape.borderRadius,
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
-  },
+const useStyles = makeStyles(() => ({
   input: {
     padding: '10px 14px',
   },

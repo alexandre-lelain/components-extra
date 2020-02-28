@@ -1,19 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Switch } from '@material-ui/core'
+import { FormControlLabel, Switch } from '@material-ui/core'
 
 import { isBoolean } from 'utils'
-
-import CategoryTitle from './CategoryTitle'
-
-const SwitchLabel = styled(CategoryTitle)`
-  ${({ theme }) => `
-  ${theme.breakpoints.up('sm')} {
-    flex-basis: 50%;
-  }
-`}
-`
 
 const Container = styled('div')`
   padding: 12px 24px;
@@ -21,7 +11,7 @@ const Container = styled('div')`
   flex-direction: row;
   align-items: center;
   ${({ theme }) => `
-    background-color: ${theme.palette.secondary.light};
+    background-color: ${theme.palette.background};
     ${theme.breakpoints.down('sm')} {
       flex-direction: column;
       align-items: flex-start;
@@ -29,11 +19,8 @@ const Container = styled('div')`
   `}
 `
 
-const SwitchContainer = styled('div')`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-basis: 60%;
+const StyledSwitch = styled(Switch)`
+  margin: 0 11px;
 `
 
 const ChildrenContainer = styled('div')`
@@ -68,14 +55,16 @@ const Controls = ({
   return (
     <Container {...rest}>
       {onChange && (
-        <SwitchContainer>
-          <Switch
-            checked={isBoolean(checked) ? checked : localChecked}
-            onChange={onToggle}
-            color="primary"
-          />
-          {switchLabel && <SwitchLabel>{switchLabel}</SwitchLabel>}
-        </SwitchContainer>
+        <FormControlLabel
+          control={
+            <StyledSwitch
+              checked={isBoolean(checked) ? checked : localChecked}
+              onChange={onToggle}
+              color="primary"
+            />
+          }
+          label={switchLabel}
+        />
       )}
       <ChildrenContainer>{children}</ChildrenContainer>
     </Container>

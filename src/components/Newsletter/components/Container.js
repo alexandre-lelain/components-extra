@@ -7,7 +7,4 @@ export default styled(Paper)`
   flex-direction: column;
   align-items: center;
   padding: 16px;
-  ${({ theme }) => `
-    background-color: ${theme.palette.secondary.main};
-  `}
 `
