@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import isEmpty from 'utils/isEmpty'
+import { isEmpty } from 'lodash-es'
 import { Typography } from '@material-ui/core'
 
 const Title = styled(Typography)`

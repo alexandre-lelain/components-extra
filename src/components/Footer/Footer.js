@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
-import isEmpty from 'utils/isEmpty'
+import { isEmpty } from 'lodash-es'
 
 import BottomBanner from './components/BottomBanner'
 import Column from './components/Column'

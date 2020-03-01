@@ -39,7 +39,6 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.4",
-    "@material-ui/styles": "^4.9.0",
     "lodash-es": "^4.17.15",
     "prop-types": "^15.7.2"
   },

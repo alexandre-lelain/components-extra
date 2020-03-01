@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormControlLabel, Switch } from '@material-ui/core'
-
-import { isBoolean } from 'utils'
+import { isBoolean } from 'lodash-es'
 
 const Container = styled('div')`
   padding: 12px 24px;

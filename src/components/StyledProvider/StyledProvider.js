@@ -2,8 +2,7 @@ import React, { useMemo } from 'react'
 import { merge } from 'lodash-es'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import { createMuiTheme } from '@material-ui/core/styles'
-import { StylesProvider, ThemeProvider } from '@material-ui/styles'
+import { StylesProvider, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import createTheme, { createInvertedTheme } from 'theme'
 
 const StyledProvider = ({ children, dark = false, invertMainColors = false, theme = {} }) => {

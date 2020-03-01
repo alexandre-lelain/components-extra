@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { isEmpty, isString } from 'lodash-es'
 
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -11,9 +12,6 @@ import {
   CardMedia,
   Typography,
 } from '@material-ui/core'
-
-import isEmpty from 'utils/isEmpty'
-import isString from 'utils/isString'
 
 import { BigProvider } from './hooks/Context'
 import CardButton from './components/CardButton'
