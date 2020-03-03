@@ -1,3 +1,9 @@
+# 2.4.2
+
+## Docs
+
+* Update link to bundlesize in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.4.1
 
 ## Features

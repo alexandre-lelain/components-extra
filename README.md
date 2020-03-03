@@ -14,7 +14,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![build formats](https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg)](https://github.com/alexandre-lelain/components-extra)
-[![bundle size](https://badgen.net/bundlephobia/min/components-extra)](https://bundlephobia.com/result?p=components-extra)
+[![bundle size](https://badgen.net/bundlephobia/min/components-extra@latest)](https://bundlephobia.com/result?p=components-extra@latest)
 
 
 </div>
@@ -33,7 +33,7 @@ on what they were made for. They have very few props so you can integrate them *
 a built-in default behavior. You can customize easily any single inner component of a molecule component, and
 you can bring your own **theme** to customize them with your own styleguide.
 
-By the way: no more bloated components library. **components-extra** is [really light!](https://badgen.net/bundlephobia/min/components-extra)
+By the way: no more bloated components library. **components-extra** is [really light!](https://bundlephobia.com/result?p=components-extra@latest)
 
 ## Menu
 
