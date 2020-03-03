@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { merge } from 'lodash-es'
+import { merge } from 'utils'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import { StylesProvider, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { map } from 'lodash-es'
 import { Typography } from '@material-ui/core'
 
 const BoxesContainer = styled.div`
@@ -25,6 +24,21 @@ const Box = styled.div`
 
 const isColor = str => /#[a-z,0-9]{6}/gi.test(str)
 
+const renderColorBoxes = (palette = {}) => {
+  const boxes = []
+  Object.keys(palette).forEach(name => {
+    const value = palette[name]
+    const { main } = value
+    const color = main || value
+
+    if (isColor(color)) {
+      boxes.push(<ColorBox color={color} name={name} key={name} />)
+    }
+  })
+
+  return boxes
+}
+
 const ColorBox = ({ color, name }) => {
   return (
     <BoxContainer>
@@ -36,16 +50,7 @@ const ColorBox = ({ color, name }) => {
 }
 
 const ColorBoxes = ({ palette = {} }) => {
-  return (
-    <BoxesContainer>
-      {map(palette, (value, name) => {
-        const { main } = value
-        const color = main || value
-
-        return isColor(color) ? <ColorBox color={color} name={name} key={name} /> : null
-      })}
-    </BoxesContainer>
-  )
+  return <BoxesContainer>{renderColorBoxes(palette)}</BoxesContainer>
 }
 
 export default ColorBoxes

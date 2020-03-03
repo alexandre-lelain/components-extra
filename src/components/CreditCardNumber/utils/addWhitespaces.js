@@ -1,4 +1,4 @@
-import { isEmpty } from 'lodash-es'
+import { isEmpty } from 'utils'
 import { MAX_DIGITS, MAX_LENGTH } from './constants'
 
 export default value => {

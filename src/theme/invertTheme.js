@@ -1,4 +1,4 @@
-import { merge } from 'lodash-es'
+import { merge } from 'utils'
 
 const invertTheme = (theme = {}) => {
   const { palette = {} } = theme

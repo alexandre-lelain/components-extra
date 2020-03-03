@@ -1,3 +1,13 @@
+# 2.4.1
+
+## Features
+
+* Reduce bundle-size by replacing lodash. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Fixes
+
+* Add missing `@babel/runtime` dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.4.0
 
 ## Features

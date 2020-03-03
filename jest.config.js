@@ -7,7 +7,7 @@ module.exports = {
     "<rootDir>/.docz/"
   ],
   "transformIgnorePatterns": [
-    "<rootDir>/node_modules/!(lodash-es)"
+    "<rootDir>/node_modules/!(@babel/runtime)"
   ],
   "moduleNameMapper": {
     "^utils(.*)$": "<rootDir>/src/utils$1",
