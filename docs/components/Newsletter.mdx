@@ -110,7 +110,7 @@ import {
         description='Get exclusive offers every week!'
         caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
       >
-        <input id="email" placeholder="Email..." type="email" value={email} onChange={setEmail}/>
+        <input id="email" placeholder="Email..." type="email" value={email} onChange={e => setEmail(e.target.value)}/>
         <button onClick={() => console.log('Thanks for subscribing!')}>
           Subscribe
         </button>

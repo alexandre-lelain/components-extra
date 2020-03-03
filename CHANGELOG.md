@@ -1,8 +1,16 @@
 # 2.4.0
 
+## Features
+
+* Add `dark` theme support in `<StyledProvider>`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Docs
+
+* Add `Palette` page and fixed typos. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 ## Fixes
 
-* Fix label not changing value of switch in `CookiesConsent`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Fix label's click not changing value of switch in `CookiesConsent`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Chores
 
