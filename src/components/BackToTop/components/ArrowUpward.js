@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import SvgIcon from '@material-ui/core/SvgIcon'
+import { SvgIcon } from '@material-ui/core'
 
 export default memo(props => (
   <SvgIcon {...props}>

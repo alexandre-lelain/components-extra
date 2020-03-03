@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
+import { AppBar, Toolbar } from '@material-ui/core'
 
 import Brand from './components/Brand'
 import Language from './components/Language'

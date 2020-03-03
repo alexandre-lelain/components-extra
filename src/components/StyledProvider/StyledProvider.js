@@ -3,15 +3,13 @@ import { merge } from 'lodash-es'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import { StylesProvider, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import createTheme, { createInvertedTheme } from 'theme'
+import { createTheme, invertTheme } from 'theme'
 
 const StyledProvider = ({ children, dark = false, invertMainColors = false, theme = {} }) => {
-  const defaultTheme = useMemo(
-    () => (invertMainColors ? createInvertedTheme(dark) : createTheme(dark)),
-    [dark, invertMainColors],
-  )
+  const defaultTheme = useMemo(() => createTheme(dark), [dark])
   const mergedTheme = merge(defaultTheme, theme)
-  const finalTheme = createMuiTheme(mergedTheme)
+  const processedTheme = invertMainColors ? invertTheme(mergedTheme) : mergedTheme
+  const finalTheme = createMuiTheme(processedTheme)
 
   return (
     <StylesProvider injectFirst>

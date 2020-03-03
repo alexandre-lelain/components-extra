@@ -1,5 +1,3 @@
-import { merge } from 'lodash-es'
-
 const createTheme = (dark = false) => ({
   elevations: {
     cookiesBanner: 10,
@@ -16,19 +14,4 @@ const createTheme = (dark = false) => ({
   },
 })
 
-const createInvertedTheme = (dark = false) => {
-  const baseTheme = createTheme(dark)
-  return merge(baseTheme, {
-    palette: {
-      primary: {
-        main: '#f2f2f2',
-      },
-      secondary: {
-        main: '#404040',
-      },
-    },
-  })
-}
-
 export default createTheme
-export { createInvertedTheme }

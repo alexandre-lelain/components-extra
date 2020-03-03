@@ -18,10 +18,11 @@ You can of course override all those on your end. See [this page](/theming/custo
 **material-ui**'s default theme palette is available [here](https://material-ui.com/customization/palette/).
 
 import ColorBoxes from './docs-utils/ColorBoxes'
-import createTheme, { createInvertedTheme } from 'theme'
-const { palette: lightTheme } = createTheme()
+import { createTheme, invertTheme } from 'theme'
+const defaultTheme = createTheme()
+const { palette: lightTheme } = defaultTheme
 const { palette: darkTheme } = createTheme(true)
-const { palette: invertedTheme } = createInvertedTheme()
+const { palette: invertedTheme } = invertTheme(defaultTheme)
 
 ### Light theme (default)
 

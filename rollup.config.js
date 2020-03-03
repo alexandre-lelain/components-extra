@@ -14,7 +14,7 @@ const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
   'styled-components': 'styled',
-  'react-is': 'reactIs,'
+  'react-is': 'reactIs'
 }
 
 const plugins = [

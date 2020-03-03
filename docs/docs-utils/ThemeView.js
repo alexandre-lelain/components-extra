@@ -1,6 +1,6 @@
 import React from 'react'
 
-import createTheme from 'theme'
+import { createTheme } from 'theme'
 import { useTheme } from '@material-ui/core'
 
 export default ({ full = false }) => {

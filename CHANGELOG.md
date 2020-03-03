@@ -15,6 +15,7 @@
 ## Chores
 
 * Bump dependencies to latest versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* **Breaking-change**: `@material-ui/core` is now a peer-dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.3.4
 

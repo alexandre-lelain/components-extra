@@ -11,4 +11,4 @@ export { default as StyledProvider } from './components/StyledProvider'
 
 export { default as resetCSS } from './utils/resetCSS'
 
-export { default as theme } from './theme'
+export { createTheme } from './theme'
