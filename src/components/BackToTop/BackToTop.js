@@ -38,7 +38,7 @@ const BackToTop = ({ className, forwardedRef = null, ...rest }) => {
       ref={forwardedRef}
       {...rest}
     >
-      <ArrowUpward color="secondary" />
+      <ArrowUpward />
     </Button>
   )
 }

@@ -4,11 +4,13 @@ import PropTypes from 'prop-types'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ palette }) => ({
   label: {
     wordBreak: 'break-word',
+    color: palette.primary.contrastText,
+    borderColor: palette.primary.contrastText,
   },
-})
+}))
 
 const CookiesButton = ({ children, className, href = null, onClick = null, ...rest }) => {
   const classes = useStyles()
@@ -16,12 +18,11 @@ const CookiesButton = ({ children, className, href = null, onClick = null, ...re
   return (
     <Button
       className={`${className} ${classes.label}`}
-      color="secondary"
       href={href}
       onClick={onClick}
       role={href ? 'link' : 'button'}
       size="small"
-      variant="contained"
+      variant="outlined"
       {...rest}
     >
       {children}

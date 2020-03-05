@@ -4,11 +4,15 @@ import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button } from '@material-ui/core'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ palette }) => ({
   button: {
     textTransform: 'none',
+    color: palette.primary.contrastText,
   },
-})
+  icon: {
+    fill: palette.primary.contrastText,
+  },
+}))
 
 const Container = styled.li`
   display: flex;
@@ -22,10 +26,9 @@ const Item = ({ className, children, icon: Icon = null, href = null, onClick = n
     <Container className={className}>
       <Button
         className={classes.button}
-        color="secondary"
         href={href}
         onClick={onClick}
-        startIcon={Icon ? <Icon /> : undefined}
+        startIcon={Icon ? <Icon className={classes.icon} /> : undefined}
         {...rest}
       >
         {children}

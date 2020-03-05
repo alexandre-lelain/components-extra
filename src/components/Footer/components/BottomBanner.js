@@ -4,7 +4,7 @@ const BottomBanner = styled.div`
   text-align: center;
   padding: 16px 12px;
   ${({ theme: { palette } }) => `
-    color: ${palette.secondary.dark};
+    color: ${palette.primary.contrastText};
     background-color: ${palette.primary.dark};
  `}
 `

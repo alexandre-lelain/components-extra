@@ -1,5 +1,6 @@
 import React, { useRef, useLayoutEffect } from 'react'
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
+import { renderWithTheme } from 'test'
 import BackToTop, { START_HEIGHT } from '..'
 
 const START_HEIGHT_TEST = START_HEIGHT + 42
@@ -23,16 +24,16 @@ describe('BackToTop', () => {
     return <BackToTop ref={ref} />
   }
 
-  render(<TestBackToTop />)
+  renderWithTheme(<TestBackToTop />)
 
   test('it renders correctly', () => {
-    const { getByRole } = render(<BackToTop />)
+    const { getByRole } = renderWithTheme(<BackToTop />)
     const backToTop = getByRole('button')
     expect(backToTop).toBeInTheDocument()
   })
 
   test('it scrolls document to top when clicked', () => {
-    const { getByRole } = render(<BackToTop />)
+    const { getByRole } = renderWithTheme(<BackToTop />)
     const backToTop = getByRole('button')
     document.documentElement.scrollTop = START_HEIGHT_TEST
     fireEvent.click(backToTop)

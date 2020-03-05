@@ -8,20 +8,22 @@ import { useIsDesktop } from 'hooks'
 
 import { useMenuOnClose } from '../hooks'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(({ palette }) => ({
   root: {
     '&:hover': {
-      backgroundColor: theme.palette.primary.light,
+      backgroundColor: palette.primary.light,
     },
-    color: theme.palette.secondary.main,
+    color: palette.primary.contrastText,
   },
 }))
 
 const StyledButton = styled(Button).attrs(() => ({
-  color: 'secondary',
   underline: 'none',
 }))`
   text-transform: none;
+  ${({ theme }) => `
+    color: ${theme.palette.primary.contrastText};
+  `}
 `
 
 const MenuItem = ({

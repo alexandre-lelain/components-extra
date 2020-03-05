@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Button, Menu } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 
 import { useIsSmallScreen } from 'hooks'
 
@@ -10,6 +11,12 @@ import { OnCloseLanguageProvider } from '../hooks'
 import DownArrowIcon from './DownArrowIcon'
 import TranslateIcon from './TranslateIcon'
 
+const useStyles = makeStyles(({ palette }) => ({
+  button: {
+    color: palette.primary.contrastText,
+  },
+}))
+
 const Language = ({
   className,
   children,
@@ -17,6 +24,7 @@ const Language = ({
   selectedLanguage = '',
   ...rest
 }) => {
+  const classes = useStyles()
   const [langAnchor, setLangAnchor] = useState(null)
   const isVerySmallScreen = useIsSmallScreen()
   const currentLanguage =
@@ -31,8 +39,7 @@ const Language = ({
   return (
     <OnCloseLanguageProvider onClose={onCloseMenu}>
       <Button
-        className={className}
-        color="secondary"
+        className={`${className} ${classes.button}`}
         endIcon={<DownArrowIcon />}
         startIcon={<TranslateIcon />}
         onClick={onOpenMenu}

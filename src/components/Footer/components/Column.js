@@ -9,7 +9,8 @@ const Title = styled(Typography)`
   margin-bottom: 12px;
   font-weight: bold;
   ${({ theme }) => `
-    color: ${theme.palette.secondary.dark};
+    color: ${theme.palette.primary.contrastText};
+    filter: brightness(75%);
   `}
 `
 

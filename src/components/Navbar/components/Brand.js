@@ -5,11 +5,12 @@ import { Link, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { isEmpty } from 'utils'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ palette }) => ({
   title: {
     lineHeight: 'normal',
+    color: palette.primary.contrastText,
   },
-})
+}))
 
 const IconContainer = styled.div`
   width: 24px;

@@ -9,7 +9,7 @@ const StyledParagraph = styled(Typography)`
   max-width: ${MAX_WIDTH};
 `
 
-const Paragraph = ({ className, forwardedRef = null, variant = 'body2', ...rest }) => (
+const Paragraph = ({ className, forwardedRef = null, variant = 'body1', ...rest }) => (
   <StyledParagraph
     className={className}
     ref={forwardedRef}

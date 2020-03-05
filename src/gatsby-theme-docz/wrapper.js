@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet-async'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -14,10 +13,6 @@ import { isServerSide } from 'utils'
 if (!isServerSide() && !('scrollBehavior' in document.documentElement.style)) {
   import('scroll-behavior-polyfill')
 }
-
-const StyledBackToTop = styled(BackToTop)`
-  z-index: 12;
-`
 
 const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, a, p, input {
@@ -107,7 +102,7 @@ export default ({ children }) => {
       <StyledProvider dark={colorMode === 'dark'}>
         <>
           {children}
-          <StyledBackToTop title="Fun fact - this is the BackToTop component ;)" />
+          <BackToTop title="Fun fact - this is the BackToTop component ;)" />
         </>
       </StyledProvider>
     </>

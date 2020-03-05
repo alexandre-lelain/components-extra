@@ -1,6 +1,7 @@
 const createTheme = (dark = false) => ({
-  elevations: {
-    cookiesBanner: 10,
+  zIndex: {
+    cookiesBanner: 1400,
+    backToTop: 1300,
   },
   palette: {
     type: dark ? 'dark' : 'light',

@@ -1,3 +1,13 @@
+# 2.5.0
+
+## Features
+
+* All components now have a more consistant and coherent usage of the theme. The
+backgrounds now relies on the `primary` main color, and the buttons, text & icons on them
+now have a `contrastColor` to adapt to any theme value provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `Paragraph`'s default variant changed to `body1`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* components' elevations now follow those of Material-ui. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.4.2
 
 ## Docs

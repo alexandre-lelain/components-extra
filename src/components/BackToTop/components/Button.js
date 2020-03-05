@@ -13,8 +13,9 @@ const Button = styled(forwardRef(({ isDisplayed, ...rest }, ref) => <Fab {...res
   position: fixed;
   bottom: 25px;
   right: 25px;
-  ${({ isDisplayed }) => `
+  ${({ isDisplayed, theme }) => `
     display: ${isDisplayed ? 'flex' : 'none'};
+    z-index: ${theme.zIndex.backToTop};
   `}
 `
 

@@ -14,7 +14,7 @@ export default styled.div`
   ${({ theme }) => `
     color: ${theme.palette.secondary.main};
     background-color: ${theme.palette.primary.main};
-    z-index: ${theme.elevations.cookiesBanner};
+    z-index: ${theme.zIndex.cookiesBanner};
 
     ${CookiesButton}:last-of-type {
       margin-left: 16px;
