@@ -37,7 +37,7 @@ const Box = styled.div`
   background-color: ${({ color }) => color};
 `
 
-const isColor = str => /#[a-z,0-9]{3,6}/gi.test(str)
+const isColor = str => /#[a-z,0-9]{6}/gi.test(str)
 
 const Form = ({ onChange, onClose, ...rest }) => {
   const { palette } = useTheme()
