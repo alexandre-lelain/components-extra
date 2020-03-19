@@ -24,6 +24,9 @@ const IconContainer = styled.div`
     width: 24px;
     height: 24px;
   }
+  ${({ theme }) => `
+    fill: ${theme.palette.primary.contrastText};
+  `}
 `
 
 const BrandLink = styled(Link).attrs(() => ({

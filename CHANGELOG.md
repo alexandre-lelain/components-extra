@@ -1,3 +1,9 @@
+# 2.6.1
+
+## Fixes
+
+* Add `contrastText` default color to `Navbar`'s brand container. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.6.0
 
 ## Features
