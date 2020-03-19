@@ -1,8 +1,17 @@
-# 2.5.1
+# 2.6.0
 
 ## Features
 
 * `BackToTop` button is now animated. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* **Display-breaking**: the default theme colors was changed to be closer to MUI's one. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Chores
+
+* Remove useless bits of code in most of the components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Docs
+
+* Added a live `ThemePicker` to enable users to test their colors live. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.5.0
 

@@ -8,7 +8,7 @@ export default Object.assign(baseTheme, {
 
 export const customTheme = {
   colors: {
-    primary: '#404040',
+    primary: '#1976d2',
     secondary: '#f2f2f2',
   },
 }

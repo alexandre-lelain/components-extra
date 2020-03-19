@@ -4,6 +4,10 @@ import { Link, Typography } from '@material-ui/core'
 
 import Footer from 'components/Footer'
 
+const StyledLink = styled(Link)`
+  color: #a6a6a6;
+`
+
 const Icon = styled.svg.attrs(() => ({
   'aria-hidden': 'true',
   focusable: false,
@@ -34,10 +38,7 @@ export const Email = props => (
 
 export const YourOwnBanner = () => (
   <Typography>
-    © Copyrights{' '}
-    <Link color="secondary" href="/">
-      Awesome website
-    </Link>
+    © Copyrights <StyledLink href="/">Awesome website</StyledLink>
   </Typography>
 )
 

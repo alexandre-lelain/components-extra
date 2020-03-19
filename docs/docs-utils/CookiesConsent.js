@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     minWidth: 650,
   },
   head: {
-    backgroundColor: '#404040',
+    backgroundColor: '#1976d2',
   },
   headCell: {
     color: 'white',

@@ -4,6 +4,8 @@ import { Button, Popover, TextField, Typography } from '@material-ui/core'
 import { useTheme } from '@material-ui/core'
 import PropTypes from 'prop-types'
 
+const DELAY_BEFORE_RESET = 2000
+
 const StyledInput = styled(TextField)``
 
 const FieldContainer = styled.div`
@@ -35,7 +37,7 @@ const Box = styled.div`
   background-color: ${({ color }) => color};
 `
 
-const isColor = str => /#[a-z,0-9]{6}/gi.test(str)
+const isColor = str => /#[a-z,0-9]{3,6}/gi.test(str)
 
 const Form = ({ onChange, onClose, ...rest }) => {
   const { palette } = useTheme()
@@ -43,8 +45,13 @@ const Form = ({ onChange, onClose, ...rest }) => {
   const initSecondary = palette.secondary.main
   const [primary, setPrimary] = useState(initPrimary)
   const [secondary, setSecondary] = useState(initSecondary)
+  const [saveLabel, setSaveLabel] = useState('Apply')
 
   const onApplyTheme = () => {
+    setSaveLabel(() => {
+      setTimeout(() => setSaveLabel('Apply'), DELAY_BEFORE_RESET)
+      return 'Applied!'
+    })
     if (!isColor(primary)) {
       setPrimary(initPrimary)
     }
@@ -100,7 +107,7 @@ const Form = ({ onChange, onClose, ...rest }) => {
         </FieldContainer>
         <FieldContainer>
           <StyledButton variant="contained" color="primary" onClick={onApplyTheme}>
-            Apply
+            {saveLabel}
           </StyledButton>
           <StyledButton variant="outlined" onClick={onClose}>
             Close
