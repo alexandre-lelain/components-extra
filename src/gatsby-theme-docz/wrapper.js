@@ -1,5 +1,5 @@
-import React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import React, { useState } from 'react'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet-async'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useColorMode } from 'theme-ui'
@@ -7,12 +7,21 @@ import { useColorMode } from 'theme-ui'
 import BackToTop from 'components/BackToTop'
 import StyledProvider from 'components/StyledProvider'
 
+import ThemePicker from './components/ThemePicker'
+
 import { isServerSide } from 'utils'
 
 // Polyfill for Microsoft browsers, because we let nobody down.
 if (!isServerSide() && !('scrollBehavior' in document.documentElement.style)) {
   import('scroll-behavior-polyfill')
 }
+
+const THEME_KEY = 'theme'
+
+const StyledBackToTop = styled(BackToTop)`
+  right: 96px;
+  bottom: 24px;
+`
 
 const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, a, p, input {
@@ -64,9 +73,15 @@ export default ({ children }) => {
   )
 
   const { author, description, image, keywords, title, url, google } = site.siteMetadata
+  const initialTheme = !isServerSide() ? JSON.parse(sessionStorage.getItem(THEME_KEY)) : undefined
 
   const [colorMode] = useColorMode()
+  const [theme, onChangeTheme] = useState(initialTheme)
 
+  const onSaveTheme = theme => {
+    !isServerSide() && sessionStorage.setItem(THEME_KEY, JSON.stringify(theme))
+    onChangeTheme(theme)
+  }
   return (
     <>
       <Helmet>
@@ -99,10 +114,11 @@ export default ({ children }) => {
         <link rel="icon" type="image/webp" href="/public/favicon.ico" />
       </Helmet>
       <GlobalStyle />
-      <StyledProvider dark={colorMode === 'dark'}>
+      <StyledProvider dark={colorMode === 'dark'} theme={theme}>
         <>
           {children}
-          <BackToTop title="Fun fact - this is the BackToTop component ;)" />
+          <StyledBackToTop title="Fun fact - this is the BackToTop component ;)" />
+          <ThemePicker onChange={onSaveTheme} />
         </>
       </StyledProvider>
     </>

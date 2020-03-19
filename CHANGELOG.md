@@ -1,3 +1,9 @@
+# 2.5.1
+
+## Features
+
+* `BackToTop` button is now animated. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.5.0
 
 ## Features

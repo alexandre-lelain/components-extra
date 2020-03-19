@@ -12,7 +12,6 @@ export default styled.div`
   padding: 24px;
   opacity: 0.95;
   ${({ theme }) => `
-    color: ${theme.palette.secondary.main};
     background-color: ${theme.palette.primary.main};
     z-index: ${theme.zIndex.cookiesBanner};
 

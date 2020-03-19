@@ -25,10 +25,9 @@ export const StyledLiveError = styled(LiveError)`
   ${commonStyle};
 `
 
-export const StyledButton = styled(Button).attrs(({ theme }) => ({
+export const StyledButton = styled(Button).attrs(() => ({
   variant: 'outlined',
   size: 'small',
-  color: theme.palette.type === 'dark' ? 'secondary' : 'primary',
 }))``
 
 export const ControlsContainer = styled('div')`

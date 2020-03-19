@@ -27,7 +27,6 @@ const IconContainer = styled.div`
 `
 
 const BrandLink = styled(Link).attrs(() => ({
-  color: 'secondary',
   underline: 'none',
 }))`
   display: flex;

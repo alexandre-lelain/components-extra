@@ -12,7 +12,6 @@ import MenuIcon from './MenuIcon'
 const useStyles = makeStyles(theme => ({
   menu: {
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.secondary.main,
   },
 }))
 
@@ -38,7 +37,6 @@ const Menu = ({ className, children, label = '', ...rest }) => {
       <IconButton
         aria-label={label}
         className={className}
-        color="secondary"
         onClick={onMenuOpen}
         title={label}
         {...rest}

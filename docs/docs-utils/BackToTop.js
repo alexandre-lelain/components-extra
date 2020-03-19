@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import RealBackToTop from 'components/BackToTop'
 
 export const BackToTop = styled(RealBackToTop)`
+  visibility: visible !important;
+  transform: scale(1) !important;
   position: relative;
   margin: auto;
   display: flex;

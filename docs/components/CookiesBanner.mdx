@@ -95,7 +95,7 @@ import CookiesBanner from 'components/CookiesBanner'
 ### Default
 
 <Playground>
-  <CookiesBanner.Button>
+  <CookiesBanner.Button variant="contained" color="primary">
     I agree
   </CookiesBanner.Button>
 </Playground>
@@ -105,9 +105,10 @@ import CookiesBanner from 'components/CookiesBanner'
 <Playground>
  <CookiesBanner.Button
     color="primary"
+    endIcon={<p>:)</p>}
     onClick={() => console.log('onClick')}
     size="large"
-    endIcon={<p>:)</p>}
+    variant="contained"
   >
     This might be too big
   </CookiesBanner.Button>

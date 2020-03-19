@@ -5,12 +5,12 @@ const createTheme = (dark = false) => ({
   },
   palette: {
     type: dark ? 'dark' : 'light',
-    links: dark ? '#19b9d2' : '#1976d2',
+    links: dark ? '#19b9d2' : '#0066cc',
     primary: {
-      main: '#404040',
+      main: '#1976d2',
     },
     secondary: {
-      main: '#f2f2f2',
+      main: '#b34700',
     },
   },
 })
