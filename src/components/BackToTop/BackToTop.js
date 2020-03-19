@@ -47,6 +47,7 @@ const BackToTop = ({ className, forwardedRef = null, ...rest }) => {
       <Button
         aria-label="Back to top"
         className={className}
+        data-testid="back-to-top-button"
         color="primary"
         onClick={scrollToTop}
         ref={forwardedRef}

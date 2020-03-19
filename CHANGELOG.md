@@ -8,6 +8,7 @@
 ## Chores
 
 * Remove useless bits of code in most of the components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* bump dependencies to latest version. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 
