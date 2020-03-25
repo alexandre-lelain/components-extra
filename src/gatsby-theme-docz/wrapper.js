@@ -11,11 +11,6 @@ import ThemePicker from './components/ThemePicker'
 
 import { isServerSide } from 'utils'
 
-// Polyfill for Microsoft browsers, because we let nobody down.
-if (!isServerSide() && !('scrollBehavior' in document.documentElement.style)) {
-  import('scroll-behavior-polyfill')
-}
-
 const THEME_KEY = 'theme'
 
 const StyledBackToTop = styled(BackToTop)`
