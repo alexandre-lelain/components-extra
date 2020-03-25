@@ -15,6 +15,10 @@ const FieldContainer = styled.div`
   align-items: center;
 `
 
+const Title = styled(Typography)`
+  margin-bottom: 18px;
+`
+
 const StyledButton = styled(Button)`
   margin-top: 24px;
 `
@@ -85,8 +89,7 @@ const Form = ({ onChange, onClose, ...rest }) => {
       }}
     >
       <StyledForm>
-        <Typography>Change the main theme's colors</Typography>
-        <hr />
+        <Title>Change the main theme's colors</Title>
         <FieldContainer>
           <StyledInput
             id="primary-color"
