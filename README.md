@@ -54,7 +54,7 @@ By the way: no more bloated components library. **components-extra** is [really 
 ## Requirements
 
 In order for the lib to be the smallest possible, the three following dependencies are externals to the lib.
-So you will need to have those three installed on your app:
+So you will need to have those four installed on your app:
 
 - **[react >= 16.8.0](https://www.npmjs.com/package/react)**
 - **[react-dom >= 16.8.0](https://www.npmjs.com/package/react-dom)**
