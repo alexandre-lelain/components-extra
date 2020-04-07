@@ -58,7 +58,7 @@ So you will need to have those four installed on your app:
 
 - **[react >= 16.8.0](https://www.npmjs.com/package/react)**
 - **[react-dom >= 16.8.0](https://www.npmjs.com/package/react-dom)**
-- **[styled-components](https://www.npmjs.com/package/styled-components)**
+- **[styled-components >= 5.0.0](https://www.npmjs.com/package/styled-components)**
 - **[@material-ui/core >= 4.0.0](https://www.npmjs.com/package/@material-ui/core)**
 
 ## Installation
