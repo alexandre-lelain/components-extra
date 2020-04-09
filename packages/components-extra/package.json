@@ -2,32 +2,33 @@
   "name": "components-extra",
   "version": "2.6.1",
   "description": "React UI molecule components based on styled-components & material-ui.",
+  "homepage": "https://components-extra.netlify.com/",
+  "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
+  "license": "MIT",
+  "module": "./build/esm/index.js",
+  "main": "./build/index.js",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/alexandre-lelain/components-extra.git"
   },
-  "homepage": "https://components-extra.netlify.com/",
-  "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
-  "license": "MIT",
   "keywords": [
     "react",
     "react-components",
     "material design",
     "molecule components"
   ],
-  "module": "./build/esm/index.js",
-  "main": "./build/index.js",
-  "sideEffects": false,
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "start": "cross-env BABEL_ENV=dev docz dev -p 4242",
-    "serve": "cross-env BABEL_ENV=dev docz serve docs-build",
-    "build": "lerna run build --scope components-extra --stream",
-    "build:docs": "lerna run build --scope docs --stream",
-    "validate": "yarn lint && yarn test && yarn build",
-    "test": "lerna run test --stream",
-    "lint": "eslint --cache packages/**/*.js",
-    "prettier": "prettier --write packages/**/*.js"
+    "build": "rimraf build && yarn build:cjs && yarn build:esm && yarn build:es && yarn build:umd && yarn build:after",
+    "build:umd": "cross-env NODE_ENV=production BABEL_ENV=production-umd rollup -c",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./build",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel --config-file ./babel.config.js ./src --out-dir ./build/esm",
+    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --config-file ./babel.config.js ./src --out-dir ./build/es",
+    "build:after": "node ./scripts/afterBuild.js",
+    "test": "cross-env BABEL_ENV=dev jest",
+    "postversion": "git push && git push --tags",
+    "version": "git add -vA src",
+    "release": "yarn build && yarn publish build --tag latest"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
@@ -54,26 +55,11 @@
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "cross-env": "^7.0.2",
-    "docz": "^2.3.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
     "fs-extra": "^9.0.0",
-    "gatsby-plugin-alias-imports": "^1.0.5",
-    "gatsby-plugin-manifest": "^2.3.3",
-    "gatsby-plugin-material-ui": "^2.1.6",
-    "gatsby-plugin-offline": "^3.1.2",
-    "gatsby-plugin-styled-components": "^3.2.1",
-    "gatsby-theme-docz": "^2.3.0",
-    "husky": "^4.2.3",
     "jest": "^25.2.6",
-    "lerna": "^3.20.2",
-    "prettier": "^2.0.2",
-    "pretty-quick": "^2.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
-    "react-json-view": "^1.19.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.3.2",
     "rollup-plugin-babel": "^4.4.0",
@@ -90,10 +76,5 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "styled-components": "^5.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged --pattern \"{src,docs}/**/*.js\""
-    }
   }
 }
