@@ -19,6 +19,7 @@
     "molecule components"
   ],
   "scripts": {
+    "build:tsc": "rimraf build-tsc && tsc -m es6 --outDir build-tsc/esm",
     "build": "rimraf build && yarn build:cjs && yarn build:esm && yarn build:es && yarn build:umd && yarn build:after",
     "build:umd": "cross-env NODE_ENV=production BABEL_ENV=production-umd rollup -c",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./build",
@@ -39,18 +40,17 @@
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-object-assign": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
-    "@material-ui/core": "^4.9.8",
+    "@material-ui/core": "^4.9.9",
     "@rollup/plugin-alias": "^3.0.1",
     "@rollup/plugin-replace": "^2.3.1",
-    "@testing-library/jest-dom": "^5.3.0",
+    "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^25.2.6",
+    "babel-jest": "^25.3.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
-    "babel-plugin-react-remove-properties": "^0.3.0",
     "babel-plugin-transform-imports": "^2.0.0",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
@@ -69,7 +69,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-size-snapshot": "^0.11.0",
     "rollup-plugin-terser": "^5.3.0",
-    "styled-components": "^5.0.1"
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "@material-ui/core": "^4.9.7",

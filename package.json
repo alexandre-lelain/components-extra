@@ -1,27 +1,10 @@
 {
-  "name": "components-extra",
   "version": "2.6.1",
-  "description": "React UI molecule components based on styled-components & material-ui.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alexandre-lelain/components-extra.git"
-  },
-  "homepage": "https://components-extra.netlify.com/",
-  "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
-  "license": "MIT",
-  "keywords": [
-    "react",
-    "react-components",
-    "material design",
-    "molecule components"
-  ],
-  "module": "./build/esm/index.js",
-  "main": "./build/index.js",
-  "sideEffects": false,
+  "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "start": "cross-env BABEL_ENV=dev docz dev -p 4242",
-    "serve": "cross-env BABEL_ENV=dev docz serve docs-build",
+    "start": "lerna run start --stream",
+    "serve": "lerna run serve --stream",
     "build": "lerna run build --scope components-extra --stream",
     "build:docs": "lerna run build --scope docs --stream",
     "validate": "yarn lint && yarn test && yarn build",
@@ -87,13 +70,16 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^4.9.7",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "styled-components": "^5.0.1"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged --pattern \"{src,docs}/**/*.js\""
     }
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ] 
 }

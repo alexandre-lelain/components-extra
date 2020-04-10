@@ -11,14 +11,14 @@ if (process.env.BABEL_ENV === 'dev') {
 // Configuration for build mode.
 else {
   let defaultPresets = []
-  if (process.env.BABEL_ENV === 'es') {
+  if (['esm', 'es'].includes(process.env.BABEL_ENV)) {
     defaultPresets = []
   } else {
     defaultPresets = [
       [
         '@babel/preset-env',
         {
-          modules: ['esm', 'production-umd'].includes(process.env.BABEL_ENV) ? false : 'commonjs',
+          modules: process.env.BABEL_ENV === 'production-umd' ? false : 'commonjs',
         },
       ],
     ]
@@ -26,7 +26,6 @@ else {
 
   const productionPlugins = [
     'babel-plugin-transform-react-constant-elements',
-    'babel-plugin-react-remove-properties',
     ['babel-plugin-transform-react-remove-prop-types', { mode: 'unsafe-wrap' }],
     [
       'babel-plugin-transform-imports',
@@ -67,7 +66,6 @@ else {
       /@babel[\\|/]runtime/, // Fix a Windows issue.
       'src/utils-test/**',
       'src/**/*.test.js',
-      'src/gatsby-theme-docz/**',
     ],
     env: {
       cjs: { plugins: productionPlugins },

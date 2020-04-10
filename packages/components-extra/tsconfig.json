@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "strict": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noImplicitAny": false, // has to disable it because of 3rd parties
+    "jsx": "react",
+  },
+  "include": ["src-ts"],
+  "exclude": ["node_modules", "**/tests/*", "../../node_modules"]
+}

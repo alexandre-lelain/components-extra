@@ -1,8 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `components-extra`,
+    description: `React UI molecule components based on styled-components & material-ui.`,
+    author: `Alexandre Le Lain <lelain.alexandre@gmail.com>`,
+    url: "https://components-extra.netlify.com/",
+    keywords: ["components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer"],
+    image: "https://components-extra.netlify.com/public/logo.png",
+    google: process.env.GOOGLE || '',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -15,20 +19,20 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-material-ui`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        name: `components-extra`,
+        short_name: `components-extra`,
+        start_url: `/`,
+        background_color: `#404040`,
+        theme_color: `#404040`,
+        icon: `./src/images/logo.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }

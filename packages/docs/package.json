@@ -5,7 +5,8 @@
   "description": "The documentation of components-extra.",
   "homepage": "https://components-extra.netlify.com/",
   "license": "MIT",
-  "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>","repository": {
+  "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
+  "repository": {
     "type": "git",
     "url": "https://github.com/alexandre-lelain/components-extra.git"
   },
@@ -16,22 +17,24 @@
   "scripts": {
     "build": "yarn clean && gatsby build",
     "develop": "gatsby develop",
-    "start": "npm run develop",
+    "start": "yarn develop -p 4242",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^2.20.12",
-    "gatsby-image": "^2.3.1",
+    "@material-ui/core": "^4.9.9",
+    "components-extra": "^2.6.1",
+    "gatsby": "^2.20.16",
+    "gatsby-image": "^2.3.2",
     "gatsby-plugin-manifest": "^2.3.3",
+    "gatsby-plugin-material-ui": "^2.1.6",
     "gatsby-plugin-offline": "^3.1.2",
     "gatsby-plugin-react-helmet": "^3.2.1",
-    "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-plugin-sharp": "^2.5.4",
+    "gatsby-plugin-styled-components": "^3.2.1",
     "gatsby-source-filesystem": "^2.2.2",
-    "gatsby-transformer-sharp": "^2.4.3",
+    "gatsby-transformer-sharp": "^2.4.4",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^6.0.0"
   }
 }

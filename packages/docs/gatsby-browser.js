@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+const checkHash = location => {
+  let { hash } = location
+  if (hash) {
+    var element = document.querySelector(hash)
+    element.scrollIntoView()
+  }
+}
 
-// You can delete this file if you're not using it
+exports.onRouteUpdate = ({ location }) => {
+  checkHash(location)
+}
