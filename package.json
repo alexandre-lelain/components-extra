@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "start": "lerna run start --stream",
+    "start": "lerna run start --stream --parallel",
     "serve": "lerna run serve --stream",
     "build": "lerna run build --scope components-extra --stream",
     "build:docs": "lerna run build --scope docs --stream",

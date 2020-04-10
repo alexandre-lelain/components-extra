@@ -4,6 +4,7 @@ var MyCompo = function (_a) {
     return React.createElement("h1", null,
         title,
         ": ",
-        name);
+        name,
+        ". That's components-extra true!");
 };
 export default MyCompo;

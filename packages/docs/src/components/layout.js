@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 //import { StyledProvider, BackToTop } from 'components-extra'
-import MyCompo from 'components-extra/build-tsc/esm/MyCompo'
+import { MyCompo } from 'components-extra/build-tsc/esm'
 
 import Header from './header'
 
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  return <MyCompo title="components-extra" name="is extra"/>
+  return <MyCompo title="components-extra" name="is really extra"/>
   /*return (
     <StyledProvider>
       <Header siteTitle={data.site.siteMetadata.title} />

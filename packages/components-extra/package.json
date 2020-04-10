@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "build:tsc": "rimraf build-tsc && tsc -m es6 --outDir build-tsc/esm",
+    "start": "yarn build:tsc --watch",
     "build": "rimraf build && yarn build:cjs && yarn build:esm && yarn build:es && yarn build:umd && yarn build:after",
     "build:umd": "cross-env NODE_ENV=production BABEL_ENV=production-umd rollup -c",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./build",
