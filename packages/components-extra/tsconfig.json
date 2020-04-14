@@ -7,6 +7,11 @@
     "jsx": "react",
     "moduleResolution": "node",
     "strict": true,
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "utils": ["src/utils"],
+    },
     "types": [
       "react",
       "react-dom",
@@ -15,8 +20,7 @@
       "jest",
       "testing-library__react",
       "testing-library__jest-dom",
-    ],
-    "target": "es6"
+    ]
   },
   "include": ["src"],
   "exclude": [

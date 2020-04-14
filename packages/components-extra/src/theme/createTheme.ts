@@ -1,4 +1,7 @@
-const createTheme = (dark = false) => ({
+import { createMuiTheme, ThemeOptions } from '@material-ui/core/styles'
+import { Theme } from '@material-ui/core/styles/createMuiTheme'
+
+const createTheme = (dark = false, options: ThemeOptions): Theme => createMuiTheme({
   zIndex: {
     cookiesBanner: 1400,
     backToTop: 1300,
@@ -13,6 +16,7 @@ const createTheme = (dark = false) => ({
       main: '#b34700',
     },
   },
+  ...options,
 })
 
 export default createTheme
