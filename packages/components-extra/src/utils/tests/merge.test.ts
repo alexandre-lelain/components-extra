@@ -1,4 +1,4 @@
-import merge, { isObject } from '../merge'
+import merge from '../merge'
 
 const OBJ_A = {
   a: {
@@ -36,17 +36,5 @@ describe('merge() unit testing', () => {
 
   test('merge(target, source) should merge recrusively two objects', () => {
     expect(merge(OBJ_A, OBJ_B)).toStrictEqual(OBJ_A_B)
-  })
-
-  test('isObject(42) should return false', () => {
-    expect(isObject(42)).toBeFalsy()
-  })
-
-  test('isObject({}) should return true', () => {
-    expect(isObject({})).toBeTruthy()
-  })
-
-  test('isObject(OBJ_A) should return true', () => {
-    expect(isObject(OBJ_A)).toBeTruthy()
   })
 })
