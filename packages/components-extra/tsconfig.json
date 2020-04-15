@@ -10,7 +10,7 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {
-      "utils": ["src/utils"],
+      "utils-test": ["src/utils-test"],
     },
     "types": [
       "react",

@@ -1,7 +1,7 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, RenderResult } from '@testing-library/react'
 
-import StyledProvider from 'components/StyledProvider'
+import { StyledProvider } from '../components'
 
-export default (component, { ...rest }): React.ReactElement =>
+export default (component: React.ReactNode, rest?: object): RenderResult =>
   render(<StyledProvider>{component}</StyledProvider>, { ...rest })

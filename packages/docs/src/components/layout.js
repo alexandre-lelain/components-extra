@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-//import { StyledProvider, BackToTop } from 'components-extra'
-import { MyCompo } from 'components-extra/build-tsc/esm'
+import { StyledProvider, Paragraph } from 'components-extra'
 
 import Header from './header'
 
@@ -16,10 +15,14 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  return <MyCompo title="components-extra" name="is really extra"/>
-  /*return (
+
+  return (
     <StyledProvider>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <Paragraph>
+        AAAAAAAAA AAAAAAAAA AAAAAAAAA AAAAAAA
+        AAAAAAA AAAAAA AAAAAAAAAA AAAAAAAAAAAA
+      </Paragraph>
       <div
         style={{
           margin: `0 auto`,
@@ -35,9 +38,8 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-      <BackToTop />
     </StyledProvider>
-  )*/
+  )
 }
 
 Layout.propTypes = {
