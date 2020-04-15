@@ -19,6 +19,11 @@ const createTheme = (dark = false, options?: ThemeOptions): Theme => {
         main: '#b34700',
       },
     },
+    mixins: {
+      backToTop: {
+        startHeight: 20,
+      },
+    },
     typography: {
       paragraph: {
         maxWidth: 650,

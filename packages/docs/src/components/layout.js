@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { StyledProvider, Paragraph } from 'components-extra'
+import { StyledProvider, Paragraph, BackToTop } from 'components-extra'
 
 import Header from './header'
 
@@ -38,6 +38,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
+      <BackToTop />
     </StyledProvider>
   )
 }

@@ -1,6 +1,7 @@
 export { default as isBoolean } from './isBoolean'
 export { default as isEmpty } from './isEmpty'
-export { default as isString } from './isString'
 export { default as isServerSide } from './isServerSide'
+export { default as isString } from './isString'
 export { default as merge } from './merge'
 export { default as resetCSS } from './resetCSS'
+export { default as serverDocument } from './serverDocument'
