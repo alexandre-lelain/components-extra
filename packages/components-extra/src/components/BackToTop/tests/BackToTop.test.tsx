@@ -14,7 +14,7 @@ describe('<BackToTop>', () => {
 
   test('it forwards the given ref correctly', () => {
     const ref = React.createRef<HTMLButtonElement>()
-    renderWithTheme(<BackToTop ref={ref}/>)
+    renderWithTheme(<BackToTop ref={ref} />)
     expect(ref.current instanceof HTMLButtonElement).toBeTruthy()
   })
 

@@ -9,8 +9,8 @@ const BigProvider = ({ children, value }: BigProviderProps): React.ReactElement 
 )
 
 interface BigProviderProps {
-  children: React.ReactNode;
-  value: BIG;
+  children: React.ReactNode
+  value: BIG
 }
 
 const useBig = (): BIG => useContext(BigContext)

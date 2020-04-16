@@ -1,16 +1,16 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import * as createMixins from '@material-ui/core/styles/createMixins';
+import * as createMixins from '@material-ui/core/styles/createMixins'
 
 declare module '@material-ui/core/styles/createMixins' {
   interface BackToTopMixin {
-    startHeight: number;
+    startHeight: number
   }
 
   interface Mixins {
-    backToTop: BackToTopMixin;
+    backToTop: BackToTopMixin
   }
 
   interface MixinsOptions {
-    backToTop?: BackToTopMixin;
+    backToTop?: BackToTopMixin
   }
 }

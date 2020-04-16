@@ -24,7 +24,7 @@ const CardButton = ({ className, ...rest }: ButtonProps): React.ReactElement => 
   )
 }
 
-CardButton.displayName = "CardButton"
+CardButton.displayName = 'CardButton'
 
 export { CardButton as BaseCardButton }
 export default styled(CardButton)``

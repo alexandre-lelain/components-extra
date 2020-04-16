@@ -6,5 +6,5 @@ export default {
   documentElement: {
     scrollTop: (): void => {},
     scrollIntoView: (): void => {},
-  }
+  },
 }

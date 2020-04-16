@@ -15,7 +15,7 @@ import {
 
 import { BigProvider } from './hooks/Context'
 import CardButton from './components/CardButton'
-import { CardProps } from './Card.d'
+import { CardProps } from './types'
 
 const useStyles = makeStyles({
   media: {
@@ -27,53 +27,52 @@ const useStyles = makeStyles({
   },
 })
 
-const Card = forwardRef(({
-  big = false,
-  children,
-  className,
-  description,
-  image = {},
-  onClick,
-  title,
-  ...rest
-}: CardProps, ref: React.Ref<HTMLElement>) => {
+const Card = forwardRef(
+  (
+    {
+      big = false,
+      children,
+      className,
+      description,
+      image = {},
+      onClick,
+      title,
+      ...rest
+    }: CardProps,
+    ref: React.Ref<HTMLElement>,
+  ) => {
+    const classes = useStyles()
 
-  const classes = useStyles()
+    const CardContentWrapper = onClick
+      ? (): React.ReactElement => <CardActionArea onClick={onClick} />
+      : React.Fragment
 
-  const CardContentWrapper = onClick
-    ? (): React.ReactElement => <CardActionArea onClick={onClick} />
-    : React.Fragment
-
-  return (
-    <BigProvider value={big}>
-      <MaterialCard className={className} ref={ref} {...rest}>
-        <CardContentWrapper>
-          {!isEmpty(image) && (
-            <CardMedia
-              className={classes.media}
-              {...image}
-            />
-          )}
-          <CardContent className={classes.content}>
-            <Typography gutterBottom variant={big ? 'h4' : 'h5'}>
-              {title}
-            </Typography>
-            {description && (
-              <Typography
-                component={isString(description) ? 'p' : 'div'}
-                variant={big ? 'body1' : 'body2'}
-                color="textSecondary"
-              >
-                {description}
+    return (
+      <BigProvider value={big}>
+        <MaterialCard className={className} ref={ref} {...rest}>
+          <CardContentWrapper>
+            {!isEmpty(image) && <CardMedia className={classes.media} {...image} />}
+            <CardContent className={classes.content}>
+              <Typography gutterBottom variant={big ? 'h4' : 'h5'}>
+                {title}
               </Typography>
-            )}
-          </CardContent>
-        </CardContentWrapper>
-        {children && <CardActions>{children}</CardActions>}
-      </MaterialCard>
-    </BigProvider>
-  )
-})
+              {description && (
+                <Typography
+                  component={isString(description) ? 'p' : 'div'}
+                  variant={big ? 'body1' : 'body2'}
+                  color="textSecondary"
+                >
+                  {description}
+                </Typography>
+              )}
+            </CardContent>
+          </CardContentWrapper>
+          {children && <CardActions>{children}</CardActions>}
+        </MaterialCard>
+      </BigProvider>
+    )
+  },
+)
 
 Card.propTypes = {
   /**

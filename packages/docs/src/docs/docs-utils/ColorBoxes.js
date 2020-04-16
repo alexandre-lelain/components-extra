@@ -22,11 +22,11 @@ const Box = styled.div`
   background-color: ${({ color }) => color};
 `
 
-const isColor = str => /#[a-z,0-9]{6}/gi.test(str)
+const isColor = (str) => /#[a-z,0-9]{6}/gi.test(str)
 
 const renderColorBoxes = (palette = {}) => {
   const boxes = []
-  Object.keys(palette).forEach(name => {
+  Object.keys(palette).forEach((name) => {
     const value = palette[name]
     const { main } = value
     const color = main || value

@@ -23,7 +23,8 @@
     "react/no-unescaped-entities": 0,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/ban-ts-ignore": 0
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/member-delimiter-style": 0
   },
   "settings": {
     "react": {

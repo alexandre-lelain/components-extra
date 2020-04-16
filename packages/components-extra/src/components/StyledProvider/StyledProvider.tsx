@@ -4,7 +4,11 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles'
 import { createTheme, Theme } from '../../theme'
 
-const StyledProvider = ({ children, dark = false, theme }: StyledProviderProps): React.ReactElement => {
+const StyledProvider = ({
+  children,
+  dark = false,
+  theme,
+}: StyledProviderProps): React.ReactElement => {
   const finalTheme = useMemo(() => createTheme(dark, theme), [dark, theme])
 
   return (
@@ -20,22 +24,23 @@ export interface StyledProviderProps {
   /**
    * Anything component that will use the theme.
    */
-  children: React.ReactNode;
+  children: React.ReactNode
   /**
    * Set to true to switch theme to dark mode. By default the theme is in light mode.
    */
-  dark?: boolean;
+  dark?: boolean
   /**
    * Your custom theme. It has to match Material-ui theming's syntax:
    * https://material-ui.com/customization/default-theme/
    */
-  theme?: Theme;
+  theme?: Theme
 }
 
-StyledProvider.propTypes = {/**
-  * Anything component that will use the theme.
-  */
- children: PropTypes.node,
+StyledProvider.propTypes = {
+  /**
+   * Anything component that will use the theme.
+   */
+  children: PropTypes.node,
   /**
    * Set to true to switch theme to dark mode. By default the theme is in light mode.
    */

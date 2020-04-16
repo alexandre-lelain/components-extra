@@ -20,8 +20,7 @@ const Layout = ({ children }) => {
     <StyledProvider>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Paragraph>
-        AAAAAAAAA AAAAAAAAA AAAAAAAAA AAAAAAA
-        AAAAAAA AAAAAA AAAAAAAAAA AAAAAAAAAAAA
+        AAAAAAAAA AAAAAAAAA AAAAAAAAA AAAAAAA AAAAAAA AAAAAA AAAAAAAAAA AAAAAAAAAAAA
       </Paragraph>
       <div
         style={{
