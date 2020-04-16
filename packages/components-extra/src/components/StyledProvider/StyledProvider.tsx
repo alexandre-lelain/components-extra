@@ -32,7 +32,10 @@ export interface StyledProviderProps {
   theme?: Theme;
 }
 
-StyledProvider.propTypes = {
+StyledProvider.propTypes = {/**
+  * Anything component that will use the theme.
+  */
+ children: PropTypes.node,
   /**
    * Set to true to switch theme to dark mode. By default the theme is in light mode.
    */

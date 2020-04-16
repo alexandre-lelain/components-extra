@@ -19,10 +19,10 @@
     "molecule components"
   ],
   "scripts": {
-    "start": "yarn build:tsc --watch",
+    "start": "yarn build:esm --watch",
     "build": "rimraf build-tsc && yarn build:cjs && yarn build:esm && yarn build:es && yarn build:amd && yarn build:after",
     "build:amd": "cross-env NODE_ENV=production tsc -m amd --outFile build-tsc/amd/components-extra.js --d false",
-    "build:umd": "cross-env NODE_ENV=production rollup -c",
+    "build:minify": "yarn terser -c build-tsc/amd/components-extra.js -o build-tsc/amd/components-extra.min.js",
     "build:cjs": "cross-env NODE_ENV=production tsc -m commonjs --outDir build-tsc",
     "build:esm": "cross-env NODE_ENV=production tsc -m es6 --outDir build-tsc/esm",
     "build:es": "cross-env NODE_ENV=production tsc -m esnext --outDir build-tsc/es",
@@ -73,6 +73,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-size-snapshot": "^0.11.0",
     "rollup-plugin-terser": "^5.3.0",
+    "terser": "^4.6.11",
     "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
   },

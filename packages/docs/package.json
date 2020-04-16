@@ -17,7 +17,7 @@
   "scripts": {
     "build": "yarn clean && gatsby build",
     "develop": "gatsby develop",
-    "start": "yarn develop -p 4242",
+    "start": "yarn clean && yarn develop -p 4242",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },

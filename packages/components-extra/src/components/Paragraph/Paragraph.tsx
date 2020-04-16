@@ -21,5 +21,5 @@ const Paragraph = forwardRef(({ color = "textPrimary", variant = 'body1', ...res
 
 Paragraph.displayName = 'Paragraph'
 
-export { Paragraph, TypographyProps }
+export { Paragraph as BaseParagraph }
 export default styled(Paragraph)``

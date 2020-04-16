@@ -22,7 +22,8 @@
     "react/display-name": 0,
     "react/no-unescaped-entities": 0,
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/ban-ts-ignore": 0
   },
   "settings": {
     "react": {
