@@ -77,7 +77,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged --pattern \"packages/**/*.(ts|tsx|js)\""
+      "pre-commit": "pretty-quick --staged --pattern \"packages/**/*.*(ts|tsx|js)\""
     }
   },
   "workspaces": [
