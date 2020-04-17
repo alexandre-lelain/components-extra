@@ -1,4 +1,6 @@
+import React from 'react'
 import { CardProps as MaterialCardProps, CardMediaProps } from '@material-ui/core'
+import CardButton from './components/CardButton'
 
 export type OnCardClick =
   | ((event: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>) => void)
@@ -31,4 +33,9 @@ export interface CardProps extends MaterialCardProps {
    * The Card's title.
    */
   title: string
+}
+
+export interface CardType
+  extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLElement>> {
+  Button?: typeof CardButton
 }

@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: `components-extra`,
@@ -15,6 +17,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `lib-components`,
+        path: path.resolve(__dirname, '../components-extra/src/components'),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
@@ -24,6 +33,12 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-transformer-react-docgen',
+      options: {
+        ignore: ['node_modules', 'tests'],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

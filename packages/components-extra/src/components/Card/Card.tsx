@@ -15,7 +15,7 @@ import {
 
 import { BigProvider } from './hooks/Context'
 import CardButton from './components/CardButton'
-import { CardProps } from './types'
+import { CardProps, CardType } from './types'
 
 const useStyles = makeStyles({
   media: {
@@ -72,7 +72,7 @@ const Card = forwardRef(
       </BigProvider>
     )
   },
-)
+) as CardType
 
 Card.propTypes = {
   /**
@@ -102,7 +102,6 @@ Card.propTypes = {
 /**
  * Exposed Components
  */
-// @ts-ignore
 Card.Button = CardButton
 Card.displayName = 'Card'
 

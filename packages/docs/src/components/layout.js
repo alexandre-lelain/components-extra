@@ -1,9 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { StyledProvider, Paragraph, BackToTop } from 'components-extra'
+import { StyledProvider, Paragraph, BackToTop, Card } from 'components-extra'
 
 import Header from './header'
+
+const StyledCard = styled(Card)`
+  width: 50%;
+  margin: 0 auto;
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -22,6 +28,9 @@ const Layout = ({ children }) => {
       <Paragraph>
         AAAAAAAAA AAAAAAAAA AAAAAAAAA AAAAAAA AAAAAAA AAAAAA AAAAAAAAAA AAAAAAAAAAAA
       </Paragraph>
+      <StyledCard title="My Card" description="This is a description">
+        <Card.Button>This is an button</Card.Button>
+      </StyledCard>
       <div
         style={{
           margin: `0 auto`,

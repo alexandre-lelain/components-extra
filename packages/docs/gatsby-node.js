@@ -1,7 +1,44 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path')
+const get = require('lodash/get')
 
-// You can delete this file if you're not using it
+const propsQuery = `
+  query {
+    allComponentMetadata {
+      edges {
+        node {
+          displayName
+          description {
+            text
+          }
+          props {
+            name
+            type {
+              name
+              raw
+              value
+            }
+            required
+            defaultValue {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+exports.createPages = ({ graphql, actions: { createPage } }) => {
+  return graphql(propsQuery).then((result) => {
+    const { errors, data } = result
+    if (errors) {
+      throw errors
+    }
+    const props = get(data, 'allComponentMetadata.edges', [])
+    createPage({
+      path: '/props',
+      component: path.resolve('./src/templates/component.js'),
+      context: { props },
+    })
+  })
+}
