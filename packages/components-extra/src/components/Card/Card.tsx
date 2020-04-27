@@ -103,7 +103,6 @@ Card.propTypes = {
  * Exposed Components
  */
 Card.Button = CardButton
-Card.displayName = 'Card'
 
 export { Card as BaseCard }
 export default styled(Card)``

@@ -17,7 +17,7 @@ const BUTTON = {
 
 describe('<Card>', () => {
   test('it forwards the given ref correctly', () => {
-    const ref = React.createRef()
+    const ref = React.createRef<HTMLDivElement>()
     renderWithTheme(<Card ref={ref} title={TITLE} />)
     expect(ref.current instanceof HTMLDivElement).toBeTruthy()
   })

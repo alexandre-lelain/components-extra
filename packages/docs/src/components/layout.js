@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { StyledProvider, Paragraph, BackToTop, Card } from 'components-extra'
+import { StyledProvider, Paragraph, BackToTop, Card, CookiesBanner } from 'components-extra'
 
 import Header from './header'
 
@@ -31,6 +31,9 @@ const Layout = ({ children }) => {
       <StyledCard title="My Card" description="This is a description">
         <Card.Button>This is an button</Card.Button>
       </StyledCard>
+      <CookiesBanner text="This is a cookies banner">
+        <CookiesBanner.Button>I agree</CookiesBanner.Button>
+      </CookiesBanner>
       <div
         style={{
           margin: `0 auto`,
