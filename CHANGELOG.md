@@ -1,3 +1,13 @@
+# 2.6.2
+
+## Docs
+
+* Complete the `bundling` guide in the docs. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Fixes
+
+* Fix `undefined` className in `BackToTop`'s icon. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.6.1
 
 ## Fixes

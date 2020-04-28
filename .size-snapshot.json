@@ -1,7 +1,7 @@
 {
   "build\\umd\\components-extra.min.js": {
-    "bundled": 116569,
-    "minified": 45080,
-    "gzipped": 12415
+    "bundled": 116425,
+    "minified": 45010,
+    "gzipped": 12423
   }
 }
