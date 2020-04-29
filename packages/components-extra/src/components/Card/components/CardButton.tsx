@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const CardButton = ({ className, ...rest }: ButtonProps): JSX.Element => {
+const CardButton: React.FunctionComponent<ButtonProps> = ({ className, ...rest }: ButtonProps) => {
   const classes = useStyles()
   const big = useBig()
 
@@ -26,5 +26,4 @@ const CardButton = ({ className, ...rest }: ButtonProps): JSX.Element => {
 
 CardButton.displayName = 'Card.Button'
 
-export { CardButton as BaseCardButton }
 export default styled(CardButton)``

@@ -11,7 +11,6 @@ export interface CookiesBannerProps {
   text?: string
 }
 
-export interface CookiesBannerType
-  extends React.ForwardRefExoticComponent<CookiesBannerProps & React.RefAttributes<HTMLElement>> {
+export interface CookiesBannerType extends React.FunctionComponent<CookiesBannerProps> {
   Button?: typeof CookiesButton
 }

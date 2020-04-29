@@ -35,7 +35,6 @@ export interface CardProps extends MaterialCardProps {
   title: string
 }
 
-export interface CardType
-  extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLElement>> {
+export interface CardType extends React.FunctionComponent<CardProps> {
   Button?: typeof CardButton
 }

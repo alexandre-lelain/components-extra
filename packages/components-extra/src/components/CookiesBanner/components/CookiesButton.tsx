@@ -11,7 +11,11 @@ const useStyles = makeStyles(({ palette }) => ({
   },
 }))
 
-const CookiesButton = ({ className, href, ...rest }: ButtonProps): React.ReactElement => {
+const CookiesButton: React.FunctionComponent<ButtonProps> = ({
+  className,
+  href,
+  ...rest
+}: ButtonProps) => {
   const classes = useStyles()
 
   return (
