@@ -1,3 +1,10 @@
+# 3.0.0
+
+## Breaking-Changes
+
+* `icon` prop of `<Footer.Item>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `bottomBanner` prop of `<Footer>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 2.6.1
 
 ## Fixes

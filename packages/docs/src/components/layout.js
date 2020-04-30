@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { StyledProvider, Paragraph, BackToTop, Card, CookiesBanner } from 'components-extra'
-
 import Header from './header'
 
 const StyledCard = styled(Card)`

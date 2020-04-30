@@ -11,11 +11,7 @@ const useStyles = makeStyles(({ palette }) => ({
   },
 }))
 
-const CookiesButton: React.FunctionComponent<ButtonProps> = ({
-  className,
-  href,
-  ...rest
-}: ButtonProps) => {
+const CookiesButton: CookiesButtonType = ({ className, href, ...rest }: ButtonProps) => {
   const classes = useStyles()
 
   return (
@@ -32,4 +28,5 @@ const CookiesButton: React.FunctionComponent<ButtonProps> = ({
 
 CookiesButton.displayName = 'CookiesBanner.Button'
 
+export type CookiesButtonType = React.FunctionComponent<ButtonProps>
 export default styled(CookiesButton)``

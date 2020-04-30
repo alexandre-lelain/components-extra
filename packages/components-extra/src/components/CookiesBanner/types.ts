@@ -1,4 +1,4 @@
-import CookiesButton from './components/CookiesButton'
+import { CookiesButtonType } from './components/CookiesButton'
 
 export interface CookiesBannerProps {
   /**
@@ -9,8 +9,15 @@ export interface CookiesBannerProps {
    * The CookiesBanner main text content.
    */
   text?: string
+  /**
+   * The ref to attach to the main div container.
+   */
+  ref?: React.Ref<HTMLDivElement>
 }
 
-export interface CookiesBannerType extends React.FunctionComponent<CookiesBannerProps> {
-  Button?: typeof CookiesButton
+export interface CookiesBannerComponents {
+  Button: CookiesButtonType
 }
+
+export type CookiesBannerType = React.ForwardRefExoticComponent<CookiesBannerProps> &
+  CookiesBannerComponents

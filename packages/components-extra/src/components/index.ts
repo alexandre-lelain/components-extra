@@ -1,5 +1,7 @@
 export { default as BackToTop } from './BackToTop'
 export { default as Card } from './Card'
 export { default as CookiesBanner } from './CookiesBanner'
+export { default as CreditCardNumber } from './CreditCardNumber'
+export { default as Footer } from './Footer'
 export { default as Paragraph } from './Paragraph'
 export { default as StyledProvider } from './StyledProvider'
