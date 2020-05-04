@@ -11,7 +11,7 @@ const LINK = 'https://components-extra.netlify.com'
 const ITEMS = [
   {
     label: 'label 1',
-    onClick: () => {
+    onClick: (): void => {
       I_WAS_FIRED = true
     },
   },
@@ -21,7 +21,7 @@ const ITEMS = [
   },
 ]
 
-const BannerContent = () => <div>{BANNER_CONTENT}</div>
+const BannerContent: React.FC = () => <div>{BANNER_CONTENT}</div>
 
 describe('<Footer>', () => {
   test('it forwards the given ref correctly', () => {
@@ -29,7 +29,7 @@ describe('<Footer>', () => {
     renderWithTheme(<Footer ref={ref}>content</Footer>)
     expect(ref.current instanceof HTMLElement).toBeTruthy()
   })
-  /*
+
   test('it renders correctly', () => {
     const { container } = renderWithTheme(<Footer>content</Footer>)
     const footer = container.firstChild
@@ -42,8 +42,8 @@ describe('<Footer>', () => {
     expect(title).toBeInTheDocument()
   })
 
-  test('the banner is rendered if provided', () => {
-    const { getByText } = renderWithTheme(<Footer bottomBanner={bannerContent} />)
+  test('it renders the banner if provided', () => {
+    const { getByText } = renderWithTheme(<Footer bottomBanner={<BannerContent />} />)
     const bannerElement = getByText(BANNER_CONTENT)
     expect(bannerElement).toBeInTheDocument()
   })
@@ -73,5 +73,5 @@ describe('<Footer>', () => {
     )
     const itemElement = getByRole('link')
     expect(itemElement).toHaveAttribute('href', LINK)
-  })*/
+  })
 })
