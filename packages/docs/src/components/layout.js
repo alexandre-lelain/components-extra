@@ -2,7 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { StyledProvider, Paragraph, BackToTop, Card, CookiesBanner, Navbar } from 'components-extra'
+import {
+  StyledProvider,
+  Paragraph,
+  BackToTop,
+  Card,
+  CookiesBanner,
+  Navbar,
+  Newsletter,
+} from 'components-extra'
 import Header from './header'
 
 const StyledCard = styled(Card)`
@@ -21,6 +29,8 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [email, setEmail] = React.useState('')
+
   return (
     <StyledProvider>
       <Header siteTitle={data.site.siteMetadata.title} />
@@ -34,6 +44,21 @@ const Layout = ({ children }) => {
           <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
         </Navbar.Menu>
       </Navbar>
+      <Newsletter
+        title="Subscribe to our newsletter"
+        description="Get exclusive offers every week!"
+        caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
+      >
+        <Newsletter.Input
+          id="email"
+          placeholder="Email..."
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
+          Subscribe
+        </Newsletter.Button>
+      </Newsletter>
       <Paragraph>
         AAAAAAAAA AAAAAAAAA AAAAAAAAA AAAAAAA AAAAAAA AAAAAA AAAAAAAAAA AAAAAAAAAAAA
       </Paragraph>
