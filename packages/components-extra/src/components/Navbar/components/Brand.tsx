@@ -23,8 +23,9 @@ const IconContainer = styled.div`
     width: 24px;
     height: 24px;
   }
-  ${({ theme }): string => `
-    fill: ${theme.palette.primary.contrastText};
+  ${({ theme: { palette } }): string => `
+    fill: ${palette.primary.contrastText};
+    color: ${palette.primary.contrastText};
   `}
 `
 

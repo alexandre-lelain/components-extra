@@ -16,9 +16,8 @@ const useStyles = makeStyles(({ palette }) => ({
   },
 }))
 
-const StyledButton = styled(MuiMenuItem).attrs(() => ({
+const DesktopItem = styled(MuiMenuItem).attrs(() => ({
   underline: 'none',
-  button: true,
 }))`
   text-transform: none;
   ${({ theme }): string => `
@@ -38,11 +37,17 @@ const MenuItem = forwardRef(
     }
 
     return isDesktop ? (
-      <StyledButton onClick={onClick} ref={ref} {...rest}>
+      <DesktopItem onClick={onClick} ref={ref} {...rest} button>
         {children}
-      </StyledButton>
+      </DesktopItem>
     ) : (
-      <MuiMenuItem classes={{ root: classes.root }} onClick={onMobileItemClick} ref={ref} {...rest}>
+      <MuiMenuItem
+        classes={{ root: classes.root }}
+        onClick={onMobileItemClick}
+        ref={ref}
+        {...rest}
+        button
+      >
         {children}
       </MuiMenuItem>
     )

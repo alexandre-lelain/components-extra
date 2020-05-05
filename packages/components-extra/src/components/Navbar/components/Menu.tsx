@@ -15,11 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const DesktopContainer = styled.div`
+const DesktopContainer = styled.ol`
   display: flex;
+  list-style: none;
 `
 
-const Menu: MenuType = ({ children, label = '', ...rest }: MenuProps) => {
+const Menu: MenuType = ({ children, iconProps = {}, label = '', ...rest }: MenuProps) => {
   const [menuAnchor, setMenuAnchor] = useState<HTMLButtonElement>()
   const classes = useStyles()
   const isDesktop = useIsDesktop()
@@ -33,7 +34,7 @@ const Menu: MenuType = ({ children, label = '', ...rest }: MenuProps) => {
     <DesktopContainer {...rest}>{children}</DesktopContainer>
   ) : (
     <>
-      <IconButton aria-label={label} onClick={onMenuOpen} title={label} {...rest}>
+      <IconButton aria-label={label} onClick={onMenuOpen} title={label} {...iconProps}>
         <MenuIcon />
       </IconButton>
       <OnCloseMenuProvider onClose={onMenuClose}>
@@ -55,16 +56,24 @@ Menu.displayName = 'Navbar.Menu'
 
 Menu.propTypes = {
   /**
+   * The props to pass to the MUI's <IconButton> when not in desktop mode.
+   */
+  iconProps: PropTypes.object,
+  /**
    * The label of the menu's hamburger icon when viewport is mobile. Used for its meta props.
    */
   label: PropTypes.string,
 }
 
-export interface MenuProps extends IconButtonProps {
+export interface MenuProps {
   /**
    * The options of the menu.
    */
   children?: React.ReactNode
+  /**
+   * The props to pass to the MUI's <IconButton> when not in desktop mode.
+   */
+  iconProps?: IconButtonProps
   /**
    * The label of the menu's hamburger icon when viewport is mobile. Used for its meta props.
    */

@@ -18,7 +18,7 @@ const LanguageItem = forwardRef(
     }
 
     return (
-      <MenuItem aria-label={label} onClick={onItemClick} title={label} ref={ref} {...rest}>
+      <MenuItem aria-label={label} onClick={onItemClick} title={label} ref={ref} {...rest} button>
         {children}
       </MenuItem>
     )

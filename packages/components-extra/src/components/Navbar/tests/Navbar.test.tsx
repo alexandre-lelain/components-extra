@@ -1,27 +1,19 @@
-import React, { useRef, useLayoutEffect } from 'react'
+import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { renderWithTheme } from 'test'
+import { renderWithTheme } from 'utils-test'
 import Navbar from '..'
 
 const TITLE = 'awesome title'
 const SELECTED_LANGUAGE = 'English'
 const ITEM = 'awesome item'
 
-describe('Navbar', () => {
-  const TestNavbar = () => {
-    const ref = useRef()
-
-    useLayoutEffect(() => {
-      test('it forwards the given ref correctly', () => {
-        expect(ref.current instanceof HTMLElement).toBeTruthy()
-      })
-    }, [ref])
-
-    return <Navbar ref={ref} />
-  }
-
-  renderWithTheme(<TestNavbar />)
+describe('<Navbar>', () => {
+  test('it forwards the given ref correctly', () => {
+    const ref = React.createRef()
+    renderWithTheme(<Navbar ref={ref} />)
+    expect(ref.current instanceof HTMLElement).toBeTruthy()
+  })
 
   test('it renders correctly', () => {
     const { container } = renderWithTheme(<Navbar>Random stuff</Navbar>)

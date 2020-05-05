@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { StyledProvider, Paragraph, BackToTop, Card, CookiesBanner } from 'components-extra'
+import { StyledProvider, Paragraph, BackToTop, Card, CookiesBanner, Navbar } from 'components-extra'
 import Header from './header'
 
 const StyledCard = styled(Card)`
@@ -24,6 +24,16 @@ const Layout = ({ children }) => {
   return (
     <StyledProvider>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <Navbar>
+        <Navbar.Brand title="Awesome Navbar">
+          <span>:)</span>
+        </Navbar.Brand>
+        <Navbar.Menu>
+          <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+          <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+          <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+        </Navbar.Menu>
+      </Navbar>
       <Paragraph>
         AAAAAAAAA AAAAAAAAA AAAAAAAAA AAAAAAA AAAAAAA AAAAAA AAAAAAAAAA AAAAAAAAAAAA
       </Paragraph>
