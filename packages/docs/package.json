@@ -22,7 +22,6 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@material-ui/core": "^4.9.9",
     "components-extra": "^2.6.1",
     "gatsby": "^2.20.16",
     "gatsby-image": "^2.3.2",
