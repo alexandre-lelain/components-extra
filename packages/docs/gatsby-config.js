@@ -34,6 +34,14 @@ module.exports = {
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-offline`,
     {
+      resolve: 'gatsby-plugin-alias-imports',
+      options: {
+        alias: {
+          '@icons': path.resolve(__dirname, 'src/icons'),
+        },
+      },
+    },
+    {
       resolve: 'gatsby-transformer-react-docgen',
       options: {
         ignore: ['node_modules', 'tests'],

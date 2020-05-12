@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 const DesktopContainer = styled.ol`
   display: flex;
   list-style: none;
+  margin: 0;
 `
 
 const Menu: MenuType = ({ children, iconProps = {}, label = '', ...rest }: MenuProps) => {

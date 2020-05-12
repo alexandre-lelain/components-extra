@@ -17,7 +17,7 @@ const Input: InputType = (props: OutlinedInputProps) => {
 
 Input.displayName = 'Newsletter.Input'
 
-export type InputType = React.FunctionComponent<OutlinedInputProps>
+export type InputType = React.FunctionComponent<OutlinedInputProps> & typeof OutlinedInput
 
 export { Input as BaseInput }
 export default styled(Input)``

@@ -81,7 +81,7 @@ export interface LanguageProps extends ButtonProps {
   selectedLanguage?: string
 }
 
-export type LanguageType = React.FunctionComponent<LanguageProps>
+export type LanguageType = React.FunctionComponent<LanguageProps> & typeof Button
 
 export { Language as BaseLanguage }
 export default styled(Language)``

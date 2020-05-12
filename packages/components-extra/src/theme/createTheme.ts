@@ -38,3 +38,4 @@ const createTheme = (dark = false, options?: ThemeOptions): Theme => {
 }
 
 export default createTheme
+export { Theme }

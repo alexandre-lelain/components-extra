@@ -1,22 +1,11 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import { Button, MenuItem as MuiMenuItem, ButtonProps, MenuItemProps } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-
+import { Button, ButtonProps } from '@material-ui/core'
 import { useIsDesktop } from '../../../hooks'
 
 import { useMenuOnClose } from '../hooks'
 
-const useStyles = makeStyles(({ palette }) => ({
-  root: {
-    '&:hover': {
-      backgroundColor: palette.primary.light,
-    },
-    color: palette.primary.contrastText,
-  },
-}))
-
-const DesktopItem = styled(MuiMenuItem).attrs(() => ({
+const StyledButton = styled(Button).attrs(() => ({
   underline: 'none',
 }))`
   text-transform: none;
@@ -25,38 +14,48 @@ const DesktopItem = styled(MuiMenuItem).attrs(() => ({
   `}
 `
 
+const StyledLi = styled('li')`
+  ${({ isDesktop }: StyledLi): string => `
+    ${StyledButton} {
+      ${
+        isDesktop
+          ? ''
+          : `
+        padding: 8px 16px;
+        width: 100%;
+        justify-content: flex-start;
+      `
+      };
+    }
+  `}
+`
+
 const MenuItem = forwardRef(
-  ({ children, onClick, ...rest }: MenuItemProps, ref: React.Ref<HTMLLIElement>) => {
-    const classes = useStyles()
+  ({ children, onClick, ...rest }: ButtonProps, ref: React.Ref<HTMLButtonElement>) => {
     const closeMenu = useMenuOnClose()
     const isDesktop = useIsDesktop()
 
-    const onMobileItemClick = (e: React.MouseEvent<HTMLLIElement>): void => {
+    const onMobileItemClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
       onClick && onClick(e)
       closeMenu && closeMenu()
     }
 
-    return isDesktop ? (
-      <DesktopItem onClick={onClick} ref={ref} {...rest} button>
-        {children}
-      </DesktopItem>
-    ) : (
-      <MuiMenuItem
-        classes={{ root: classes.root }}
-        onClick={onMobileItemClick}
-        ref={ref}
-        {...rest}
-        button
-      >
-        {children}
-      </MuiMenuItem>
+    return (
+      <StyledLi isDesktop={isDesktop}>
+        <StyledButton onClick={isDesktop ? onClick : onMobileItemClick} ref={ref} {...rest}>
+          {children}
+        </StyledButton>
+      </StyledLi>
     )
   },
 ) as MenuItemType
 
 MenuItem.displayName = 'Navbar.MenuItem'
 
-export type MenuItemType = React.ForwardRefExoticComponent<MenuItemProps>
+export interface StyledLi {
+  isDesktop?: boolean
+}
+export type MenuItemType = React.ForwardRefExoticComponent<ButtonProps> & typeof Button
 
 export { MenuItem as BaseMenuItem }
 export default styled(MenuItem)``

@@ -54,7 +54,7 @@ export interface ItemProps extends ButtonProps {
   icon?: React.ReactNode
 }
 
-export type ItemType = React.FunctionComponent<ItemProps>
+export type ItemType = React.FunctionComponent<ItemProps> & typeof Button
 
 export { Item as BaseItem }
 export default styled(Item)``

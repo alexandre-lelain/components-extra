@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "@icons": ["src/icons"],
+    },
+    "types": [
+      "react",
+      "react-dom",
+      "styled-components",
+      "@material-ui/core",
+    ]
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "**/tests/*",
+    "**/node_modules/**/*",
+  ]
+}

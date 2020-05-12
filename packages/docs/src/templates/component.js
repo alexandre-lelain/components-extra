@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactJson from 'react-json-view'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 
 const Component = ({ pageContext }) => {
   const { props } = pageContext
