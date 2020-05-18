@@ -1,2 +1,3 @@
+export { default as Dark } from './Dark'
 export { default as Github } from './Github'
-export { default as ThemeMode } from './ThemeMode'
+export { default as Light } from './Light'

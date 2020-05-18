@@ -5,6 +5,7 @@ module.exports = {
     title: `components-extra`,
     description: `React UI molecule components based on styled-components & material-ui.`,
     author: `Alexandre Le Lain <lelain.alexandre@gmail.com>`,
+    github: 'https://github.com/alexandre-lelain/components-extra',
     url: 'https://components-extra.netlify.com/',
     keywords: [
       'components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer',
@@ -38,6 +39,7 @@ module.exports = {
       options: {
         alias: {
           '@icons': path.resolve(__dirname, 'src/icons'),
+          '@theme': path.resolve(__dirname, 'src/theme'),
         },
       },
     },

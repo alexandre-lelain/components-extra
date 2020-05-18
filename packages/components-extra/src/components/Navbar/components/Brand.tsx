@@ -41,7 +41,7 @@ const BrandContainer = styled.div`
   flex-grow: 1;
 `
 
-const Brand: BrandType = ({ children, href = '', title, ...rest }: BrandProps) => {
+const Brand: BrandType = ({ children, href = '/', title, ...rest }: BrandProps) => {
   const classes = useStyles()
   return (
     <BrandContainer {...rest}>
