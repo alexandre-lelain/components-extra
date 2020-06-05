@@ -13,11 +13,6 @@ export interface NavbarProps extends AppBarProps {
    * by the Navbar, or bring your owns.
    */
   children?: React.ReactNode
-  /**
-   * Set to true if you want the Navbar to stick to its initial position. It will give the
-   * 'position: sticky' css rule to the main container.
-   */
-  isSticky?: boolean
 }
 
 export interface NavbarComponents {

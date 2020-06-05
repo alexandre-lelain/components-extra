@@ -27,7 +27,7 @@ const Header: React.FC = () => {
   const [dark, setDark] = useMode()
 
   return (
-    <Navbar>
+    <Navbar position="fixed">
       <Navbar.Brand title="Components-extra" />
       <Navbar.Menu>
         <Navbar.MenuItem href={github} target="_blank" rel="noreferrer noopener">

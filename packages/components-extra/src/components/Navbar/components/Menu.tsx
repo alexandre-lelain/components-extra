@@ -31,6 +31,12 @@ const Menu: MenuType = ({ children, iconProps = {}, label = '', ...rest }: MenuP
 
   const onMenuClose = (): void => setMenuAnchor(undefined)
 
+  React.useEffect(() => {
+    if (isDesktop) {
+      onMenuClose()
+    }
+  }, [isDesktop])
+
   return isDesktop ? (
     <DesktopContainer {...rest}>{children}</DesktopContainer>
   ) : (
