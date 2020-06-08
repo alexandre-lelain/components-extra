@@ -63,7 +63,7 @@ Menu.displayName = 'Navbar.Menu'
 
 Menu.propTypes = {
   /**
-   * The props to pass to the MUI's <IconButton> when not in desktop mode.
+   * The props to pass to the MUI's IconButton when not in desktop mode.
    */
   iconProps: PropTypes.object,
   /**
@@ -78,7 +78,7 @@ export interface MenuProps {
    */
   children?: React.ReactNode
   /**
-   * The props to pass to the MUI's <IconButton> when not in desktop mode.
+   * The props to pass to the MUI's IconButton when not in desktop mode.
    */
   iconProps?: IconButtonProps
   /**

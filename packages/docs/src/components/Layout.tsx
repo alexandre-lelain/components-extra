@@ -1,11 +1,16 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { StyledProvider, BackToTop } from 'components-extra'
+import { Container, Typography  } from '@material-ui/core'
+import { MDXProvider } from '@mdx-js/react'
 
 import { ModeProvider, theme } from '@theme'
 
 import Header from './Header'
 import Navigation from './Navigation'
+import InlineCode from './InlineCode'
+import Blockquote from './Blockquote'
+import Seo from './Seo'
 
 const GlobalStyle = createGlobalStyle`
   ${({ theme: { palette, transitions } }): string => `
@@ -18,31 +23,36 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const MainContainer = styled.main`
-  padding-top: 84px;
+  padding: 84px 0px;
+  img {
+    box-shadow: none !important; //gatsby-remark-images is bugged. See https://github.com/gatsbyjs/gatsby/issues/15486.
+  }
 `
+
+const components = {
+  h2: props => <Typography variant="h4" component="h2" {...props}/>,
+  inlineCode: InlineCode,
+  blockquote: Blockquote,
+}
 
 const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
   const [dark, setDark] = React.useState<boolean>(false)
 
   return (
     <ModeProvider dark={dark} setDark={setDark}>
+      <Seo title="Introduction"/>
       <StyledProvider dark={dark} theme={theme}>
         <GlobalStyle />
-        <Header />
-        <MainContainer>
-          <Navigation />
-          <div
-            style={{
-              margin: `0 auto`,
-              maxWidth: 960,
-              height: '1280px',
-              padding: `0 1.0875rem 1.45rem`,
-            }}
-          >
-            {children}
-          </div>
-        </MainContainer>
-        <BackToTop />
+        <MDXProvider components={components}>
+          <Header />
+          <MainContainer>
+            <Navigation />
+            <Container maxWidth="md">
+              {children}
+            </Container>
+          </MainContainer>
+          <BackToTop />
+        </MDXProvider>
       </StyledProvider>
     </ModeProvider>
   )

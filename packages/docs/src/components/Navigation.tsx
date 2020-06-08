@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import { useIsDesktop } from 'components-extra'
 import { Button, Drawer, Hidden } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { Menu } from '@icons'
 
-const useStyle = makeStyles(({ zIndex, transitions }) => ({
+const useStyle = makeStyles(({ zIndex, spacing, transitions }) => ({
   paper: {
     padding: '84px 32px',
     zIndex: zIndex.appBar - 1,
@@ -15,10 +14,13 @@ const useStyle = makeStyles(({ zIndex, transitions }) => ({
   modal: {
     zIndex: zIndex.appBar - 1 + '!important',
   },
+  root: {
+    marginLeft: spacing(3),
+  }
 }))
 
 const Navigation: React.FC = () => {
-  const classes = useStyle()
+  const { root, ...rest } = useStyle()
   const isDesktop = useIsDesktop()
   const [isOpen, openMenu] = useState(false)
 
@@ -31,16 +33,16 @@ const Navigation: React.FC = () => {
   return (
     <>
       <Hidden mdDown implementation="css">
-        <Drawer classes={classes} variant="permanent" anchor="left">
+        <Drawer classes={rest} variant="permanent" anchor="left">
           <DrawerContent />
         </Drawer>
       </Hidden>
       <Hidden mdUp implementation="css">
-        <Button startIcon={<Menu />} onClick={(): void => openMenu((prev) => !prev)}>
+        <Button classes={{ root }} startIcon={<Menu />} onClick={(): void => openMenu((prev) => !prev)}>
           Navigation
         </Button>
         <Drawer
-          classes={classes}
+          classes={rest}
           variant="temporary"
           anchor="left"
           open={isOpen}

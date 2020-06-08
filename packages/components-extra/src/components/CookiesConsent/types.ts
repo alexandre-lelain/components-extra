@@ -5,7 +5,7 @@ import { ConsentButtonType } from './components/ConsentButton'
 export interface CookiesConsentProps {
   /**
    * The content of the component. You can either use an assemble of
-   * the ones available in its scope, like <CookiesConsent.Category>, or bring
+   * the ones available in its scope, like CookiesConsent.Category, or bring
    * your own elemnts.
    */
   children?: React.ReactNode

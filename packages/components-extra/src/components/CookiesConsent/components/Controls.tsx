@@ -96,7 +96,7 @@ export interface ControlsProps {
    */
   checked?: boolean
   /**
-   * The content of the controls section. You can either use <CookiesConsent.Button> or
+   * The content of the controls section. You can either use CookiesConsent.Button or
    * bring your own controls.
    */
   children?: React.ReactNode
