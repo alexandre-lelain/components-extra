@@ -1,15 +1,13 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { StyledProvider, BackToTop } from 'components-extra'
-import { Container, Typography  } from '@material-ui/core'
-import { MDXProvider } from '@mdx-js/react'
+import { Container  } from '@material-ui/core'
 
 import { ModeProvider, theme } from '@theme'
 
 import Header from './Header'
 import Navigation from './Navigation'
-import InlineCode from './InlineCode'
-import Blockquote from './Blockquote'
+import MDXProvider from './MDXProvider'
 import Seo from './Seo'
 
 const GlobalStyle = createGlobalStyle`
@@ -29,12 +27,6 @@ const MainContainer = styled.main`
   }
 `
 
-const components = {
-  h2: props => <Typography variant="h4" component="h2" {...props}/>,
-  inlineCode: InlineCode,
-  blockquote: Blockquote,
-}
-
 const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
   const [dark, setDark] = React.useState<boolean>(false)
 
@@ -43,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
       <Seo title="Introduction"/>
       <StyledProvider dark={dark} theme={theme}>
         <GlobalStyle />
-        <MDXProvider components={components}>
+        <MDXProvider>
           <Header />
           <MainContainer>
             <Navigation />
