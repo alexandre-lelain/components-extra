@@ -27,9 +27,9 @@ const MainContainer = styled.main`
   }
 `
 
-const Layout: React.FC<LayoutProps> = ({ children, pageContext }: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutProps) => {
   const [dark, setDark] = React.useState<boolean>(false)
-  const { frontmatter: { name, route } } = pageContext
+  const { frontmatter: { name, route } = {} } = pageContext
 
   return (
     <ModeProvider dark={dark} setDark={setDark}>

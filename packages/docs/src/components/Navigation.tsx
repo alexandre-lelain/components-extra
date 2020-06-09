@@ -53,10 +53,14 @@ const query = graphql`
   }
 `
 
-const Navigation: React.FC = (props) => {
+const Navigation: React.FC = ({ currentRoute }) => {
   const { root, ...rest } = useStyle()
   const isDesktop = useIsDesktop()
   const [isOpen, openMenu] = useState(false)
+
+  useEffect(() => {
+    openMenu(false)
+  }, [currentRoute])
 
   useEffect(() => {
     if (isDesktop) {
@@ -68,7 +72,7 @@ const Navigation: React.FC = (props) => {
     <>
       <Hidden mdDown implementation="css">
         <Drawer classes={rest} variant="permanent" anchor="left">
-          <DrawerContent {...props} />
+          <DrawerContent currentRoute={currentRoute} />
         </Drawer>
       </Hidden>
       <Hidden lgUp implementation="css">
@@ -82,7 +86,7 @@ const Navigation: React.FC = (props) => {
           open={isOpen}
           onClose={(): void => openMenu(false)}
         >
-          <DrawerContent {...props} />
+          <DrawerContent currentRoute={currentRoute} />
         </Drawer>
       </Hidden>
     </>
