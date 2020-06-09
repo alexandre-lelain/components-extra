@@ -69,6 +69,7 @@ module.exports = {
         alias: {
           '@icons': path.resolve(__dirname, 'src/icons'),
           '@theme': path.resolve(__dirname, 'src/theme'),
+          '@utils': path.resolve(__dirname, 'src/utils'),
         },
       },
     },
