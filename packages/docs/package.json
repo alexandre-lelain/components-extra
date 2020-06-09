@@ -29,6 +29,7 @@
     "gatsby": "^2.20.16",
     "gatsby-image": "^2.3.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-layout": "^1.3.4",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-material-ui": "^2.1.6",
     "gatsby-plugin-mdx": "^1.2.14",

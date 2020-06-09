@@ -39,9 +39,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        defaultLayouts: {
-          default: require.resolve("./src/components/Layout.tsx"),
-        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -52,6 +49,12 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: path.resolve(`./src/components/Layout.tsx`),
       },
     },
     `gatsby-remark-images`,

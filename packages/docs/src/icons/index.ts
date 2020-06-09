@@ -1,4 +1,6 @@
 export { default as Dark } from './Dark'
+export { default as ExpandMore } from './ExpandMore'
+export { default as ExpandLess } from './ExpandLess'
 export { default as Github } from './Github'
 export { default as Light } from './Light'
 export { default as Menu } from './Menu'

@@ -23,22 +23,23 @@ const GlobalStyle = createGlobalStyle`
 const MainContainer = styled.main`
   padding: 84px 0px;
   img {
-    box-shadow: none !important; //gatsby-remark-images is bugged. See https://github.com/gatsbyjs/gatsby/issues/15486.
+    box-shadow: none !important; // gatsby-remark-images is bugged. See https://github.com/gatsbyjs/gatsby/issues/15486.
   }
 `
 
-const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({ children, pageContext }: LayoutProps) => {
   const [dark, setDark] = React.useState<boolean>(false)
+  const { frontmatter: { name, route } } = pageContext
 
   return (
     <ModeProvider dark={dark} setDark={setDark}>
-      <Seo title="Introduction"/>
+      <Seo title={name}/>
       <StyledProvider dark={dark} theme={theme}>
         <GlobalStyle />
         <MDXProvider>
           <Header />
           <MainContainer>
-            <Navigation />
+            <Navigation currentRoute={route}/>
             <Container maxWidth="md">
               {children}
             </Container>
