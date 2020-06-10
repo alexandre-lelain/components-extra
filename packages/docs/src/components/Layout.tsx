@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { StyledProvider, BackToTop } from 'components-extra'
-import { Container, Typography  } from '@material-ui/core'
+import { Container  } from '@material-ui/core'
+import Prism from 'prismjs'
+import '@styles/prismTheme.css'
+import 'prismjs/components/prism-jsx.min'
 
 import { ModeProvider, theme } from '@theme'
 
@@ -9,6 +12,8 @@ import Header from './Header'
 import Navigation from './Navigation'
 import MDXProvider from './MDXProvider'
 import Seo from './Seo'
+
+
 
 const GlobalStyle = createGlobalStyle`
   ${({ theme: { palette, transitions } }): string => `
@@ -33,8 +38,12 @@ const MainContainer = styled.main`
 `
 
 const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutProps) => {
-  const [dark, setDark] = React.useState<boolean>(false)
+  const [dark, setDark] = useState<boolean>(false)
   const { frontmatter: { name, route } = {} } = pageContext
+
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [])
 
   return (
     <ModeProvider dark={dark} setDark={setDark}>

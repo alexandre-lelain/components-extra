@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MDXProvider as GatsbyMDXProvider } from '@mdx-js/react'
-import { Typography } from '@material-ui/core'
+import Prism from 'prismjs'
 
 import InlineCode from './InlineCode'
 import Blockquote from './Blockquote'
 import { Title1, Title2, Title3 } from './Titles'
+import Playground from './Playground'
 
 const components = {
   h1: Title1,
@@ -12,8 +13,18 @@ const components = {
   h3: Title3,
   inlineCode: InlineCode,
   blockquote: Blockquote,
+  pre: Playground,
 }
 
-const MDXProvider = props => <GatsbyMDXProvider components={components} {...props}/>
+const MDXProvider = props => {
+  useEffect(() => {
+    Prism.highlightAll()
+    console.log("AAAAAAAAAA")
+  }, [props])
+
+  return (
+    <GatsbyMDXProvider components={components} {...props}/>
+  )
+}
 
 export default MDXProvider

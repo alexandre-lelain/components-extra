@@ -1,3 +1,5 @@
+export { default as Code } from './Code'
+export { default as Copy } from './Copy'
 export { default as Dark } from './Dark'
 export { default as ExpandMore } from './ExpandMore'
 export { default as ExpandLess } from './ExpandLess'

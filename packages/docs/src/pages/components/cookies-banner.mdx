@@ -4,4 +4,18 @@ menu: Components
 route: /components/cookies-banner
 ---
 
+import { CookiesBanner } from 'components-extra'
+
 # CookiesBanner
+
+## Default
+
+```jsx
+// live
+<CookiesBanner text='Please be aware that this awesome cookies banner informs you that this awesome website uses cookies. Why ? Because cookies are an awesome delight of course!'>
+  <CookiesBanner.Button href="#">More</CookiesBanner.Button>
+  <CookiesBanner.Button onClick={() => console.log('Got-it-button clicked!')}>
+    Ok
+  </CookiesBanner.Button>
+</CookiesBanner>
+```

@@ -70,6 +70,8 @@ module.exports = {
           '@icons': path.resolve(__dirname, 'src/icons'),
           '@theme': path.resolve(__dirname, 'src/theme'),
           '@utils': path.resolve(__dirname, 'src/utils'),
+          '@styles': path.resolve(__dirname, 'src/styles'),
+          '@components': path.resolve(__dirname, 'src/components'),
         },
       },
     },
