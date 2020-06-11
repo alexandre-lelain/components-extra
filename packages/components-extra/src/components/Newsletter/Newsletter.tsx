@@ -2,13 +2,11 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Button from './components/Button'
+import Button, { ButtonType } from './components/Button'
 import Container from './components/Container'
 import Form from './components/Form'
-import Input from './components/Input'
+import Input, { InputType } from './components/Input'
 import { Caption, Description, Title } from './components/Typographies'
-
-import { NewsletterProps, NewsletterType } from './types'
 
 const Newsletter = forwardRef(
   (
@@ -26,20 +24,42 @@ const Newsletter = forwardRef(
   },
 ) as NewsletterType
 
-Newsletter.propTypes = {
+export interface NewsletterProps {
   /**
    * The newsletter's caption. Often used to display clear consent sentence.
    * Do not forget to mention you are not sending spam ;)
    */
-  caption: PropTypes.string,
+  caption?: string
+  /**
+   * The components to render inside the form. You can either use the ones exposed from
+   * Newsletter or bring your owns.
+   */
+  children?: React.ReactNode
   /**
    * The description of your newsletter. You can use it to explain why the users
    * should subscribe to your newsletter!
    */
-  description: PropTypes.string,
+  description?: string
+  /**
+   * The ref to pass to the main html element container.
+   */
+  ref?: React.Ref<HTMLElement>
   /**
    * The newsletter's title.
    */
+  title?: string
+}
+
+export interface NewsletterComponents {
+  Button: ButtonType
+  Input: InputType
+}
+
+export type NewsletterType = React.ForwardRefExoticComponent<NewsletterProps> & NewsletterComponents
+
+Newsletter.propTypes = {
+  caption: PropTypes.string,
+  description: PropTypes.string,
   title: PropTypes.string,
 }
 

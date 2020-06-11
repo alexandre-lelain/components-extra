@@ -78,7 +78,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-react-docgen',
       options: {
-        ignore: ['node_modules', 'tests'],
+        ignore: ['node_modules', 'tests', 'docs'],
       },
     },
     {

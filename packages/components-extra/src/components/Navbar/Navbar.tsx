@@ -1,14 +1,12 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import { AppBar, Toolbar } from '@material-ui/core'
+import { AppBar, AppBarProps, Toolbar } from '@material-ui/core'
 
-import Brand from './components/Brand'
-import Language from './components/Language'
-import LanguageItem from './components/LanguageItem'
-import Menu from './components/Menu'
-import MenuItem from './components/MenuItem'
-
-import { NavbarProps, NavbarType } from './types'
+import Brand, { BrandType } from './components/Brand'
+import Language, { LanguageType } from './components/Language'
+import LanguageItem, { LanguageItemType } from './components/LanguageItem'
+import Menu, { MenuType } from './components/Menu'
+import MenuItem, { MenuItemType } from './components/MenuItem'
 
 const Navbar = forwardRef(({ children, ...rest }: NavbarProps, ref: React.Ref<HTMLElement>) => {
   return (
@@ -17,6 +15,24 @@ const Navbar = forwardRef(({ children, ...rest }: NavbarProps, ref: React.Ref<HT
     </AppBar>
   )
 }) as NavbarType
+
+export interface NavbarProps extends AppBarProps {
+  /**
+   * The content of the Navbar. You can use the components provided
+   * by the Navbar, or bring your owns.
+   */
+  children?: React.ReactNode
+}
+
+export interface NavbarComponents {
+  Brand: BrandType
+  Language: LanguageType
+  LanguageItem: LanguageItemType
+  Menu: MenuType
+  MenuItem: MenuItemType
+}
+
+export type NavbarType = React.ForwardRefExoticComponent<NavbarProps> & NavbarComponents
 
 /**
  * Exposed components.

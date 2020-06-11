@@ -10,12 +10,13 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  CardProps as MaterialCardProps,
+  CardMediaProps,
   Typography,
 } from '@material-ui/core'
 
 import { BigProvider } from './hooks/Context'
-import CardButton from './components/CardButton'
-import { CardProps, CardType } from './types'
+import CardButton, { CardButtonType } from './components/CardButton'
 
 const useStyles = makeStyles({
   media: {
@@ -74,28 +75,50 @@ const Card = forwardRef(
   },
 ) as CardType
 
-Card.propTypes = {
+export type OnCardClick =
+  | ((event: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>) => void)
+  | undefined
+
+export interface CardProps extends MaterialCardProps {
   /**
    * Set to true if you want to have font-sizes bigger. Useful for large cards' widths. False by default.
    */
-  big: PropTypes.bool,
+  big?: boolean
+  /**
+   * The controls of the Card. You can either use the Card.Button component or bring your own.
+   */
+  children?: React.ReactNode
   /**
    * The Card's description. It can be some string, or some elements if you want to render a custom description.
    */
-  description: PropTypes.node,
+  description?: React.ReactNode
   /**
    * The Card's image media. 'component' can either be a string (ex: 'section'), or a component.
    * You can also pass other props to the media container.
    */
-  image: PropTypes.object,
+  image?: CardMediaProps
   /**
    * Function fired when the card is pressed or clicked. If you leave it undefined, the card's content will be rendered
    * in a div instead of a button.
    */
-  onClick: PropTypes.func,
+  onClick?: OnCardClick
   /**
    * The Card's title.
    */
+  title: string
+}
+
+export interface CardComponents {
+  Button: CardButtonType
+}
+
+export type CardType = React.ForwardRefExoticComponent<CardProps> & CardComponents
+
+Card.propTypes = {
+  big: PropTypes.bool,
+  description: PropTypes.node,
+  image: PropTypes.object,
+  onClick: PropTypes.func,
   title: PropTypes.string.isRequired,
 }
 

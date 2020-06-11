@@ -12,8 +12,7 @@ import Header from './Header'
 import Navigation from './Navigation'
 import MDXProvider from './MDXProvider'
 import Seo from './Seo'
-
-
+import PropsProvider from './PropsProvider'
 
 const GlobalStyle = createGlobalStyle`
   ${({ theme: { palette, transitions } }): string => `
@@ -30,6 +29,8 @@ const MainContainer = styled.main`
   img {
     box-shadow: none !important; // gatsby-remark-images is bugged. See https://github.com/gatsbyjs/gatsby/issues/15486.
   }
+
+
   ${({ theme: { breakpoints } }): string => `
     ${breakpoints.up('lg')} {
       margin-left: 250px;
@@ -54,9 +55,11 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutPro
           <Header />
           <MainContainer>
             <Navigation currentRoute={route}/>
-            <Container maxWidth="md">
-              {children}
-            </Container>
+            <PropsProvider>
+              <Container maxWidth="md">
+                {children}
+              </Container>
+            </PropsProvider>
           </MainContainer>
           <BackToTop />
         </MDXProvider>
@@ -68,5 +71,6 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutPro
 export interface LayoutProps {
   children?: React.ReactNode
 }
+
 
 export default Layout

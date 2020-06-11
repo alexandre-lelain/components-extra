@@ -64,6 +64,10 @@ const ControlsContainer = styled('div')`
   width: 100%;
   margin: 4px 0px;
 
+  svg {
+    margin-right: 4px;
+  }
+
   ${StyledButton}:first-of-type {
     margin-right: 8px;
   }
@@ -102,11 +106,11 @@ const Playground = ({ children }) => {
           </div>
           <ControlsContainer>
             <StyledButton onClick={onCopy}>
-              <Copy />
+              <Copy fontSize="small"/>
               {copyLabel}
             </StyledButton>
             <StyledButton onClick={onEditCode}>
-              <Code />
+              <Code fontSize="small"/>
               Edit code
             </StyledButton>
           </ControlsContainer>

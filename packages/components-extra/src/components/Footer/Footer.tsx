@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { CardMediaProps } from '@material-ui/core'
 
 import BottomBannerContainer from './components/BottomBanner'
-import Column from './components/Column'
+import Column, { ColumnType } from './components/Column'
 import FooterContainer from './components/FooterContainer'
-import Item from './components/Item'
+import Item, { ItemType } from './components/Item'
 import ItemsContainer from './components/ItemsContainer'
 import Title from './components/Title'
 import TopContainer from './components/TopContainer'
-import { FooterProps, FooterType } from './types'
 
 const Footer = forwardRef(
   (
@@ -28,24 +28,41 @@ const Footer = forwardRef(
   },
 ) as FooterType
 
-Footer.propTypes = {
+export interface FooterProps {
   /**
    * The content of the bottom banner. Leave to undefined if you don't want one.
    */
-  bottomBanner: PropTypes.node,
+  bottomBanner?: React.ReactNode
   /**
    * The Footer's children. You can use Footer.Column & Footer.Item components
    * or bring any component you want.
    */
-  children: PropTypes.node,
+  children?: React.ReactNode
   /**
    * The footer's background image. Please refer to MUI's CardMedia's props for the exhaustive list:
    * https://material-ui.com/api/card-media/.
    */
-  imageProps: PropTypes.object,
+  imageProps?: CardMediaProps
+  /**
+   * The ref to attach to the footer element.
+   */
+  ref?: React.Ref<HTMLElement>
   /**
    * The footer's title.
    */
+  title?: string
+}
+
+export interface FooterComponents {
+  Column: ColumnType
+  Item: ItemType
+}
+
+export type FooterType = React.ForwardRefExoticComponent<FooterProps> & FooterComponents
+
+Footer.propTypes = {
+  bottomBanner: PropTypes.node,
+  imageProps: PropTypes.object,
   title: PropTypes.string,
 }
 

@@ -37,18 +37,7 @@ export interface StyledProviderProps {
 }
 
 StyledProvider.propTypes = {
-  /**
-   * Anything component that will use the theme.
-   */
-  children: PropTypes.node,
-  /**
-   * Set to true to switch theme to dark mode. By default the theme is in light mode.
-   */
   dark: PropTypes.bool,
-  /**
-   * Your custom theme. It has to match Material-ui theming's syntax:
-   * https://material-ui.com/customization/default-theme/
-   */
   theme: PropTypes.object,
 }
 

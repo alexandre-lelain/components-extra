@@ -5,11 +5,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import Paragraph from '../Paragraph'
 
-import CookiesButton from './components/CookiesButton'
+import CookiesButton, { CookiesButtonType } from './components/CookiesButton'
 import CookieIcon from './components/CookieIcon'
 import Container from './components/Container'
-
-import { CookiesBannerProps, CookiesBannerType } from './types'
 
 const useStyles = makeStyles(({ palette }) => ({
   text: {
@@ -35,14 +33,31 @@ const CookiesBanner = forwardRef(
   },
 ) as CookiesBannerType
 
-CookiesBanner.propTypes = {
+export interface CookiesBannerProps {
   /**
    * The controls of the CookiesBanner. You can either use Cookies.Button or your own.
    */
-  children: PropTypes.node,
+  children?: React.ReactNode
   /**
    * The CookiesBanner main text content.
    */
+  text?: string
+  /**
+   * The ref to attach to the main div container.
+   */
+  ref?: React.Ref<HTMLDivElement>
+}
+
+export interface CookiesBannerComponents {
+  Button: CookiesButtonType
+}
+
+export type CookiesBannerType = React.ForwardRefExoticComponent<CookiesBannerProps> &
+  CookiesBannerComponents
+
+
+CookiesBanner.propTypes = {
+  children: PropTypes.node,
   text: PropTypes.string,
 }
 

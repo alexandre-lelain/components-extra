@@ -19,7 +19,6 @@ const components = {
 const MDXProvider = props => {
   useEffect(() => {
     Prism.highlightAll()
-    console.log("AAAAAAAAAA")
   }, [props])
 
   return (
