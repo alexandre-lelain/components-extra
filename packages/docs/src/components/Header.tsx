@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import { Navbar } from 'components-extra'
 
@@ -24,7 +24,14 @@ const Header: React.FC = () => {
   `)
 
   const { github } = siteMetadata
-  const [dark, setDark] = useMode()
+  const [ mode, setMode ] = useMode()
+
+  const dark = mode === 'dark'
+
+  const toggleMode = useCallback(() => {
+    const nextMode = mode === 'dark' ? 'light' : 'dark'
+    setMode(nextMode)
+  }, [setMode, mode])
 
   return (
     <Navbar>
@@ -34,7 +41,7 @@ const Header: React.FC = () => {
           <Github />
           <StyledLabel>Github</StyledLabel>
         </Navbar.MenuItem>
-        <Navbar.MenuItem onClick={(): void => setDark((dark) => !dark)}>
+        <Navbar.MenuItem onClick={toggleMode}>
           {dark ? <Dark /> : <Light />}
           <StyledLabel>Mode</StyledLabel>
         </Navbar.MenuItem>

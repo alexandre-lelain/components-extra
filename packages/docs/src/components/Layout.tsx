@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { StyledProvider, BackToTop } from 'components-extra'
+import { BackToTop } from 'components-extra'
 import { Container  } from '@material-ui/core'
 import Prism from 'prismjs'
 import '@styles/prismTheme.css'
 import 'prismjs/components/prism-jsx.min'
 
-import { ModeProvider, theme } from '@theme'
+import { ModeProvider } from '@theme'
 
 import Header from './Header'
-import Navigation from './Navigation'
 import MDXProvider from './MDXProvider'
-import Seo from './Seo'
+import Navigation from './Navigation'
 import PropsProvider from './PropsProvider'
+import Seo from './Seo'
+import ThemeProvider from './ThemeProvider'
 
 const GlobalStyle = createGlobalStyle`
   ${({ theme: { palette, transitions } }): string => `
@@ -39,7 +40,6 @@ const MainContainer = styled.main`
 `
 
 const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutProps) => {
-  const [dark, setDark] = useState<boolean>(false)
   const { frontmatter: { name, route } = {} } = pageContext
 
   useEffect(() => {
@@ -47,9 +47,9 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutPro
   }, [])
 
   return (
-    <ModeProvider dark={dark} setDark={setDark}>
+    <ModeProvider>
       <Seo title={name}/>
-      <StyledProvider dark={dark} theme={theme}>
+      <ThemeProvider>
         <GlobalStyle />
         <MDXProvider>
           <Header />
@@ -63,7 +63,7 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutPro
           </MainContainer>
           <BackToTop />
         </MDXProvider>
-      </StyledProvider>
+      </ThemeProvider>
     </ModeProvider>
   )
 }

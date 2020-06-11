@@ -1,6 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { map } from 'lodash-es'
+import { filter, includes, reduce } from 'lodash-es'
+
+const IGNORED_PROPS = ['ref', 'className']
 
 const propsQuery = graphql`
   {
@@ -20,7 +22,9 @@ const propsQuery = graphql`
             }
             required
             name
-            tsType
+            type {
+              name
+            }
           }
         }
       }
@@ -30,14 +34,16 @@ const propsQuery = graphql`
 
 const PropsContext = React.createContext([])
 
+const edgeToProp = (components, { node: { displayName, props, ...rest } }): array => {
+  const filteredProps = filter(props, ({ name = '' }) => !includes(IGNORED_PROPS, name))
+  components[displayName] = { props: filteredProps, ...rest }
+  return components
+}
+
 const PropsProvider = ({ children }) => {
   const { allComponentMetadata: { edges } } = useStaticQuery(propsQuery)
 
-  const allProps = React.useMemo(() => {
-    const sortedProps = []
-    map(edges, ({ node: { displayName, ...rest } }) => sortedProps[displayName] = rest)
-    return sortedProps
-  }, [edges])
+  const allProps = React.useMemo(() => reduce(edges, edgeToProp, []), [edges])
 
   return (
     <PropsContext.Provider value={allProps}>
