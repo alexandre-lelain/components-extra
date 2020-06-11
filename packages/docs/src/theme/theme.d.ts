@@ -1,5 +1,3 @@
-import * as createTransitions from '@material-ui/core/styles/createTransitions'
-
 declare module '@material-ui/core/styles/createTransitions' {
   interface Transitions {
     backgroundColor: string
@@ -7,5 +5,15 @@ declare module '@material-ui/core/styles/createTransitions' {
 
   interface TransitionsOptions {
     backgroundColor?: string
+  }
+}
+
+declare module '@material-ui/core/styles/createPalette' {
+  interface Palette {
+    inlineCode: string
+  }
+
+  interface PaletteOptions {
+    inlineCode?: string
   }
 }

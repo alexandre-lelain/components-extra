@@ -4,17 +4,23 @@ import { Link, Typography } from '@material-ui/core'
 
 import { slugify } from '@utils'
 
-const scrollStyle = css`
+const commonStyle = css`
   scroll-margin-top: 108px;
   scroll-snap-margin-top: 108px;
+  word-break: break-word;
+  font-weight: bold;
 `
 
 const StyledTitle1 = styled(Typography).attrs(() => ({
-  variant: 'h2',
+  variant: 'h3',
   component: 'h1',
   color: 'textPrimary',
 }))`
-   ${scrollStyle};
+   ${commonStyle};
+   ${({ theme: { spacing } }): string => `
+     margin-top: ${spacing(9)}px;
+     margin-bottom: ${spacing(3)}px;
+   `}
 `
 
 const StyledTitle2 = styled(Typography).attrs(() => ({
@@ -22,7 +28,11 @@ const StyledTitle2 = styled(Typography).attrs(() => ({
   component: 'h2',
   color: 'textPrimary',
 }))`
-   ${scrollStyle};
+   ${commonStyle};
+   ${({ theme: { spacing } }): string => `
+     margin-top: ${spacing(6)}px;
+     margin-bottom: ${spacing(3)}px;
+   `}
 `
 
 const StyledTitle3 = styled(Typography).attrs(() => ({
@@ -30,7 +40,11 @@ const StyledTitle3 = styled(Typography).attrs(() => ({
   component: 'h3',
   color: 'textPrimary',
 }))`
-   ${scrollStyle};
+   ${commonStyle};
+   ${({ theme: { spacing } }): string => `
+     margin-top: ${spacing(6)}px;
+     margin-bottom: ${spacing(3)}px;
+   `}
 `
 
 const Title = ({ container: Container, children, ...rest }) => {

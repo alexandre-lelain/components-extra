@@ -52,7 +52,7 @@ const Props: React.FC = ({ of: component }: PropsProps) => {
 
             return (
               <TableRow key={name}>
-                {!required ? (
+                {required ? (
                   <RequiredNameCell>
                     {name}*
                   </RequiredNameCell>
