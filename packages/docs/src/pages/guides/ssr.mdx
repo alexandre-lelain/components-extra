@@ -1,0 +1,60 @@
+---
+name: Server Side Rendering
+menu: Guides
+route: /guides/ssr
+---
+
+# Components-extra and Server Side Rendering
+
+## Gatsby.js
+
+All components of **components-extra** are Server-Side-Rendering friendly, so you can totaly integrate them
+in your SSR app.
+
+If you are using the awesome framework [Gatsby.js](https://www.gatsbyjs.org/) (if you are not, you should definitely try it!), you will need to add
+two plugins in your `gatsby-config.js` file to make **components-extra** work smoothly:
+
+- [gatsby-plugin-styled-components](https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/)
+- [gatsby-plugin-material-ui](https://www.gatsbyjs.org/packages/gatsby-plugin-material-ui/)
+
+> **Note:** Those are not required to make your app compile correctly, however you might experience some display issues if you don't
+use them.
+
+## Next.js
+
+In order to use **components-extra** with [next.js](https://nextjs.org/), there are a couple of steps to follow:
+
+- Add [next-transpile-modules](https://www.npmjs.com/package/next-transpile-modules) in your next.js config to transpile both Material-UI & components-extra:
+
+```js
+// next.config.js
+const withTM = require("next-transpile-modules")([
+  "@material-ui/core",
+  "components-extra"
+]); // pass the modules you would like to see transpiled
+
+module.exports = withTM();
+```
+
+- Inject `styled-components` styles in the `<Head>` of your pages: see https://styled-components.com/docs/advanced#nextjs.
+- Add a `babelrc` config to handle `styled-components` in SSR:
+
+```js
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true
+      }
+    ]
+  ]
+}
+```
+
+And that should be it. You can find a working integration on the following codesandbox:
+
+https://codesandbox.io/s/comp-extra-testing-npzn7

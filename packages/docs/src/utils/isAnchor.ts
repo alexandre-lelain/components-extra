@@ -1,2 +1,2 @@
-const isAnchor = (link: string): boolean => !!link && link[0] === '#'
+const isAnchor = (link: string): boolean => !!link && link.includes('#')
 export default isAnchor

@@ -49,21 +49,17 @@ const StyledLink = styled(({ isDark, secondary, to, ...rest }) => <GatsbyLink to
   ${linkStyle};
 `
 
-const StyledAnchor = styled.a`
-  ${linkStyle};
-`
-
-const InternalLink = ({ anchor = false, secondary = false, ...rest }: InternalLinkProps) => {
+const InternalLink = ({ secondary = false, ...rest }: InternalLinkProps) => {
   const [ mode ] = useMode()
   const props = { isDark: mode === 'dark', secondary, ...rest }
-  return anchor ? <StyledAnchor {...props} /> : <StyledLink {...props} />
+  return <StyledLink {...props} />
 }
 
 const Link = ({ href, ...rest }: LinkProps) => {
   const isAnchorLink = isAnchor(href)
 
   return isAnchorLink ? (
-    <InternalLink anchor href={href} {...rest} />
+    <InternalLink to={href} {...rest} />
   ) : (
     <ExternalLink href={href} {...rest} />
   )

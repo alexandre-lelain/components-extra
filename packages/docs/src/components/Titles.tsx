@@ -17,9 +17,12 @@ const StyledTitle1 = styled(Typography).attrs(() => ({
   color: 'textPrimary',
 }))`
    ${commonStyle};
-   ${({ theme: { spacing } }): string => `
+   ${({ theme: { breakpoints, spacing } }): string => `
      margin-top: ${spacing(9)}px;
      margin-bottom: ${spacing(3)}px;
+     ${breakpoints.down('md')} {
+       margin-top: ${spacing(3)}px;
+     }
    `}
 `
 

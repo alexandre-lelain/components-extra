@@ -5,3 +5,153 @@ menu: Theming
 ---
 
 # Customization
+
+## Components-extra's theming system
+
+All the components are built on top of the default [material-ui's theme](https://material-ui.com/customization/theming/).
+
+**components-extra** simply overrides the `primary`/`secondary` color system to provide a consistent & customized design across
+all the components. You can check out this custom theme [here](#default-theme).
+
+## Bring your own theme
+
+You can totally override the default `theme` mentionned in the previous section, and also override the material-ui's one.
+You can override this theme with the prop `theme` of the `<StyledProvider>` provider.
+
+> **Note:** your `theme` object needs to follow the structure of Material-ui's theme. You can find it here: https://material-ui.com/customization/default-theme/
+
+Say, for example, you want to override the 2 main palette colors to have this:
+
+```jsx
+// yourTheme.js
+export default {
+  palette: {
+    primary: {
+      main: '#0000cc',
+    },
+    secondary: {
+      main: '#ff471a',
+    },
+  },
+}
+```
+
+You can apply it this way:
+
+```jsx
+// index.js
+import React from 'react'
+import { BackToTop, StyledProvider } from 'components-extra'
+
+import yourTheme from './yourTheme'
+
+const App = () => {
+  return (
+    <StyledProvider theme={yourTheme}>
+      <BackToTop />
+    </StyledProvider>
+  )
+}
+```
+
+Here, the palette styleguide you set up in your `theme` will be applied to all the components that live in the `<StyledProvider>`.
+
+## Custom Variables
+
+In addition to the values of material-ui's [default theme](https://material-ui.com/customization/default-theme/), you can also totally
+add some custom variables to the theme.
+
+For example, if you want to create a variable `colors` containing a list of custom names:
+
+```js
+// yourTheme.js
+export default {
+  colors: {
+    grass: "#009933",
+    electric: "#003d99",
+  }
+}
+```
+
+Just like in the previous example, you can pass this object to the `theme` prop of the `<StyledProvider>` provider.
+
+## Accessing the theme
+
+### In a React component
+
+To access the `theme` from a React component, you can either use the `useTheme` hook or the `withTheme` HOC
+of Material-UI. You can find the documentation about it [here](https://material-ui.com/styles/advanced/#accessing-the-theme-in-a-component).
+
+### In a styled-component
+
+You can also access the `theme` from any **styled-component** wrapped inside the [StyledProvider](/utils/styled-provider).
+It will be **automatically** passed via the props.
+
+For example, if we use the [previous](#custom-variables) theme example:
+
+```jsx
+import styled from 'styled-components';
+
+const MyStyledComponent = styled.span`
+  ${({ theme }) => `
+    color: ${theme.colors.grass};
+  `};
+`
+```
+
+## Extend the components
+
+All the **components-extra** are exported as [styled-components](styled-components.com), so you can extend them, and
+use them as styled selectors.
+
+For example, to extend the `BackToTop` component:
+
+```jsx
+import React from 'react'
+import styled from 'styled-components'
+import { BackToTop, StyledProvider } from 'components-extra'
+
+const CustomBackToTop = styled(BackToTop)`
+  opacity: 0.5;
+`
+
+const App = () => {
+  return (
+    <StyledProvider>
+      <CustomBackToTop />
+    </StyledProvider>
+  )
+}
+```
+
+Or to use it as a styled selector:
+
+```jsx
+import React from 'react'
+import styled from 'styled-components'
+import { BackToTop, StyledProvider } from 'components-extra'
+
+const Container = styled.div`
+  ${BackToTop} {
+    opacity: 0.5;
+  }
+`
+
+const App = () => {
+  return (
+    <StyledProvider>
+      <Container>
+        <BackToTop />
+      </Container>
+    </StyledProvider>
+  )
+}
+```
+
+## Default Theme
+
+import ThemeView from '@components/ThemeView'
+
+Here's the default theme of **components-extra**:
+
+<ThemeView />
