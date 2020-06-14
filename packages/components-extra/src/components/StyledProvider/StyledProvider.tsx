@@ -37,6 +37,7 @@ export interface StyledProviderProps {
 }
 
 StyledProvider.propTypes = {
+  children: PropTypes.node.isRequired,
   dark: PropTypes.bool,
   theme: PropTypes.object,
 }

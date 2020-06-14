@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { replace } from 'lodash-es'
-import { Button } from '@material-ui/core'
+import { Button, Typography } from '@material-ui/core'
 import { LiveProvider, LivePreview, LiveEditor, LiveError } from 'react-live'
 import copy from 'copy-text-to-clipboard'
 import { Resizable } from 're-resizable'
-import * as componentsExtra from 'components-extra'
 import theme from "prism-react-renderer/themes/oceanicNext"
 
 import { Copy, Code } from '@icons'
+import { SpacedParagraph } from './Paragraph'
+
+
+import * as componentsExtra from 'components-extra'
+import * as componentsDocs from './docs'
+const scope = { ...componentsExtra, ...componentsDocs }
 
 const COPY_LABELS = {
   copy: 'copy',
@@ -73,7 +78,8 @@ const ControlsContainer = styled('div')`
   }
 `
 
-const LIVE_PATTERN = /\/\/ live/
+const LIVE_PATTERN = /\/\/ live(-extended)?/
+const EXTENDED_PATTERN = /\/\/ live-extended/
 
 const Playground = ({ children }) => {
   const [showEditor, setShowEditor] = useState(false)
@@ -99,25 +105,30 @@ const Playground = ({ children }) => {
   if (code.match(LIVE_PATTERN)) {
     const cleansedCode = replace(code, LIVE_PATTERN, '').trim()
     return (
-      <LiveProvider code={cleansedCode} scope={{...componentsExtra}} language={language} theme={theme}>
-        <Resizable {...resizableProps}>
-          <div style={resizableStyle}>
-            <LivePreview />
-          </div>
-          <ControlsContainer>
-            <StyledButton onClick={onCopy}>
-              <Copy fontSize="small"/>
-              {copyLabel}
-            </StyledButton>
-            <StyledButton onClick={onEditCode}>
-              <Code fontSize="small"/>
-              Edit code
-            </StyledButton>
-          </ControlsContainer>
-          {showEditor && <StyledLiveEditor />}
-          <StyledLiveError />
-        </Resizable>
-      </LiveProvider>
+      <>
+        {code.match(EXTENDED_PATTERN) && (
+          <SpacedParagraph color="textPrimary">This component was extended using styled() from styled-components.</SpacedParagraph>
+        )}
+        <LiveProvider code={cleansedCode} scope={scope} language={language} theme={theme}>
+          <Resizable {...resizableProps}>
+            <div style={resizableStyle}>
+              <LivePreview />
+            </div>
+            <ControlsContainer>
+              <StyledButton onClick={onCopy}>
+                <Copy fontSize="small"/>
+                {copyLabel}
+              </StyledButton>
+              <StyledButton onClick={onEditCode}>
+                <Code fontSize="small"/>
+                Edit code
+              </StyledButton>
+            </ControlsContainer>
+            {showEditor && <StyledLiveEditor />}
+            <StyledLiveError />
+          </Resizable>
+        </LiveProvider>
+      </>   
     )
   }
   return <pre className={className}>{children}</pre>

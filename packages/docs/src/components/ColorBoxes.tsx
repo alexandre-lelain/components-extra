@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { map } from 'lodash-es'
+import { filter, map, reduce } from 'lodash-es'
 import { Paper, Typography, useTheme } from '@material-ui/core'
 
 import { Title3 } from './Titles'
@@ -48,7 +48,7 @@ const isLeaf = (node) => typeof node === "string"
 const isNode = (node) => typeof node === "object"
 
 const renderPaletteNode = (node: {}, name) => (
-  <ColorsNode>
+  <ColorsNode key={name}>
     <ColotsSuiteTitle>{name}</ColotsSuiteTitle>
     <ColorsSuite>
       {map(node, (color, name) => {
@@ -60,7 +60,26 @@ const renderPaletteNode = (node: {}, name) => (
   </ColorsNode>
 )
 
-const renderColorBoxes = (palette = {}) => map(palette, (node, name) => {
+const getLeaves = palette => reduce(palette, (leaves, value, name) => {
+  if (isLeaf(value) && isColor(value)) {
+    leaves[name] = value
+  }
+  return leaves
+}, {})
+
+const getNodes = palette => reduce(palette, (nodes, value, name) => {
+  if (isNode(value)) {
+    nodes[name] = value
+  }
+  return nodes
+}, {})
+
+const renderColorBoxes = (palette = {}) => {
+  const leaves = getLeaves(palette)
+  const nodes = getNodes(palette)
+  const sortedPalette = { ...nodes, ...leaves }
+
+  return map(sortedPalette, (node, name) => {
     if (isNode(node)) {
       return renderPaletteNode(node, name)
     }
@@ -68,6 +87,7 @@ const renderColorBoxes = (palette = {}) => map(palette, (node, name) => {
       return <ColorBox color={node} name={name} key={name} />
     }
   })
+} 
 
 const ColorBox = ({ color, name }) => {
   return (

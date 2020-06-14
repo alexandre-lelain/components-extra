@@ -19,7 +19,7 @@ const StyledTitle1 = styled(Typography).attrs(() => ({
    ${commonStyle};
    ${({ theme: { breakpoints, spacing } }): string => `
      margin-top: ${spacing(9)}px;
-     margin-bottom: ${spacing(3)}px;
+     margin-bottom: ${spacing(5)}px;
      ${breakpoints.down('md')} {
        margin-top: ${spacing(3)}px;
      }

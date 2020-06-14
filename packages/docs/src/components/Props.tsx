@@ -1,5 +1,5 @@
 import React from 'react'
-import { map } from 'lodash-es'
+import { map, isEmpty } from 'lodash-es'
 import styled from 'styled-components'
 import { 
   Paper,
@@ -32,8 +32,8 @@ const RequiredNameCell = styled(TableCell)`
 const Props: React.FC = ({ of: component }: PropsProps) => {
   const allProps = useProps()
   const { props = [] } = allProps[component]
-  
-  return (
+
+  return isEmpty(props) ? null : (
     <TableContainer component={Paper}>
       <Table aria-label={`Props of ${component}`}>
         <TableHead>
@@ -46,7 +46,7 @@ const Props: React.FC = ({ of: component }: PropsProps) => {
         </TableHead>
         <TableBody>
           {map(props, ({ defaultValue, description, required, name, type }) => {
-            const { text: propDefaultValue } = defaultValue || {}
+            const { value: propDefaultValue } = defaultValue || {}
             const { text: propDescription } = description || {}
             const { name: propType } = type || {}
 

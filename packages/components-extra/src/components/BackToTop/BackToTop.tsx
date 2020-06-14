@@ -62,5 +62,5 @@ const BackToTop = forwardRef((props: FabProps, ref: React.Ref<HTMLButtonElement>
 
 BackToTop.displayName = 'BackToTop'
 
-export { BackToTop }
+export { BackToTop as BaseBackToTop }
 export default styled(BackToTop)``
