@@ -79,7 +79,7 @@ const ControlsContainer = styled('div')`
 `
 
 const Container = styled.div`
-  ${({ theme: { spacing }}) => `
+  ${({ theme: { spacing }}): string => `
     margin: ${spacing(4)}px 0px;
   `}
 `
@@ -107,7 +107,7 @@ const Playground = ({ children }) => {
   const onEditCode = () => {
     setShowEditor((show) => !show)
   }
-
+  
   if (code.match(LIVE_PATTERN)) {
     const cleansedCode = replace(code, LIVE_PATTERN, '').trim()
     return (

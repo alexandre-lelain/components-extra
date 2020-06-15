@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "The documentation of components-extra.",
-  "homepage": "https://components-extra.netlify.com/",
+  "homepage": "https://components-extra.netlify.app/",
   "license": "MIT",
   "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
   "repository": {

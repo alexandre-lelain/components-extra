@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import {
   Card as MaterialCard,
   CardActions,
-  CardActionArea,
   CardContent,
   CardMedia,
   CardProps as MaterialCardProps,
@@ -17,6 +16,7 @@ import {
 
 import { BigProvider } from './hooks/Context'
 import CardButton, { CardButtonType } from './components/CardButton'
+import CardContentWrapper, { OnCardClick } from './components/CardContentWrapper'
 
 const useStyles = makeStyles({
   media: {
@@ -51,14 +51,10 @@ const Card = forwardRef(
   ) => {
     const classes = useStyles()
 
-    const CardContentWrapper = onClick
-      ? (): React.ReactElement => <CardActionArea onClick={onClick} />
-      : React.Fragment
-
     return (
       <BigProvider value={big}>
         <MaterialCard className={className} ref={ref} {...rest}>
-          <CardContentWrapper>
+          <CardContentWrapper onClick={onClick}>
             {!isEmpty(image) && <CardMedia className={classes.media} {...image} />}
             <CardContent className={classes.content}>
               <Typography gutterBottom variant={big ? 'h4' : 'h5'}>
@@ -82,10 +78,6 @@ const Card = forwardRef(
   },
 ) as CardType
 
-export type OnCardClick =
-  | ((event: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>) => void)
-  | undefined
-
 export interface CardProps extends MaterialCardProps {
   /**
    * Set to true if you want to have font-sizes bigger. Useful for large cards' widths. False by default.
@@ -100,8 +92,7 @@ export interface CardProps extends MaterialCardProps {
    */
   description?: React.ReactNode
   /**
-   * The Card's image media. 'component' can either be a string (ex: 'section'), or a component.
-   * You can also pass other props to the media container.
+   * The Card's image media. Inherits from MUI's CardMedia props. See https://material-ui.com/api/card-media/.
    */
   image?: CardMediaProps
   /**
@@ -123,6 +114,7 @@ export type CardType = React.ForwardRefExoticComponent<CardProps> & CardComponen
 
 Card.propTypes = {
   big: PropTypes.bool,
+  children: PropTypes.node,
   description: PropTypes.node,
   image: PropTypes.object,
   onClick: PropTypes.func,

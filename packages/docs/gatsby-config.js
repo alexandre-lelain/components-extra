@@ -6,11 +6,11 @@ module.exports = {
     description: `React UI molecule components based on styled-components & material-ui.`,
     author: `Alexandre Le Lain <lelain.alexandre@gmail.com>`,
     github: 'https://github.com/alexandre-lelain/components-extra',
-    url: 'https://components-extra.netlify.com/',
+    url: 'https://components-extra.netlify.app/',
     keywords: [
       'components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer',
     ],
-    image: 'https://components-extra.netlify.com/public/logo.png',
+    image: 'https://components-extra.netlify.app/public/logo.png',
     google: process.env.GOOGLE || '',
   },
   plugins: [

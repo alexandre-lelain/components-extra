@@ -2,7 +2,7 @@
   "name": "components-extra",
   "version": "2.6.1",
   "description": "React UI molecule components based on styled-components & material-ui.",
-  "homepage": "https://components-extra.netlify.com/",
+  "homepage": "https://components-extra.netlify.app/",
   "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
   "license": "MIT",
   "module": "./build/esm/index.js",
