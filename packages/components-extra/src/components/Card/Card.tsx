@@ -28,6 +28,13 @@ const useStyles = makeStyles({
   },
 })
 
+/**
+ *
+ * API:
+ *
+ * - [Card API](https://components-extra.netlify.app/components/card)
+ * - inherits [MUI Card API](https://material-ui.com/api/card/)
+ */
 const Card = forwardRef(
   (
     {

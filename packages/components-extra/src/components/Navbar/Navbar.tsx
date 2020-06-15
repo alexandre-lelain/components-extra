@@ -8,6 +8,13 @@ import LanguageItem, { LanguageItemType } from './components/LanguageItem'
 import Menu, { MenuType } from './components/Menu'
 import MenuItem, { MenuItemType } from './components/MenuItem'
 
+/**
+ *
+ * API:
+ *
+ * - [Navbar API](https://components-extra.netlify.app/components/navbar)
+ * - inherits [AppBar API](https://material-ui.com/api/app-bar/)
+ */
 const Navbar = forwardRef(({ children, ...rest }: NavbarProps, ref: React.Ref<HTMLElement>) => {
   return (
     <AppBar ref={ref} {...rest}>

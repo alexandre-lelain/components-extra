@@ -12,6 +12,13 @@ import {
   MAX_LENGTH,
 } from './utils'
 
+/**
+ *
+ * API:
+ *
+ * - [CreditCardNumber API](https://components-extra.netlify.app/components/credit-card-number)
+ * - inherits [OutlinedInput API](https://material-ui.com/api/outlined-input/)
+ */
 const CreditCardNumber = forwardRef(
   ({ inputProps, onChange, ...rest }: OutlinedInputProps, ref: React.Ref<HTMLInputElement>) => {
     const [value, setValue] = useState('')

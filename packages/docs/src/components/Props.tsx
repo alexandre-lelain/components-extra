@@ -12,6 +12,14 @@ import {
 } from '@material-ui/core'
 
 import { useProps } from './PropsProvider'
+import { SpacedParagraph } from './Paragraph'
+import InlineCode from './InlineCode'
+
+const StyledTableContainer = styled(TableContainer)`
+  ${({ theme: { spacing }}) => `
+    margin: ${spacing(4)}px 0px;
+  `}
+`
 
 const HeadCell = styled(TableCell)`
   font-size: 1rem;
@@ -33,43 +41,50 @@ const Props: React.FC = ({ of: component }: PropsProps) => {
   const allProps = useProps()
   const { props = [] } = allProps[component]
 
-  return isEmpty(props) ? null : (
-    <TableContainer component={Paper}>
-      <Table aria-label={`Props of ${component}`}>
-        <TableHead>
-          <TableRow>
-            <HeadCell>Name</HeadCell>
-            <HeadCell>Type</HeadCell>
-            <HeadCell>Default</HeadCell>
-            <HeadCell>Description</HeadCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {map(props, ({ defaultValue, description, required, name, type }) => {
-            const { value: propDefaultValue } = defaultValue || {}
-            const { text: propDescription } = description || {}
-            const { name: propType } = type || {}
-
-            return (
-              <TableRow key={name}>
-                {required ? (
-                  <RequiredNameCell>
-                    {name}*
-                  </RequiredNameCell>
-                ) : (
-                  <TableCell>
-                    {name}
-                  </TableCell>
-                )}
-                <TypeCell>{propType}</TypeCell>
-                <TableCell>{propDefaultValue}</TableCell>
-                <TableCell>{propDescription}</TableCell>
+  return (
+    <>
+      {isEmpty(props) ? null : (
+        <StyledTableContainer component={Paper}>
+          <Table aria-label={`Props of ${component}`}>
+            <TableHead>
+              <TableRow>
+                <HeadCell>Name</HeadCell>
+                <HeadCell>Type</HeadCell>
+                <HeadCell>Default</HeadCell>
+                <HeadCell>Description</HeadCell>
               </TableRow>
-            )
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+            </TableHead>
+            <TableBody>
+              {map(props, ({ defaultValue, description, required, name, type }) => {
+                const { value: propDefaultValue } = defaultValue || {}
+                const { text: propDescription } = description || {}
+                const { name: propType } = type || {}
+
+                return (
+                  <TableRow key={name}>
+                    {required ? (
+                      <RequiredNameCell>
+                        {name}*
+                      </RequiredNameCell>
+                    ) : (
+                      <TableCell>
+                        {name}
+                      </TableCell>
+                    )}
+                    <TypeCell>{propType}</TypeCell>
+                    <TableCell>{propDefaultValue}</TableCell>
+                    <TableCell>{propDescription}</TableCell>
+                  </TableRow>
+                )
+              })}
+            </TableBody>
+          </Table>
+        </StyledTableContainer>
+       )}
+       <SpacedParagraph>
+          The <InlineCode>ref</InlineCode> will be forwarded to the html root element, as well as any other props.
+       </SpacedParagraph>
+    </>
   )
 }
 

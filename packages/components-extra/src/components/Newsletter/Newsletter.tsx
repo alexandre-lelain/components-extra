@@ -8,6 +8,12 @@ import Form from './components/Form'
 import Input, { InputType } from './components/Input'
 import { Caption, Description, Title } from './components/Typographies'
 
+/**
+ *
+ * API:
+ *
+ * - [Newsletter API](https://components-extra.netlify.app/components/newsletter)
+ */
 const Newsletter = forwardRef(
   (
     { caption, children, description, title, ...rest }: NewsletterProps,

@@ -11,6 +11,12 @@ import ItemsContainer from './components/ItemsContainer'
 import Title from './components/Title'
 import TopContainer from './components/TopContainer'
 
+/**
+ *
+ * API:
+ *
+ * - [Footer API](https://components-extra.netlify.app/components/footer)
+ */
 const Footer = forwardRef(
   (
     { bottomBanner, children, imageProps, title, ...rest }: FooterProps,

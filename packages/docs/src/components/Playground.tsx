@@ -9,7 +9,7 @@ import theme from "prism-react-renderer/themes/oceanicNext"
 
 import { Copy, Code } from '@icons'
 import { SpacedParagraph } from './Paragraph'
-
+import Link from './Link'
 
 import * as componentsExtra from 'components-extra'
 import * as componentsDocs from './docs'
@@ -78,6 +78,12 @@ const ControlsContainer = styled('div')`
   }
 `
 
+const Container = styled.div`
+  ${({ theme: { spacing }}) => `
+    margin: ${spacing(4)}px 0px;
+  `}
+`
+
 const LIVE_PATTERN = /\/\/ live(-extended)?/
 const EXTENDED_PATTERN = /\/\/ live-extended/
 
@@ -107,27 +113,31 @@ const Playground = ({ children }) => {
     return (
       <>
         {code.match(EXTENDED_PATTERN) && (
-          <SpacedParagraph color="textPrimary">This component was extended using styled() from styled-components.</SpacedParagraph>
+          <SpacedParagraph>
+            This component was extended using <Link href="https://styled-components.com/docs/api">styled()</Link> from styled-components.
+          </SpacedParagraph>
         )}
-        <LiveProvider code={cleansedCode} scope={scope} language={language} theme={theme}>
-          <Resizable {...resizableProps}>
-            <div style={resizableStyle}>
-              <LivePreview />
-            </div>
-            <ControlsContainer>
-              <StyledButton onClick={onCopy}>
-                <Copy fontSize="small"/>
-                {copyLabel}
-              </StyledButton>
-              <StyledButton onClick={onEditCode}>
-                <Code fontSize="small"/>
-                Edit code
-              </StyledButton>
-            </ControlsContainer>
-            {showEditor && <StyledLiveEditor />}
-            <StyledLiveError />
-          </Resizable>
-        </LiveProvider>
+        <Container>
+          <LiveProvider code={cleansedCode} scope={scope} language={language} theme={theme}>
+            <Resizable {...resizableProps}>
+              <div style={resizableStyle}>
+                <LivePreview />
+              </div>
+              <ControlsContainer>
+                <StyledButton onClick={onCopy}>
+                  <Copy fontSize="small"/>
+                  {copyLabel}
+                </StyledButton>
+                <StyledButton onClick={onEditCode}>
+                  <Code fontSize="small"/>
+                  Edit code
+                </StyledButton>
+              </ControlsContainer>
+              {showEditor && <StyledLiveEditor />}
+              <StyledLiveError />
+            </Resizable>
+          </LiveProvider>
+        </Container>
       </>   
     )
   }

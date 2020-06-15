@@ -4,6 +4,12 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles'
 import { createTheme, Theme } from '../../theme'
 
+/**
+ *
+ * API:
+ *
+ * - [StyledProvider API](https://components-extra.netlify.app/utils/styled-provider)
+ */
 const StyledProvider = ({
   children,
   dark = false,

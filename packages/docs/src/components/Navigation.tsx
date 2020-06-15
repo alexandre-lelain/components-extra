@@ -39,7 +39,7 @@ const MENU_ORDER = ['Introduction', 'Components', 'Utils', 'Theming', 'Guides', 
 
 const query = graphql`
   {
-    allMdx(filter: {frontmatter: {name: {regex: "/[a-z]+/"}}}) {
+    allMdx(filter: {frontmatter: {name: {regex: "/[a-z]+/"}}}, sort: {fields: frontmatter___name}) {
       group(field: frontmatter___menu) {
         fieldValue
         nodes {

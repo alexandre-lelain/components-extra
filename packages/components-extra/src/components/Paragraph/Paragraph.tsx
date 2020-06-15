@@ -12,6 +12,13 @@ const StyledParagraph = styled(Typography)`
   `}
 `
 
+/**
+ *
+ * API:
+ *
+ * - [Paragraph API](https://components-extra.netlify.app/components/paragraph)
+ * - inherits [Typography API](https://material-ui.com/api/typography/)
+ */
 const Paragraph = forwardRef(
   (
     { color = 'textPrimary', variant = 'body1', ...rest }: TypographyProps,

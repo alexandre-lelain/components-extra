@@ -15,6 +15,12 @@ const useStyles = makeStyles(({ palette }) => ({
   },
 }))
 
+/**
+ *
+ * API:
+ *
+ * - [CookiesBanner API](https://components-extra.netlify.app/components/cookies-banner)
+ */
 const CookiesBanner = forwardRef(
   ({ children, text, ...rest }: CookiesBannerProps, ref: React.Ref<HTMLDivElement>) => {
     const classes = useStyles()

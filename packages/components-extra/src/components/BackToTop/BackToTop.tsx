@@ -8,6 +8,13 @@ import Button from './components/Button'
 
 import { isServerSide, serverDocument } from '../../utils'
 
+/**
+ *
+ * API:
+ *
+ * - [BackToTop API](https://components-extra.netlify.app/components/back-to-top)
+ * - inherits [Fab API](https://material-ui.com/api/fab/)
+ */
 const BackToTop = forwardRef((props: FabProps, ref: React.Ref<HTMLButtonElement>) => {
   const {
     mixins: { backToTop },

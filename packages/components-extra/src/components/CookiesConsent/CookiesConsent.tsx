@@ -8,6 +8,12 @@ import Controls, { ControlsType } from './components/Controls'
 import Container from './components/Container'
 import MainTitle from './components/MainTitle'
 
+/**
+ *
+ * API:
+ *
+ * - [CookiesConsent API](https://components-extra.netlify.app/components/cookies-consent)
+ */
 const CookiesConsent = forwardRef(
   ({ children, title, ...rest }: CookiesConsentProps, ref: React.Ref<HTMLDivElement>) => {
     return (
