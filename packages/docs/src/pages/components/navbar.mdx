@@ -1,0 +1,362 @@
+---
+name: Navbar
+menu: Components
+route: /components/navbar
+---
+
+import Props from '@components/Props'
+
+# Navbar
+
+- [Navbar](/components/navbar#)
+- [Navbar.Brand](/components/navbar#navbar-brand)
+- [Navbar.Menu](/components/navbar#navbar-menu)
+- [Navbar.MenuItem](/components/navbar#navbar-menuitem)
+- [Navbar.Language](/components/navbar#navbar-language)
+- [Navbar.LanguageItem](/components/navbar#navbar-languageitem)
+
+If you play around with your browser’s window size, you will see that the menu automatically switches from `mobile` to `desktop` mode and vice versa.
+No config or prop needed on your side! This Navbar does it for you :)
+
+By default, it switches to `desktop` mode once the `theme.breakpoints.md` (default: **960px**) is reached. 
+You can of course override it when you bring your own theme in the StyledProvider provider at the root of your app.
+
+Visit the [customization page](https://material-ui.com/customization/default-theme/) to know more about the breakpoints.
+
+> **Note:** the components such as the icons `<BrandIcon>` and `<AmericaFlag>` used in the following stories are not included. You
+can bring any component of your choice!
+
+
+## Default
+
+```jsx
+// live
+() => {
+  const [selectedLanguage, setLang] = React.useState('English')
+
+  const isEnglish = selectedLanguage === 'English'
+
+  return (
+    <Navbar position='relative'>
+      <Navbar.Brand title="Components-extra">
+        <BrandIcon />
+      </Navbar.Brand>
+      <Navbar.Language selectedLanguage={selectedLanguage}>
+        <Navbar.LanguageItem label="english" onClick={() => setLang('English')}>
+          English
+        </Navbar.LanguageItem>
+        <Navbar.LanguageItem label="french" onClick={() => setLang('Français')}>
+          Français
+        </Navbar.LanguageItem>
+      </Navbar.Language>
+      <Navbar.Menu>
+        <Navbar.MenuItem href="/">
+          {isEnglish ? 'Visit Storybook' : 'Visiter le Storybook'}
+        </Navbar.MenuItem>
+        <Navbar.MenuItem href="https://github.com/alexandre-lelain/components-extra/issues">
+          {isEnglish ? 'Open an issue' : 'Ouvrir une issue'}
+        </Navbar.MenuItem>
+        <Navbar.MenuItem href="https://github.com/alexandre-lelain/components-extra/pulls">
+          {isEnglish ? 'Open a PR' : 'Faire une PR'}
+        </Navbar.MenuItem>
+      </Navbar.Menu>
+    </Navbar>
+  )
+}
+```
+
+> **Note:** here the language menu was before the menu options, but you can of course change that the way
+you want it to be :)
+
+## No Language
+
+```jsx
+// live
+<Navbar position='relative'>
+  <Navbar.Brand title="Awesome Navbar">
+    <BrandIcon />
+  </Navbar.Brand>
+  <Navbar.Menu>
+    <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+    <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+    <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+  </Navbar.Menu>
+</Navbar>
+```
+
+## Sticky
+
+```jsx
+// live
+<div style={{ height: 300, overflow: 'auto' }}>
+  <Navbar position="sticky">
+    <Navbar.Brand title="Awesome Navbar">
+      <BrandIcon />
+    </Navbar.Brand>
+    <Navbar.Menu>
+      <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+      <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+      <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+    </Navbar.Menu>
+  </Navbar>
+  <div style={{ height: 800 }} />
+</div>
+```
+
+## No brand icon
+
+```jsx
+// live
+<Navbar position='relative'>
+  <Navbar.Brand title="Awesome Navbar" />
+</Navbar>
+```
+
+## Extended
+
+```jsx
+// live-extended
+<ExtendedNavbar position='relative'>
+  <Navbar.Brand title="Awesome Navbar" />
+  <Navbar.Menu>
+    <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+    <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+    <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+  </Navbar.Menu>
+</ExtendedNavbar>
+```
+
+## Props
+
+<Props of="Navbar"/>
+
+<br />
+<hr />
+
+## Navbar.Brand
+
+### Default Brand
+
+```jsx
+// live
+<Navbar.Brand title="Awesome Navbar" style={{ width: "max-content", backgroundColor: "#1976d2"}}>
+  <BrandIcon />
+</Navbar.Brand>
+```
+
+### No icon
+
+```jsx
+// live
+<Navbar.Brand title="Awesome Navbar" style={{ width: "max-content", backgroundColor: "#1976d2"}}/>
+```
+
+### Custom url
+
+```jsx
+// live
+<Navbar.Brand
+  href="https://www.youtube.com/watch?v=Ckom3gf57Yw"
+  title="Awesome Navbar"
+  style={{ width: "max-content", backgroundColor: "#1976d2"}}
+>
+  <BrandIcon />
+</Navbar.Brand>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<BrandExtended title="Awesome Navbar" href="https://www.youtube.com/watch?v=Ckom3gf57Yw">
+  <BrandIcon />
+</BrandExtended>
+```
+
+### Props
+
+<Props of="Navbar.Brand" />
+
+<br />
+<hr />
+
+## Navbar.Menu
+
+### Default Menu
+
+```jsx
+// live
+<Navbar.Menu label="open-menu" style={{ width: "max-content", backgroundColor: "#1976d2"}}>
+  <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+  <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+  <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+</Navbar.Menu>
+```
+
+### Fancy items
+
+```jsx
+// live
+<Navbar.Menu style={{ width: "max-content", backgroundColor: "#1976d2"}}>
+  <Navbar.MenuItem href="#">
+    <BrandIcon />
+    Awesome Link 1
+  </Navbar.MenuItem>
+  <Navbar.MenuItem href="#">
+    <AmericaFlag />
+  </Navbar.MenuItem>
+  <Navbar.MenuItem href="#">
+    <BrandIcon />
+  </Navbar.MenuItem>
+</Navbar.Menu>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<MenuExtended>
+  <Navbar.MenuItem href="#">Awesome Link 1</Navbar.MenuItem>
+  <Navbar.MenuItem href="#">Awesome Link 2</Navbar.MenuItem>
+  <Navbar.MenuItem href="#">Awesome Link 3</Navbar.MenuItem>
+</MenuExtended>
+```
+
+### Props
+
+<Props of="Navbar.Menu"/>
+
+## Navbar.MenuItem
+
+### Default MenuItem
+
+```jsx
+// live
+<Navbar.MenuItem
+  onClick={() => console.log('clicked!')}
+  style={{ width: "max-content", backgroundColor: "#1976d2"}}
+>
+  Awesome Link
+</Navbar.MenuItem>
+```
+
+### Fancy children
+
+```jsx
+// live
+<Navbar.MenuItem onClick={() => console.log('clicked!')} style={{ width: "max-content", backgroundColor: "#1976d2"}}>
+  <BrandIcon />
+  <p style={{ paddingLeft: '8px', paddingRight: '8px', margin: '0px' }}>Awesome Link</p>
+  <AmericaFlag />
+</Navbar.MenuItem>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<MenuItemExtended href="#">Extended MenuItem</MenuItemExtended>
+```
+
+### Props
+
+This component extends Material's UI `<Button>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
+
+<Props of="Navbar.MenuItem"/>
+
+<br />
+<hr />
+
+## Navbar.Language
+
+### Default Language
+
+```jsx
+// live
+() => {
+  const [selectedLanguage, setLang] = React.useState('English')
+
+  return (
+    <Navbar.Language selectedLanguage={selectedLanguage} style={{ background: "#1976d2" }}>
+      <Navbar.LanguageItem label="english" onClick={() => setLang('English')}>
+        English
+      </Navbar.LanguageItem>
+      <Navbar.LanguageItem label="french" onClick={() => setLang('Français')}>
+        Français
+      </Navbar.LanguageItem>
+    </Navbar.Language>
+  )
+}
+```
+
+### Custom items
+
+```jsx
+// live
+() => {
+  const [selectedLanguage, setLang] = React.useState('English')
+
+  return (
+    <Navbar.Language selectedLanguage={selectedLanguage} style={{ background: "#1976d2" }}>
+      <button label="english" onClick={() => setLang('English')}>
+        English
+      </button>
+      <button label="french" onClick={() => setLang('Français')}>
+        Français
+      </button>
+    </Navbar.Language>
+  )
+}
+```
+
+### Extended
+
+```jsx
+// live-extended
+<LanguageExtended />
+```
+
+### Props
+
+This component extends Material's UI `<Button>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
+
+<Props of="Navbar.Language" />
+
+<br />
+<hr />
+
+## Navbar.LanguageItem
+
+### Default LanguageItem
+
+```jsx
+// live
+<Navbar.LanguageItem label="english" onClick={() => console.log('clicked!')} color="primary">
+  English
+</Navbar.LanguageItem>
+```
+
+### Fancy children
+
+```jsx
+// live
+<Navbar.LanguageItem label="english" onClick={() => console.log('clicked!')} color="primary">
+  <AmericaFlag />
+  <p style={{ paddingLeft: '8px', margin: '4px' }}>English yeah! 🤘</p>
+</Navbar.LanguageItem>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<LanguageItemExtended label="english" onClick={() => console.log('clicked!')}>
+  English
+</LanguageItemExtended>
+```
+
+### Props
+
+This component extends Material's UI `<MenuItem>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/menu-item/).
+
+<Props of="Navbar.LanguageItem"/>

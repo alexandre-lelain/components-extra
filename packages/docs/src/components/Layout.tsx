@@ -41,7 +41,7 @@ const MainContainer = styled.main`
 
 const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutProps) => {
   const { frontmatter: { name, route } = {} } = pageContext
-
+  
   useEffect(() => {
     Prism.highlightAll()
   }, [])

@@ -10,6 +10,12 @@ const StyledLabel = styled.span`
   margin-left: 8px;
 `
 
+const StyledNavbar = styled(Navbar)`
+  ${({ theme: { zIndex } }): string => `
+    z-index: calc(${zIndex.appBar} + 1);
+  `}
+`
+
 const Header: React.FC = () => {
   const {
     site: { siteMetadata },
@@ -34,7 +40,7 @@ const Header: React.FC = () => {
   }, [setMode, mode])
 
   return (
-    <Navbar>
+    <StyledNavbar>
       <Navbar.Brand title="Components-extra" />
       <Navbar.Menu>
         <Navbar.MenuItem href={github} target="_blank" rel="noreferrer noopener">
@@ -46,7 +52,7 @@ const Header: React.FC = () => {
           <StyledLabel>Mode</StyledLabel>
         </Navbar.MenuItem>
       </Navbar.Menu>
-    </Navbar>
+    </StyledNavbar>
   )
 }
 export default Header

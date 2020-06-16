@@ -19,6 +19,7 @@ const DesktopContainer = styled.ol`
   display: flex;
   list-style: none;
   margin: 0;
+  padding: 0;
 `
 
 const Menu: MenuType = ({ children, iconProps = {}, label = '', ...rest }: MenuProps) => {
@@ -62,13 +63,8 @@ const Menu: MenuType = ({ children, iconProps = {}, label = '', ...rest }: MenuP
 Menu.displayName = 'Navbar.Menu'
 
 Menu.propTypes = {
-  /**
-   * The props to pass to the MUI's IconButton when not in desktop mode.
-   */
+  children: PropTypes.node,
   iconProps: PropTypes.object,
-  /**
-   * The label of the menu's hamburger icon when viewport is mobile. Used for its meta props.
-   */
   label: PropTypes.string,
 }
 

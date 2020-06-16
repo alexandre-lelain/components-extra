@@ -56,15 +56,7 @@ const Language: LanguageType = ({
 Language.displayName = 'Navbar.Language'
 
 Language.propTypes = {
-  /**
-   * If set to true, only the 2 first characters of the selectedLanguage will be displayed
-   * for very small screens to provide a better responsive design.
-   * Set to false to leave the selectedLanguage as it is.
-   */
   smallScreenSupport: PropTypes.bool,
-  /**
-   * The language's menu selected language.
-   */
   selectedLanguage: PropTypes.string,
 }
 

@@ -15,6 +15,7 @@ const StyledButton = styled(Button).attrs(() => ({
 `
 
 const StyledLi = styled('li')`
+  list-style: none;
   ${({ isDesktop }: StyledLi): string => `
     ${StyledButton} {
       ${

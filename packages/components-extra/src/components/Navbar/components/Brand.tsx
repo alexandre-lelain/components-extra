@@ -60,13 +60,8 @@ const Brand: BrandType = ({ children, href = '/', title, ...rest }: BrandProps) 
 Brand.displayName = 'Navbar.Brand'
 
 Brand.propTypes = {
-  /**
-   * The navbar's brand link. By default it links to the same page.
-   */
+  children: PropTypes.node,
   href: PropTypes.string,
-  /**
-   * The navbar's title.
-   */
   title: PropTypes.string,
 }
 
@@ -76,7 +71,7 @@ export interface BrandProps {
    */
   children?: React.ReactNode
   /**
-   * The navbar's brand link. By default it links to the same page.
+   * The navbar's brand link. By default it links to the root page.
    */
   href?: string
   /**

@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { AppBar, AppBarProps, Toolbar } from '@material-ui/core'
 
@@ -41,6 +42,9 @@ export interface NavbarComponents {
 
 export type NavbarType = React.ForwardRefExoticComponent<NavbarProps> & NavbarComponents
 
+Navbar.propTypes = {
+  children: PropTypes.node,
+}
 /**
  * Exposed components.
  */
