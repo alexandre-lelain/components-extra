@@ -19,7 +19,7 @@ const Container = styled('div')`
 `
 
 const StyledSwitch = styled(Switch)`
-  margin: 0 11px;
+  margin: 0 11px 0 4px;
 `
 
 const ChildrenContainer = styled('div')`
@@ -73,19 +73,9 @@ const Controls: ControlsType = ({
 Controls.displayName = 'CookiesConsent.Controls'
 
 Controls.propTypes = {
-  /**
-   * If true, the switch is checked and the category is on. Leave to undefined if you don't
-   * need to control the component.
-   */
   checked: PropTypes.bool,
-  /**
-   * Function called on switch change. Signature: (checked: bool) => void.
-   * If you don't provide an onChange function, the switch will not be displayed.
-   */
+  children: PropTypes.node,
   onChange: PropTypes.func,
-  /**
-   * The switch's label.
-   */
   switchLabel: PropTypes.string,
 }
 
@@ -101,7 +91,7 @@ export interface ControlsProps {
    */
   children?: React.ReactNode
   /**
-   * Function called on switch change. Signature: (event) => void.
+   * Function called on switch change. Signature: (event) => void. You can access the value using `event.target.value`.
    * If you don't provide an onChange function, the switch will not be displayed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void

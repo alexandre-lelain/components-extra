@@ -5,7 +5,7 @@
 * `<Navbar>` no longer have a `isSticky` prop, and instead use `position: string` to enhance customization. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * `icon` prop of `<Footer.Item>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * `bottomBanner` prop of `<Footer>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* all `onChange` callbacks on every component now return the `event` instead of only the `value`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* /!\ all `onChange` callbacks on every component now return the `event` instead of only the `value`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Fixed `image` prop of `<Card>`. It now follows MUI's [CardMedia](https://material-ui.com/api/card-media/). ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.6.1

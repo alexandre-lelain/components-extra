@@ -50,14 +50,9 @@ const Column: ColumnType = ({ children, isInline = false, title, ...rest }: Colu
 Column.displayName = 'Footer.Column'
 
 Column.propTypes = {
-  /**
-   * The column's title.
-   */
-  title: PropTypes.string,
-  /**
-   * Set to true if you want to align the column's items on one horizontal line.
-   */
+  children: PropTypes.node,
   isInline: PropTypes.bool,
+  title: PropTypes.string,
 }
 
 export interface ColumnProps {

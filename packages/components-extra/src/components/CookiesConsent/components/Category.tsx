@@ -35,10 +35,6 @@ const useStyles = makeStyles({
   },
 })
 
-const StyledExpansionPanel = styled(ExpansionPanel)`
-  overflow-x: auto;
-`
-
 const StyledExpansionPanelDetails = styled(ExpansionPanelDetails)`
   display: flex;
   flex-direction: column;
@@ -68,9 +64,9 @@ const Category: CategoryType = ({
       setIsChecked((isChecked) => !isChecked)
     }
   }
-
+  
   return (
-    <StyledExpansionPanel
+    <ExpansionPanel
       expanded={expanded}
       onChange={(): void => setExpanded((prev) => !prev)}
       {...rest}
@@ -90,29 +86,17 @@ const Category: CategoryType = ({
         {isSmallScreen && <Description>{description}</Description>}
         {children}
       </StyledExpansionPanelDetails>
-    </StyledExpansionPanel>
+    </ExpansionPanel>
   )
 }
 
 Category.displayName = 'CookiesConsent.Category'
 
 Category.propTypes = {
-  /**
-   * If true, the switch is checked and the category is on.
-   * Leave to undefined if you don't need to control the component.
-   */
   checked: PropTypes.bool,
-  /**
-   * A brief description of the cookies category.
-   */
+  children: PropTypes.node,
   description: PropTypes.string,
-  /**
-   * Function called on switch change. Signature: (event) => void.
-   */
   onChange: PropTypes.func,
-  /**
-   * The title of the cookies category. Required.
-   */
   title: PropTypes.string.isRequired,
 }
 
@@ -131,7 +115,7 @@ export interface CategoryProps extends Omit<ExpansionPanelProps, 'onChange' | 'c
    */
   description?: string
   /**
-   * Function called on switch change. Signature: (event) => void.
+   * Function called on switch change. Signature: (event) => void. You can access the value using `event.target.value`.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   /**

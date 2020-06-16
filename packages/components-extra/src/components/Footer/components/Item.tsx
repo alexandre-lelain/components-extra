@@ -41,9 +41,6 @@ const Item: ItemType = ({ className, children, icon, ...rest }: ItemProps) => {
 Item.displayName = 'Footer.Item'
 
 Item.propTypes = {
-  /**
-   * The item's icon.
-   */
   icon: PropTypes.node,
 }
 

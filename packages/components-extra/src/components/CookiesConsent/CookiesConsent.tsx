@@ -53,6 +53,7 @@ export type CookiesConsentType = React.ForwardRefExoticComponent<CookiesConsentP
   CookiesConsentComponents
 
 CookiesConsent.propTypes = {
+  children: PropTypes.node,
   title: PropTypes.string,
 }
 

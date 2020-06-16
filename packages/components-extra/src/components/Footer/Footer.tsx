@@ -19,12 +19,12 @@ import TopContainer from './components/TopContainer'
  */
 const Footer = forwardRef(
   (
-    { bottomBanner, children, imageProps, title, ...rest }: FooterProps,
+    { bottomBanner, children, image, title, ...rest }: FooterProps,
     ref: React.Ref<HTMLElement>,
   ) => {
     return (
       <FooterContainer ref={ref} {...rest}>
-        <TopContainer {...imageProps}>
+        <TopContainer {...image}>
           {title && <Title text={title} />}
           {children && <ItemsContainer>{children}</ItemsContainer>}
         </TopContainer>
@@ -48,7 +48,7 @@ export interface FooterProps {
    * The footer's background image. Please refer to MUI's CardMedia's props for the exhaustive list:
    * https://material-ui.com/api/card-media/.
    */
-  imageProps?: CardMediaProps
+  image?: CardMediaProps
   /**
    * The ref to attach to the footer element.
    */
@@ -68,7 +68,8 @@ export type FooterType = React.ForwardRefExoticComponent<FooterProps> & FooterCo
 
 Footer.propTypes = {
   bottomBanner: PropTypes.node,
-  imageProps: PropTypes.object,
+  children: PropTypes.node,
+  image: PropTypes.object,
   title: PropTypes.string,
 }
 
