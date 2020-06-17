@@ -39,16 +39,16 @@ const MainContainer = styled.main`
   `}
 `
 
-const Layout: React.FC<LayoutProps> = ({ children, pageContext = {} }: LayoutProps) => {
-  const { frontmatter: { name, route } = {} } = pageContext
-  
+const Layout: React.FC<LayoutProps> = ({ children, pageContext = {}, ...rest }: LayoutProps) => {
+  const { frontmatter: { name, route, description } = {} } = pageContext
+  console.log({rest})
   useEffect(() => {
     Prism.highlightAll()
   }, [])
 
   return (
     <ModeProvider>
-      <Seo title={name}/>
+      <Seo description={description} title={name}/>
       <ThemeProvider>
         <GlobalStyle />
         <MDXProvider>

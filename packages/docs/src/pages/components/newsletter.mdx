@@ -1,0 +1,240 @@
+---
+name: Newsletter
+menu: Components
+route: /components/newsletter
+description: The API documentation of the Newsletter React component. Play around with demos and check out its props.
+---
+
+import Props from '@components/Props'
+
+# Newsletter
+
+- [Newsletter](/components/newsletter#)
+- [Newsletter.Input](/components/newsletter#newsletter-input)
+- [Newsletter.Button](/components/newsletter#newsletter-button)
+
+## Default
+
+```jsx
+// live
+() => {
+  const [email, setEmail] = React.useState('')
+
+  return (
+    <Newsletter
+      title='Subscribe to our newsletter'
+      description='Get exclusive offers every week!'
+      caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
+    >
+      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
+        Subscribe
+      </Newsletter.Button>
+    </Newsletter>
+  )
+}
+```
+
+## No caption
+
+```jsx
+// live
+() => {
+  const [email, setEmail] = React.useState('')
+
+  return (
+    <Newsletter
+      title='Subscribe to our newsletter'
+      description='Get exclusive offers every week!'
+    >
+      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
+        Subscribe
+      </Newsletter.Button>
+    </Newsletter>
+  )
+}
+```
+
+## No description
+
+```jsx
+// live
+() => {
+  const [email, setEmail] = React.useState('')
+
+  return (
+    <Newsletter
+      title='Subscribe to our newsletter'
+      caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
+    >
+      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
+        Subscribe
+      </Newsletter.Button>
+    </Newsletter>
+  )
+}
+```
+
+## Title only
+
+```jsx
+// live
+() => {
+  const [email, setEmail] = React.useState('')
+  return (
+    <Newsletter
+      title='Subscribe to our newsletter'
+    >
+      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
+        Subscribe
+      </Newsletter.Button>
+    </Newsletter>
+  )
+}
+```
+
+## Custom controls
+
+```jsx
+// live
+() => {
+const [email, setEmail] = React.useState('')
+
+return (
+  <Newsletter
+    title='Subscribe to our newsletter'
+    description='Get exclusive offers every week!'
+    caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
+  >
+    <input id="email" placeholder="Email..." type="email" value={email} onChange={e => setEmail(e.target.value)}/>
+    <button onClick={() => console.log('Thanks for subscribing!')}>
+      Subscribe
+    </button>
+  </Newsletter>
+)
+}
+```
+
+## Extended
+
+```jsx
+// live-extended
+<ExtendedNewsletter />
+```
+
+## Props
+
+<Props of="Newsletter"/>
+
+<br/>
+<hr/>
+
+## Newsletter.Button
+
+### Default Button
+
+```jsx
+// live
+<Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
+  Subscribe
+</Newsletter.Button>
+```
+
+### Various props
+
+```jsx
+// live
+<Newsletter.Button
+  color="secondary"
+  endIcon={<span>:)</span>}
+  size="large"
+  onClick={() => console.log('Thanks for subscribing!')}
+>
+  Subscribe now
+</Newsletter.Button>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<ExtendedButton onClick={() => console.log('Thanks for subscribing!')}>
+  Subscribe now
+</ExtendedButton>
+```
+
+### Props
+
+This component extends Material's UI `<Button>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
+
+<Props of="Newsletter.Button" />
+
+<br />
+<hr />
+
+## Newsletter.Input
+
+### Default Input
+
+```jsx
+// live
+() => {
+  const [email, setEmail] = React.useState('')
+
+  return <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+}
+```
+
+### Various props
+
+```jsx
+// live
+() => {
+  const [email, setEmail] = React.useState('')
+  return (
+    <Newsletter.Input
+      endAdornment={<span>:)</span>}
+      id="email"
+      color="secondary"
+      placeholder="components-extra@gmail.com"
+      value={email}
+      onChange={setEmail}
+      label="Email"
+    />
+  )
+}
+```
+
+### Error state
+
+```jsx
+// live
+() => {
+  const [email, setEmail] = React.useState('')
+  return (
+    <Newsletter.Input
+      error
+      id="email"
+      placeholder="components-extra@gmail.com"
+      value={email}
+      onChange={setEmail}
+    />
+  )
+}
+```
+
+### Extended
+
+```jsx
+// live-extended
+<ExtendedInputStory />
+```
+
+### Props
+
+This component extends Material's UI `<OutlinedInput>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/outlined-input/).
+
+<Props of="Newsletter.Input" />

@@ -1,2 +1,2 @@
-const isCSR = (): boolean => typeof window !== undefined
+const isCSR = (): boolean => typeof window !== 'undefined'
 export default isCSR

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+const SEO = ({ description, lang, meta, title }) => {
+  const { site: { siteMetadata } } = useStaticQuery(
     graphql`
       query {
         site {
@@ -12,13 +12,15 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            image
+            google
           }
         }
       }
     `,
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || siteMetadata.description
 
   return (
     <Helmet
@@ -26,7 +28,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -45,12 +47,20 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: siteMetadata.image,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
+        },
+        {
+          name: `twitter:image`,
+          content: siteMetadata.image,
         },
         {
           name: `twitter:title`,
@@ -59,6 +69,26 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:label1`,
+          content: 'Powered by',
+        },
+        {
+          name: `twitter:label2`,
+          content: 'Category',
+        },
+        {
+          name: `twitter:data1`,
+          content: `Material-ui, styled-components`,
+        },
+        {
+          name: `twitter:data2`,
+          content: 'React blocks',
+        },
+        {
+          name: `google-site-verification`,
+          content: siteMetadata.google,
         },
       ].concat(meta)}
     >

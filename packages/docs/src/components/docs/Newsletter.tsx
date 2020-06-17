@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Newsletter from 'components/Newsletter'
+import { Newsletter } from 'components-extra'
 
 const StyledNewsletter = styled(Newsletter)`
   padding: 48px;

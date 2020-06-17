@@ -10,7 +10,7 @@ module.exports = {
     keywords: [
       'components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer',
     ],
-    image: 'https://components-extra.netlify.app/public/logo.png',
+    image: 'https://components-extra.netlify.app/icons/icon-512x512.png',
     google: process.env.GOOGLE || '',
   },
   plugins: [

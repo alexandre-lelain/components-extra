@@ -28,7 +28,7 @@ the local doc server:
 yarn start
 ```
 
-The stories are located under the folder `docs/`.
+The stories are located under the package `docs/`.
 
 ### Test pipeline
 

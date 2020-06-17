@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { find, includes, map, toLower } from 'lodash-es'
 import { useIsDesktop } from 'components-extra'
-import { Button, Collapse, Drawer, Hidden, List, ListItem, ListItemText } from '@material-ui/core'
+import { version } from 'components-extra/package.json'
+import { Button, Collapse, Drawer, Hidden, List, ListItem, ListItemText, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { ExpandMore, ExpandLess, Menu } from '@icons'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
 const useStyle = makeStyles(({ zIndex, spacing, transitions }) => ({
   paper: {
-    padding: '84px 0px',
     minWidth: 250,
     zIndex: zIndex.appBar - 1,
     transition: transitions.backgroundColor,
@@ -29,9 +30,20 @@ const useListStyle = makeStyles(({ spacing }) => ({
   },
 }))
 
+const DrawerContainer = styled.div`
+  padding: 72px 0;
+`
+
 const StyledListItemText = styled(ListItemText)`
   ${({ theme: { spacing } }): string => `
     padding: 0 ${spacing(2)}px;
+  `}
+`
+
+const ImageContainer = styled.div`
+  text-align: center;
+  ${({ theme: { spacing } }): string => `
+    padding: ${spacing(2)}px;
   `}
 `
 
@@ -47,6 +59,13 @@ const query = graphql`
             name
             route
           }
+        }
+      }
+    }
+    placeholderImage: file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -121,19 +140,26 @@ const NodeItem = ({ currentRoute, name, leaves = [] }) => {
 }
 
 const DrawerContent: React.FC = ({ currentRoute }) => {
-  const { allMdx: { group } } = useStaticQuery(query)
+  const { allMdx: { group }, placeholderImage: { childImageSharp } } = useStaticQuery(query)
 
   return (
-    <List>
-      {map(MENU_ORDER, menuName => {
-        const { nodes } = find(group, ({ fieldValue }) => fieldValue === menuName)
-        if (nodes.length < 2) {
-          const { frontmatter } = nodes[0]
-          return <LeafItem key={menuName} currentRoute={currentRoute} {...frontmatter} />
-        }
-        return <NodeItem key={menuName} currentRoute={currentRoute} name={menuName} leaves={nodes}/>
-      })}
-    </List>
+    <DrawerContainer>
+      <ImageContainer>
+        <Image alt="components-extra" fixed={childImageSharp.fixed}/>
+        <Typography>v{version}</Typography>
+      </ImageContainer>
+      <List>
+        {map(MENU_ORDER, menuName => {
+          const { nodes } = find(group, ({ fieldValue }) => fieldValue === menuName)
+          if (nodes.length < 2) {
+            const { frontmatter } = nodes[0]
+            return <LeafItem key={menuName} currentRoute={currentRoute} {...frontmatter} />
+          }
+          return <NodeItem key={menuName} currentRoute={currentRoute} name={menuName} leaves={nodes}/>
+        })}
+      </List>
+    </DrawerContainer>
+    
   )
 }
 

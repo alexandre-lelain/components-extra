@@ -65,6 +65,7 @@ export type NewsletterType = React.ForwardRefExoticComponent<NewsletterProps> & 
 
 Newsletter.propTypes = {
   caption: PropTypes.string,
+  children: PropTypes.node,
   description: PropTypes.string,
   title: PropTypes.string,
 }
