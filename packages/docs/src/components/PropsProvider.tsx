@@ -40,7 +40,7 @@ const edgeToProp = (components, { node: { displayName, props, ...rest } }): arra
   return components
 }
 
-const PropsProvider = ({ children }) => {
+const PropsProvider: JSX.Element = ({ children }) => {
   const { allComponentMetadata: { edges } } = useStaticQuery(propsQuery)
 
   const allProps = React.useMemo(() => reduce(edges, edgeToProp, []), [edges])
@@ -50,6 +50,10 @@ const PropsProvider = ({ children }) => {
       {children}
     </PropsContext.Provider>
   )
+}
+
+interface PropsProviderProps {
+  children: React.ReactNode
 }
 
 const useProps = (): array => React.useContext(PropsContext)

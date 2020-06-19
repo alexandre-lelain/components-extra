@@ -16,7 +16,7 @@ import { SpacedParagraph } from './Paragraph'
 import InlineCode from './InlineCode'
 
 const StyledTableContainer = styled(TableContainer)`
-  ${({ theme: { spacing }}) => `
+  ${({ theme: { spacing }}): string => `
     margin: ${spacing(4)}px 0px;
   `}
 `

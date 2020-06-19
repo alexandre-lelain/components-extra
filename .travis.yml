@@ -9,4 +9,5 @@ install: yarn
 script:
   - yarn test
   - yarn lint
+  - yarn check-types
   - yarn build

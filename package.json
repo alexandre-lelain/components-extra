@@ -7,10 +7,11 @@
     "serve": "lerna run serve --stream",
     "build": "lerna run build --scope components-extra --stream",
     "build:docs": "lerna run build --scope docs --stream",
-    "validate": "yarn lint && yarn test && yarn build && yarn lerna run check-types --stream",
     "test": "lerna run test --stream",
+    "check-types": "lerna run check-types --stream",
     "lint": "eslint --cache packages/**/*.{ts,tsx,js}",
-    "prettier": "prettier --write packages/**/*.{ts,tsx,js}"
+    "prettier": "prettier --write packages/**/*.{ts,tsx,js}",
+    "validate": "yarn lint && yarn test && yarn build && yarn check-types"
   },
   "devDependencies": {
     "@material-ui/core": "^4.9.14",

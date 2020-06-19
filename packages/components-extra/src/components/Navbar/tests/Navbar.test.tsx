@@ -1,5 +1,4 @@
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
 
 import { renderWithTheme } from 'utils-test'
 import Navbar from '..'

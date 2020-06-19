@@ -25,9 +25,9 @@ const useStyles = makeStyles({
   },
 })
 
-function createData(name, value, expires, description) {
-  return { name, value, expires, description }
-}
+const createData: object = (name: string, value: string | number, expires: string, description: string) => ({
+  name, value, expires, description,
+})
 
 const rows = [
   createData('name', 'john Smith', 'in 5 days', 'Your name.'),
@@ -36,7 +36,7 @@ const rows = [
   createData('plan', 'premium', 'in 21 days', 'The plan you first chose on sign up.'),
 ]
 
-export const Table = () => {
+export const Table: JSX.Element = () => {
   const classes = useStyles()
 
   return (
@@ -103,7 +103,7 @@ const ExtendedControls = styled(CookiesConsent.Controls)`
   }
 `
 
-export const ExtendedControlsStory = () => {
+export const ExtendedControlsStory: JSX.Element = () => {
   const [isOn, setIsOn] = React.useState(false)
   return (
     <CookiesConsent>

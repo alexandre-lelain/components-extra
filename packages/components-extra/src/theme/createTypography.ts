@@ -7,10 +7,10 @@ declare module '@material-ui/core/styles/createTypography' {
   }
 
   interface Typography {
-    paragraph?: Paragraph
+    paragraph: Paragraph
   }
 
   interface TypographyOptions {
-    paragraph?: Paragraph
+    paragraph: Paragraph
   }
 }

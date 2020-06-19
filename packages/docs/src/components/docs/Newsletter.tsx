@@ -24,7 +24,7 @@ const StyledButton = styled(Newsletter.Button)`
   background-color: grey;
 `
 
-export const ExtendedNewsletter = () => {
+export const ExtendedNewsletter: JSX.Element = () => {
   const [email, setEmail] = React.useState('')
   return (
     <StyledNewsletter
@@ -33,7 +33,7 @@ export const ExtendedNewsletter = () => {
       caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
     >
       <StyledInput id="email" placeholder="Email..." value={email} onChange={setEmail} />
-      <StyledButton onClick={() => console.log('Thanks for subscribing!')}>Subscribe</StyledButton>
+      <StyledButton onClick={(): void => console.log('Thanks for subscribing!')}>Subscribe</StyledButton>
     </StyledNewsletter>
   )
 }
@@ -52,7 +52,7 @@ export const ExtendedInput = styled(Newsletter.Input)`
   }
 `
 
-export const ExtendedInputStory = () => {
+export const ExtendedInputStory: JSX.Element = () => {
   const [email, setEmail] = React.useState('')
 
   return (

@@ -13,8 +13,8 @@ const ListItemContent = styled(Paragraph).attrs(() => ({
   component: 'span',
 }))``
 
-// eslint-disable-next-line no-unused-vars
-const ListItem = ({ children, ordered, tight, ...rest }: ListItem) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ListItem: JSX.Element = ({ children, ordered, tight, ...rest }: ListItemProps) => {
   return (
     <StyledLi {...rest}>
       <ListItemContent>{children}</ListItemContent>
@@ -22,7 +22,7 @@ const ListItem = ({ children, ordered, tight, ...rest }: ListItem) => {
   )
 }
 
-interface ListItem {
+interface ListItemProps {
   children: any
   ordered?: boolean
   tight?: boolean

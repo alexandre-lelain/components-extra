@@ -39,9 +39,9 @@ const MainContainer = styled.main`
   `}
 `
 
-const Layout: React.FC<LayoutProps> = ({ children, pageContext = {}, ...rest }: LayoutProps) => {
+const Layout: JSX.Element = ({ children, pageContext = {}}: LayoutProps) => {
   const { frontmatter: { name, route, description } = {} } = pageContext
-  console.log({rest})
+  
   useEffect(() => {
     Prism.highlightAll()
   }, [])
@@ -69,7 +69,8 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext = {}, ...rest }: 
 }
 
 export interface LayoutProps {
-  children?: React.ReactNode
+  children: React.ReactNode
+  pageContext: object
 }
 
 

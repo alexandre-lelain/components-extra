@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { filter, map, reduce } from 'lodash-es'
+import { map, reduce } from 'lodash-es'
 import { Paper, Typography, useTheme } from '@material-ui/core'
 
 import { Title3 } from './Titles'
+import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
 const BoxesContainer = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ const Box = styled.div`
   width: 64px;
   border-radius: 4px;
   margin: 8px 0px;
-  background-color: ${({ color }) => color};
+  background-color: ${({ color }): string => color};
 `
 
 const ColorsNode = styled(Paper)`
@@ -41,13 +42,13 @@ const ColotsSuiteTitle = styled(Title3)`
   margin-top: 0;
 `
 
-const isColor = (str) => /#[a-z,0-9]{3,6}|rgb/gi.test(str)
+const isColor: boolean = (str: string) => /#[a-z,0-9]{3,6}|rgb/gi.test(str)
 
-const isLeaf = (node) => typeof node === "string"
+const isLeaf: boolean = (node: any) => typeof node === "string"
 
-const isNode = (node) => typeof node === "object"
+const isNode: boolean = (node: any) => typeof node === "object"
 
-const renderPaletteNode = (node: {}, name) => (
+const renderPaletteNode: JSX.Element = (node: {}, name: string) => (
   <ColorsNode key={name}>
     <ColotsSuiteTitle>{name}</ColotsSuiteTitle>
     <ColorsSuite>
@@ -60,21 +61,21 @@ const renderPaletteNode = (node: {}, name) => (
   </ColorsNode>
 )
 
-const getLeaves = palette => reduce(palette, (leaves, value, name) => {
+const getLeaves: object = (palette: PaletteOptions) => reduce(palette, (leaves, value, name) => {
   if (isLeaf(value) && isColor(value)) {
     leaves[name] = value
   }
   return leaves
 }, {})
 
-const getNodes = palette => reduce(palette, (nodes, value, name) => {
+const getNodes: object = (palette: PaletteOptions) => reduce(palette, (nodes, value, name) => {
   if (isNode(value)) {
     nodes[name] = value
   }
   return nodes
 }, {})
 
-const renderColorBoxes = (palette = {}) => {
+const renderColorBoxes: JSX.Element = (palette: PaletteOptions) => {
   const leaves = getLeaves(palette)
   const nodes = getNodes(palette)
   const sortedPalette = { ...nodes, ...leaves }
@@ -89,7 +90,7 @@ const renderColorBoxes = (palette = {}) => {
   })
 } 
 
-const ColorBox = ({ color, name }) => {
+const ColorBox: JSX.Element = ({ color, name }: ColorBoxProps) => {
   return (
     <BoxContainer>
       <Typography variant="body1" color="textPrimary">{name}</Typography>
@@ -99,9 +100,14 @@ const ColorBox = ({ color, name }) => {
   )
 }
 
-const ColorBoxes = () => {
+const ColorBoxes: JSX.Element = () => {
   const { palette } = useTheme()
   return <BoxesContainer>{renderColorBoxes(palette)}</BoxesContainer>
+}
+
+interface ColorBoxProps {
+  color: string
+  name: string
 }
 
 export default ColorBoxes

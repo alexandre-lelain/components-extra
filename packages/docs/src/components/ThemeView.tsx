@@ -2,10 +2,12 @@ import React from 'react'
 
 import { useTheme } from '@material-ui/core'
 
-export default () => {
+import { isCSR } from '@utils'
+
+const ThemeView: JSX.Element = () => {
   const theme = useTheme()
 
-  if (typeof window !== 'undefined') {
+  if (isCSR()) {
     const ReactJson = require('react-json-view').default
     return (
       <ReactJson
@@ -19,5 +21,7 @@ export default () => {
       />
     )
   }
-  return null
+  return <></>
 }
+
+export default ThemeView

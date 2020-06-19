@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { replace } from 'lodash-es'
-import { Button, Typography } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { LiveProvider, LivePreview, LiveEditor, LiveError } from 'react-live'
 import copy from 'copy-text-to-clipboard'
 import { Resizable } from 're-resizable'
@@ -87,7 +87,7 @@ const Container = styled.div`
 const LIVE_PATTERN = /\/\/ live(-extended)?/
 const EXTENDED_PATTERN = /\/\/ live-extended/
 
-const Playground = ({ children }) => {
+const Playground: JSX.Element = ({ children }: PlaygroundProps) => {
   const [showEditor, setShowEditor] = useState(false)
   const [copyLabel, setCopyLabel] = useState(COPY_LABELS.copy)
   const { children: code, className } = children.props
@@ -99,12 +99,12 @@ const Playground = ({ children }) => {
     }
   }, [copyLabel])
 
-  const onCopy = () => {
+  const onCopy: void = () => {
     copy(code)
     setCopyLabel(COPY_LABELS.copied)
   }
 
-  const onEditCode = () => {
+  const onEditCode: void = () => {
     setShowEditor((show) => !show)
   }
   
@@ -142,6 +142,10 @@ const Playground = ({ children }) => {
     )
   }
   return <pre className={className}>{children}</pre>
+}
+
+interface PlaygroundProps {
+  children: object
 }
 
 export default Playground

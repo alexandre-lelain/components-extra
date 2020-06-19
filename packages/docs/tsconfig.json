@@ -10,6 +10,9 @@
     "baseUrl": ".",
     "paths": {
       "@icons": ["src/icons"],
+      "@utils": ["src/utils"],
+      "@components": ["src/components"],
+      "@theme": ["src/theme"],
     },
     "types": [
       "react",

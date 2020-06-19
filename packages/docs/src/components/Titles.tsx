@@ -50,7 +50,7 @@ const StyledTitle3 = styled(Typography).attrs(() => ({
    `}
 `
 
-const Title = ({ container: Container, children, ...rest }) => {
+const Title: JSX.Element = ({ container: Container, children, ...rest }: TitleProps) => {
   const name = slugify(children)
   const href = `#${name}`
 
@@ -61,11 +61,15 @@ const Title = ({ container: Container, children, ...rest }) => {
   )
 }
 
-const Title1 = props => <Title container={StyledTitle1} {...props} />
+const Title1: JSX.Element = props => <Title container={StyledTitle1} {...props} />
 
-const Title2 = props => <Title container={StyledTitle2} {...props} />
+const Title2: JSX.Element = props => <Title container={StyledTitle2} {...props} />
 
-const Title3 = props => <Title container={StyledTitle3} {...props} />
+const Title3: JSX.Element = props => <Title container={StyledTitle3} {...props} />
 
+interface TitleProps {
+  children: React.ReactNode
+  container: React.ElementType
+}
 
 export { Title1, Title2, Title3 }

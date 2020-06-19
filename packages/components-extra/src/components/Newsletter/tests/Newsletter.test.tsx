@@ -40,9 +40,10 @@ describe('<Newsletter>', () => {
   })
 
   test('it contains the input if provided', () => {
+    const onChange = jest.fn()
     const { getByRole } = renderWithTheme(
       <Newsletter>
-        <Newsletter.Input id="email" onChange={() => {}} value="42" />
+        <Newsletter.Input id="email" onChange={onChange} value="42" />
       </Newsletter>,
     )
     const input = getByRole('textbox')

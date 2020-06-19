@@ -24,7 +24,7 @@ const components = {
   pre: Playground,
 }
 
-const MDXProvider = props => {
+const MDXProvider: JSX.Element = props => {
   useEffect(() => {
     Prism.highlightAll()
   }, [props])

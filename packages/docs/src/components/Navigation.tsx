@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import styled from 'styled-components'
 import { find, includes, map, toLower } from 'lodash-es'
 import { useIsDesktop } from 'components-extra'
@@ -72,7 +72,14 @@ const query = graphql`
   }
 `
 
-const Navigation: React.FC = ({ currentRoute }) => {
+const RouteContext = createContext('/')
+
+const RouteProvider: JSX.Element = ({ currentRoute, ...rest }: RouteProviderProps) => 
+  <RouteContext.Provider value={currentRoute} {...rest} />
+
+const useCurrentRoute: string = () => useContext(RouteContext)
+
+const Navigation: JSX.Element = ({ currentRoute }: NavigationProps) => {
   const { root, ...rest } = useStyle()
   const isDesktop = useIsDesktop()
   const [isOpen, openMenu] = useState(false)
@@ -88,10 +95,10 @@ const Navigation: React.FC = ({ currentRoute }) => {
   }, [isDesktop])
 
   return (
-    <>
+    <RouteProvider value={currentRoute}>
       <Hidden mdDown implementation="css">
         <Drawer classes={rest} variant="permanent" anchor="left">
-          <DrawerContent currentRoute={currentRoute} />
+          <DrawerContent />
         </Drawer>
       </Hidden>
       <Hidden lgUp implementation="css">
@@ -105,33 +112,37 @@ const Navigation: React.FC = ({ currentRoute }) => {
           open={isOpen}
           onClose={(): void => openMenu(false)}
         >
-          <DrawerContent currentRoute={currentRoute} />
+          <DrawerContent />
         </Drawer>
       </Hidden>
-    </>
+    </RouteProvider>
   )
 }
 
-const LeafItem = ({ currentRoute, name, route, ...rest }) => (
-  <ListItem button key={name} selected={currentRoute === route} to={route} component={GatsbyLink} {...rest}>
-    <StyledListItemText>{name}</StyledListItemText>
-  </ListItem>
-)
+const LeafItem: JSX.Element = ({ name, route, ...rest }: LeafItemProps) => {
+  const currentRoute = useCurrentRoute()
+  return (
+    <ListItem button key={name} selected={currentRoute === route} to={route} component={GatsbyLink} {...rest}>
+      <StyledListItemText>{name}</StyledListItemText>
+    </ListItem>
+  )
+}
 
-const NodeItem = ({ currentRoute, name, leaves = [] }) => {
+const NodeItem: JSX.Element = ({ name, leaves = [] }: NodeItemProps) => {
+  const currentRoute = useCurrentRoute()
   const classes = useListStyle()
   const [open, toggle] = useState(includes(currentRoute, toLower(name)))
 
   return (
     <>
-      <ListItem button onClick={() => toggle(prev => !prev)}>
+      <ListItem button onClick={(): void => toggle(prev => !prev)}>
         <StyledListItemText primary={name}/>
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {map(leaves, ({ frontmatter: { name, route } }) => 
-            <LeafItem classes={{...classes}} key={name} name={name} route={route} currentRoute={currentRoute}/>
+            <LeafItem classes={{...classes}} key={name} name={name} route={route} />
           )}
         </List>
       </Collapse>
@@ -139,7 +150,7 @@ const NodeItem = ({ currentRoute, name, leaves = [] }) => {
   )
 }
 
-const DrawerContent: React.FC = ({ currentRoute }) => {
+const DrawerContent: JSX.Element = () => {
   const { allMdx: { group }, placeholderImage: { childImageSharp } } = useStaticQuery(query)
 
   return (
@@ -153,14 +164,32 @@ const DrawerContent: React.FC = ({ currentRoute }) => {
           const { nodes } = find(group, ({ fieldValue }) => fieldValue === menuName)
           if (nodes.length < 2) {
             const { frontmatter } = nodes[0]
-            return <LeafItem key={menuName} currentRoute={currentRoute} {...frontmatter} />
+            return <LeafItem key={menuName} {...frontmatter} />
           }
-          return <NodeItem key={menuName} currentRoute={currentRoute} name={menuName} leaves={nodes}/>
+          return <NodeItem key={menuName} name={menuName} leaves={nodes}/>
         })}
       </List>
     </DrawerContainer>
     
   )
+}
+
+interface RouteProviderProps {
+  currentRoute: string,
+}
+
+interface NavigationProps {
+  currentRoute: string
+}
+
+interface LeafItemProps {
+  name: string
+  route: string
+}
+
+interface NodeItemProps {
+  name: string
+  leaves?: array
 }
 
 export default Navigation
