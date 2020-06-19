@@ -4,6 +4,7 @@
     "esModuleInterop": true,
     "jsx": "react",
     "moduleResolution": "node",
+    "suppressImplicitAnyIndexErrors": true, // TODO: use Map instead of array
     "noEmit": true,
     "strict": true,
     "target": "es6",
@@ -13,12 +14,15 @@
       "@utils": ["src/utils"],
       "@components": ["src/components"],
       "@theme": ["src/theme"],
+      "@hooks": ["src/hooks"],
     },
     "types": [
       "react",
       "react-dom",
       "styled-components",
       "@material-ui/core",
+      "lodash-es",
+      "node",
     ]
   },
   "include": ["src"],

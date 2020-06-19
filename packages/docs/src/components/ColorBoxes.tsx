@@ -23,7 +23,9 @@ const Box = styled.div`
   width: 64px;
   border-radius: 4px;
   margin: 8px 0px;
-  background-color: ${({ color }): string => color};
+  ${({ color }): string => `
+    ${color ? `background-color: ${color}` : ''}
+  `};
 `
 
 const ColorsNode = styled(Paper)`
@@ -42,55 +44,62 @@ const ColotsSuiteTitle = styled(Title3)`
   margin-top: 0;
 `
 
-const isColor: boolean = (str: string) => /#[a-z,0-9]{3,6}|rgb/gi.test(str)
+const isColor = (str: string): boolean => /#[a-z,0-9]{3,6}|rgb/gi.test(str)
 
-const isLeaf: boolean = (node: any) => typeof node === "string"
+const isLeaf = (node: any): boolean => typeof node === "string"
 
-const isNode: boolean = (node: any) => typeof node === "object"
+const isNode = (node: any): boolean => typeof node === "object"
 
-const renderPaletteNode: JSX.Element = (node: {}, name: string) => (
-  <ColorsNode key={name}>
-    <ColotsSuiteTitle>{name}</ColotsSuiteTitle>
-    <ColorsSuite>
-      {map(node, (color, name) => {
-        if (isLeaf(color) && isColor(color)) {
-          return <ColorBox color={color} name={name} key={name} />
-        }
-      })}
-    </ColorsSuite>
-  </ColorsNode>
-)
+const PaletteNode: React.FC<PaletteNodeProps> = ({ node = {}, name}: PaletteNodeProps) => {
+  return (
+    <ColorsNode key={name}>
+      <ColotsSuiteTitle>{name}</ColotsSuiteTitle>
+      <ColorsSuite>
+        {map(node, (color, name = '') => {
+          if (isLeaf(color) && isColor(color)) {
+            return <ColorBox color={color} name={name} key={name} />
+          }
+        })}
+      </ColorsSuite>
+    </ColorsNode>
+  )
+}
 
-const getLeaves: object = (palette: PaletteOptions) => reduce(palette, (leaves, value, name) => {
-  if (isLeaf(value) && isColor(value)) {
+const getLeaves = (palette: PaletteOptions): object => reduce(palette, (leaves: NodesType, value, name) => {
+  if (isLeaf(value) && isColor(value as string)) {
     leaves[name] = value
   }
   return leaves
 }, {})
 
-const getNodes: object = (palette: PaletteOptions) => reduce(palette, (nodes, value, name) => {
+const getNodes = (palette: PaletteOptions): object => reduce(palette, (nodes: NodesType, value, name) => {
   if (isNode(value)) {
     nodes[name] = value
   }
   return nodes
 }, {})
 
-const renderColorBoxes: JSX.Element = (palette: PaletteOptions) => {
+const ColorBoxesList: React.FC = () => {
+  const { palette } = useTheme()
   const leaves = getLeaves(palette)
   const nodes = getNodes(palette)
   const sortedPalette = { ...nodes, ...leaves }
 
-  return map(sortedPalette, (node, name) => {
-    if (isNode(node)) {
-      return renderPaletteNode(node, name)
-    }
-    if (isLeaf(node) && isColor(node)) {
-      return <ColorBox color={node} name={name} key={name} />
-    }
-  })
+  return (
+    <>
+      {map(sortedPalette, (node, name) => {
+        if (isNode(node)) {
+          return <PaletteNode node={node} name={name}/>
+        }
+        if (isLeaf(node) && isColor(node)) {
+          return <ColorBox color={node} name={name} key={name} />
+        }
+      })}
+    </>
+  )
 } 
 
-const ColorBox: JSX.Element = ({ color, name }: ColorBoxProps) => {
+const ColorBox: React.FC<ColorBoxProps> = ({ color, name }: ColorBoxProps) => {
   return (
     <BoxContainer>
       <Typography variant="body1" color="textPrimary">{name}</Typography>
@@ -100,14 +109,26 @@ const ColorBox: JSX.Element = ({ color, name }: ColorBoxProps) => {
   )
 }
 
-const ColorBoxes: JSX.Element = () => {
-  const { palette } = useTheme()
-  return <BoxesContainer>{renderColorBoxes(palette)}</BoxesContainer>
+const ColorBoxes: React.FC = () => {
+  return (
+    <BoxesContainer>
+      <ColorBoxesList />
+    </BoxesContainer>
+  )
+}
+
+type NodesType = {
+  [key: string]: any
 }
 
 interface ColorBoxProps {
   color: string
   name: string
+}
+
+interface PaletteNodeProps {
+  name: string
+  node: object
 }
 
 export default ColorBoxes

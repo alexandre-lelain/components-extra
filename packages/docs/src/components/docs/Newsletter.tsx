@@ -24,7 +24,7 @@ const StyledButton = styled(Newsletter.Button)`
   background-color: grey;
 `
 
-export const ExtendedNewsletter: JSX.Element = () => {
+export const ExtendedNewsletter: React.FC = () => {
   const [email, setEmail] = React.useState('')
   return (
     <StyledNewsletter
@@ -52,7 +52,7 @@ export const ExtendedInput = styled(Newsletter.Input)`
   }
 `
 
-export const ExtendedInputStory: JSX.Element = () => {
+export const ExtendedInputStory: React.FC = () => {
   const [email, setEmail] = React.useState('')
 
   return (

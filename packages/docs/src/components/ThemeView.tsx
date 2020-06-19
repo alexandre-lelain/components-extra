@@ -4,7 +4,7 @@ import { useTheme } from '@material-ui/core'
 
 import { isCSR } from '@utils'
 
-const ThemeView: JSX.Element = () => {
+const ThemeView: React.FC = () => {
   const theme = useTheme()
 
   if (isCSR()) {

@@ -50,25 +50,28 @@ const StyledTitle3 = styled(Typography).attrs(() => ({
    `}
 `
 
-const Title: JSX.Element = ({ container: Container, children, ...rest }: TitleProps) => {
-  const name = slugify(children)
-  const href = `#${name}`
-
-  return (
-    <Container id={name} {...rest}>
-      <Link color="inherit" href={href}>{children}</Link>
-    </Container>
-  )
+const Title: React.FC<TitleProps> = ({ container: Container, children, ...rest }: TitleProps) => {
+  if (typeof children === "string") {
+    const name = slugify(children)
+    const href = `#${name}`
+  
+    return (
+      <Container id={name} {...rest}>
+        <Link color="inherit" href={href}>{children}</Link>
+      </Container>
+    )
+  }
+  return <>{children}</>
 }
 
-const Title1: JSX.Element = props => <Title container={StyledTitle1} {...props} />
+const Title1: React.FC = props => <Title container={StyledTitle1} {...props} />
 
-const Title2: JSX.Element = props => <Title container={StyledTitle2} {...props} />
+const Title2: React.FC = props => <Title container={StyledTitle2} {...props} />
 
-const Title3: JSX.Element = props => <Title container={StyledTitle3} {...props} />
+const Title3: React.FC = props => <Title container={StyledTitle3} {...props} />
 
 interface TitleProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   container: React.ElementType
 }
 

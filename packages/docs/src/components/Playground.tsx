@@ -87,7 +87,7 @@ const Container = styled.div`
 const LIVE_PATTERN = /\/\/ live(-extended)?/
 const EXTENDED_PATTERN = /\/\/ live-extended/
 
-const Playground: JSX.Element = ({ children }: PlaygroundProps) => {
+const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) => {
   const [showEditor, setShowEditor] = useState(false)
   const [copyLabel, setCopyLabel] = useState(COPY_LABELS.copy)
   const { children: code, className } = children.props

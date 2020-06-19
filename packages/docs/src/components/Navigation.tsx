@@ -74,12 +74,12 @@ const query = graphql`
 
 const RouteContext = createContext('/')
 
-const RouteProvider: JSX.Element = ({ currentRoute, ...rest }: RouteProviderProps) => 
+const RouteProvider: React.FC<RouteProviderProps> = ({ currentRoute, ...rest }: RouteProviderProps) => 
   <RouteContext.Provider value={currentRoute} {...rest} />
 
 const useCurrentRoute: string = () => useContext(RouteContext)
 
-const Navigation: JSX.Element = ({ currentRoute }: NavigationProps) => {
+const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps) => {
   const { root, ...rest } = useStyle()
   const isDesktop = useIsDesktop()
   const [isOpen, openMenu] = useState(false)
@@ -119,7 +119,7 @@ const Navigation: JSX.Element = ({ currentRoute }: NavigationProps) => {
   )
 }
 
-const LeafItem: JSX.Element = ({ name, route, ...rest }: LeafItemProps) => {
+const LeafItem: React.FC<LeafItemProps> = ({ name, route, ...rest }: LeafItemProps) => {
   const currentRoute = useCurrentRoute()
   return (
     <ListItem button key={name} selected={currentRoute === route} to={route} component={GatsbyLink} {...rest}>
@@ -128,7 +128,7 @@ const LeafItem: JSX.Element = ({ name, route, ...rest }: LeafItemProps) => {
   )
 }
 
-const NodeItem: JSX.Element = ({ name, leaves = [] }: NodeItemProps) => {
+const NodeItem: React.FC<NodeItemProps> = ({ name, leaves = [] }: NodeItemProps) => {
   const currentRoute = useCurrentRoute()
   const classes = useListStyle()
   const [open, toggle] = useState(includes(currentRoute, toLower(name)))
@@ -150,7 +150,7 @@ const NodeItem: JSX.Element = ({ name, leaves = [] }: NodeItemProps) => {
   )
 }
 
-const DrawerContent: JSX.Element = () => {
+const DrawerContent: React.FC = () => {
   const { allMdx: { group }, placeholderImage: { childImageSharp } } = useStaticQuery(query)
 
   return (
@@ -189,7 +189,7 @@ interface LeafItemProps {
 
 interface NodeItemProps {
   name: string
-  leaves?: array
+  leaves?: object[]
 }
 
 export default Navigation

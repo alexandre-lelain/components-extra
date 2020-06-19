@@ -32,15 +32,30 @@ const propsQuery = graphql`
   }
 `
 
-const PropsContext = React.createContext([])
+type PropType = {
+  name: string
+}
 
-const edgeToProp = (components, { node: { displayName, props, ...rest } }): array => {
+type ComponentsType = {
+  [key: string]: object
+}
+
+type ComponentType = {
+  node: {
+    displayName: string
+    props: PropType[]
+  }
+}
+
+const PropsContext = React.createContext<ComponentsType[]>([])
+
+const edgeToProp = (components: ComponentsType[], { node: { displayName, props, ...rest } }: ComponentType): ComponentsType[] => {
   const filteredProps = filter(props, ({ name = '' }) => !includes(IGNORED_PROPS, name))
   components[displayName] = { props: filteredProps, ...rest }
   return components
 }
 
-const PropsProvider: JSX.Element = ({ children }) => {
+const PropsProvider: React.FC<PropsProviderProps> = ({ children }: PropsProviderProps) => {
   const { allComponentMetadata: { edges } } = useStaticQuery(propsQuery)
 
   const allProps = React.useMemo(() => reduce(edges, edgeToProp, []), [edges])
@@ -56,7 +71,7 @@ interface PropsProviderProps {
   children: React.ReactNode
 }
 
-const useProps = (): array => React.useContext(PropsContext)
+const useProps = (): ComponentsType[] => React.useContext(PropsContext)
 
 export { useProps }
 export default PropsProvider

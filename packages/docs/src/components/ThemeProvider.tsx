@@ -3,7 +3,7 @@ import { StyledProvider } from 'components-extra'
 
 import { useMode, theme } from '@theme'
 
-const ThemeProvider: React.FC = ({ children }: ThemeProviderProps) => {
+const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }: ThemeProviderProps) => {
   const [ mode ] = useMode()
 
   return (
@@ -14,7 +14,7 @@ const ThemeProvider: React.FC = ({ children }: ThemeProviderProps) => {
 }
 
 export interface ThemeProviderProps {
-  children?: React.ReactNode
+  children: React.ReactNode
 }
 
 export default ThemeProvider

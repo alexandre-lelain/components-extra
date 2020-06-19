@@ -1,10 +1,10 @@
 import React from 'react'
-import styled, { css, ThemedCssFunction } from 'styled-components'
+import styled, { css, SimpleInterpolation } from 'styled-components'
 import { Link as MuiLink } from '@material-ui/core'
 import { Link as GatsbyLink } from 'gatsby'
 
 import { isAnchor } from '@utils'
-import { useMode } from '@theme'
+import { StyledCompoProps } from '@theme'
 
 const ExternalLink = styled(MuiLink).attrs(() => ({
   target: '_blank',
@@ -20,16 +20,9 @@ const ExternalLink = styled(MuiLink).attrs(() => ({
   `}
 `
 
-const getColor: ThemedCssFunction = ({ isDark, secondary, theme: { palette } }) => {
-  if (secondary) {
-    return css`
-      color: ${isDark ? palette.secondary.light : palette.secondary.main};
-    `
-  }
-  return css`
-    color: ${palette.links};
-  `
-}
+const getColor = ({ theme: { palette } }: StyledCompoProps): SimpleInterpolation => css`
+  color: ${palette.links};
+`
 
 const linkStyle = css`
   ${getColor};
@@ -44,22 +37,15 @@ const linkStyle = css`
   }
 `
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const StyledLink = styled(({ isDark, secondary, to, ...rest }) => <GatsbyLink to={to} {...rest} />)`
+const StyledLink = styled(GatsbyLink)`
   ${linkStyle};
 `
 
-const InternalLink: JSX.Element = ({ secondary = false, ...rest }: InternalLinkProps) => {
-  const [ mode ] = useMode()
-  const props = { isDark: mode === 'dark', secondary, ...rest }
-  return <StyledLink {...props} />
-}
-
-const Link: JSX.Element = ({ href, ...rest }: LinkProps) => {
+const Link: React.FC<LinkProps> = ({ href, ...rest }: LinkProps) => {
   const isAnchorLink = isAnchor(href)
 
   return isAnchorLink ? (
-    <InternalLink to={href} {...rest} />
+    <StyledLink to={href} {...rest} />
   ) : (
     <ExternalLink href={href} {...rest} />
   )
@@ -68,10 +54,6 @@ const Link: JSX.Element = ({ href, ...rest }: LinkProps) => {
 interface LinkProps {
   href: string
   rest?: object
-}
-
-interface InternalLinkProps {
-  secondary?: boolean
 }
 
 export default Link

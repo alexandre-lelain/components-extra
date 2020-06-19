@@ -36,7 +36,7 @@ const rows = [
   createData('plan', 'premium', 'in 21 days', 'The plan you first chose on sign up.'),
 ]
 
-export const Table: JSX.Element = () => {
+export const Table: React.FC = () => {
   const classes = useStyles()
 
   return (
@@ -103,7 +103,7 @@ const ExtendedControls = styled(CookiesConsent.Controls)`
   }
 `
 
-export const ExtendedControlsStory: JSX.Element = () => {
+export const ExtendedControlsStory: React.FC = () => {
   const [isOn, setIsOn] = React.useState(false)
   return (
     <CookiesConsent>

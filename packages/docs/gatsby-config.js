@@ -5,16 +5,17 @@ module.exports = {
     title: `components-extra`,
     description: `React UI molecule components based on styled-components & material-ui.`,
     author: `Alexandre Le Lain <lelain.alexandre@gmail.com>`,
+    siteUrl: 'https://components-extra.netlify.app/',
     github: 'https://github.com/alexandre-lelain/components-extra',
     url: 'https://components-extra.netlify.app/',
-    keywords: [
-      'components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer',
-    ],
+    keywords: 'components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer',
     image: 'https://components-extra.netlify.app/icons/icon-512x512.png',
     google: process.env.GOOGLE || '',
+    githubEditLinkRoot: 'https://github.com/alexandre-lelain/components-extra/tree/master/packages/docs/src/pages',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -72,6 +73,7 @@ module.exports = {
           '@utils': path.resolve(__dirname, 'src/utils'),
           '@styles': path.resolve(__dirname, 'src/styles'),
           '@components': path.resolve(__dirname, 'src/components'),
+          '@hooks': path.resolve(__dirname, 'src/hooks'),
         },
       },
     },

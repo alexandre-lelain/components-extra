@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Typography } from '@material-ui/core'
 
-const Paragraph: JSX.Element = props => <Typography variant="body1" color="textPrimary" {...props} />
+const Paragraph: React.FC = props => <Typography variant="body1" color="textPrimary" {...props} />
 
 const SpacedParagraph = styled(Paragraph)`
   word-break: break-word;
@@ -10,11 +10,6 @@ const SpacedParagraph = styled(Paragraph)`
     margin-bottom: ${theme.spacing(3)}px;
   `}
 `
-
-interface RemarkParagraphProps {
-  children?: any
-  rest?: object
-}
 
 export default Paragraph
 export { SpacedParagraph }

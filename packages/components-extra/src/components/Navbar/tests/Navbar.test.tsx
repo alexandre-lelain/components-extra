@@ -30,16 +30,10 @@ describe('<Navbar>', () => {
     expect(title).toBeInTheDocument()
   })
 
-  test('it has a static-position by default', () => {
+  test('it has a fixed by default', () => {
     const { container } = renderWithTheme(<Navbar />)
     const navbar = container.firstChild
-    expect(navbar).toHaveStyle('position: static')
-  })
-
-  test('it has a sticky-position if isSticky is provided', () => {
-    const { container } = renderWithTheme(<Navbar isSticky />)
-    const navbar = container.firstChild
-    expect(navbar).toHaveStyle('position: sticky')
+    expect(navbar).toHaveStyle('position: fixed')
   })
 
   test('it displays the selectedLanguage if provided to the Navbar.Language component', () => {

@@ -8,6 +8,7 @@ import 'prismjs/components/prism-jsx.min'
 
 import { ModeProvider } from '@theme'
 
+import EditLink from './EditLink'
 import Header from './Header'
 import MDXProvider from './MDXProvider'
 import Navigation from './Navigation'
@@ -39,8 +40,9 @@ const MainContainer = styled.main`
   `}
 `
 
-const Layout: JSX.Element = ({ children, pageContext = {}}: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({ children, pageContext = {}, pageResources = {}}: LayoutProps) => {
   const { frontmatter: { name, route, description } = {} } = pageContext
+  const { page: { componentChunkName } = {} } = pageResources
   
   useEffect(() => {
     Prism.highlightAll()
@@ -55,6 +57,7 @@ const Layout: JSX.Element = ({ children, pageContext = {}}: LayoutProps) => {
           <Header />
           <MainContainer>
             <Navigation currentRoute={route}/>
+            {componentChunkName && <EditLink chunkName={componentChunkName}/>}
             <PropsProvider>
               <Container maxWidth="md">
                 {children}

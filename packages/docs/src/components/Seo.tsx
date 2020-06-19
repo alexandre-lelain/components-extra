@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO: JSX.Element = ({ description, lang = 'en', meta = [], title }: SEOProps) => {
+const SEO: React.FC<SEOProps> = ({ description, lang = 'en', meta = [], title }: SEOProps) => {
   const { site: { siteMetadata } } = useStaticQuery(
     graphql`
       query {
@@ -13,6 +13,7 @@ const SEO: JSX.Element = ({ description, lang = 'en', meta = [], title }: SEOPro
             author
             image
             google
+            keywords
           }
         }
       }
@@ -86,6 +87,10 @@ const SEO: JSX.Element = ({ description, lang = 'en', meta = [], title }: SEOPro
           content: 'React blocks',
         },
         {
+          name: `keywords`,
+          content: siteMetadata.keywords,
+        },
+        {
           name: `google-site-verification`,
           content: siteMetadata.google,
         },
@@ -105,7 +110,7 @@ const SEO: JSX.Element = ({ description, lang = 'en', meta = [], title }: SEOPro
 interface SEOProps {
   description?: string
   lang?: string
-  meta?: array
+  meta?: object[]
   title: string
 }
 
