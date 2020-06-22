@@ -110,7 +110,7 @@ const SEO: React.FC<SEOProps> = ({ description, lang = 'en', meta = [], title }:
 interface SEOProps {
   description?: string
   lang?: string
-  meta?: object[]
+  meta?: HTMLMetaElement[]
   title: string
 }
 

@@ -7,9 +7,12 @@ import { useGithubEditLink } from '@hooks'
 
 const StyledLink = styled(Button)`
   position: absolute;
-  ${({ theme: { spacing }}): string => `
+  ${({ theme: { breakpoints, spacing }}): string => `
     right: ${spacing(3)}px;
     top: 84px;
+    ${breakpoints.down('xs')} {
+      right: ${spacing(1)}px;
+    }
   `}
 `
 

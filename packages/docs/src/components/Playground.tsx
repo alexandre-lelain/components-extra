@@ -99,12 +99,12 @@ const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) =>
     }
   }, [copyLabel])
 
-  const onCopy: void = () => {
+  const onCopy = (): void => {
     copy(code)
     setCopyLabel(COPY_LABELS.copied)
   }
 
-  const onEditCode: void = () => {
+  const onEditCode = (): void => {
     setShowEditor((show) => !show)
   }
   
@@ -144,8 +144,15 @@ const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) =>
   return <pre className={className}>{children}</pre>
 }
 
+type PlaygroundChildrenType = {
+  props: {
+    children: object
+    className: string
+  }
+}
+
 interface PlaygroundProps {
-  children: object
+  children: PlaygroundChildrenType
 }
 
 export default Playground

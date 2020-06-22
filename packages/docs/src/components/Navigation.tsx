@@ -10,7 +10,7 @@ import { ExpandMore, ExpandLess, Menu } from '@icons'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-const useStyle = makeStyles(({ zIndex, spacing, transitions }) => ({
+const useStyle = makeStyles(({ zIndex, transitions }) => ({
   paper: {
     minWidth: 250,
     zIndex: zIndex.appBar - 1,
@@ -19,9 +19,6 @@ const useStyle = makeStyles(({ zIndex, spacing, transitions }) => ({
   modal: {
     zIndex: zIndex.appBar - 1 + '!important',
   },
-  root: {
-    marginLeft: spacing(3),
-  }
 }))
 
 const useListStyle = makeStyles(({ spacing }) => ({
@@ -29,6 +26,15 @@ const useListStyle = makeStyles(({ spacing }) => ({
     paddingLeft: spacing(4),
   },
 }))
+
+const StyledNavButton = styled(Button)`
+  ${({ theme: { breakpoints, spacing }}): string => `
+    margin-left: ${spacing(3)}px;
+    ${breakpoints.down('xs')} {
+      margin-left: ${spacing(1)}px;
+    }
+  `}
+`
 
 const DrawerContainer = styled.div`
   padding: 72px 0;
@@ -80,7 +86,7 @@ const RouteProvider: React.FC<RouteProviderProps> = ({ currentRoute, ...rest }: 
 const useCurrentRoute: string = () => useContext(RouteContext)
 
 const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps) => {
-  const { root, ...rest } = useStyle()
+  const classes = useStyle()
   const isDesktop = useIsDesktop()
   const [isOpen, openMenu] = useState(false)
 
@@ -97,16 +103,16 @@ const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps
   return (
     <RouteProvider value={currentRoute}>
       <Hidden mdDown implementation="css">
-        <Drawer classes={rest} variant="permanent" anchor="left">
+        <Drawer classes={{...classes}} variant="permanent" anchor="left">
           <DrawerContent />
         </Drawer>
       </Hidden>
       <Hidden lgUp implementation="css">
-        <Button classes={{ root }} startIcon={<Menu />} onClick={(): void => openMenu((prev) => !prev)}>
+        <StyledNavButton startIcon={<Menu />} onClick={(): void => openMenu((prev) => !prev)}>
           Navigation
-        </Button>
+        </StyledNavButton>
         <Drawer
-          classes={rest}
+          classes={{...classes}}
           variant="temporary"
           anchor="left"
           open={isOpen}

@@ -23,9 +23,10 @@
       "@material-ui/core",
       "lodash-es",
       "node",
+      "react-helmet",
     ]
   },
-  "include": ["src"],
+  "include": ["src/components/docs/Newsletter.tsx"],
   "exclude": [
     "node_modules",
     "**/tests/*",

@@ -26,13 +26,18 @@ const StyledButton = styled(Newsletter.Button)`
 
 export const ExtendedNewsletter: React.FC = () => {
   const [email, setEmail] = React.useState('')
+
+  const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setEmail(e.target.value)
+  }
+
   return (
     <StyledNewsletter
       title="Subscribe to our newsletter"
       description="Get exclusive offers every week!"
       caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
     >
-      <StyledInput id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <StyledInput id="email" placeholder="Email..." value={email} onChange={onEmailChange} />
       <StyledButton onClick={(): void => console.log('Thanks for subscribing!')}>Subscribe</StyledButton>
     </StyledNewsletter>
   )
@@ -55,11 +60,15 @@ export const ExtendedInput = styled(Newsletter.Input)`
 export const ExtendedInputStory: React.FC = () => {
   const [email, setEmail] = React.useState('')
 
+  const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setEmail(e.target.value)
+  }
+
   return (
     <ExtendedInput
       id="email"
       value={email}
-      onChange={setEmail}
+      onChange={onEmailChange}
       placeholder="components-extra@gmail.com"
     />
   )

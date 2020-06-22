@@ -15,7 +15,9 @@ import { useProps } from './PropsProvider'
 import { SpacedParagraph } from './Paragraph'
 import InlineCode from './InlineCode'
 
-const StyledTableContainer = styled(TableContainer)`
+const StyledTableContainer = styled(Paper)`
+  width: 100%;
+  overflow: auto;
   ${({ theme: { spacing }}): string => `
     margin: ${spacing(4)}px 0px;
   `}
@@ -37,14 +39,18 @@ const RequiredNameCell = styled(TableCell)`
   `}
 `
 
-const Props: React.FC = ({ of: component }: PropsProps) => {
+const DescriptionCell = styled(TableCell)`
+  min-width: 250px;
+`
+
+const Props: React.FC<PropsProps> = ({ of: component }: PropsProps) => {
   const allProps = useProps()
   const { props = [] } = allProps[component]
 
   return (
     <>
       {isEmpty(props) ? null : (
-        <StyledTableContainer component={Paper}>
+        <StyledTableContainer>
           <Table aria-label={`Props of ${component}`}>
             <TableHead>
               <TableRow>
@@ -73,7 +79,7 @@ const Props: React.FC = ({ of: component }: PropsProps) => {
                     )}
                     <TypeCell>{propType}</TypeCell>
                     <TableCell>{propDefaultValue}</TableCell>
-                    <TableCell>{propDescription}</TableCell>
+                    <DescriptionCell>{propDescription}</DescriptionCell>
                   </TableRow>
                 )
               })}
