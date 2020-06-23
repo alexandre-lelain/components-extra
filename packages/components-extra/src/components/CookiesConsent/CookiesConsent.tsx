@@ -2,11 +2,13 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Category, { CategoryType } from './components/Category'
-import ConsentButton, { ConsentButtonType } from './components/ConsentButton'
-import Controls, { ControlsType } from './components/Controls'
+import Category, { CookiesConsentCategoryType } from './components/Category'
+import ConsentButton, { CookiesConsentButtonType } from './components/ConsentButton'
+import Controls, { CookiesConsentControlsType } from './components/Controls'
 import Container from './components/Container'
 import MainTitle from './components/MainTitle'
+
+import { ComponentExtra } from '../../types'
 
 /**
  *
@@ -14,16 +16,14 @@ import MainTitle from './components/MainTitle'
  *
  * - [CookiesConsent API](https://components-extra.netlify.app/components/cookies-consent)
  */
-const CookiesConsent = forwardRef(
-  ({ children, title, ...rest }: CookiesConsentProps, ref: React.Ref<HTMLDivElement>) => {
-    return (
-      <Container ref={ref} {...rest}>
-        {title && <MainTitle>{title}</MainTitle>}
-        {children}
-      </Container>
-    )
-  },
-) as CookiesConsentType
+const CookiesConsent: React.FC<CookiesConsentProps> = ({ children, forwardedRef, title, ...rest }: CookiesConsentProps) => {
+  return (
+    <Container ref={forwardedRef} {...rest}>
+      {title && <MainTitle>{title}</MainTitle>}
+      {children}
+    </Container>
+  )
+}
 
 
 export interface CookiesConsentProps {
@@ -34,35 +34,36 @@ export interface CookiesConsentProps {
    */
   children?: React.ReactNode
   /**
-   * The ref of the component, forwared to the dom root element?
+   * Ref forwarded to the HTML Root element.
    */
-  ref?: React.Ref<HTMLDivElement>
+  forwardedRef?: React.Ref<HTMLDivElement>
   /**
    * The main title of the component.
    */
   title?: string
 }
 
-export interface CookiesConsentComponents {
-  Category: CategoryType
-  Controls: ControlsType
-  Button: ConsentButtonType
-}
-
-export type CookiesConsentType = React.ForwardRefExoticComponent<CookiesConsentProps> &
-  CookiesConsentComponents
-
 CookiesConsent.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
 }
 
-CookiesConsent.displayName = 'CookiesConsent'
+export type CookiesConsentComponents = {
+  Category: CookiesConsentCategoryType
+  Controls: CookiesConsentControlsType
+  Button: CookiesConsentButtonType
+}
+
+export type CookiesConsentType = ComponentExtra<CookiesConsentProps, CookiesConsentComponents>
+
+const CookiesConsentExtra = styled(
+  forwardRef((props: CookiesConsentProps, ref: React.Ref<HTMLDivElement>) => <CookiesConsent {...props} forwardedRef={ref} />)
+)`` as CookiesConsentType
+
 
 /** Exposed components */
-CookiesConsent.Category = Category
-CookiesConsent.Controls = Controls
-CookiesConsent.Button = ConsentButton
+CookiesConsentExtra.Category = Category
+CookiesConsentExtra.Controls = Controls
+CookiesConsentExtra.Button = ConsentButton
 
-export { CookiesConsent as BaseCookiesConsent }
-export default styled(CookiesConsent)``
+export default CookiesConsentExtra

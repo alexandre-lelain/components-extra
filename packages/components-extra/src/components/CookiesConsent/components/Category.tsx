@@ -10,8 +10,9 @@ import {
   Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { isBoolean } from '../../../utils'
 
+import { isBoolean } from '../../../utils'
+import { ComponentExtra } from '../../../types'
 import { useIsSmallScreen } from '../../../hooks'
 
 import ArrowIcon from './ArrowIcon'
@@ -40,14 +41,14 @@ const StyledExpansionPanelDetails = styled(ExpansionPanelDetails)`
   flex-direction: column;
 `
 
-const Category: CategoryType = ({
+const Category: React.FC<CookiesConsentCategoryProps> = ({
   children,
   checked,
   description,
   onChange,
   title,
   ...rest
-}: CategoryProps) => {
+}: CookiesConsentCategoryProps) => {
   const classes = useStyles()
   const isSmallScreen = useIsSmallScreen()
   const [expanded, setExpanded] = useState(false)
@@ -100,7 +101,7 @@ Category.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-export interface CategoryProps extends Omit<ExpansionPanelProps, 'onChange' | 'children'> {
+export interface CookiesConsentCategoryProps extends Omit<ExpansionPanelProps, 'onChange' | 'children'> {
   /**
    * If true, the switch is checked and the category is on.
    * Leave to undefined if you don't need to control the component.
@@ -124,7 +125,8 @@ export interface CategoryProps extends Omit<ExpansionPanelProps, 'onChange' | 'c
   title: string
 }
 
-export type CategoryType = React.FunctionComponent<CategoryProps>
+export type CookiesConsentCategoryType = ComponentExtra<CookiesConsentCategoryProps>
 
-export { Category as BaseCategory }
-export default styled(Category)``
+const CategoryExtra = styled(Category)`` as CookiesConsentCategoryType
+
+export default CategoryExtra

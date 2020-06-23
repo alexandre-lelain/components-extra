@@ -107,12 +107,6 @@ export interface CardProps extends MaterialCardProps {
   title: string
 }
 
-export type CardComponents = {
-  Button: CardButtonType
-}
-
-export type CardType = ComponentExtra<CardProps, CardComponents>
-
 Card.propTypes = {
   big: PropTypes.bool,
   children: PropTypes.node,
@@ -122,7 +116,16 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-const CardExtra = styled(forwardRef((props: CardProps, ref: React.Ref<HTMLElement>) => <Card {...props} forwardedRef={ref} />))`` as CardType
+export type CardComponents = {
+  Button: CardButtonType
+}
+
+export type CardType = ComponentExtra<CardProps, CardComponents>
+
+const CardExtra = styled(
+  forwardRef((props: CardProps, ref: React.Ref<HTMLElement>) => <Card {...props} forwardedRef={ref} />)
+)`` as CardType
+
 
 /**
  * Exposed Components

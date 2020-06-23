@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormControlLabel, Switch } from '@material-ui/core'
+
 import { isBoolean } from '../../../utils'
+import { ComponentExtra } from '../../../types'
 
 const Container = styled('div')`
   padding: 12px 24px;
@@ -35,13 +37,13 @@ const ChildrenContainer = styled('div')`
   `}
 `
 
-const Controls: ControlsType = ({
+const Controls: React.FC<CookiesConsentControlsProps> = ({
   checked,
   children,
   onChange,
   switchLabel,
   ...rest
-}: ControlsProps) => {
+}: CookiesConsentControlsProps) => {
   const [localChecked, setLocalChecked] = useState(false)
 
   const onToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -79,7 +81,7 @@ Controls.propTypes = {
   switchLabel: PropTypes.string,
 }
 
-export interface ControlsProps {
+export interface CookiesConsentControlsProps {
   /**
    * If true, the switch is checked and the category is on. Leave to undefined if you don't
    * need to control the component.
@@ -101,7 +103,8 @@ export interface ControlsProps {
   switchLabel?: string
 }
 
-export type ControlsType = React.FunctionComponent<ControlsProps>
+export type CookiesConsentControlsType = ComponentExtra<CookiesConsentControlsProps>
 
-export { Controls as BaseControls }
-export default styled(Controls)``
+const ControlsExtra = styled(Controls)`` as CookiesConsentControlsType
+
+export default ControlsExtra

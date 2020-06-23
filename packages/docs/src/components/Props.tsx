@@ -44,7 +44,11 @@ const DescriptionCell = styled(TableCell)`
 
 const Props: React.FC<PropsProps> = ({ of: component }: PropsProps) => {
   const allProps = useProps()
-  const { props = [] } = allProps[component]
+  const componentMeta = allProps[component]
+  if (!componentMeta) {
+    throw new Error('Could not find any props declaration for: ' + component)
+  }
+  const { props = [] } = componentMeta
 
   return (
     <>

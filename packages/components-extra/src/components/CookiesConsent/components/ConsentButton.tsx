@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Button, ButtonProps } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
+import { ComponentExtra } from '../../../types'
+
 const useStyles = makeStyles({
   root: {
     marginLeft: 12,
@@ -12,7 +14,7 @@ const useStyles = makeStyles({
   },
 })
 
-const ConsentButton: ConsentButtonType = ({ className = '', ...rest }: ButtonProps) => {
+const ConsentButton: React.FC<ButtonProps> = ({ className = '', ...rest }: ButtonProps) => {
   const classes = useStyles()
   return (
     <Button
@@ -26,7 +28,9 @@ const ConsentButton: ConsentButtonType = ({ className = '', ...rest }: ButtonPro
 
 ConsentButton.displayName = 'CookiesConsent.Button'
 
-export type ConsentButtonType = React.FunctionComponent<ButtonProps>
+export type CookiesConsentButtonType = ComponentExtra<ButtonProps>
 
-export { ConsentButton as BaseConsentButton, ButtonProps as ConsentButtonProps }
-export default styled(ConsentButton)``
+const ConsentButtonExtra =  styled(ConsentButton)`` as CookiesConsentButtonType
+
+export { ButtonProps as CookiesConsentButtonProps }
+export default ConsentButtonExtra

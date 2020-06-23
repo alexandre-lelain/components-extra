@@ -7,6 +7,7 @@ import ArrowUpward from './components/ArrowUpward'
 import Button from './components/Button'
 
 import { isServerSide, serverDocument } from '../../utils'
+import { ComponentExtra } from '../../types'
 
 /**
  *
@@ -15,7 +16,7 @@ import { isServerSide, serverDocument } from '../../utils'
  * - [BackToTop API](https://components-extra.netlify.app/components/back-to-top)
  * - inherits [Fab API](https://material-ui.com/api/fab/)
  */
-const BackToTop: BackToTopType = forwardRef((props: FabProps, ref: React.Ref<HTMLButtonElement>) => {
+const BackToTop: React.FC<BackToTopProps> = ({ forwardedRef, ...rest }: BackToTopProps) => {
   const {
     mixins: { backToTop },
     transitions,
@@ -58,18 +59,28 @@ const BackToTop: BackToTopType = forwardRef((props: FabProps, ref: React.Ref<HTM
         data-testid="back-to-top-button"
         color="primary"
         onClick={scrollToTop}
-        ref={ref}
-        {...props}
+        ref={forwardedRef}
+        {...rest}
       >
         <ArrowUpward />
       </Button>
     </Zoom>
   )
-})
+}
 
 BackToTop.displayName = 'BackToTop'
 
-export type BackToTopType = React.FC<FabProps>
+export interface BackToTopProps extends FabProps {
+  /**
+   * Ref forwarded to the HTML Root element.
+   */
+  forwardedRef: React.Ref<HTMLButtonElement>
+}
 
-export { BackToTop as BaseBackToTop, FabProps as BackToTopProps }
-export default styled(BackToTop)``
+export type BackToTopType = ComponentExtra<BackToTopProps>
+
+const BackToTopExtra = styled(
+  forwardRef((props: BackToTopProps, ref: React.Ref<HTMLButtonElement>) => <BackToTop {...props} forwardedRef={ref} />)
+)`` as BackToTopType
+
+export default BackToTopExtra

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { BackToTop, Card } from 'components-extra'
+import { BackToTop } from 'components-extra'
 import { Container } from '@material-ui/core'
 import Prism from 'prismjs'
 import '@styles/prismTheme.css'
@@ -44,12 +44,9 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext = {}, pageResourc
   const { frontmatter: { name, route, description } = {} } = pageContext
   const { page: { componentChunkName } = {} } = pageResources
   
-  const myRef = React.useRef()
   useEffect(() => {
     Prism.highlightAll()
-    console.log(myRef)
   }, [])
-
 
   return (
     <ModeProvider>
@@ -63,7 +60,6 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext = {}, pageResourc
             {componentChunkName && <EditLink chunkName={componentChunkName}/>}
             <PropsProvider>
               <Container maxWidth="md">
-                <Card title="My FUcking Card" ref={myRef}>toto</Card>
                 {children}
               </Container>
             </PropsProvider>
