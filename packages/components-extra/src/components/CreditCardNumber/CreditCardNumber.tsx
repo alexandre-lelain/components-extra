@@ -67,7 +67,9 @@ const CreditCardNumber = forwardRef(
       />
     )
   },
-)
+) as CreditCardNumberType
 
-export { CreditCardNumber as BaseCreditCardNumber }
+export type CreditCardNumberType = React.ForwardRefExoticComponent<OutlinedInputProps>
+
+export { CreditCardNumber as BaseCreditCardNumber, OutlinedInputProps as CreditCardNumberProps }
 export default styled(CreditCardNumber)``

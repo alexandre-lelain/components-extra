@@ -14,5 +14,5 @@ Button.displayName = 'Newsletter.Button'
 
 export type ButtonType = React.FunctionComponent<ButtonProps>
 
-export { Button as BaseButton }
+export { Button as BaseButton, ButtonProps }
 export default styled(Button)``

@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Button, ButtonProps } from '@material-ui/core'
 
 import { useBig } from '../hooks/Context'
+import { ComponentExtra } from '../../../types'
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const CardButton: CardButtonType = ({ className, ...rest }: ButtonProps) => {
+const CardButton: React.FC<ButtonProps> = ({ className, ...rest }: ButtonProps) => {
   const classes = useStyles()
   const big = useBig()
 
@@ -26,6 +27,9 @@ const CardButton: CardButtonType = ({ className, ...rest }: ButtonProps) => {
 
 CardButton.displayName = 'Card.Button'
 
-export type CardButtonType = React.FunctionComponent<ButtonProps>
+export type CardButtonType = ComponentExtra<ButtonProps>
 
-export default styled(CardButton)``
+const CardButtonExtra = styled(CardButton)`` as CardButtonType
+
+export { ButtonProps as CardButtonProps }
+export default CardButtonExtra

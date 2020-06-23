@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { OutlinedInput, OutlinedInputProps } from '@material-ui/core'
+import { OutlinedInput, OutlinedInputProps, OutlinedInputClassKey } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
@@ -17,7 +17,7 @@ const Input: InputType = (props: OutlinedInputProps) => {
 
 Input.displayName = 'Newsletter.Input'
 
-export type InputType = React.FunctionComponent<OutlinedInputProps> & typeof OutlinedInput
+export type InputType = React.FunctionComponent<OutlinedInputProps>
 
-export { Input as BaseInput }
+export { Input as BaseInput, OutlinedInputProps as InputProps }
 export default styled(Input)``

@@ -26,9 +26,11 @@ const Paragraph = forwardRef(
   ) => {
     return <StyledParagraph color={color} variant={variant} ref={ref} {...rest} />
   },
-)
+) as ParagraphType
 
 Paragraph.displayName = 'Paragraph'
 
-export { Paragraph as BaseParagraph }
+export type ParagraphType = React.ForwardRefExoticComponent<TypographyProps>
+
+export { Paragraph as BaseParagraph, TypographyProps as ParagraphProps }
 export default styled(Paragraph)``

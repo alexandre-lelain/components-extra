@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import { Button, ButtonProps } from '@material-ui/core'
+import { Button, ButtonProps, ButtonTypeMap } from '@material-ui/core'
 import { useIsDesktop } from '../../../hooks'
 
 import { useMenuOnClose } from '../hooks'
@@ -56,7 +56,7 @@ MenuItem.displayName = 'Navbar.MenuItem'
 export interface StyledLi {
   isDesktop?: boolean
 }
-export type MenuItemType = React.ForwardRefExoticComponent<ButtonProps> & typeof Button
+export type MenuItemType = React.ForwardRefExoticComponent<ButtonProps> & ButtonTypeMap
 
-export { MenuItem as BaseMenuItem }
+export { MenuItem as BaseMenuItem, ButtonProps as MenuItemProps }
 export default styled(MenuItem)``

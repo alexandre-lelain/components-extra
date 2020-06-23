@@ -13,6 +13,13 @@ import {
 
 import { CookiesConsent } from 'components-extra'
 
+type RowType = {
+  name: string
+  value: string | number
+  expires: string
+  description: string
+}
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -25,7 +32,7 @@ const useStyles = makeStyles({
   },
 })
 
-const createData: object = (name: string, value: string | number, expires: string, description: string) => ({
+const createData = (name: string, value: string | number, expires: string, description: string): RowType => ({
   name, value, expires, description,
 })
 
@@ -105,9 +112,14 @@ const ExtendedControls = styled(CookiesConsent.Controls)`
 
 export const ExtendedControlsStory: React.FC = () => {
   const [isOn, setIsOn] = React.useState(false)
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setIsOn(e.target.checked)
+  }
+
   return (
     <CookiesConsent>
-      <ExtendedControls switchLabel="Extended cookies" checked={isOn} onChange={setIsOn}>
+      <ExtendedControls switchLabel="Extended cookies" checked={isOn} onChange={onChange}>
         <CookiesConsent.Button>Cancel</CookiesConsent.Button>
         <CookiesConsent.Button>Confirm</CookiesConsent.Button>
       </ExtendedControls>

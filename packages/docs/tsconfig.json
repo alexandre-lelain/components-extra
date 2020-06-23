@@ -26,7 +26,7 @@
       "react-helmet",
     ]
   },
-  "include": ["src/components/docs/Newsletter.tsx"],
+  "include": ["src/components/docs/Card.tsx"],
   "exclude": [
     "node_modules",
     "**/tests/*",

@@ -29,4 +29,5 @@ const CookiesButton: CookiesButtonType = ({ className, href, ...rest }: ButtonPr
 CookiesButton.displayName = 'CookiesBanner.Button'
 
 export type CookiesButtonType = React.FunctionComponent<ButtonProps>
+export { ButtonProps as CookiesButtonProps }
 export default styled(CookiesButton)``

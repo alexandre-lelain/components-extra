@@ -1,7 +1,7 @@
 import React, { useState, MouseEvent } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Button, Menu, ButtonProps } from '@material-ui/core'
+import { Button, Menu, ButtonProps, ButtonTypeMap } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { useIsSmallScreen } from '../../../hooks'
@@ -73,7 +73,7 @@ export interface LanguageProps extends ButtonProps {
   selectedLanguage?: string
 }
 
-export type LanguageType = React.FunctionComponent<LanguageProps> & typeof Button
+export type LanguageType = React.FunctionComponent<LanguageProps>
 
 export { Language as BaseLanguage }
 export default styled(Language)``

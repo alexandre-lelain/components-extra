@@ -61,7 +61,6 @@ export interface CookiesBannerComponents {
 export type CookiesBannerType = React.ForwardRefExoticComponent<CookiesBannerProps> &
   CookiesBannerComponents
 
-
 CookiesBanner.propTypes = {
   children: PropTypes.node,
   text: PropTypes.string,

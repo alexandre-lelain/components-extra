@@ -1,9 +1,11 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { isEmpty, isString } from '../../utils'
-
 import { makeStyles } from '@material-ui/core/styles'
+
+import { isEmpty, isString } from '../../utils'
+import { ComponentExtra } from '../../types'
+
 import {
   Card as MaterialCard,
   CardActions,
@@ -35,48 +37,43 @@ const useStyles = makeStyles({
  * - [Card API](https://components-extra.netlify.app/components/card)
  * - inherits [MUI Card API](https://material-ui.com/api/card/)
  */
-const Card = forwardRef(
-  (
-    {
-      big = false,
-      children,
-      className,
-      description,
-      image = {},
-      onClick,
-      title,
-      ...rest
-    }: CardProps,
-    ref: React.Ref<HTMLElement>,
-  ) => {
-    const classes = useStyles()
+const Card: React.FC<CardProps> = ({
+    big = false,
+    children,
+    description,
+    image = {},
+    onClick,
+    forwardedRef,
+    title,
+    ...rest
+  }: CardProps) => {
+  const classes = useStyles()
 
-    return (
-      <BigProvider value={big}>
-        <MaterialCard className={className} ref={ref} {...rest}>
-          <CardContentWrapper onClick={onClick}>
-            {!isEmpty(image) && <CardMedia className={classes.media} {...image} />}
-            <CardContent className={classes.content}>
-              <Typography gutterBottom variant={big ? 'h4' : 'h5'}>
-                {title}
+  return (
+    <BigProvider value={big}>
+      <MaterialCard  ref={forwardedRef} {...rest}>
+        <CardContentWrapper onClick={onClick}>
+          {!isEmpty(image) && <CardMedia className={classes.media} {...image} />}
+          <CardContent className={classes.content}>
+            <Typography gutterBottom variant={big ? 'h4' : 'h5'}>
+              {title}
+            </Typography>
+            {description && (
+              <Typography
+                component={isString(description) ? 'p' : 'div'}
+                variant={big ? 'body1' : 'body2'}
+                color="textSecondary"
+              >
+                {description}
               </Typography>
-              {description && (
-                <Typography
-                  component={isString(description) ? 'p' : 'div'}
-                  variant={big ? 'body1' : 'body2'}
-                  color="textSecondary"
-                >
-                  {description}
-                </Typography>
-              )}
-            </CardContent>
-          </CardContentWrapper>
-          {children && <CardActions>{children}</CardActions>}
-        </MaterialCard>
-      </BigProvider>
-    )
-  },
-) as CardType
+            )}
+          </CardContent>
+        </CardContentWrapper>
+        {children && <CardActions>{children}</CardActions>}
+      </MaterialCard>
+    </BigProvider>
+  )
+}
 
 export interface CardProps extends MaterialCardProps {
   /**
@@ -92,6 +89,10 @@ export interface CardProps extends MaterialCardProps {
    */
   description?: React.ReactNode
   /**
+   * Ref forwarded to the HTML Root element.
+   */
+  forwardedRef?: React.Ref<HTMLElement>
+  /**
    * The Card's image media. Inherits from MUI's CardMedia props. See https://material-ui.com/api/card-media/.
    */
   image?: CardMediaProps
@@ -106,11 +107,11 @@ export interface CardProps extends MaterialCardProps {
   title: string
 }
 
-export interface CardComponents {
+export type CardComponents = {
   Button: CardButtonType
 }
 
-export type CardType = React.ForwardRefExoticComponent<CardProps> & CardComponents
+export type CardType = ComponentExtra<CardProps, CardComponents>
 
 Card.propTypes = {
   big: PropTypes.bool,
@@ -121,10 +122,11 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
+const CardExtra = styled(forwardRef((props: CardProps, ref: React.Ref<HTMLElement>) => <Card {...props} forwardedRef={ref} />))`` as CardType
+
 /**
  * Exposed Components
  */
-Card.Button = CardButton
+CardExtra.Button = CardButton
 
-export { Card as BaseCard }
-export default styled(Card)``
+export default CardExtra

@@ -15,7 +15,7 @@ import { isServerSide, serverDocument } from '../../utils'
  * - [BackToTop API](https://components-extra.netlify.app/components/back-to-top)
  * - inherits [Fab API](https://material-ui.com/api/fab/)
  */
-const BackToTop = forwardRef((props: FabProps, ref: React.Ref<HTMLButtonElement>) => {
+const BackToTop: BackToTopType = forwardRef((props: FabProps, ref: React.Ref<HTMLButtonElement>) => {
   const {
     mixins: { backToTop },
     transitions,
@@ -69,5 +69,7 @@ const BackToTop = forwardRef((props: FabProps, ref: React.Ref<HTMLButtonElement>
 
 BackToTop.displayName = 'BackToTop'
 
-export { BackToTop as BaseBackToTop }
+export type BackToTopType = React.FC<FabProps>
+
+export { BackToTop as BaseBackToTop, FabProps as BackToTopProps }
 export default styled(BackToTop)``

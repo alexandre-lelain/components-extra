@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { filter, includes, reduce } from 'lodash-es'
 
-const IGNORED_PROPS = ['ref', 'className']
+const IGNORED_PROPS = ['ref', 'className', 'forwardedRef']
 
 const propsQuery = graphql`
   {

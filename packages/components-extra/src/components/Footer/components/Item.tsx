@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, ButtonProps } from '@material-ui/core'
+import { Button, ButtonProps, ButtonTypeMap } from '@material-ui/core'
 
 const useStyles = makeStyles(({ palette }) => ({
   text: {
@@ -51,7 +51,7 @@ export interface ItemProps extends ButtonProps {
   icon?: React.ReactNode
 }
 
-export type ItemType = React.FunctionComponent<ItemProps> & typeof Button
+export type ItemType = React.FunctionComponent<ItemProps>
 
 export { Item as BaseItem }
 export default styled(Item)``

@@ -28,5 +28,5 @@ ConsentButton.displayName = 'CookiesConsent.Button'
 
 export type ConsentButtonType = React.FunctionComponent<ButtonProps>
 
-export { ConsentButton as BaseConsentButton }
+export { ConsentButton as BaseConsentButton, ButtonProps as ConsentButtonProps }
 export default styled(ConsentButton)``

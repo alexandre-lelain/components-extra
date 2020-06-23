@@ -14,7 +14,7 @@ const StyledProvider = ({
   children,
   dark = false,
   theme,
-}: StyledProviderProps): React.ReactElement => {
+}: StyledProviderProps): StyledProviderType => {
   const finalTheme = useMemo(() => createTheme(dark, theme), [dark, theme])
 
   return (
@@ -25,6 +25,8 @@ const StyledProvider = ({
     </StylesProvider>
   )
 }
+
+export type StyledProviderType = React.ReactElement<StyledProviderProps>
 
 export interface StyledProviderProps {
   /**

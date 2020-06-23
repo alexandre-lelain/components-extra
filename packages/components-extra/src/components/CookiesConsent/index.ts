@@ -1,2 +1,5 @@
 export { default } from './CookiesConsent'
 export * from './CookiesConsent'
+export { CategoryProps as CookiesConsentCategoryProps, CategoryType as CookiesConsentCategoryType } from './components/Category'
+export { ControlsProps as CookiesConsentControlsProps, ControlsType as CookiesConsentControlsType } from './components/Controls'
+export { ConsentButtonProps as CookiesConsentConsentButtonProps, ConsentButtonType as CookiesConsentConsentButtonType } from './components/ConsentButton'

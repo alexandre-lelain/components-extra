@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Navbar } from 'components-extra'
+import { Navbar, NavbarLanguageProps } from 'components-extra'
 
 export const BrandIcon: React.FC = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -20,7 +20,6 @@ export const FlagIcon: React.FC = () => (
 export const AmericaFlag: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    xlink="http://www.w3.org/1999/xlink"
     width="24"
     height="24"
     viewBox="0 0 7410 3900"
@@ -75,7 +74,7 @@ export const BrandExtended = styled(Navbar.Brand)`
   }
 `
 
-const LanguageExtendedStyled = styled(Navbar.Language)`
+const LanguageExtendedStyled = styled(Navbar.Language)<NavbarLanguageProps>`
   background-color: #3377ff;
   padding: 16px;
   box-shadow: 2px 2px 2px 2px black;

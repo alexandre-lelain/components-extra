@@ -8,7 +8,6 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TableContainer,
 } from '@material-ui/core'
 
 import { useProps } from './PropsProvider'
