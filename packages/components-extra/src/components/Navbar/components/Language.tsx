@@ -1,10 +1,11 @@
 import React, { useState, MouseEvent } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Button, Menu, ButtonProps, ButtonTypeMap } from '@material-ui/core'
+import { Button, Menu, ButtonProps } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { useIsSmallScreen } from '../../../hooks'
+import { ComponentExtra } from '../../../types'
 
 import { OnCloseLanguageProvider } from '../hooks'
 
@@ -17,12 +18,12 @@ const useStyles = makeStyles(({ palette }) => ({
   },
 }))
 
-const Language: LanguageType = ({
+const Language: React.FC<NavbarLanguageProps> = ({
   children,
   smallScreenSupport = true,
   selectedLanguage = '',
   ...rest
-}: LanguageProps) => {
+}: NavbarLanguageProps) => {
   const classes = useStyles()
   const [langAnchor, setLangAnchor] = useState<HTMLButtonElement>()
   const isVerySmallScreen = useIsSmallScreen()
@@ -60,7 +61,7 @@ Language.propTypes = {
   selectedLanguage: PropTypes.string,
 }
 
-export interface LanguageProps extends ButtonProps {
+export interface NavbarLanguageProps extends ButtonProps {
   /**
    * If set to true, only the 2 first characters of the selectedLanguage will be displayed
    * for very small screens to provide a better responsive design.
@@ -73,7 +74,8 @@ export interface LanguageProps extends ButtonProps {
   selectedLanguage?: string
 }
 
-export type LanguageType = React.FunctionComponent<LanguageProps>
+export type NavbarLanguageType = ComponentExtra<NavbarLanguageProps>
 
-export { Language as BaseLanguage }
-export default styled(Language)``
+const LanguageExtra = styled(Language)`` as NavbarLanguageType
+
+export default LanguageExtra

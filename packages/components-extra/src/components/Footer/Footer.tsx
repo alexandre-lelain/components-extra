@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { CardMediaProps } from '@material-ui/core'
 
+import { ComponentExtra } from '../../types'
+
 import BottomBannerContainer from './components/BottomBanner'
-import Column, { ColumnType } from './components/Column'
+import Column, { FooterColumnType } from './components/Column'
 import FooterContainer from './components/FooterContainer'
-import Item, { ItemType } from './components/Item'
+import Item, { FooterItemType } from './components/Item'
 import ItemsContainer from './components/ItemsContainer'
 import Title from './components/Title'
 import TopContainer from './components/TopContainer'
@@ -17,22 +19,17 @@ import TopContainer from './components/TopContainer'
  *
  * - [Footer API](https://components-extra.netlify.app/components/footer)
  */
-const Footer = forwardRef(
-  (
-    { bottomBanner, children, image, title, ...rest }: FooterProps,
-    ref: React.Ref<HTMLElement>,
-  ) => {
-    return (
-      <FooterContainer ref={ref} {...rest}>
-        <TopContainer {...image}>
-          {title && <Title text={title} />}
-          {children && <ItemsContainer>{children}</ItemsContainer>}
-        </TopContainer>
-        {bottomBanner && <BottomBannerContainer>{bottomBanner}</BottomBannerContainer>}
-      </FooterContainer>
-    )
-  },
-) as FooterType
+const Footer: React.FC<FooterProps> = ({ bottomBanner, children, forwardedRef, image, title, ...rest }: FooterProps) => {
+  return (
+    <FooterContainer ref={forwardedRef} {...rest}>
+      <TopContainer {...image}>
+        {title && <Title text={title} />}
+        {children && <ItemsContainer>{children}</ItemsContainer>}
+      </TopContainer>
+      {bottomBanner && <BottomBannerContainer>{bottomBanner}</BottomBannerContainer>}
+    </FooterContainer>
+  )
+}
 
 export interface FooterProps {
   /**
@@ -45,14 +42,14 @@ export interface FooterProps {
    */
   children?: React.ReactNode
   /**
+   * The ref to attach to the footer element.
+   */
+  forwardedRef?: React.Ref<HTMLElement>
+  /**
    * The footer's background image. Please refer to MUI's CardMedia's props for the exhaustive list:
    * https://material-ui.com/api/card-media/.
    */
   image?: CardMediaProps
-  /**
-   * The ref to attach to the footer element.
-   */
-  ref?: React.Ref<HTMLElement>
   /**
    * The footer's title.
    */
@@ -60,11 +57,11 @@ export interface FooterProps {
 }
 
 export interface FooterComponents {
-  Column: ColumnType
-  Item: ItemType
+  Column: FooterColumnType
+  Item: FooterItemType
 }
 
-export type FooterType = React.ForwardRefExoticComponent<FooterProps> & FooterComponents
+export type FooterType = ComponentExtra<FooterProps, FooterComponents>
 
 Footer.propTypes = {
   bottomBanner: PropTypes.node,
@@ -73,11 +70,14 @@ Footer.propTypes = {
   title: PropTypes.string,
 }
 
+const FooterExtra = styled(
+  forwardRef((props: FooterProps, ref: React.Ref<HTMLElement>) => <Footer {...props} forwardedRef={ref} />)
+)`` as FooterType
+
 /**
  * Exposed components.
  */
-Footer.Column = Column
-Footer.Item = Item
+FooterExtra.Column = Column
+FooterExtra.Item = Item
 
-export { Footer as BaseFooter }
-export default styled(Footer)``
+export default FooterExtra

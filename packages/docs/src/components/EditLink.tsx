@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from '@material-ui/core'
+import { Button, ExtendButtonBase, ButtonTypeMap } from '@material-ui/core'
 
 import { Pencil } from '@icons'
 import { useGithubEditLink } from '@hooks'
 
-const StyledLink = styled(Button)`
+const StyledLink: ExtendButtonBase<ButtonTypeMap> = styled(Button)`
   position: absolute;
   ${({ theme: { breakpoints, spacing }}): string => `
     right: ${spacing(3)}px;
@@ -19,7 +19,7 @@ const StyledLink = styled(Button)`
 const EditLink: React.FC<EditLinkProps> = ({ chunkName }: EditLinkProps) => {
   const href = useGithubEditLink(chunkName)
   return href ? (
-    <StyledLink startIcon={<Pencil />} href={href} target="__blank" rel="noreferer noopener">
+    <StyledLink startIcon={<Pencil />} href={href} target="_blank" rel="noreferer noopener">
       Edit page
     </StyledLink>
   ) : <></>

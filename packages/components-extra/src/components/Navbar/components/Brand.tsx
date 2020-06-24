@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { Link, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
+import { ComponentExtra } from '../../../types'
+
 const useStyles = makeStyles(({ palette }) => ({
   title: {
     lineHeight: 'normal',
@@ -41,7 +43,7 @@ const BrandContainer = styled.div`
   flex-grow: 1;
 `
 
-const Brand: BrandType = ({ children, href = '/', title, ...rest }: BrandProps) => {
+const Brand: React.FC<NavbarBrandProps> = ({ children, href = '/', title, ...rest }: NavbarBrandProps) => {
   const classes = useStyles()
   return (
     <BrandContainer {...rest}>
@@ -65,7 +67,7 @@ Brand.propTypes = {
   title: PropTypes.string,
 }
 
-export interface BrandProps {
+export interface NavbarBrandProps {
   /**
    * Any jsx node you want to render inside the Brand.
    */
@@ -80,7 +82,8 @@ export interface BrandProps {
   title?: string
 }
 
-export type BrandType = React.FunctionComponent<BrandProps>
+export type NavbarBrandType = ComponentExtra<NavbarBrandProps>
 
-export { Brand as BaseBrand }
-export default styled(Brand)``
+const BrandExtra = styled(Brand)`` as NavbarBrandType
+
+export default BrandExtra

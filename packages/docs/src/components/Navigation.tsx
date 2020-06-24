@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { find, includes, map, toLower } from 'lodash-es'
 import { useIsDesktop } from 'components-extra'
 import { version } from 'components-extra/package.json'
-import { Button, Collapse, Drawer, Hidden, List, ListItem, ListItemText, Typography } from '@material-ui/core'
+import { Button, Collapse, Drawer, Hidden, List, ListItem, ListItemText, ListItemProps, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { ExpandMore, ExpandLess, Menu } from '@icons'
@@ -15,10 +15,7 @@ const useStyle = makeStyles(({ zIndex, transitions }) => ({
     minWidth: 250,
     zIndex: zIndex.appBar - 1,
     transition: transitions.backgroundColor,
-  },
-  modal: {
-    zIndex: zIndex.appBar - 1 + '!important',
-  },
+  }
 }))
 
 const useListStyle = makeStyles(({ spacing }) => ({
@@ -83,7 +80,7 @@ const RouteContext = createContext('/')
 const RouteProvider: React.FC<RouteProviderProps> = ({ currentRoute, ...rest }: RouteProviderProps) => 
   <RouteContext.Provider value={currentRoute} {...rest} />
 
-const useCurrentRoute: string = () => useContext(RouteContext)
+const useCurrentRoute = (): string => useContext(RouteContext)
 
 const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps) => {
   const classes = useStyle()
@@ -101,7 +98,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps
   }, [isDesktop])
 
   return (
-    <RouteProvider value={currentRoute}>
+    <RouteProvider currentRoute={currentRoute}>
       <Hidden mdDown implementation="css">
         <Drawer classes={{...classes}} variant="permanent" anchor="left">
           <DrawerContent />
@@ -180,22 +177,35 @@ const DrawerContent: React.FC = () => {
   )
 }
 
+type LeafType = {
+  name: string
+  route: string
+}
+
+type LeavesType = {
+  frontmatter: LeafType
+}
+
 interface RouteProviderProps {
-  currentRoute: string,
+  children: React.ReactNode
+  currentRoute: string
 }
 
 interface NavigationProps {
   currentRoute: string
 }
 
-interface LeafItemProps {
+interface LeafItemProps extends ListItemProps {
+  button?: any
+  component?: React.ElementType
   name: string
   route: string
+  to?: string
 }
 
 interface NodeItemProps {
   name: string
-  leaves?: object[]
+  leaves?: LeavesType[]
 }
 
 export default Navigation

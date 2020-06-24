@@ -5,6 +5,7 @@ import { IconButton, Menu as MuiMenu, IconButtonProps } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { useIsDesktop } from '../../../hooks'
+import { ComponentExtra } from '../../../types'
 
 import { OnCloseMenuProvider } from '../hooks'
 import MenuIcon from './MenuIcon'
@@ -22,7 +23,7 @@ const DesktopContainer = styled.ol`
   padding: 0;
 `
 
-const Menu: MenuType = ({ children, iconProps = {}, label = '', ...rest }: MenuProps) => {
+const Menu: React.FC<NavbarMenuProps> = ({ children, iconProps = {}, label = '', ...rest }: NavbarMenuProps) => {
   const [menuAnchor, setMenuAnchor] = useState<HTMLButtonElement>()
   const classes = useStyles()
   const isDesktop = useIsDesktop()
@@ -68,7 +69,7 @@ Menu.propTypes = {
   label: PropTypes.string,
 }
 
-export interface MenuProps {
+export interface NavbarMenuProps {
   /**
    * The options of the menu.
    */
@@ -83,7 +84,8 @@ export interface MenuProps {
   label?: string
 }
 
-export type MenuType = React.FunctionComponent<MenuProps>
+export type NavbarMenuType = ComponentExtra<NavbarMenuProps>
 
-export { Menu as BaseMenu }
-export default styled(Menu)``
+const MenuExtra = styled(Menu)`` as NavbarMenuType
+
+export default MenuExtra

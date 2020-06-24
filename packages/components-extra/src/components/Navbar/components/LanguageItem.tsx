@@ -4,41 +4,35 @@ import PropTypes from 'prop-types'
 import { MenuItem, MenuItemProps } from '@material-ui/core'
 
 import { useLanguageOnClose } from '../hooks'
+import { ComponentExtra } from '../../../types'
 
-const LanguageItem = forwardRef(
-  (
-    { children, label = '', onClick, ...rest }: LanguageItemProps,
-    ref: React.Ref<HTMLLIElement>,
-  ) => {
-    const onMenuClose = useLanguageOnClose()
+const LanguageItem: React.FC<NavbarLanguageItemProps> = ({ children, forwardedRef, label = '', onClick, ...rest }: NavbarLanguageItemProps) => {
+  const onMenuClose = useLanguageOnClose()
 
-    const onItemClick = (): void => {
-      onMenuClose && onMenuClose()
-      onClick && onClick()
-    }
+  const onItemClick = (): void => {
+    onMenuClose && onMenuClose()
+    onClick && onClick()
+  }
 
-    return (
-      <MenuItem aria-label={label} onClick={onItemClick} title={label} ref={ref} {...rest} button>
-        {children}
-      </MenuItem>
-    )
-  },
-) as LanguageItemType
+  return (
+    <MenuItem aria-label={label} onClick={onItemClick} title={label} ref={forwardedRef} {...rest} button>
+      {children}
+    </MenuItem>
+  )
+}
 
 LanguageItem.displayName = 'Navbar.LanguageItem'
 
 LanguageItem.propTypes = {
-  /**
-   * The language item's label. Used for the meta props of the element.
-   */
   label: PropTypes.string,
-  /**
-   * The language item's onclick function. Called when the language is selected in the menu.
-   */
   onClick: PropTypes.func,
 }
 
-export interface LanguageItemProps extends MenuItemProps {
+export interface NavbarLanguageItemProps extends MenuItemProps {
+  /**
+   * Ref forwarded to the HTML Root element.
+   */
+  forwardedRef?: React.Ref<HTMLLIElement>
   /**
    * The language item's label. Used for the meta props of the element.
    */
@@ -49,7 +43,10 @@ export interface LanguageItemProps extends MenuItemProps {
   onClick?: () => void
 }
 
-export type LanguageItemType = React.ForwardRefExoticComponent<LanguageItemProps>
+export type NavbarLanguageItemType = ComponentExtra<NavbarLanguageItemProps>
 
-export { LanguageItem as BaseLanguageItem }
-export default styled(LanguageItem)``
+const LanguageItemExtra = styled(
+  forwardRef((props: NavbarLanguageItemProps, ref: React.Ref<HTMLLIElement>) => <LanguageItem {...props} forwardedRef={ref}/>)
+)`` as NavbarLanguageItemType
+
+export default LanguageItemExtra

@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { AppBar, AppBarProps, Toolbar } from '@material-ui/core'
 
-import Brand, { BrandType } from './components/Brand'
-import Language, { LanguageType } from './components/Language'
-import LanguageItem, { LanguageItemType } from './components/LanguageItem'
-import Menu, { MenuType } from './components/Menu'
-import MenuItem, { MenuItemType } from './components/MenuItem'
+import { ComponentExtra } from '../../types'
+
+import Brand, { NavbarBrandType } from './components/Brand'
+import Language, { NavbarLanguageType } from './components/Language'
+import LanguageItem, { NavbarLanguageItemType } from './components/LanguageItem'
+import Menu, { NavbarMenuType } from './components/Menu'
+import MenuItem, { NavbarMenuItemType } from './components/MenuItem'
 
 /**
  *
@@ -16,9 +18,9 @@ import MenuItem, { MenuItemType } from './components/MenuItem'
  * - [Navbar API](https://components-extra.netlify.app/components/navbar)
  * - inherits [AppBar API](https://material-ui.com/api/app-bar/)
  */
-const Navbar = forwardRef(({ children, ...rest }: NavbarProps, ref: React.Ref<HTMLElement>) => {
+const Navbar: React.FC<NavbarProps> = (({ children, forwardedRef, ...rest }: NavbarProps) => {
   return (
-    <AppBar ref={ref} {...rest}>
+    <AppBar ref={forwardedRef} {...rest}>
       <Toolbar>{children}</Toolbar>
     </AppBar>
   )
@@ -30,29 +32,38 @@ export interface NavbarProps extends AppBarProps {
    * by the Navbar, or bring your owns.
    */
   children?: React.ReactNode
+  /**
+   * Ref forwarded to the HTML Root element.
+   */
+  forwardedRef?: React.Ref<HTMLElement>
 }
 
 export interface NavbarComponents {
-  Brand: BrandType
-  Language: LanguageType
-  LanguageItem: LanguageItemType
-  Menu: MenuType
-  MenuItem: MenuItemType
+  Brand: NavbarBrandType
+  Language: NavbarLanguageType
+  LanguageItem: NavbarLanguageItemType
+  Menu: NavbarMenuType
+  MenuItem: NavbarMenuItemType
 }
 
-export type NavbarType = React.ForwardRefExoticComponent<NavbarProps> & NavbarComponents
+export type NavbarType = ComponentExtra<NavbarProps, NavbarComponents>
 
 Navbar.propTypes = {
   children: PropTypes.node,
 }
+
+const NavbarExtra = styled(
+  forwardRef((props: NavbarProps, ref: React.Ref<HTMLElement>) => <Navbar {...props} forwardedRef={ref} />)
+)`` as NavbarType
+
+
 /**
  * Exposed components.
  */
-Navbar.Brand = Brand
-Navbar.Language = Language
-Navbar.LanguageItem = LanguageItem
-Navbar.Menu = Menu
-Navbar.MenuItem = MenuItem
+NavbarExtra.Brand = Brand
+NavbarExtra.Language = Language
+NavbarExtra.LanguageItem = LanguageItem
+NavbarExtra.Menu = Menu
+NavbarExtra.MenuItem = MenuItem
 
-export { Navbar as BaseNavbar }
-export default styled(Navbar)``
+export default NavbarExtra

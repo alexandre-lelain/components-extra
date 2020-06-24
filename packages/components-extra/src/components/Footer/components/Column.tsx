@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import { Typography } from '@material-ui/core'
 
+import { ComponentExtra } from '../../../types'
+
 const Title = styled(Typography)`
   margin-bottom: 12px;
   font-weight: bold;
@@ -38,7 +40,7 @@ const List = styled.ul`
   `}
 `
 
-const Column: ColumnType = ({ children, isInline = false, title, ...rest }: ColumnProps) => {
+const Column: React.FC<FooterColumnProps> = ({ children, isInline = false, title, ...rest }: FooterColumnProps) => {
   return (
     <Container isInline={isInline} {...rest}>
       {title && <Title>{title}</Title>}
@@ -55,7 +57,7 @@ Column.propTypes = {
   title: PropTypes.string,
 }
 
-export interface ColumnProps {
+export interface FooterColumnProps {
   /**
    * The children nodes to render inside the column.
    */
@@ -74,7 +76,8 @@ export interface StyledProps {
   isInline: boolean
 }
 
-export type ColumnType = React.FunctionComponent<ColumnProps>
+export type FooterColumnType = ComponentExtra<FooterColumnProps>
 
-export { Column as BaseColumn }
-export default styled(Column)``
+const ColumnExtra = styled(Column)`` as FooterColumnType
+
+export default ColumnExtra

@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, ButtonProps, ButtonTypeMap } from '@material-ui/core'
+import { Button, ButtonProps } from '@material-ui/core'
+
+import { ComponentExtra } from '../../../types'
 
 const useStyles = makeStyles(({ palette }) => ({
   text: {
@@ -19,7 +21,7 @@ const Container = styled.li`
   align-items: center;
 `
 
-const Item: ItemType = ({ className, children, icon, ...rest }: ItemProps) => {
+const Item: React.FC<FooterItemProps> = ({ className, children, icon, ...rest }: FooterItemProps) => {
   const classes = useStyles()
 
   return (
@@ -44,14 +46,15 @@ Item.propTypes = {
   icon: PropTypes.node,
 }
 
-export interface ItemProps extends ButtonProps {
+export interface FooterItemProps extends ButtonProps {
   /**
    * The item's icon.
    */
   icon?: React.ReactNode
 }
 
-export type ItemType = React.FunctionComponent<ItemProps>
+export type FooterItemType = ComponentExtra<FooterItemProps>
 
-export { Item as BaseItem }
-export default styled(Item)``
+const ItemExtra = styled(Item)`` as FooterItemType
+
+export default ItemExtra

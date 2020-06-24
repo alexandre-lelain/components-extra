@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, ButtonProps } from '@material-ui/core'
+import { Button, ButtonProps, ExtendButtonBase, ButtonTypeMap } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { ComponentExtra } from '../../../types'
@@ -28,9 +28,9 @@ const ConsentButton: React.FC<ButtonProps> = ({ className = '', ...rest }: Butto
 
 ConsentButton.displayName = 'CookiesConsent.Button'
 
-export type CookiesConsentButtonType = ComponentExtra<ButtonProps>
+export type CookiesConsentButtonType = ComponentExtra<ButtonProps> & ExtendButtonBase<ButtonTypeMap>
 
-const ConsentButtonExtra =  styled(ConsentButton)`` as CookiesConsentButtonType
+const ConsentButtonExtra = styled(ConsentButton)`` as CookiesConsentButtonType
 
 export { ButtonProps as CookiesConsentButtonProps }
 export default ConsentButtonExtra

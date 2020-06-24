@@ -4,5 +4,8 @@ export default {
   },
   palette: {
     inlineCode: '#d6d6f5'
+  },
+  zIndex: {
+    modal: 1099,
   }
 }

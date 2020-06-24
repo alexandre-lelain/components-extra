@@ -7,12 +7,14 @@
     "suppressImplicitAnyIndexErrors": true, // TODO: use Map instead of array
     "noEmit": true,
     "strict": true,
+    "resolveJsonModule": true,
     "target": "es6",
     "baseUrl": ".",
     "paths": {
       "@icons": ["src/icons"],
       "@utils": ["src/utils"],
       "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
       "@theme": ["src/theme"],
       "@hooks": ["src/hooks"],
     },
@@ -26,7 +28,7 @@
       "react-helmet",
     ]
   },
-  "include": ["src/components/docs/Card.tsx"],
+  "include": ["src"],
   "exclude": [
     "node_modules",
     "**/tests/*",

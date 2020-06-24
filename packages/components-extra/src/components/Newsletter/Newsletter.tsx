@@ -2,10 +2,12 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Button, { ButtonType } from './components/Button'
+import { ComponentExtra } from '../../types'
+
+import Button, { NewsletterButtonType } from './components/Button'
 import Container from './components/Container'
 import Form from './components/Form'
-import Input, { InputType } from './components/Input'
+import Input, { NewsletterInputType } from './components/Input'
 import { Caption, Description, Title } from './components/Typographies'
 
 /**
@@ -14,21 +16,16 @@ import { Caption, Description, Title } from './components/Typographies'
  *
  * - [Newsletter API](https://components-extra.netlify.app/components/newsletter)
  */
-const Newsletter = forwardRef(
-  (
-    { caption, children, description, title, ...rest }: NewsletterProps,
-    ref: React.Ref<HTMLElement>,
-  ) => {
-    return (
-      <Container ref={ref} {...rest}>
-        {title && <Title>{title}</Title>}
-        {description && <Description>{description}</Description>}
-        {children && <Form>{children}</Form>}
-        {caption && <Caption>{caption}</Caption>}
-      </Container>
-    )
-  },
-) as NewsletterType
+const Newsletter: React.FC<NewsletterProps> = ({ caption, children, description, forwardedRef, title, ...rest }: NewsletterProps) => {
+  return (
+    <Container ref={forwardedRef} {...rest}>
+      {title && <Title>{title}</Title>}
+      {description && <Description>{description}</Description>}
+      {children && <Form>{children}</Form>}
+      {caption && <Caption>{caption}</Caption>}
+    </Container>
+  )
+}
 
 export interface NewsletterProps {
   /**
@@ -49,7 +46,7 @@ export interface NewsletterProps {
   /**
    * The ref to pass to the main html element container.
    */
-  ref?: React.Ref<HTMLElement>
+  forwardedRef?: React.Ref<HTMLElement>
   /**
    * The newsletter's title.
    */
@@ -57,11 +54,11 @@ export interface NewsletterProps {
 }
 
 export interface NewsletterComponents {
-  Button: ButtonType
-  Input: InputType
+  Button: NewsletterButtonType
+  Input: NewsletterInputType
 }
 
-export type NewsletterType = React.ForwardRefExoticComponent<NewsletterProps> & NewsletterComponents
+export type NewsletterType = ComponentExtra<NewsletterProps, NewsletterComponents>
 
 Newsletter.propTypes = {
   caption: PropTypes.string,
@@ -70,11 +67,14 @@ Newsletter.propTypes = {
   title: PropTypes.string,
 }
 
+const NewsletterExtra = styled(
+  forwardRef((props: NewsletterProps, ref: React.Ref<HTMLElement>) => <Newsletter {...props} forwardedRef={ref} />)
+)`` as NewsletterType
+
 /**
  * Exposed components
  */
-Newsletter.Button = Button
-Newsletter.Input = Input
+NewsletterExtra.Button = Button
+NewsletterExtra.Input = Input
 
-export { Newsletter as BaseNewsletter }
-export default styled(Newsletter)``
+export default NewsletterExtra

@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { OutlinedInput, OutlinedInputProps, OutlinedInputClassKey } from '@material-ui/core'
+import { OutlinedInput, OutlinedInputProps } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+
+import { ComponentExtra } from '../../../types'
 
 const useStyles = makeStyles(() => ({
   input: {
@@ -9,7 +11,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const Input: InputType = (props: OutlinedInputProps) => {
+const Input: React.FC<OutlinedInputProps> = (props: OutlinedInputProps) => {
   const classes = useStyles()
 
   return <OutlinedInput classes={classes} type="email" {...props} />
@@ -17,7 +19,9 @@ const Input: InputType = (props: OutlinedInputProps) => {
 
 Input.displayName = 'Newsletter.Input'
 
-export type InputType = React.FunctionComponent<OutlinedInputProps>
+export type NewsletterInputType = ComponentExtra<OutlinedInputProps>
 
-export { Input as BaseInput, OutlinedInputProps as InputProps }
-export default styled(Input)``
+const InputExtra = styled(Input)`` as NewsletterInputType
+
+export { OutlinedInputProps as NewsletterInputProps }
+export default InputExtra

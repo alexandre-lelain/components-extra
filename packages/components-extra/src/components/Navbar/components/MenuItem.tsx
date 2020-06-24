@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import { Button, ButtonProps, ButtonTypeMap } from '@material-ui/core'
+import { Button, ButtonProps, ExtendButtonBase, ButtonTypeMap } from '@material-ui/core'
+
 import { useIsDesktop } from '../../../hooks'
+import { ComponentExtra } from '../../../types'
 
 import { useMenuOnClose } from '../hooks'
 
@@ -31,32 +33,42 @@ const StyledLi = styled('li')`
   `}
 `
 
-const MenuItem = forwardRef(
-  ({ children, onClick, ...rest }: ButtonProps, ref: React.Ref<HTMLButtonElement>) => {
-    const closeMenu = useMenuOnClose()
-    const isDesktop = useIsDesktop()
+const MenuItem: React.FC<NavbarMenuItemProps> = ({ children, forwardedRef, onClick, ...rest }: NavbarMenuItemProps) => {
+  const closeMenu = useMenuOnClose()
+  const isDesktop = useIsDesktop()
 
-    const onMobileItemClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-      onClick && onClick(e)
-      closeMenu && closeMenu()
-    }
+  const onMobileItemClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    onClick && onClick(e)
+    closeMenu && closeMenu()
+  }
 
-    return (
-      <StyledLi isDesktop={isDesktop}>
-        <StyledButton onClick={isDesktop ? onClick : onMobileItemClick} ref={ref} {...rest}>
-          {children}
-        </StyledButton>
-      </StyledLi>
-    )
-  },
-) as MenuItemType
+  return (
+    <StyledLi isDesktop={isDesktop}>
+      <StyledButton onClick={isDesktop ? onClick : onMobileItemClick} ref={forwardedRef} {...rest}>
+        {children}
+      </StyledButton>
+    </StyledLi>
+  )
+}
 
 MenuItem.displayName = 'Navbar.MenuItem'
+
+export interface NavbarMenuItemProps extends ButtonProps {
+  /**
+   * Ref forwarded to the HTML Root element.
+   */
+  forwardedRef?: React.Ref<HTMLButtonElement>
+}
 
 export interface StyledLi {
   isDesktop?: boolean
 }
-export type MenuItemType = React.ForwardRefExoticComponent<ButtonProps> & ButtonTypeMap
 
-export { MenuItem as BaseMenuItem, ButtonProps as MenuItemProps }
-export default styled(MenuItem)``
+export type NavbarMenuItemType = ComponentExtra<NavbarMenuItemProps> & ExtendButtonBase<ButtonTypeMap>
+
+const MenuItemExtra = styled(
+  forwardRef((props: NavbarMenuItemProps, ref: React.Ref<HTMLButtonElement>) => <MenuItem {...props} forwardedRef={ref} />)
+)`` as NavbarMenuItemType
+
+
+export default MenuItemExtra
