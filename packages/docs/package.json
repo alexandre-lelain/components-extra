@@ -25,6 +25,8 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.5",
     "@mdx-js/react": "^1.6.5",
+    "@types/mdx-js__react": "^1.5.2",
+    "@types/prismjs": "^1.16.1",
     "components-extra": "^2.6.1",
     "copy-text-to-clipboard": "^2.2.0",
     "gatsby": "^2.20.16",

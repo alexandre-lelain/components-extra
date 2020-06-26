@@ -43,7 +43,7 @@ export const ExtendedNewsletter: React.FC = () => {
   )
 }
 
-export const ExtendedButton = styled(Newsletter.Button)`
+export const ExtendedNewsletterButton = styled(Newsletter.Button)`
   padding: 24px;
   background-color: #3377ff;
   &:hover {

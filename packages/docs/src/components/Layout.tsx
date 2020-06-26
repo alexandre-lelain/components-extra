@@ -40,8 +40,8 @@ const MainContainer = styled.main`
   `}
 `
 
-const Layout: React.FC<LayoutProps> = ({ children, pageContext = {}, pageResources = {}}: LayoutProps) => {
-  const { frontmatter: { name, route, description } = {} } = pageContext
+const Layout: React.FC<LayoutProps> = ({ children, pageContext, pageResources = {} }: LayoutProps) => {
+  const { frontmatter: { name = '', route = '/', description } = {} } = pageContext
   const { page: { componentChunkName } = {} } = pageResources
   
   useEffect(() => {
@@ -73,7 +73,18 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext = {}, pageResourc
 
 export interface LayoutProps {
   children: React.ReactNode
-  pageContext: object
+  pageContext: {
+    frontmatter: {
+      name: string
+      route: string
+      description: string
+    }
+  }
+  pageResources: {
+    page?: {
+      componentChunkName: string
+    }
+  }
 }
 
 

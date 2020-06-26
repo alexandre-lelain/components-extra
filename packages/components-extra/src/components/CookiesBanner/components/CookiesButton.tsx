@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, ButtonProps, ExtendButtonBase, ButtonTypeMap } from '@material-ui/core'
+import { Button, ButtonProps } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { ComponentExtra } from '../../../types'
@@ -30,7 +30,7 @@ const CookiesButton: React.FC<ButtonProps> = ({ className, href, ...rest }: Butt
 
 CookiesButton.displayName = 'CookiesBanner.Button'
 
-export type CookiesButtonType = ComponentExtra<ButtonProps> & ExtendButtonBase<ButtonTypeMap>
+export type CookiesButtonType = ComponentExtra<ButtonProps, {}, "button">
 
 const CookiesButtonExtra = styled(CookiesButton)`` as CookiesButtonType
 

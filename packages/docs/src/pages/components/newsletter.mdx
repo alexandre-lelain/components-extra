@@ -26,7 +26,7 @@ import Props from '@components/Props'
       description='Get exclusive offers every week!'
       caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
     >
-      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={e => setEmail(e.target.value)} />
       <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
         Subscribe
       </Newsletter.Button>
@@ -47,7 +47,7 @@ import Props from '@components/Props'
       title='Subscribe to our newsletter'
       description='Get exclusive offers every week!'
     >
-      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={e => setEmail(e.target.value)} />
       <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
         Subscribe
       </Newsletter.Button>
@@ -68,7 +68,7 @@ import Props from '@components/Props'
       title='Subscribe to our newsletter'
       caption="By subscribing, you agree to receive emails from us. Don't worry, we are not spamers :)"
     >
-      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={e => setEmail(e.target.value)} />
       <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
         Subscribe
       </Newsletter.Button>
@@ -87,7 +87,7 @@ import Props from '@components/Props'
     <Newsletter
       title='Subscribe to our newsletter'
     >
-      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+      <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={e => setEmail(e.target.value)} />
       <Newsletter.Button onClick={() => console.log('Thanks for subscribing!')}>
         Subscribe
       </Newsletter.Button>
@@ -161,9 +161,9 @@ return (
 
 ```jsx
 // live-extended
-<ExtendedButton onClick={() => console.log('Thanks for subscribing!')}>
+<ExtendedNewsletterButton onClick={() => console.log('Thanks for subscribing!')}>
   Subscribe now
-</ExtendedButton>
+</ExtendedNewsletterButton>
 ```
 
 ### Props
@@ -184,7 +184,7 @@ This component extends Material's UI `<Button>` so you can use all its props as 
 () => {
   const [email, setEmail] = React.useState('')
 
-  return <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={setEmail} />
+  return <Newsletter.Input id="email" placeholder="Email..." value={email} onChange={e => setEmail(e.target.value)} />
 }
 ```
 
@@ -201,7 +201,7 @@ This component extends Material's UI `<Button>` so you can use all its props as 
       color="secondary"
       placeholder="components-extra@gmail.com"
       value={email}
-      onChange={setEmail}
+      onChange={e => setEmail(e.target.value)}
       label="Email"
     />
   )
@@ -220,7 +220,7 @@ This component extends Material's UI `<Button>` so you can use all its props as 
       id="email"
       placeholder="components-extra@gmail.com"
       value={email}
-      onChange={setEmail}
+      onChange={e => setEmail(e.target.value)}
     />
   )
 }

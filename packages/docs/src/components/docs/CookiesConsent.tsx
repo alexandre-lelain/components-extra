@@ -92,7 +92,7 @@ export const ExtendedCategory = styled(CookiesConsent.Category)`
   }
 `
 
-export const ExtendedButton = styled(CookiesConsent.Button)`
+export const CookiesConsentExtendedButton = styled(CookiesConsent.Button)`
   background-color: #3377ff;
   border-radius: 18px;
   box-shadow: 2px 2px 2px 2px grey;

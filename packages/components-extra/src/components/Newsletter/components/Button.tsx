@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
 
 Button.displayName = 'Newsletter.Button'
 
-export type NewsletterButtonType = ComponentExtra<ButtonProps>
+export type NewsletterButtonType = ComponentExtra<ButtonProps, {}, 'button'>
 
 const ButtonExtra = styled(Button)`` as NewsletterButtonType
 

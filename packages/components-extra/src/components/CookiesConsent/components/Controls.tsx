@@ -93,7 +93,7 @@ export interface CookiesConsentControlsProps {
    */
   children?: React.ReactNode
   /**
-   * Function called on switch change. Signature: (event) => void. You can access the value using `event.target.value`.
+   * Function called on switch change. Signature: (event) => void. You can access the value using `event.target.checked`.
    * If you don't provide an onChange function, the switch will not be displayed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void

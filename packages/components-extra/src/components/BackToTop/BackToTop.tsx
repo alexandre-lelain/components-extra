@@ -74,10 +74,10 @@ export interface BackToTopProps extends FabProps {
   /**
    * Ref forwarded to the HTML Root element.
    */
-  forwardedRef: React.Ref<HTMLButtonElement>
+  forwardedRef?: React.Ref<HTMLButtonElement>
 }
 
-export type BackToTopType = ComponentExtra<BackToTopProps>
+export type BackToTopType = ComponentExtra<BackToTopProps, {}, "button">
 
 const BackToTopExtra = styled(
   forwardRef((props: BackToTopProps, ref: React.Ref<HTMLButtonElement>) => <BackToTop {...props} forwardedRef={ref} />)

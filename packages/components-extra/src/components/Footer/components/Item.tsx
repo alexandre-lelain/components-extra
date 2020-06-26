@@ -53,7 +53,7 @@ export interface FooterItemProps extends ButtonProps {
   icon?: React.ReactNode
 }
 
-export type FooterItemType = ComponentExtra<FooterItemProps>
+export type FooterItemType = ComponentExtra<FooterItemProps, {}, 'a'>
 
 const ItemExtra = styled(Item)`` as FooterItemType
 

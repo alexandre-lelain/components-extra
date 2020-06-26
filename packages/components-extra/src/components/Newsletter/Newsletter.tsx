@@ -46,7 +46,7 @@ export interface NewsletterProps {
   /**
    * The ref to pass to the main html element container.
    */
-  forwardedRef?: React.Ref<HTMLElement>
+  forwardedRef?: React.Ref<HTMLDivElement>
   /**
    * The newsletter's title.
    */
@@ -68,7 +68,7 @@ Newsletter.propTypes = {
 }
 
 const NewsletterExtra = styled(
-  forwardRef((props: NewsletterProps, ref: React.Ref<HTMLElement>) => <Newsletter {...props} forwardedRef={ref} />)
+  forwardRef((props: NewsletterProps, ref: React.Ref<HTMLDivElement>) => <Newsletter {...props} forwardedRef={ref} />)
 )`` as NewsletterType
 
 /**

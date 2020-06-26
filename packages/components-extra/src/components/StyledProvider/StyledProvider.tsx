@@ -30,7 +30,7 @@ export type StyledProviderType = React.ReactElement<StyledProviderProps>
 
 export interface StyledProviderProps {
   /**
-   * Anything component that will use the theme.
+   * Any components that will use the theme.
    */
   children: React.ReactNode
   /**

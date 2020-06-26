@@ -10,9 +10,9 @@ const CAPTION = 'awesome caption'
 
 describe('<Newsletter>', () => {
   test('it forwards the given ref correctly', () => {
-    const ref = React.createRef<HTMLElement>()
+    const ref = React.createRef<HTMLDivElement>()
     renderWithTheme(<Newsletter ref={ref} />)
-    expect(ref.current instanceof HTMLElement).toBeTruthy()
+    expect(ref.current instanceof HTMLDivElement).toBeTruthy()
   })
 
   test('it renders correctly', () => {

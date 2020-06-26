@@ -91,7 +91,8 @@ const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) =>
   const [showEditor, setShowEditor] = useState(false)
   const [copyLabel, setCopyLabel] = useState(COPY_LABELS.copy)
   const { children: code, className } = children.props
-  const [, language = "jsx"] = className.match(/language-([\S]+)/)
+  const languageMatched = className.match(/language-([\S]+)/) || []
+  const [, language = "jsx"] = languageMatched
 
   useEffect(() => {
     if (copyLabel === COPY_LABELS.copied) {
@@ -118,7 +119,7 @@ const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) =>
           </SpacedParagraph>
         )}
         <Container>
-          <LiveProvider code={cleansedCode} scope={scope} language={language} theme={theme}>
+          <LiveProvider code={cleansedCode} scope={scope} language={language as LanguageType} theme={theme}>
             <Resizable {...resizableProps}>
               <div style={resizableStyle}>
                 <LivePreview />
@@ -146,7 +147,7 @@ const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) =>
 
 type PlaygroundChildrenType = {
   props: {
-    children: object
+    children: string
     className: string
   }
 }
@@ -154,5 +155,39 @@ type PlaygroundChildrenType = {
 interface PlaygroundProps {
   children: PlaygroundChildrenType
 }
+
+type LanguageType =
+    | "markup"
+    | "bash"
+    | "clike"
+    | "c"
+    | "cpp"
+    | "css"
+    | "javascript"
+    | "jsx"
+    | "coffeescript"
+    | "actionscript"
+    | "css-extr"
+    | "diff"
+    | "git"
+    | "go"
+    | "graphql"
+    | "handlebars"
+    | "json"
+    | "less"
+    | "makefile"
+    | "markdown"
+    | "objectivec"
+    | "ocaml"
+    | "python"
+    | "reason"
+    | "sass"
+    | "scss"
+    | "sql"
+    | "stylus"
+    | "tsx"
+    | "typescript"
+    | "wasm"
+    | "yaml";
 
 export default Playground

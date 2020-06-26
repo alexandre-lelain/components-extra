@@ -3,7 +3,7 @@ import styled, { css, SimpleInterpolation } from 'styled-components'
 import { Link as MuiLink } from '@material-ui/core'
 import { Link as GatsbyLink } from 'gatsby'
 
-import { isAnchor } from '@utils'
+import { isInternalLink } from '@utils'
 import { StyledCompoProps } from '@theme'
 
 const ExternalLink = styled(MuiLink).attrs(() => ({
@@ -42,9 +42,9 @@ const StyledLink = styled(GatsbyLink)`
 `
 
 const Link: React.FC<LinkProps> = ({ href, ...rest }: LinkProps) => {
-  const isAnchorLink = isAnchor(href)
+  const isInternal = isInternalLink(href)
 
-  return isAnchorLink ? (
+  return isInternal ? (
     <StyledLink to={href} {...rest} />
   ) : (
     <ExternalLink href={href} {...rest} />

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { MDXProvider as GatsbyMDXProvider } from '@mdx-js/react'
+import { MDXProvider as GatsbyMDXProvider, MDXProviderProps } from '@mdx-js/react'
 import Prism from 'prismjs'
 
 import { SpacedParagraph } from './Paragraph'
@@ -24,7 +24,7 @@ const components = {
   pre: Playground,
 }
 
-const MDXProvider: React.FC = props => {
+const MDXProvider: React.FC<ExtraMDXProviderProps> = props => {
   useEffect(() => {
     Prism.highlightAll()
   }, [props])
@@ -33,5 +33,7 @@ const MDXProvider: React.FC = props => {
     <GatsbyMDXProvider components={components} {...props}/>
   )
 }
+
+type ExtraMDXProviderProps = Omit<MDXProviderProps, 'components'>
 
 export default MDXProvider

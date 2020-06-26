@@ -52,7 +52,7 @@ const isNode = (node: any): boolean => typeof node === "object"
 
 const PaletteNode: React.FC<PaletteNodeProps> = ({ node = {}, name}: PaletteNodeProps) => {
   return (
-    <ColorsNode key={name}>
+    <ColorsNode>
       <ColotsSuiteTitle>{name}</ColotsSuiteTitle>
       <ColorsSuite>
         {map(node, (color, name = '') => {
@@ -89,7 +89,7 @@ const ColorBoxesList: React.FC = () => {
     <>
       {map(sortedPalette, (node, name) => {
         if (isNode(node)) {
-          return <PaletteNode node={node} name={name}/>
+          return <PaletteNode node={node} name={name} key={name}/>
         }
         if (isLeaf(node) && isColor(node)) {
           return <ColorBox color={node} name={name} key={name} />

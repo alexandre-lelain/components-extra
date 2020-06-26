@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import { Button, ButtonProps, ExtendButtonBase, ButtonTypeMap } from '@material-ui/core'
+import { Button, ButtonProps } from '@material-ui/core'
 
 import { useIsDesktop } from '../../../hooks'
 import { ComponentExtra } from '../../../types'
@@ -64,7 +64,7 @@ export interface StyledLi {
   isDesktop?: boolean
 }
 
-export type NavbarMenuItemType = ComponentExtra<NavbarMenuItemProps> & ExtendButtonBase<ButtonTypeMap>
+export type NavbarMenuItemType = ComponentExtra<NavbarMenuItemProps, {}, 'a'>
 
 const MenuItemExtra = styled(
   forwardRef((props: NavbarMenuItemProps, ref: React.Ref<HTMLButtonElement>) => <MenuItem {...props} forwardedRef={ref} />)

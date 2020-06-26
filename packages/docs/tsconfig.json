@@ -26,12 +26,14 @@
       "lodash-es",
       "node",
       "react-helmet",
+      "prismjs",
+      "mdx-js__react",
     ]
   },
   "include": ["src"],
   "exclude": [
     "node_modules",
     "**/tests/*",
-    "**/node_modules/**/*",
+    "**/node_modules/**/*"
   ]
 }

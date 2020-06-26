@@ -6,6 +6,7 @@ description: The API documentation of the CookiesConsent React component. Play a
 ---
 
 import Props from '@components/Props'
+import Paragraph from '@components/Paragraph'
 
 # CookiesConsent
 
@@ -44,37 +45,37 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
         checked={cookies.analytics}
         description="Theses cookies help us to analyze what you are doing on our site"
         title="Analytics cookies"
-        onChange={checked => setCookies(cookies => ({ ...cookies, analytics: checked }))}
+        onChange={e => setCookies(cookies => ({ ...cookies, analytics: e.target.checked }))}
       >
-        <p>
+        <Paragraph>
           This is a paragraph explaining how great are those cookies. This is a paragraph
           explaining how great are those cookies. This is a paragraph explaining how great are
           those cookies. This is a paragraph explaining how great are those cookies.
-        </p>
+        </Paragraph>
       </CookiesConsent.Category>
       <CookiesConsent.Category
         checked={cookies.functional}
         description="Theses cookies enable us to offer you a personalized experience on our site"
         title="Functional cookies"
-        onChange={checked => setCookies(cookies => ({ ...cookies, functional: checked }))}
+        onChange={e => setCookies(cookies => ({ ...cookies, functional: e.target.checked }))}
       >
-        <p>
+        <Paragraph>
           This is a paragraph explaining how great are those cookies. This is a paragraph
           explaining how great are those cookies. This is a paragraph explaining how great are
           those cookies. This is a paragraph explaining how great are those cookies.
-        </p>
+        </Paragraph>
       </CookiesConsent.Category>
       <CookiesConsent.Category
         checked={cookies.tracking}
         description="Theses cookies helps us to track you. You cannot escape!"
         title="Tracking cookies"
-        onChange={checked => setCookies(cookies => ({ ...cookies, tracking: checked }))}
+        onChange={e => setCookies(cookies => ({ ...cookies, tracking: e.target.checked }))}
       >
-        <p>
+        <Paragraph>
           This is a paragraph explaining how great are those cookies. This is a paragraph
           explaining how great are those cookies. This is a paragraph explaining how great are
           those cookies. This is a paragraph explaining how great are those cookies.
-        </p>
+        </Paragraph>
       </CookiesConsent.Category>
       <CookiesConsent.Controls switchLabel="All cookies" onChange={toggleAll}>
         <CookiesConsent.Button>Cancel</CookiesConsent.Button>
@@ -121,31 +122,31 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
     description="Theses cookies help us to analyze what you are doing on our site"
     title="Analytics cookies"
   >
-    <p>
+    <Paragraph>
       This is a paragraph explaining how great are those cookies. This is a paragraph
       explaining how great are those cookies. This is a paragraph explaining how great are
       those cookies. This is a paragraph explaining how great are those cookies.
-    </p>
+    </Paragraph>
   </CookiesConsent.Category>
   <CookiesConsent.Category
     description="Theses cookies enable us to offer you a personalized experience on our site"
     title="Functional cookies"
   >
-    <p>
+    <Paragraph>
       This is a paragraph explaining how great are those cookies. This is a paragraph
       explaining how great are those cookies. This is a paragraph explaining how great are
       those cookies. This is a paragraph explaining how great are those cookies.
-    </p>
+    </Paragraph>
   </CookiesConsent.Category>
   <CookiesConsent.Category
     description="Theses cookies helps us to track you. You cannot escape!"
     title="Tracking cookies"
   >
-    <p>
+    <Paragraph>
       This is a paragraph explaining how great are those cookies. This is a paragraph
       explaining how great are those cookies. This is a paragraph explaining how great are
       those cookies. This is a paragraph explaining how great are those cookies.
-    </p>
+    </Paragraph>
   </CookiesConsent.Category>
 </CookiesConsent>
 ```
@@ -159,31 +160,31 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
     description="Theses cookies help us to analyze what you are doing on our site"
     title="Analytics cookies"
   >
-    <p>
+    <Paragraph>
       This is a paragraph explaining how great are those cookies. This is a paragraph
       explaining how great are those cookies. This is a paragraph explaining how great are
       those cookies. This is a paragraph explaining how great are those cookies.
-    </p>
+    </Paragraph>
   </CookiesConsent.Category>
   <CookiesConsent.Category
     description="Theses cookies enable us to offer you a personalized experience on our site"
     title="Functional cookies"
   >
-    <p>
+    <Paragraph>
       This is a paragraph explaining how great are those cookies. This is a paragraph
       explaining how great are those cookies. This is a paragraph explaining how great are
       those cookies. This is a paragraph explaining how great are those cookies.
-    </p>
+    </Paragraph>
   </CookiesConsent.Category>
   <CookiesConsent.Category
     description="Theses cookies helps us to track you. You cannot escape!"
     title="Tracking cookies"
   >
-    <p>
+    <Paragraph>
       This is a paragraph explaining how great are those cookies. This is a paragraph
       explaining how great are those cookies. This is a paragraph explaining how great are
       those cookies. This is a paragraph explaining how great are those cookies.
-    </p>
+    </Paragraph>
   </CookiesConsent.Category>
 </CookiesConsent>
 ```
@@ -232,14 +233,14 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
     description="Theses cookies help us to analyze what you are doing on our site"
     title="Analytics cookies"
   >
-    <p>
+    <Paragraph>
       This is a paragprah about the category. This is a paragprah about the category. This is a
       paragprah about the category.
-    </p>
-    <p>
+    </Paragraph>
+    <Paragraph>
       This is a paragprah about the category. This is a paragprah about the category. This is a
       paragprah about the category.
-    </p>
+    </Paragraph>
   </CookiesConsent.Category>
 </CookiesConsent>
 ```
@@ -264,10 +265,10 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
 // live
 <CookiesConsent>
   <CookiesConsent.Category title="Analytics cookies">
-    <p>
+    <Paragraph>
       This is a paragprah about the category. This is a paragprah about the category. This is a
       paragprah about the category.
-    </p>
+    </Paragraph>
   </CookiesConsent.Category>
 </CookiesConsent>
 ```
@@ -280,10 +281,10 @@ is not included in `<CookiesConsent>`, it is a separate component for the sake o
   description="Theses cookies help us to analyze what you are doing on our site"
   title="Analytics cookies"
 >
-  <p>
+  <Paragraph>
     This is a paragprah about the category. This is a paragprah about the category. This is a
     paragprah about the category.
-  </p>
+  </Paragraph>
 </ExtendedCategory>
 ```
 
@@ -306,7 +307,7 @@ This component extends Material's UI `<ExpansionPanel>` so you can use all its p
   const [isOn, setIsOn] = React.useState(false)
   return (
     <CookiesConsent>
-      <CookiesConsent.Controls checked={isOn} onChange={setIsOn} switchLabel="All cookies">
+      <CookiesConsent.Controls checked={isOn} onChange={(e) => setIsOn(e.target.checked)} switchLabel="All cookies">
         <CookiesConsent.Button>Cancel</CookiesConsent.Button>
         <CookiesConsent.Button>Confirm</CookiesConsent.Button>
       </CookiesConsent.Controls>
@@ -335,7 +336,7 @@ This component extends Material's UI `<ExpansionPanel>` so you can use all its p
   const [isOn, setIsOn] = React.useState(false)
   return (
     <CookiesConsent>
-      <CookiesConsent.Controls checked={isOn} onChange={setIsOn} switchLabel="All cookies">
+      <CookiesConsent.Controls checked={isOn} onChange={(e) => setIsOn(e.target.checked)} switchLabel="All cookies">
         <button>Cancel</button>
         <button>Confirm</button>
       </CookiesConsent.Controls>

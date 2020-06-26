@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, ButtonProps, ExtendButtonBase, ButtonTypeMap } from '@material-ui/core'
+import { Button, ButtonProps } from '@material-ui/core'
 
 import { useBig } from '../hooks/Context'
 import { ComponentExtra } from '../../../types'
@@ -27,7 +27,7 @@ const CardButton: React.FC<ButtonProps> = ({ className, ...rest }: ButtonProps) 
 
 CardButton.displayName = 'Card.Button'
 
-export type CardButtonType = ComponentExtra<ButtonProps> & ExtendButtonBase<ButtonTypeMap>
+export type CardButtonType = ComponentExtra<ButtonProps, {}, 'a'>
 
 const CardButtonExtra = styled(CardButton)`` as CardButtonType
 
