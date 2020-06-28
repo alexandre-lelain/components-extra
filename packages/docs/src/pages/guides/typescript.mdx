@@ -1,0 +1,61 @@
+---
+name: TypeScript
+menu: Guides
+route: /guides/typescript
+description: Learn how to take leverage of TypeScript using components-extra.
+---
+
+# TypeScript
+
+Components-extra requires a minimum version of `TypeScript@3.8`.
+
+Since **v3.0.0**, the library fully supports TypeScript. 
+
+All the components export their **Props** [interface](https://www.typescriptlang.org/docs/handbook/interfaces.html)
+and their **Types**. That means you can fully take leverage of their typings system, and extend them in your own project,
+and integrate them in other components.
+
+Every component is exported as a [styled-component](https://styled-components.com/) and forward the `ref` you attach to it
+to the root HTML element it renders. You can learn more about react and the refs on [nocode nobug's article](https://nocode-nobug.com/what-is-hidden-behind-react-refs/).
+
+All the types & interfaces can be imported from the index **root**, just like the components are.
+
+## Example
+
+Say, for example, that you're working with the [CookiesBanner](/components/cookies-banner) component. You
+can make a new component on top of it using TypeScript this way:
+
+
+```jsx
+import React from 'react'
+import { CookiesBanner, CookiesBannerProps } from 'components-extra'
+
+interface ExtendedCookiesBannerProps extends CookiesBannerProps {
+  caption: string
+}
+
+const ExtendedCookiesBanner: React.FC<ExtendedCookiesBannerProps> = ({ caption, ...rest }) => {
+
+  return (
+    <div>
+      <CookiesBanner {...rest} />
+      <span>{caption}</span>
+    </div>
+  )
+}
+```
+
+Your `ExtendedCookiesBanner` will inherit from all the props of `CookiesBanner`, plus the one you defined (here `caption`).
+
+## Further reading
+
+Since **components-extra** is built on top of Material-UI, you can also leverage all the typing system they offer: https://material-ui.com/guides/typescript/.
+That includes for example overriding the theme types.
+
+## What about prop-types ?
+
+In addition to the TypeScript typings, all the components are also declaring their props using [PropTypes](https://material-ui.com/guides/typescript/). Doing so,
+you will have both type checking at **compilation** time (Nodejs - TypeScript) and **execution** time (Browser - PropTypes).
+
+Since TypeScript's integration in React is "relatively" recent, some changes are to be expected, and you should take into account the fact that this library
+is not in its mature state yet using TypeScript. Do not hesitate to open issues or PRs if you encounter any issue using TypeScript with components-extra.

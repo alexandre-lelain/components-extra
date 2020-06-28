@@ -6,11 +6,11 @@
 
   <br/>
 
-  [**Read the API**](https://components-extra.netlify.com)
+  [**Read the API**](https://components-extra.netlify.app)
 
   <br/>
 
-  [![Docs Status](https://api.netlify.com/api/v1/badges/950cb520-b2e5-434f-b777-c36eede4e727/deploy-status)](https://components-extra.netlify.com/) [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra) [![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls)
+  [![Docs Status](https://api.netlify.com/api/v1/badges/950cb520-b2e5-434f-b777-c36eede4e727/deploy-status)](https://components-extra.netlify.app/) [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra) [![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![build formats](https://img.shields.io/badge/module%20formats-amd%2C%20cjs%2C%20esm-green.svg)](https://github.com/alexandre-lelain/components-extra)
@@ -37,18 +37,19 @@ By the way: no more bloated components library. **components-extra** is [really 
 
 ## Menu
 
-- [UI components](#ui-components)
+- [Documentation](#documentation)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Getting started in only 2 steps](#getting-started-in-only-2-steps)
 - [Customization](#customization)
+- [TypeScript](#typescript)
 - [Bundling in your project](#bundling-in-your-project)
 - [Contributing](#contributing)
 
 
-## UI components
+## Documentation
 
-[Cick here](https://components-extra.netlify.com) to see the list of available components the lib has to offer. You can check out the props of each component, see the source code of the stories and even play with them live with the react-live editor.
+Visit the [documentation site](https://components-extra.netlify.app) to see the list of available components the lib has to offer. You can check out the props of each component, see the source code of the stories and even play with them live with the react-live editor. You will also find guides to help you setup the library, use it, and extend it.
 
 
 ## Requirements
@@ -144,7 +145,7 @@ mentionned above.
 Say, for example, you want to override the 2 main palette colors to have this:
 
 ```js
-// YourTheme.js
+// yourTheme.js
 export default {
   palette: {
     primary: {
@@ -162,7 +163,7 @@ You can apply it this way:
 ```js
 // index.js
 import { BackToTop, StyledProvider } from 'components-extra'
-import yourTheme from './YourTheme'
+import yourTheme from './yourTheme'
 
 const App = () => {
 
@@ -223,6 +224,48 @@ const App = () => {
   )
 }
 ```
+
+## TypeScript
+
+Components-extra requires a minimum version of `TypeScript@3.8`.
+
+Since **v3.0.0**, the library fully supports TypeScript. 
+
+All the components export their **Props** [interface](https://www.typescriptlang.org/docs/handbook/interfaces.html)
+and their **Types**. That means you can fully take leverage of their typings system, and extend them in your own project,
+and integrate them in other components.
+
+Every component is exported as a [styled-component](https://styled-components.com/) and forward the `ref` you attach to it
+to the root HTML element it renders. You can learn more about react and the refs on [nocode nobug's article](https://nocode-nobug.com/what-is-hidden-behind-react-refs/).
+
+All the types & interfaces can be imported from the index **root**, just like the components are.
+
+## Example
+
+Say, for example, that you're working with the [CookiesBanner](/components/cookies-banner) component. You
+can make a new component on top of it using TypeScript this way:
+
+
+```tsx
+import React from 'react'
+import { CookiesBanner, CookiesBannerProps } from 'components-extra'
+
+interface ExtendedCookiesBannerProps extends CookiesBannerProps {
+  caption: string
+}
+
+const ExtendedCookiesBanner: React.FC<ExtendedCookiesBannerProps> = ({ caption, ...rest }) => {
+
+  return (
+    <div>
+      <CookiesBanner {...rest} />
+      <span>{caption}</span>
+    </div>
+  )
+}
+```
+
+Your `ExtendedCookiesBanner` will inherit from all the props of `CookiesBanner`, plus the one you defined (here `caption`).
 
 ## Bundling in your project
 
