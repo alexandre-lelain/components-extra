@@ -1,6 +1,6 @@
 {
   "name": "components-extra",
-  "version": "2.6.1",
+  "version": "3.0.0-rc.0",
   "description": "React UI molecule components based on styled-components & material-ui.",
   "homepage": "https://components-extra.netlify.app/",
   "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
@@ -31,7 +31,7 @@
     "build:after": "node ./scripts/afterBuild.js",
     "test": "jest",
     "postversion": "git push && git push --tags",
-    "version": "git add -vA src",
+    "version": "git add -vA",
     "release": "yarn build && yarn test && yarn publish build --tag latest"
   },
   "dependencies": {
