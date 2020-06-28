@@ -21,7 +21,12 @@ const Container = styled.li`
   align-items: center;
 `
 
-const Item: React.FC<FooterItemProps> = ({ className, children, icon, ...rest }: FooterItemProps) => {
+const Item: React.FC<FooterItemProps> = ({
+  className,
+  children,
+  icon,
+  ...rest
+}: FooterItemProps) => {
   const classes = useStyles()
 
   return (
@@ -53,7 +58,7 @@ export interface FooterItemProps extends ButtonProps {
   icon?: React.ReactNode
 }
 
-export type FooterItemType = ComponentExtra<FooterItemProps, {}, 'a'>
+export type FooterItemType = ComponentExtra<FooterItemProps, Record<string, unknown>, 'a'>
 
 const ItemExtra = styled(Item)`` as FooterItemType
 

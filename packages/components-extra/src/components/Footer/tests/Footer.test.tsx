@@ -25,7 +25,7 @@ const BannerContent: React.FC = () => <div>{BANNER_CONTENT}</div>
 
 describe('<Footer>', () => {
   test('it forwards the given ref correctly', () => {
-    const ref = React.createRef<HTMLElement>()
+    const ref = React.createRef<HTMLDivElement>()
     renderWithTheme(<Footer ref={ref}>content</Footer>)
     expect(ref.current instanceof HTMLElement).toBeTruthy()
   })

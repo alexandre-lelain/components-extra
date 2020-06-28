@@ -28,7 +28,11 @@ const ConsentButton: React.FC<ButtonProps> = ({ className = '', ...rest }: Butto
 
 ConsentButton.displayName = 'CookiesConsent.Button'
 
-export type CookiesConsentButtonType = ComponentExtra<ButtonProps, {}, "button">
+export type CookiesConsentButtonType = ComponentExtra<
+  ButtonProps,
+  Record<string, unknown>,
+  'button'
+>
 
 const ConsentButtonExtra = styled(ConsentButton)`` as CookiesConsentButtonType
 

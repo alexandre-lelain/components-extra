@@ -32,7 +32,6 @@ const MainContainer = styled.main`
     box-shadow: none !important; // gatsby-remark-images is bugged. See https://github.com/gatsbyjs/gatsby/issues/15486.
   }
 
-
   ${({ theme: { breakpoints } }): string => `
     ${breakpoints.up('lg')} {
       margin-left: 250px;
@@ -40,27 +39,31 @@ const MainContainer = styled.main`
   `}
 `
 
-const Layout: React.FC<LayoutProps> = ({ children, pageContext, pageResources = {} }: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  pageContext,
+  pageResources = {},
+}: LayoutProps) => {
   const { frontmatter: { name = '', route = '/', description } = {} } = pageContext
   const { page: { componentChunkName } = {} } = pageResources
-  
+
   useEffect(() => {
     Prism.highlightAll()
   }, [])
 
   return (
     <ModeProvider>
-      <Seo description={description} title={name}/>
+      <Seo description={description} title={name} />
       <ThemeProvider>
         <GlobalStyle />
         <MDXProvider>
           <Header />
           <MainContainer>
-            <Navigation currentRoute={route}/>
-            {componentChunkName && <EditLink chunkName={componentChunkName}/>}
+            <Navigation currentRoute={route} />
+            {componentChunkName && <EditLink chunkName={componentChunkName} />}
             <PropsProvider>
               <Container maxWidth="md">
-                {children}
+                <>{children}</>
               </Container>
             </PropsProvider>
           </MainContainer>
@@ -86,6 +89,5 @@ export interface LayoutProps {
     }
   }
 }
-
 
 export default Layout

@@ -6,3 +6,4 @@ node_modules
 build-tsc
 gatsby-*
 scripts
+public

@@ -22,7 +22,12 @@ const useStyles = makeStyles(({ palette }) => ({
  *
  * - [CookiesBanner API](https://components-extra.netlify.app/components/cookies-banner)
  */
-const CookiesBanner: React.FC<CookiesBannerProps> = ({ children, forwardedRef, text, ...rest }: CookiesBannerProps) => {
+const CookiesBanner: React.FC<CookiesBannerProps> = ({
+  children,
+  forwardedRef,
+  text,
+  ...rest
+}: CookiesBannerProps) => {
   const classes = useStyles()
 
   return (
@@ -46,7 +51,7 @@ export interface CookiesBannerProps {
   /**
    * Ref forwarded to the HTML Root element.
    */
-  forwardedRef: React.Ref<HTMLDivElement>
+  forwardedRef?: React.Ref<HTMLDivElement>
   /**
    * The CookiesBanner main text content.
    */
@@ -69,9 +74,10 @@ export type CookiesBannerComponents = {
 export type CookiesBannerType = ComponentExtra<CookiesBannerProps, CookiesBannerComponents>
 
 const CookiesBannerExtra = styled(
-  forwardRef((props: CookiesBannerProps, ref: React.Ref<HTMLDivElement>) => <CookiesBanner {...props} forwardedRef={ref} />)
+  forwardRef((props: CookiesBannerProps, ref: React.Ref<HTMLDivElement>) => (
+    <CookiesBanner {...props} forwardedRef={ref} />
+  )),
 )`` as CookiesBannerType
-
 
 /**
  * Exposed Components

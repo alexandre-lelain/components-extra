@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Zoom, FabProps } from '@material-ui/core'
 import { useTheme } from '@material-ui/core/styles'
@@ -70,17 +71,28 @@ const BackToTop: React.FC<BackToTopProps> = ({ forwardedRef, ...rest }: BackToTo
 
 BackToTop.displayName = 'BackToTop'
 
-export interface BackToTopProps extends FabProps {
+export interface BackToTopProps extends Omit<FabProps, 'children'> {
+  /**
+   * Optional. There already is the arrow icon as a child. However, you can still
+   * bring any node you would like to render inside the button.
+   */
+  children?: React.ReactNode
   /**
    * Ref forwarded to the HTML Root element.
    */
   forwardedRef?: React.Ref<HTMLButtonElement>
 }
 
-export type BackToTopType = ComponentExtra<BackToTopProps, {}, "button">
+BackToTop.propTypes = {
+  children: PropTypes.node,
+}
+
+export type BackToTopType = ComponentExtra<BackToTopProps, Record<string, unknown>, 'button'>
 
 const BackToTopExtra = styled(
-  forwardRef((props: BackToTopProps, ref: React.Ref<HTMLButtonElement>) => <BackToTop {...props} forwardedRef={ref} />)
+  forwardRef((props: BackToTopProps, ref: React.Ref<HTMLButtonElement>) => (
+    <BackToTop {...props} forwardedRef={ref} />
+  )),
 )`` as BackToTopType
 
 export default BackToTopExtra

@@ -44,16 +44,11 @@ const StyledLink = styled(GatsbyLink)`
 const Link: React.FC<LinkProps> = ({ href, ...rest }: LinkProps) => {
   const isInternal = isInternalLink(href)
 
-  return isInternal ? (
-    <StyledLink to={href} {...rest} />
-  ) : (
-    <ExternalLink href={href} {...rest} />
-  )
+  return isInternal ? <StyledLink to={href} {...rest} /> : <ExternalLink href={href} {...rest} />
 }
 
 interface LinkProps {
   href: string
-  rest?: object
 }
 
 export default Link

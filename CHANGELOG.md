@@ -8,6 +8,16 @@
 * /!\ all `onChange` callbacks on every component now return the `event` instead of only the `value`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 * Fixed `image` prop of `<Card>`. It now follows MUI's [CardMedia](https://material-ui.com/api/card-media/). ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
+# 2.6.2
+
+## Docs
+
+* Complete the bundling guide in the docs. (@alexandre-lelain)
+
+## Fixes
+
+* Fix undefined className in BackToTop's icon. (@alexandre-lelain)
+
 # 2.6.1
 
 ## Fixes

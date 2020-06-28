@@ -41,7 +41,7 @@ export interface StyledProviderProps {
    * Your custom theme. It has to match Material-ui theming's syntax:
    * https://material-ui.com/customization/default-theme/
    */
-  theme?: object
+  theme?: Record<string, unknown>
 }
 
 StyledProvider.propTypes = {

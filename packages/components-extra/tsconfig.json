@@ -18,7 +18,6 @@
       "styled-components",
       "@material-ui/core",
       "jest",
-      "testing-library__react",
       "testing-library__jest-dom",
     ]
   },

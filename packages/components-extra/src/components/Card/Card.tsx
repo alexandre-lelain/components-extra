@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { isEmpty, isString } from '../../utils'
+import { isString } from '../../utils'
 import { ComponentExtra } from '../../types'
 
 import {
@@ -38,22 +38,22 @@ const useStyles = makeStyles({
  * - inherits [MUI Card API](https://material-ui.com/api/card/)
  */
 const Card: React.FC<CardProps> = ({
-    big = false,
-    children,
-    description,
-    image = {},
-    onClick,
-    forwardedRef,
-    title,
-    ...rest
-  }: CardProps) => {
+  big = false,
+  children,
+  description,
+  image,
+  onClick,
+  forwardedRef,
+  title,
+  ...rest
+}: CardProps) => {
   const classes = useStyles()
 
   return (
     <BigProvider value={big}>
-      <MaterialCard  ref={forwardedRef} {...rest}>
+      <MaterialCard ref={forwardedRef} {...rest}>
         <CardContentWrapper onClick={onClick}>
-          {!isEmpty(image) && <CardMedia className={classes.media} {...image} />}
+          {image && <CardMedia className={classes.media} {...image} />}
           <CardContent className={classes.content}>
             <Typography gutterBottom variant={big ? 'h4' : 'h5'}>
               {title}
@@ -123,9 +123,10 @@ export type CardComponents = {
 export type CardType = ComponentExtra<CardProps, CardComponents>
 
 const CardExtra = styled(
-  forwardRef((props: CardProps, ref: React.Ref<HTMLElement>) => <Card {...props} forwardedRef={ref} />)
+  forwardRef((props: CardProps, ref: React.Ref<HTMLElement>) => (
+    <Card {...props} forwardedRef={ref} />
+  )),
 )`` as CardType
-
 
 /**
  * Exposed Components

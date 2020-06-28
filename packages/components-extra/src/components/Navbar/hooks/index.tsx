@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react'
 
-const OnCloseLanguageContext = createContext<Function>(Function())
-const OnCloseMenuContext = createContext<Function>(Function())
+const OnCloseLanguageContext = createContext<() => void>(() => undefined)
+const OnCloseMenuContext = createContext<() => void>(() => undefined)
 
 const OnCloseLanguageProvider = ({
   children,
@@ -14,12 +14,12 @@ const OnCloseMenuProvider = ({ children, onClose }: OnCloseProviderProps): React
   <OnCloseMenuContext.Provider value={onClose}>{children}</OnCloseMenuContext.Provider>
 )
 
-const useLanguageOnClose = (): Function => useContext(OnCloseLanguageContext)
-const useMenuOnClose = (): Function => useContext(OnCloseMenuContext)
+const useLanguageOnClose = () => useContext(OnCloseLanguageContext)
+const useMenuOnClose = () => useContext(OnCloseMenuContext)
 
 export interface OnCloseProviderProps {
   children?: React.ReactNode
-  onClose: Function
+  onClose: () => void
 }
 
 export { OnCloseLanguageProvider, OnCloseMenuProvider, useLanguageOnClose, useMenuOnClose }

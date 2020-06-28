@@ -14,7 +14,12 @@ const ListItemContent = styled(Paragraph).attrs(() => ({
 }))``
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ListItem: React.FC<ListItemProps> = ({ children, ordered, tight, ...rest }: ListItemProps) => {
+const ListItem: React.FC<ListItemProps> = ({
+  children,
+  ordered,
+  tight,
+  ...rest
+}: ListItemProps) => {
   return (
     <StyledLi {...rest}>
       <ListItemContent>{children}</ListItemContent>
@@ -26,7 +31,6 @@ interface ListItemProps {
   children: any
   ordered?: boolean
   tight?: boolean
-  rest?: object
 }
 
 export default ListItem

@@ -19,7 +19,14 @@ import TopContainer from './components/TopContainer'
  *
  * - [Footer API](https://components-extra.netlify.app/components/footer)
  */
-const Footer: React.FC<FooterProps> = ({ bottomBanner, children, forwardedRef, image, title, ...rest }: FooterProps) => {
+const Footer: React.FC<FooterProps> = ({
+  bottomBanner,
+  children,
+  forwardedRef,
+  image,
+  title,
+  ...rest
+}: FooterProps) => {
   return (
     <FooterContainer ref={forwardedRef} {...rest}>
       <TopContainer {...image}>
@@ -44,7 +51,7 @@ export interface FooterProps {
   /**
    * The ref to attach to the footer element.
    */
-  forwardedRef?: React.Ref<HTMLElement>
+  forwardedRef?: React.Ref<HTMLDivElement>
   /**
    * The footer's background image. Please refer to MUI's CardMedia's props for the exhaustive list:
    * https://material-ui.com/api/card-media/.
@@ -71,7 +78,9 @@ Footer.propTypes = {
 }
 
 const FooterExtra = styled(
-  forwardRef((props: FooterProps, ref: React.Ref<HTMLElement>) => <Footer {...props} forwardedRef={ref} />)
+  forwardRef((props: FooterProps, ref: React.Ref<HTMLDivElement>) => (
+    <Footer {...props} forwardedRef={ref} />
+  )),
 )`` as FooterType
 
 /**

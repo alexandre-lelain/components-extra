@@ -33,7 +33,12 @@ const StyledLi = styled('li')`
   `}
 `
 
-const MenuItem: React.FC<NavbarMenuItemProps> = ({ children, forwardedRef, onClick, ...rest }: NavbarMenuItemProps) => {
+const MenuItem: React.FC<NavbarMenuItemProps> = ({
+  children,
+  forwardedRef,
+  onClick,
+  ...rest
+}: NavbarMenuItemProps) => {
   const closeMenu = useMenuOnClose()
   const isDesktop = useIsDesktop()
 
@@ -64,11 +69,12 @@ export interface StyledLi {
   isDesktop?: boolean
 }
 
-export type NavbarMenuItemType = ComponentExtra<NavbarMenuItemProps, {}, 'a'>
+export type NavbarMenuItemType = ComponentExtra<NavbarMenuItemProps, Record<string, unknown>, 'a'>
 
 const MenuItemExtra = styled(
-  forwardRef((props: NavbarMenuItemProps, ref: React.Ref<HTMLButtonElement>) => <MenuItem {...props} forwardedRef={ref} />)
+  forwardRef((props: NavbarMenuItemProps, ref: React.Ref<HTMLButtonElement>) => (
+    <MenuItem {...props} forwardedRef={ref} />
+  )),
 )`` as NavbarMenuItemType
-
 
 export default MenuItemExtra

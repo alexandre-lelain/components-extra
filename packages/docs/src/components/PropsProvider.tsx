@@ -37,7 +37,7 @@ type PropType = {
 }
 
 type ComponentsType = {
-  [key: string]: object
+  [key: string]: Record<string, unknown>
 }
 
 type ComponentType = {
@@ -49,22 +49,23 @@ type ComponentType = {
 
 const PropsContext = React.createContext<ComponentsType[]>([])
 
-const edgeToProp = (components: ComponentsType[], { node: { displayName, props, ...rest } }: ComponentType): ComponentsType[] => {
+const edgeToProp = (
+  components: ComponentsType[],
+  { node: { displayName, props, ...rest } }: ComponentType,
+): ComponentsType[] => {
   const filteredProps = filter(props, ({ name = '' }) => !includes(IGNORED_PROPS, name))
   components[displayName] = { props: filteredProps, ...rest }
   return components
 }
 
 const PropsProvider: React.FC<PropsProviderProps> = ({ children }: PropsProviderProps) => {
-  const { allComponentMetadata: { edges } } = useStaticQuery(propsQuery)
+  const {
+    allComponentMetadata: { edges },
+  } = useStaticQuery(propsQuery)
 
   const allProps = React.useMemo(() => reduce(edges, edgeToProp, []), [edges])
 
-  return (
-    <PropsContext.Provider value={allProps}>
-      {children}
-    </PropsContext.Provider>
-  )
+  return <PropsContext.Provider value={allProps}>{children}</PropsContext.Provider>
 }
 
 interface PropsProviderProps {

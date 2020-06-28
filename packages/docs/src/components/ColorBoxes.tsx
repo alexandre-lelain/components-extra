@@ -46,18 +46,18 @@ const ColotsSuiteTitle = styled(Title3)`
 
 const isColor = (str: string): boolean => /#[a-z,0-9]{3,6}|rgb/gi.test(str)
 
-const isLeaf = (node: any): boolean => typeof node === "string"
+const isLeaf = (node: any): boolean => typeof node === 'string'
 
-const isNode = (node: any): boolean => typeof node === "object"
+const isNode = (node: any): boolean => typeof node === 'object'
 
-const PaletteNode: React.FC<PaletteNodeProps> = ({ node = {}, name}: PaletteNodeProps) => {
+const PaletteNode: React.FC<PaletteNodeProps> = ({ node = {}, name }: PaletteNodeProps) => {
   return (
     <ColorsNode>
       <ColotsSuiteTitle>{name}</ColotsSuiteTitle>
       <ColorsSuite>
-        {map(node, (color, name = '') => {
-          if (isLeaf(color) && isColor(color)) {
-            return <ColorBox color={color} name={name} key={name} />
+        {map(node, (color = '', name = '') => {
+          if (isLeaf(color) && isColor(color as string)) {
+            return <ColorBox color={color as string} name={name} key={name} />
           }
         })}
       </ColorsSuite>
@@ -65,19 +65,29 @@ const PaletteNode: React.FC<PaletteNodeProps> = ({ node = {}, name}: PaletteNode
   )
 }
 
-const getLeaves = (palette: PaletteOptions): object => reduce(palette, (leaves: NodesType, value, name) => {
-  if (isLeaf(value) && isColor(value as string)) {
-    leaves[name] = value
-  }
-  return leaves
-}, {})
+const getLeaves = (palette: PaletteOptions): NodeType =>
+  reduce(
+    palette,
+    (leaves: NodesType, value, name) => {
+      if (isLeaf(value) && isColor(value as string)) {
+        leaves[name] = value
+      }
+      return leaves
+    },
+    {},
+  )
 
-const getNodes = (palette: PaletteOptions): object => reduce(palette, (nodes: NodesType, value, name) => {
-  if (isNode(value)) {
-    nodes[name] = value
-  }
-  return nodes
-}, {})
+const getNodes = (palette: PaletteOptions): NodeType =>
+  reduce(
+    palette,
+    (nodes: NodesType, value, name) => {
+      if (isNode(value)) {
+        nodes[name] = value
+      }
+      return nodes
+    },
+    {},
+  )
 
 const ColorBoxesList: React.FC = () => {
   const { palette } = useTheme()
@@ -89,22 +99,26 @@ const ColorBoxesList: React.FC = () => {
     <>
       {map(sortedPalette, (node, name) => {
         if (isNode(node)) {
-          return <PaletteNode node={node} name={name} key={name}/>
+          return <PaletteNode node={node as NodeType} name={name} key={name} />
         }
-        if (isLeaf(node) && isColor(node)) {
-          return <ColorBox color={node} name={name} key={name} />
+        if (isLeaf(node) && isColor(node as string)) {
+          return <ColorBox color={node as string} name={name} key={name} />
         }
       })}
     </>
   )
-} 
+}
 
 const ColorBox: React.FC<ColorBoxProps> = ({ color, name }: ColorBoxProps) => {
   return (
     <BoxContainer>
-      <Typography variant="body1" color="textPrimary">{name}</Typography>
+      <Typography variant="body1" color="textPrimary">
+        {name}
+      </Typography>
       <Box color={color} />
-      <Typography variant="body2" color="textPrimary">{color}</Typography>
+      <Typography variant="body2" color="textPrimary">
+        {color}
+      </Typography>
     </BoxContainer>
   )
 }
@@ -117,6 +131,8 @@ const ColorBoxes: React.FC = () => {
   )
 }
 
+type NodeType = Record<string, unknown>
+
 type NodesType = {
   [key: string]: any
 }
@@ -128,7 +144,7 @@ interface ColorBoxProps {
 
 interface PaletteNodeProps {
   name: string
-  node: object
+  node: NodeType
 }
 
 export default ColorBoxes

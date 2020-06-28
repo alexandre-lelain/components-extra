@@ -27,7 +27,7 @@ const CardButton: React.FC<ButtonProps> = ({ className, ...rest }: ButtonProps) 
 
 CardButton.displayName = 'Card.Button'
 
-export type CardButtonType = ComponentExtra<ButtonProps, {}, 'a'>
+export type CardButtonType = ComponentExtra<ButtonProps, Record<string, unknown>, 'a'>
 
 const CardButtonExtra = styled(CardButton)`` as CardButtonType
 

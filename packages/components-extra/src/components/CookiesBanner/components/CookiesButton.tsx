@@ -30,7 +30,7 @@ const CookiesButton: React.FC<ButtonProps> = ({ className, href, ...rest }: Butt
 
 CookiesButton.displayName = 'CookiesBanner.Button'
 
-export type CookiesButtonType = ComponentExtra<ButtonProps, {}, "button">
+export type CookiesButtonType = ComponentExtra<ButtonProps, Record<string, unknown>, 'button'>
 
 const CookiesButtonExtra = styled(CookiesButton)`` as CookiesButtonType
 
