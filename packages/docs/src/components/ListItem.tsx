@@ -13,10 +13,9 @@ const ListItemContent = styled(Paragraph).attrs(() => ({
   component: 'span',
 }))``
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ListItem: React.FC<ListItemProps> = ({
-  children,
-  ordered,
+  children, // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ordered, // eslint-disable-next-line @typescript-eslint/no-unused-vars
   tight,
   ...rest
 }: ListItemProps) => {
