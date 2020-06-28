@@ -32,7 +32,7 @@
     "test": "jest",
     "postversion": "git push && git push --tags",
     "version": "git add -vA src",
-    "release": "yarn build && yarn publish build --tag latest"
+    "release": "yarn build && yarn test && yarn publish build --tag latest"
   },
   "dependencies": {
     "prop-types": "^15.7.2"
