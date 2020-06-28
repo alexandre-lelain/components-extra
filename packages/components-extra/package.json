@@ -1,6 +1,6 @@
 {
   "name": "components-extra",
-  "version": "3.0.0-rc.0",
+  "version": "3.0.0-rc.1",
   "description": "React UI molecule components based on styled-components & material-ui.",
   "homepage": "https://components-extra.netlify.app/",
   "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
