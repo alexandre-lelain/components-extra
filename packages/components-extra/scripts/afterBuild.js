@@ -24,7 +24,7 @@ async function createPackageFile() {
     ...packageDataOther,
     main: './index.js',
     module: './esm/index.js',
-    types: './index.d.ts',
+    typings: './index.d.ts',
   }
   const targetPath = path.resolve(BUILD_PATH, './package.json')
   await fs.writeFile(targetPath, JSON.stringify(newPackageData, null, 2), 'utf8')
