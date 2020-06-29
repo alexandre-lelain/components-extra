@@ -1,12 +1,13 @@
 language: node_js
 node_js:
-  - '10'
+  - 'lts/*'
 cache: 
   yarn: true
   directories:
     - node_modules
 install: yarn
 script:
+  - yarn bootstrap
   - yarn test
   - yarn lint
-  - yarn build
+  - yarn check-types

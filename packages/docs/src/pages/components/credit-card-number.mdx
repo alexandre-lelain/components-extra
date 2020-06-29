@@ -1,0 +1,59 @@
+---
+name: CreditCardNumber
+menu: Components
+route: /components/credit-card-number
+description: The API documentation of the CreditCardNumber React component. Play around with demos and check out its props.
+---
+
+import Props from '@components/Props'
+
+# CreditCardNumber
+
+## Default
+
+```jsx
+// live
+<CreditCardNumber inputProps={{ autoFocus: true }} id="card-number" onChange={() => console.log('onChange')} />
+```
+
+## Controlled value validation
+
+```jsx
+// live
+() => {
+  const [value, setValue] = React.useState('')
+  const [isError, setError] = React.useState(false)
+
+  React.useEffect(() => {
+    setError(!isValueValid(value))
+  }, [setError, value])
+
+  const isValueValid = value => {
+    const trimedValue = value.replace(/\s/g, '')
+    const regex = RegExp(/[\D]+/)
+    return trimedValue === '' || !regex.test(trimedValue)
+  }
+
+  return <CreditCardNumber error={isError} id="card-number" onChange={e => setValue(e.target.value)} />
+}
+```
+
+## Disabled
+
+```jsx
+// live
+<CreditCardNumber id="card-number" onChange={() => console.log('onChange')} disabled />
+```
+
+## Extended
+
+```jsx
+// live-extended
+  <StyledCreditCardNumber id="card-number" onChange={() => console.log('onChange')} />
+```
+
+## Props
+
+This component extends Material's UI `<OutlinedInput>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/outlined-input/).
+
+<Props of="CreditCardNumber" />

@@ -1,0 +1,21 @@
+---
+name: resetCSS
+menu: Utils
+route: /utils/reset-css
+description: The API documentation of the resetCSS styled-components function.
+---
+
+# resetCSS
+
+This helper will reset some of the default browser styles. You can use it as a `css object` inside your [styled-components](https://styled-components.com/) as follow:
+
+```jsx
+import { resetCSS } from 'components-extra'
+
+export default styled('h1')`
+  ${resetCSS};
+  ... // your style
+`
+```
+
+> **Note:** it is important to place the `resetCSS` helper first. Doing so will allow you to override the css properties reset to default before.

@@ -1,0 +1,6 @@
+**/*.test.js
+jest.*.js
+build
+node_modules
+*d.ts
+build-tsc

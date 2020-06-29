@@ -1,0 +1,307 @@
+---
+name: Footer
+menu: Components
+route: /components/footer
+description: The API documentation of the Footer React component. Play around with demos and check out its props.
+---
+
+import Props from '@components/Props'
+
+# Footer
+
+- [Footer](/components/footer#)
+- [Footer.Column](/components/footer#footer-column)
+- [Footer.Item](/components/footer#footer-item)
+
+> **Note:** Some components used in the following stories like the `<YourOwnBanner>` or the icons are not included - you
+can bring any component of your choosing when you use the Footer.
+
+## Default
+
+```jsx
+// live
+<Footer title="Awesome footer" bottomBanner={<YourOwnBanner />}>
+  <Footer.Column isInline>
+    <Footer.Item icon={<AccountCircle />} href="#">
+      My Account
+    </Footer.Item>
+    <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </Footer.Item>
+    <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </Footer.Item>
+  </Footer.Column>
+</Footer>
+```
+
+## A big footer
+
+```jsx
+// live
+<Footer title="Awesome footer" bottomBanner={<YourOwnBanner />}>
+  <Footer.Column title="Awesome Column A">
+    <Footer.Item icon={<AccountCircle />} href="#">
+      My Account
+    </Footer.Item>
+    <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </Footer.Item>
+    <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </Footer.Item>
+  </Footer.Column>
+  <Footer.Column title="Awesome Column B">
+    <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </Footer.Item>
+    <Footer.Item icon={<AccountCircle />} href="#">
+      My Account
+    </Footer.Item>
+    <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </Footer.Item>
+  </Footer.Column>
+  <Footer.Column title="Awesome Column C">
+    <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </Footer.Item>
+    <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </Footer.Item>
+    <Footer.Item icon={<AccountCircle />} href="#">
+      My Account
+    </Footer.Item>
+  </Footer.Column>
+</Footer>
+```
+
+## No bottom banner
+
+```jsx
+// live
+<Footer title="Awesome footer">
+  <Footer.Column isInline>
+    <Footer.Item icon={<AccountCircle />} href="#">
+      My Account
+    </Footer.Item>
+    <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </Footer.Item>
+    <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </Footer.Item>
+  </Footer.Column>
+</Footer>
+```
+
+## Background image
+
+```jsx
+// live
+<Footer
+  title="Awesome footer"
+  image={{ image: 'https://ak4.picdn.net/shutterstock/videos/3200194/thumb/9.jpg' }}
+>
+  <Footer.Column>
+    <Footer.Item icon={<AccountCircle />} href="#">
+      My Account
+    </Footer.Item>
+    <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </Footer.Item>
+    <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </Footer.Item>
+  </Footer.Column>
+  <Footer.Column>
+    <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </Footer.Item>
+    <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </Footer.Item>
+    <Footer.Item icon={<AccountCircle />} href="#">
+      My Account
+    </Footer.Item>
+  </Footer.Column>
+</Footer>
+```
+
+## No title
+
+```jsx
+// live
+<Footer>
+  <Footer.Column isInline>
+    <Footer.Item icon={<AccountCircle />} href="#">
+      My Account
+    </Footer.Item>
+    <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </Footer.Item>
+    <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </Footer.Item>
+  </Footer.Column>
+</Footer>
+```
+
+## No icons
+
+```jsx
+// live
+<Footer title="Awesome footer">
+  <Footer.Column title="Awesome column A">
+    <Footer.Item href="#">My Account</Footer.Item>
+    <Footer.Item onClick={() => console.log('Starting coding now!')}>Start Coding</Footer.Item>
+    <Footer.Item href="lelain-dot-alexandre-at-gmail-dot-com">Contact Us</Footer.Item>
+  </Footer.Column>
+  <Footer.Column title="Awesome column B">
+    <Footer.Item href="lelain-dot-alexandre-at-gmail-dot-com">Contact Us</Footer.Item>
+    <Footer.Item onClick={() => console.log('Starting coding now!')}>
+      Start Coding now !!
+    </Footer.Item>
+    <Footer.Item href="#">My Account</Footer.Item>
+  </Footer.Column>
+</Footer>
+```
+
+## Extended
+
+```jsx
+// live-extended
+<ExtendedFooter>
+  <ExtendedColumn isInline>
+    <ExtendedItem icon={<AccountCircle />} href="#">
+      My Account
+    </ExtendedItem>
+    <ExtendedItem icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+      Start Coding
+    </ExtendedItem>
+    <ExtendedItem icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+      Contact Us
+    </ExtendedItem>
+  </ExtendedColumn>
+</ExtendedFooter>
+```
+
+## Props
+
+<Props of="Footer" />
+
+<br/>
+<hr/>
+
+## Footer.Column
+
+### Default Column
+
+```jsx
+// live
+<Footer.Column style={{ width: 'max-content', backgroundColor: "#1976d2" }}>
+  <Footer.Item icon={<AccountCircle />} href="#">
+    My Account
+  </Footer.Item>
+  <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+    Start Coding
+  </Footer.Item>
+  <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+    Contact Us
+  </Footer.Item>
+</Footer.Column>
+```
+
+### With a title
+
+```jsx
+// live
+<Footer.Column title="Awesome title" style={{ width: 'max-content', backgroundColor: "#1976d2" }}>
+  <Footer.Item icon={<AccountCircle />} href="#">
+    My Account
+  </Footer.Item>
+  <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+    Start Coding
+  </Footer.Item>
+  <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+    Contact Us
+  </Footer.Item>
+</Footer.Column>
+```
+
+
+### Inline
+
+```jsx
+// live
+<Footer.Column title="Awesome title" isInline style={{ width: 'max-content', backgroundColor: "#1976d2" }}>
+  <Footer.Item icon={<AccountCircle />} href="#">
+    My Account
+  </Footer.Item>
+  <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+    Start Coding
+  </Footer.Item>
+  <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+    Contact Us
+  </Footer.Item>
+</Footer.Column>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<ExtendedColumn title="Awesome title" isInline>
+  <Footer.Item icon={<AccountCircle />} href="#">
+    My Account
+  </Footer.Item>
+  <Footer.Item icon={<Code />} onClick={() => console.log('Starting coding now!')}>
+    Start Coding
+  </Footer.Item>
+  <Footer.Item icon={<Email />} href="lelain-dot-alexandre-at-gmail-dot-com">
+    Contact Us
+  </Footer.Item>
+</ExtendedColumn>
+```
+
+### Props
+
+<Props of="Footer.Column" />
+
+<br/>
+<hr/>
+
+## Footer.Item
+
+### Default Item
+
+```jsx
+// live
+<Footer.Item icon={<AccountCircle />} href="#" style={{ width: 'max-content', backgroundColor: "#1976d2" }}>
+  My Account
+</Footer.Item>
+```
+
+### As a button
+
+```jsx
+// live
+<Footer.Item icon={<AccountCircle />} onClick={() => console.log('clicked!')} style={{ width: 'max-content', backgroundColor: "#1976d2" }}>
+  My Account
+</Footer.Item>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<ExtendedFooterItem icon={<Email />} href="#">
+  I'm a button
+</ExtendedFooterItem>
+```
+
+### Props
+
+This component extends Material's UI `<Button>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
+
+<Props of="Footer.Item" />

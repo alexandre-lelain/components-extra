@@ -1,0 +1,151 @@
+---
+name: Card
+menu: Components
+route: /components/card
+description: The API documentation of the Card React component. Play around with demos and check out its props.
+---
+
+import Props from '@components/Props'
+
+# Card
+
+- [Card](/components/card/#)
+- [Card.Button](/components/card/#cookiesbanner-button)
+
+## Default
+
+```jsx
+// live
+<Card
+  description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+  image={{ image: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+  onClick={() => console.log('Awesome card clicked!')}
+  title="Awesome card"
+>
+  <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+  <Card.Button href="#">Awesome link</Card.Button>
+</Card>
+```
+
+## Big mode
+
+```jsx
+// live
+<Card
+  description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+  image={{ image: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+  onClick={() => console.log('Awesome card clicked!')}
+  title="Awesome card"
+  big
+>
+  <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+  <Card.Button href="#">Awesome link</Card.Button>
+</Card>
+```
+
+## No media
+
+```jsx
+// live
+<Card
+  description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+  onClick={() => console.log('Awesome card clicked!')}
+  title="Awesome card"
+>
+  <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+  <Card.Button href="#">Awesome link</Card.Button>
+</Card>
+```
+
+## No buttons
+
+```jsx
+// live
+<Card
+  description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+  image={{ image: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+  onClick={() => console.log('Awesome card clicked!')}
+  title="Awesome card"
+/>
+```
+
+## No action
+
+```jsx
+// live
+<Card
+  description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+  image={{ image: '//torange.biz/photofx/74/8/coffee-cup-drop-74081.jpg' }}
+  title="Awesome card"
+>
+  <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+  <Card.Button href="#">Awesome link</Card.Button>
+</Card>
+```
+
+## Custom controls
+
+```jsx
+// live
+<Card
+  description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+  title="Awesome card"
+>
+  <button>A very ultra basic button</button>
+</Card>
+```
+
+## Extended
+
+```jsx
+// live-extended
+<ExtendedCard
+  description="This is an awesome card. An awesome card is easy to use and only have a few props so you can implement it very quickly, while you can still customize its colors. Did you know this component is built on top of material-ui's Card ?"
+  title="Awesome card"
+>
+  <Card.Button onClick={() => console.log('Awesome button clicked!')}>Awesome button</Card.Button>
+  <Card.Button href="#">Awesome link</Card.Button>
+</ExtendedCard>
+```
+
+## Props
+
+<Props of="Card" />
+
+<br />
+<hr />
+
+## Card.Button
+
+### Default Button
+
+```jsx
+// live
+<Card.Button>
+  I agree
+</Card.Button>
+```
+
+### As a link
+
+```jsx
+// live
+<Card.Button href="#">
+  Visit the store
+</Card.Button>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<ExtendedCardButton>
+  I am an extended card-button
+</ExtendedCardButton>
+```
+
+### Props
+
+This component extends Material's UI `<Button>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
+
+<Props of="Card.Button" />

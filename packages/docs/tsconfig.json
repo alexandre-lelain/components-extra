@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "suppressImplicitAnyIndexErrors": true, // TODO: use Map instead of array
+    "noEmit": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "@icons": ["src/icons"],
+      "@utils": ["src/utils"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@theme": ["src/theme"],
+      "@hooks": ["src/hooks"],
+    },
+    "types": [
+      "react",
+      "react-dom",
+      "styled-components",
+      "@material-ui/core",
+      "lodash-es",
+      "node",
+      "react-helmet",
+      "prismjs",
+      "mdx-js__react",
+    ]
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "**/tests/*",
+    "**/node_modules/**/*"
+  ]
+}

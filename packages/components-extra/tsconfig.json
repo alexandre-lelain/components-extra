@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "utils-test": ["src/utils-test"],
+    },
+    "types": [
+      "react",
+      "react-dom",
+      "styled-components",
+      "@material-ui/core",
+      "jest",
+      "testing-library__jest-dom",
+    ]
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "**/tests/*",
+    "src/utils-test",
+    "**/node_modules/**/*",
+  ]
+}

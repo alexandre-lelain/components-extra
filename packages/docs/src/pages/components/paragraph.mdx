@@ -1,0 +1,48 @@
+---
+name: Paragraph
+menu: Components
+route: /components/paragraph
+description: The API documentation of the Paragraph React component. Play around with demos and check out its props.
+---
+
+import Props from '@components/Props'
+
+# Paragraph
+
+## Default
+
+```jsx
+// live
+<Paragraph>
+  This is an awesome paragraph. It is based on the awesome material-ui Typography component. Its
+  default variant is <code>body1</code>, and it has a maximal width of <b>650px</b>. According to awesome studies,
+  it is the range where the eye feels the most comfortable reading. In addition to its variant,
+  you can of course use all the{' '}
+  <a href="https://material-ui.com/api/typography/" target="_blank" rel="noreferrer noopener">
+    material-ui Typography component's props
+  </a>
+  .
+</Paragraph>
+```
+
+## Extended
+
+```jsx
+// live-extended
+<StyledParagraph>
+  This is an awesome paragraph. It is based on the awesome material-ui Typography component. Its
+  default variant is body1, and it has a maximal width of <b>650px</b>. According to awesome studies,
+  it is the range where the eye feels the most comfortable reading. In addition to its variant,
+  you can of course use all the{' '}
+  <a href="https://material-ui.com/api/typography/" target="_blank" rel="noreferrer noopener">
+    material-ui Typography component's props
+  </a>
+  .
+</StyledParagraph>
+```
+
+## Props
+
+This component extends Material's UI `<Typography>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/typography/).
+
+<Props of="Paragraph"/>

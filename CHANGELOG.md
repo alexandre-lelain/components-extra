@@ -1,12 +1,43 @@
+# 3.0.0
+
+## Breaking-Changes
+
+* `<Navbar>` no longer have a `isSticky` prop, and instead use `position: string` to enhance customization. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `icon` prop of `<Footer.Item>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* `bottomBanner` prop of `<Footer>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* /!\ all `onChange` callbacks on every component now return the `event` instead of only the `value`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Fixed `image` prop of `<Card>`. It now follows MUI's [CardMedia](https://material-ui.com/api/card-media/). ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Features
+
+* The library now fully supports **TypeScript**! ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* You can now import components' types & props interfaces. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* The github project now used lerna to separate the components library from its documentation site; ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Fixes
+
+* The types errors appearing in browser's console were fixed to include the components' name instead. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Docs
+
+* No more Docz :'( The documentation site was completely rewritten:
+  - UI is much more faster
+  - Props are now correctly parsed from both TS & PropTypes sources.
+  - No more compilation error due to docs-core bugs.
+  - Compilation time is a lot faster.
+  - Enhanced SEO.
+* Added `TypeScript` page
+* Enhanced `Palette` page with the full palette instead.
+
 # 2.6.2
 
 ## Docs
 
-* Complete the `bundling` guide in the docs. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Complete the bundling guide in the docs. (@alexandre-lelain)
 
 ## Fixes
 
-* Fix `undefined` className in `BackToTop`'s icon. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Fix undefined className in BackToTop's icon. (@alexandre-lelain)
 
 # 2.6.1
 

@@ -1,0 +1,58 @@
+{
+  "name": "components-extra",
+  "version": "3.0.0-rc.1",
+  "description": "React UI molecule components based on styled-components & material-ui.",
+  "homepage": "https://components-extra.netlify.app/",
+  "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
+  "license": "MIT",
+  "module": "./build/esm/index.js",
+  "main": "./build/index.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexandre-lelain/components-extra.git"
+  },
+  "keywords": [
+    "react",
+    "react-components",
+    "material design",
+    "material-ui",
+    "blocks",
+    "molecule components"
+  ],
+  "scripts": {
+    "start": "yarn build:esm --watch",
+    "build": "rimraf build && yarn build:esm && yarn build:cjs && yarn build:es && yarn build:amd && yarn build:after",
+    "build:amd": "cross-env NODE_ENV=production tsc -m amd --outFile build/amd/components-extra.js --d false && yarn build:minify",
+    "build:minify": "yarn terser build/amd/components-extra.js -c -o build/amd/components-extra.min.js",
+    "build:cjs": "cross-env NODE_ENV=production tsc -m commonjs --outDir build",
+    "build:esm": "cross-env NODE_ENV=production tsc -m es6 --outDir build/esm",
+    "build:es": "cross-env NODE_ENV=production tsc -m esnext --outDir build/es",
+    "build:after": "node ./scripts/afterBuild.js",
+    "test": "jest",
+    "postversion": "git push && git push --tags",
+    "version": "git add -vA",
+    "release": "yarn build && yarn test && yarn publish build --tag latest"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.3",
+    "@types/jest": "^26.0.3",
+    "@types/testing-library__jest-dom": "^5.9.1",
+    "cross-env": "^7.0.2",
+    "fs-extra": "^9.0.1",
+    "jest": "^26.1.0",
+    "rimraf": "^3.0.2",
+    "terser": "^4.8.0",
+    "ts-jest": "^26.1.1"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^4.10.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
+  }
+}

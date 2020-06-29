@@ -2,6 +2,3 @@ node_modules
 *.log
 build
 .eslintcache
-storybook-static
-.docz
-docs-build

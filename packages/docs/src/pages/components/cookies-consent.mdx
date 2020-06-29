@@ -1,0 +1,376 @@
+---
+name: CookiesConsent
+menu: Components
+route: /components/cookies-consent
+description: The API documentation of the CookiesConsent React component. Play around with demos and check out its props.
+---
+
+import Props from '@components/Props'
+import Paragraph from '@components/Paragraph'
+
+# CookiesConsent
+
+- [CookiesConsent](/components/cookies-consent#)
+- [CookiesConsent.Category](/components/cookies-consent#cookiesconsent-category)
+- [CookiesConsent.Controls](/components/cookies-consent#cookiesconsent-controls)
+- [CookiesConsent.Button](/components/cookies-consent#cookiesconsent-button)
+
+On desktop screens, the description of the category will be displayed next to the title. On small screens, it will be displayed inside the content of the accordion.
+
+You can append any content to each `<CookiesConsent.Category>`, meaning you can bring
+your own table component, or a list, or even a simple paragraph. Here, the `Table` component
+is not included in `<CookiesConsent>`, it is a separate component for the sake of the demo.
+
+> **Note:** By default, the Categories are uncontrolled. But you can also chose to control them with a *[checked, onChange]* set of props.
+
+## Default
+
+```jsx
+// live
+() => {
+  const [cookies, setCookies] = React.useState({
+    analytics: false,
+    functional: true,
+    tracking: false,
+  })
+  const toggleAll = ({ target: { checked }}) =>
+    setCookies({
+      analytics: checked,
+      functional: checked,
+      tracking: checked,
+    })
+  return (
+    <CookiesConsent title="Manage Cookies Preferences">
+      <CookiesConsent.Category
+        checked={cookies.analytics}
+        description="Theses cookies help us to analyze what you are doing on our site"
+        title="Analytics cookies"
+        onChange={e => setCookies(cookies => ({ ...cookies, analytics: e.target.checked }))}
+      >
+        <Paragraph>
+          This is a paragraph explaining how great are those cookies. This is a paragraph
+          explaining how great are those cookies. This is a paragraph explaining how great are
+          those cookies. This is a paragraph explaining how great are those cookies.
+        </Paragraph>
+      </CookiesConsent.Category>
+      <CookiesConsent.Category
+        checked={cookies.functional}
+        description="Theses cookies enable us to offer you a personalized experience on our site"
+        title="Functional cookies"
+        onChange={e => setCookies(cookies => ({ ...cookies, functional: e.target.checked }))}
+      >
+        <Paragraph>
+          This is a paragraph explaining how great are those cookies. This is a paragraph
+          explaining how great are those cookies. This is a paragraph explaining how great are
+          those cookies. This is a paragraph explaining how great are those cookies.
+        </Paragraph>
+      </CookiesConsent.Category>
+      <CookiesConsent.Category
+        checked={cookies.tracking}
+        description="Theses cookies helps us to track you. You cannot escape!"
+        title="Tracking cookies"
+        onChange={e => setCookies(cookies => ({ ...cookies, tracking: e.target.checked }))}
+      >
+        <Paragraph>
+          This is a paragraph explaining how great are those cookies. This is a paragraph
+          explaining how great are those cookies. This is a paragraph explaining how great are
+          those cookies. This is a paragraph explaining how great are those cookies.
+        </Paragraph>
+      </CookiesConsent.Category>
+      <CookiesConsent.Controls switchLabel="All cookies" onChange={toggleAll}>
+        <CookiesConsent.Button>Cancel</CookiesConsent.Button>
+        <CookiesConsent.Button>Confirm</CookiesConsent.Button>
+      </CookiesConsent.Controls>
+    </CookiesConsent>
+  )
+}
+```
+
+
+## Table in categories
+
+```jsx
+// live
+<CookiesConsent title="Manage Cookies Preferences">
+  <CookiesConsent.Category
+    description="Theses cookies help us to analyze what you are doing on our site"
+    title="Analytics cookies"
+  >
+    <Table />
+  </CookiesConsent.Category>
+  <CookiesConsent.Category
+    description="Theses cookies enable us to offer you a personalized experience on our site"
+    title="Functional cookies"
+  >
+    <Table />
+  </CookiesConsent.Category>
+  <CookiesConsent.Category
+    description="Theses cookies helps us to track you. You cannot escape!"
+    title="Tracking cookies"
+  >
+    <Table />
+  </CookiesConsent.Category>
+</CookiesConsent>
+```
+
+## No controls
+
+```jsx
+// live
+<CookiesConsent title="Manage Cookies Preferences">
+  <CookiesConsent.Category
+    description="Theses cookies help us to analyze what you are doing on our site"
+    title="Analytics cookies"
+  >
+    <Paragraph>
+      This is a paragraph explaining how great are those cookies. This is a paragraph
+      explaining how great are those cookies. This is a paragraph explaining how great are
+      those cookies. This is a paragraph explaining how great are those cookies.
+    </Paragraph>
+  </CookiesConsent.Category>
+  <CookiesConsent.Category
+    description="Theses cookies enable us to offer you a personalized experience on our site"
+    title="Functional cookies"
+  >
+    <Paragraph>
+      This is a paragraph explaining how great are those cookies. This is a paragraph
+      explaining how great are those cookies. This is a paragraph explaining how great are
+      those cookies. This is a paragraph explaining how great are those cookies.
+    </Paragraph>
+  </CookiesConsent.Category>
+  <CookiesConsent.Category
+    description="Theses cookies helps us to track you. You cannot escape!"
+    title="Tracking cookies"
+  >
+    <Paragraph>
+      This is a paragraph explaining how great are those cookies. This is a paragraph
+      explaining how great are those cookies. This is a paragraph explaining how great are
+      those cookies. This is a paragraph explaining how great are those cookies.
+    </Paragraph>
+  </CookiesConsent.Category>
+</CookiesConsent>
+```
+
+## No title
+
+```jsx
+// live
+<CookiesConsent>
+  <CookiesConsent.Category
+    description="Theses cookies help us to analyze what you are doing on our site"
+    title="Analytics cookies"
+  >
+    <Paragraph>
+      This is a paragraph explaining how great are those cookies. This is a paragraph
+      explaining how great are those cookies. This is a paragraph explaining how great are
+      those cookies. This is a paragraph explaining how great are those cookies.
+    </Paragraph>
+  </CookiesConsent.Category>
+  <CookiesConsent.Category
+    description="Theses cookies enable us to offer you a personalized experience on our site"
+    title="Functional cookies"
+  >
+    <Paragraph>
+      This is a paragraph explaining how great are those cookies. This is a paragraph
+      explaining how great are those cookies. This is a paragraph explaining how great are
+      those cookies. This is a paragraph explaining how great are those cookies.
+    </Paragraph>
+  </CookiesConsent.Category>
+  <CookiesConsent.Category
+    description="Theses cookies helps us to track you. You cannot escape!"
+    title="Tracking cookies"
+  >
+    <Paragraph>
+      This is a paragraph explaining how great are those cookies. This is a paragraph
+      explaining how great are those cookies. This is a paragraph explaining how great are
+      those cookies. This is a paragraph explaining how great are those cookies.
+    </Paragraph>
+  </CookiesConsent.Category>
+</CookiesConsent>
+```
+
+## Extended
+
+```jsx
+// live-extended
+<ExtendedCookiesConsent title="Manage Cookies Preferences">
+  <ExtendedCategory
+    description="Theses cookies help us to analyze what you are doing on our site"
+    title="Analytics cookies"
+  >
+    <Table />
+  </ExtendedCategory>
+  <ExtendedCategory
+    description="Theses cookies enable us to offer you a personalized experience on our site"
+    title="Functional cookies"
+  >
+    <Table />
+  </ExtendedCategory>
+  <ExtendedCategory
+    description="Theses cookies helps us to track you. You cannot escape!"
+    title="Tracking cookies"
+  >
+    <Table />
+  </ExtendedCategory>
+</ExtendedCookiesConsent>
+```
+
+## Props 
+
+<Props of="CookiesConsent" />
+
+<br />
+<hr />
+
+## CookiesConsent.Category
+
+### Default Category
+
+```jsx
+// live
+<CookiesConsent>
+  <CookiesConsent.Category
+    description="Theses cookies help us to analyze what you are doing on our site"
+    title="Analytics cookies"
+  >
+    <Paragraph>
+      This is a paragprah about the category. This is a paragprah about the category. This is a
+      paragprah about the category.
+    </Paragraph>
+    <Paragraph>
+      This is a paragprah about the category. This is a paragprah about the category. This is a
+      paragprah about the category.
+    </Paragraph>
+  </CookiesConsent.Category>
+</CookiesConsent>
+```
+
+### Table in content
+
+```jsx
+// live
+<CookiesConsent>
+  <CookiesConsent.Category
+    description="Theses cookies help us to analyze what you are doing on our site"
+    title="Analytics cookies"
+  >
+    <Table />
+  </CookiesConsent.Category>
+</CookiesConsent>
+```
+
+### No description
+
+```jsx
+// live
+<CookiesConsent>
+  <CookiesConsent.Category title="Analytics cookies">
+    <Paragraph>
+      This is a paragprah about the category. This is a paragprah about the category. This is a
+      paragprah about the category.
+    </Paragraph>
+  </CookiesConsent.Category>
+</CookiesConsent>
+```
+
+### Extended
+
+```jsx
+// live-extended
+<ExtendedCategory
+  description="Theses cookies help us to analyze what you are doing on our site"
+  title="Analytics cookies"
+>
+  <Paragraph>
+    This is a paragprah about the category. This is a paragprah about the category. This is a
+    paragprah about the category.
+  </Paragraph>
+</ExtendedCategory>
+```
+
+### Props
+
+This component extends Material's UI `<ExpansionPanel>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/expansion-panel/).
+
+<Props of="CookiesConsent.Category" />
+
+<br />
+<hr />
+
+## CookiesConsent.Controls
+
+### Default Controls
+
+```jsx
+// live
+() => {
+  const [isOn, setIsOn] = React.useState(false)
+  return (
+    <CookiesConsent>
+      <CookiesConsent.Controls checked={isOn} onChange={(e) => setIsOn(e.target.checked)} switchLabel="All cookies">
+        <CookiesConsent.Button>Cancel</CookiesConsent.Button>
+        <CookiesConsent.Button>Confirm</CookiesConsent.Button>
+      </CookiesConsent.Controls>
+    </CookiesConsent>
+  )
+}
+```
+
+### No switch
+
+```jsx
+// live
+<CookiesConsent>
+  <CookiesConsent.Controls>
+    <CookiesConsent.Button>Cancel</CookiesConsent.Button>
+    <CookiesConsent.Button>Confirm</CookiesConsent.Button>
+  </CookiesConsent.Controls>
+</CookiesConsent>
+```
+
+### Custom controls
+
+```jsx
+// live
+() => {
+  const [isOn, setIsOn] = React.useState(false)
+  return (
+    <CookiesConsent>
+      <CookiesConsent.Controls checked={isOn} onChange={(e) => setIsOn(e.target.checked)} switchLabel="All cookies">
+        <button>Cancel</button>
+        <button>Confirm</button>
+      </CookiesConsent.Controls>
+    </CookiesConsent>
+  )
+}
+```
+
+### Extended
+
+```jsx
+// live-extended
+  <ExtendedControlsStory />
+```
+
+### Props
+
+<Props of="CookiesConsent.Controls" />
+
+<br />
+<hr />
+
+## CookiesConsent.Button
+
+### Default Button
+
+```jsx
+// live
+<CookiesConsent.Button>Confirm</CookiesConsent.Button>
+```
+
+### Props
+
+This component extends Material's UI `<Button>` so you can use all its props as well. Check out its [Api](https://material-ui.com/api/button/).
+It requires no other prop.
+
+<Props of='CookiesConsent.Button' />
