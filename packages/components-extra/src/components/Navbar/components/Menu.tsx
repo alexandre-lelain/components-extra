@@ -23,7 +23,12 @@ const DesktopContainer = styled.ol`
   padding: 0;
 `
 
-const Menu: React.FC<NavbarMenuProps> = ({ children, iconProps = {}, label = '', ...rest }: NavbarMenuProps) => {
+const Menu: React.FC<NavbarMenuProps> = ({
+  children,
+  iconProps = {},
+  label = 'menu',
+  ...rest
+}: NavbarMenuProps) => {
   const [menuAnchor, setMenuAnchor] = useState<HTMLButtonElement>()
   const classes = useStyles()
   const isDesktop = useIsDesktop()
@@ -43,7 +48,7 @@ const Menu: React.FC<NavbarMenuProps> = ({ children, iconProps = {}, label = '',
     <DesktopContainer {...rest}>{children}</DesktopContainer>
   ) : (
     <>
-      <IconButton aria-label={label} onClick={onMenuOpen} title={label} {...iconProps}>
+      <IconButton aria-label={label} onClick={onMenuOpen} {...iconProps}>
         <MenuIcon />
       </IconButton>
       <OnCloseMenuProvider onClose={onMenuClose}>
