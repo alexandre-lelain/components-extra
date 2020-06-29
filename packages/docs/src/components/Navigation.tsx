@@ -3,7 +3,17 @@ import styled from 'styled-components'
 import { find, includes, map, toLower } from 'lodash-es'
 import { useIsDesktop } from 'components-extra'
 import { version } from 'components-extra/package.json'
-import { Button, Collapse, Drawer, Hidden, List, ListItem, ListItemText, ListItemProps, Typography } from '@material-ui/core'
+import {
+  Button,
+  Collapse,
+  Drawer,
+  Hidden,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemProps,
+  Typography,
+} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { ExpandMore, ExpandLess, Menu } from '@icons'
@@ -15,7 +25,7 @@ const useStyle = makeStyles(({ zIndex, transitions }) => ({
     minWidth: 250,
     zIndex: zIndex.appBar - 1,
     transition: transitions.backgroundColor,
-  }
+  },
 }))
 
 const useListStyle = makeStyles(({ spacing }) => ({
@@ -25,7 +35,7 @@ const useListStyle = makeStyles(({ spacing }) => ({
 }))
 
 const StyledNavButton = styled(Button)`
-  ${({ theme: { breakpoints, spacing }}): string => `
+  ${({ theme: { breakpoints, spacing } }): string => `
     margin-left: ${spacing(3)}px;
     ${breakpoints.down('xs')} {
       margin-left: ${spacing(1)}px;
@@ -54,7 +64,10 @@ const MENU_ORDER = ['Introduction', 'Components', 'Utils', 'Theming', 'Guides', 
 
 const query = graphql`
   {
-    allMdx(filter: {frontmatter: {name: {regex: "/[a-z]+/"}}}, sort: {fields: frontmatter___name}) {
+    allMdx(
+      filter: { frontmatter: { name: { regex: "/[a-z]+/" } } }
+      sort: { fields: frontmatter___name }
+    ) {
       group(field: frontmatter___menu) {
         fieldValue
         nodes {
@@ -77,8 +90,10 @@ const query = graphql`
 
 const RouteContext = createContext('/')
 
-const RouteProvider: React.FC<RouteProviderProps> = ({ currentRoute, ...rest }: RouteProviderProps) => 
-  <RouteContext.Provider value={currentRoute} {...rest} />
+const RouteProvider: React.FC<RouteProviderProps> = ({
+  currentRoute,
+  ...rest
+}: RouteProviderProps) => <RouteContext.Provider value={currentRoute} {...rest} />
 
 const useCurrentRoute = (): string => useContext(RouteContext)
 
@@ -100,7 +115,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps
   return (
     <RouteProvider currentRoute={currentRoute}>
       <Hidden mdDown implementation="css">
-        <Drawer classes={{...classes}} variant="permanent" anchor="left">
+        <Drawer classes={{ ...classes }} variant="permanent" anchor="left">
           <DrawerContent />
         </Drawer>
       </Hidden>
@@ -109,7 +124,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps
           Navigation
         </StyledNavButton>
         <Drawer
-          classes={{...classes}}
+          classes={{ ...classes }}
           variant="temporary"
           anchor="left"
           open={isOpen}
@@ -125,7 +140,14 @@ const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps
 const LeafItem: React.FC<LeafItemProps> = ({ name, route, ...rest }: LeafItemProps) => {
   const currentRoute = useCurrentRoute()
   return (
-    <ListItem button key={name} selected={currentRoute === route} to={route} component={GatsbyLink} {...rest}>
+    <ListItem
+      button
+      key={name}
+      selected={currentRoute === route}
+      to={route}
+      component={GatsbyLink}
+      {...rest}
+    >
       <StyledListItemText>{name}</StyledListItemText>
     </ListItem>
   )
@@ -138,15 +160,15 @@ const NodeItem: React.FC<NodeItemProps> = ({ name, leaves = [] }: NodeItemProps)
 
   return (
     <>
-      <ListItem button onClick={(): void => toggle(prev => !prev)}>
-        <StyledListItemText primary={name}/>
+      <ListItem button onClick={(): void => toggle((prev) => !prev)}>
+        <StyledListItemText primary={name} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {map(leaves, ({ frontmatter: { name, route } }) => 
-            <LeafItem classes={{...classes}} key={name} name={name} route={route} />
-          )}
+          {map(leaves, ({ frontmatter: { name, route } }) => (
+            <LeafItem classes={{ ...classes }} key={name} name={name} route={route} />
+          ))}
         </List>
       </Collapse>
     </>
@@ -154,26 +176,28 @@ const NodeItem: React.FC<NodeItemProps> = ({ name, leaves = [] }: NodeItemProps)
 }
 
 const DrawerContent: React.FC = () => {
-  const { allMdx: { group }, placeholderImage: { childImageSharp } } = useStaticQuery(query)
+  const {
+    allMdx: { group },
+    placeholderImage: { childImageSharp },
+  } = useStaticQuery(query)
 
   return (
     <DrawerContainer>
       <ImageContainer>
-        <Image alt="components-extra" fixed={childImageSharp.fixed}/>
+        <Image fixed={childImageSharp.fixed} />
         <Typography>v{version}</Typography>
       </ImageContainer>
       <List>
-        {map(MENU_ORDER, menuName => {
+        {map(MENU_ORDER, (menuName) => {
           const { nodes } = find(group, ({ fieldValue }) => fieldValue === menuName)
           if (nodes.length < 2) {
             const { frontmatter } = nodes[0]
             return <LeafItem key={menuName} {...frontmatter} />
           }
-          return <NodeItem key={menuName} name={menuName} leaves={nodes}/>
+          return <NodeItem key={menuName} name={menuName} leaves={nodes} />
         })}
       </List>
     </DrawerContainer>
-    
   )
 }
 

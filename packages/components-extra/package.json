@@ -29,6 +29,7 @@
     "build:esm": "cross-env NODE_ENV=production tsc -m es6 --outDir build/esm",
     "build:es": "cross-env NODE_ENV=production tsc -m esnext --outDir build/es",
     "build:after": "node ./scripts/afterBuild.js",
+    "build:bootstrap": "yarn build:cjs && yarn build:esm && yarn build:after",
     "test": "jest",
     "postversion": "git push && git push --tags",
     "version": "git add -vA",
