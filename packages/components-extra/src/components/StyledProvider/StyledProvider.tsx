@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { StylesProvider, ThemeProvider } from '@material-ui/core/styles'
+import { StylesProvider, ThemeProvider, Theme } from '@material-ui/core/styles'
 import { createTheme } from '../../theme'
 
 /**
@@ -41,7 +41,7 @@ export interface StyledProviderProps {
    * Your custom theme. It has to match Material-ui theming's syntax:
    * https://material-ui.com/customization/default-theme/
    */
-  theme?: Record<string, unknown>
+  theme?: Theme | Record<string, unknown>
 }
 
 StyledProvider.propTypes = {
