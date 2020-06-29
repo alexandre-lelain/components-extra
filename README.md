@@ -267,6 +267,8 @@ const ExtendedCookiesBanner: React.FC<ExtendedCookiesBannerProps> = ({ caption, 
 
 Your `ExtendedCookiesBanner` will inherit from all the props of `CookiesBanner`, plus the one you defined (here `caption`).
 
+For a complete guide, pelase refer to the official documentation page: https://components-extra.netlify.app/guides/typescript.
+
 ## Bundling in your project
 
 **components-extra** is tree-shakeable, meaning that you can import its components as named imports, like this:

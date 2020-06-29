@@ -20,6 +20,49 @@ to the root HTML element it renders. You can learn more about react and the refs
 
 All the types & interfaces can be imported from the index **root**, just like the components are.
 
+## Requirements
+
+You may need to install the following types:
+
+- [@types/styled-components](https://www.npmjs.com/package/@types/styled-components)
+
+Then, add them in your `tsconfig.json` file: 
+
+```js
+// tsconfig.json
+{
+  "compilerOptions": {
+    "types": [
+      "styled-components",
+      "@material-ui/core"
+    ]
+  },
+}
+```
+
+Your **TypeScript compiler** and **IDE** should now be able to understand the whole typing system of components-extra.
+If it is not the case, please do not hesitate to open an issue, or make a PR if you think it's something that can be fixed
+on the lib side.
+
+If you want a full support of the types in your IDE, you can also create a `styled.d.ts` with
+the following content:
+
+```jsx
+// styled.d.ts
+import {} from 'styled-components'
+import { Theme } from 'components-extra'
+
+export interface StyledCompoProps {
+  theme: Theme
+}
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {}
+}
+```
+
+This will allow your IDE to provide you with auto-completion in your **styled-components** when using the `theme`.
+
 ## Example
 
 Say, for example, that you're working with the [CookiesBanner](/components/cookies-banner) component. You
