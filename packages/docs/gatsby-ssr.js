@@ -1,7 +1,4 @@
-export const onRenderBody = ({ setBodyAttributes, setHtmlAttributes }) => {
-  setHtmlAttributes({
-    style: { scrollBehavior: 'smooth' },
-  })
+export const onRenderBody = ({ setBodyAttributes }) => {
   setBodyAttributes({
     style: { margin: 0 },
   })

@@ -3,7 +3,9 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 const SEO: React.FC<SEOProps> = ({ description, lang = 'en', meta = [], title }: SEOProps) => {
-  const { site: { siteMetadata } } = useStaticQuery(
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(
     graphql`
       query {
         site {
@@ -99,9 +101,6 @@ const SEO: React.FC<SEOProps> = ({ description, lang = 'en', meta = [], title }:
       <link
         rel="stylesheet preconnect"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        media="print"
-        // @ts-ignore
-        onLoad="this.media='all'"
       />
     </Helmet>
   )
