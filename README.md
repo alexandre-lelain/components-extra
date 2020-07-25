@@ -242,7 +242,7 @@ All the types & interfaces can be imported from the index **root**, just like th
 
 ## Example
 
-Say, for example, that you're working with the [CookiesBanner](/components/cookies-banner) component. You
+Say, for example, that you're working with the [CookiesBanner](/packages/components-extra/src/components/CookiesBanner) component. You
 can make a new component on top of it using TypeScript this way:
 
 
