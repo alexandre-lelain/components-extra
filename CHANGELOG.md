@@ -1,8 +1,14 @@
 # 3.0.1
 
+## Chores
+
+* Bump deps to latest versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Refactor `CookiesConsent.Category` to use `Accordion` name from MUI. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 ## Docs
 
 * Fix dead link on README. ([@Armanio](https://github.com/Armanio))
+* Update `CookiesConsent.Category` doc. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 3.0.0
 

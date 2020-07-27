@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
-  ExpansionPanel,
-  ExpansionPanelDetails,
-  ExpansionPanelProps,
-  ExpansionPanelSummary,
+  Accordion,
+  AccordionDetails,
+  AccordionProps,
+  AccordionSummary,
   Switch,
   Typography,
 } from '@material-ui/core'
@@ -36,7 +36,7 @@ const useStyles = makeStyles({
   },
 })
 
-const StyledExpansionPanelDetails = styled(ExpansionPanelDetails)`
+const StyledAccordionDetails = styled(AccordionDetails)`
   display: flex;
   flex-direction: column;
 `
@@ -65,14 +65,10 @@ const Category: React.FC<CookiesConsentCategoryProps> = ({
       setIsChecked((isChecked) => !isChecked)
     }
   }
-  
+
   return (
-    <ExpansionPanel
-      expanded={expanded}
-      onChange={(): void => setExpanded((prev) => !prev)}
-      {...rest}
-    >
-      <ExpansionPanelSummary expandIcon={<ArrowIcon />} classes={{ content: classes.content }}>
+    <Accordion expanded={expanded} onChange={(): void => setExpanded((prev) => !prev)} {...rest}>
+      <AccordionSummary expandIcon={<ArrowIcon />} classes={{ content: classes.content }}>
         <Switch
           checked={isBoolean(checked) ? checked : isChecked}
           onChange={onToggle}
@@ -82,12 +78,12 @@ const Category: React.FC<CookiesConsentCategoryProps> = ({
         />
         <CategoryTitle>{title}</CategoryTitle>
         {description && !isSmallScreen && <Description>{description}</Description>}
-      </ExpansionPanelSummary>
-      <StyledExpansionPanelDetails>
+      </AccordionSummary>
+      <StyledAccordionDetails>
         {isSmallScreen && <Description>{description}</Description>}
         {children}
-      </StyledExpansionPanelDetails>
-    </ExpansionPanel>
+      </StyledAccordionDetails>
+    </Accordion>
   )
 }
 
@@ -101,7 +97,7 @@ Category.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-export interface CookiesConsentCategoryProps extends Omit<ExpansionPanelProps, 'onChange' | 'children'> {
+export interface CookiesConsentCategoryProps extends Omit<AccordionProps, 'onChange' | 'children'> {
   /**
    * If true, the switch is checked and the category is on.
    * Leave to undefined if you don't need to control the component.
