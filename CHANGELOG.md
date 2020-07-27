@@ -1,3 +1,9 @@
+# 3.0.1
+
+## Docs
+
+* Fix dead link on README. ([@Armanio](https://github.com/Armanio))
+
 # 3.0.0
 
 ## Breaking-Changes
