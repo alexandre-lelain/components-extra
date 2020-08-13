@@ -1,5 +1,4 @@
 {
-  "version": "2.6.1",
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap && lerna run build:bootstrap --stream",
