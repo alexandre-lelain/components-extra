@@ -55,7 +55,7 @@ const Card: React.FC<CardProps> = ({
         <CardContentWrapper onClick={onClick}>
           {image && <CardMedia className={classes.media} {...image} />}
           <CardContent className={classes.content}>
-            <Typography gutterBottom variant={big ? 'h4' : 'h5'}>
+            <Typography gutterBottom variant={big ? 'h4' : 'h5'} component="p">
               {title}
             </Typography>
             {description && (

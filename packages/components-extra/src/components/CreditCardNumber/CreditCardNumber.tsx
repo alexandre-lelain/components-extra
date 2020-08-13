@@ -21,7 +21,12 @@ import { ComponentExtra } from '../../types'
  * - [CreditCardNumber API](https://components-extra.netlify.app/components/credit-card-number)
  * - inherits [OutlinedInput API](https://material-ui.com/api/outlined-input/)
  */
-const CreditCardNumber: React.FC<CreditCardNumberProps> = ({ forwardedRef, inputProps, onChange, ...rest }: CreditCardNumberProps) => {
+const CreditCardNumber: React.FC<CreditCardNumberProps> = ({
+  forwardedRef,
+  inputProps,
+  onChange,
+  ...rest
+}: CreditCardNumberProps) => {
   const [value, setValue] = useState('')
   const [caretPosition, setCaretPosition] = useState(0)
   const input = useRef<HTMLInputElement>()
@@ -29,7 +34,7 @@ const CreditCardNumber: React.FC<CreditCardNumberProps> = ({ forwardedRef, input
   useImperativeHandle(forwardedRef, () => input.current || new HTMLInputElement())
 
   useEffect(() => {
-    if (input.current) {
+    if (input.current && caretPosition !== 0) {
       setCaretToPosition(input.current, caretPosition)
     }
   }, [value, caretPosition, input])
@@ -79,8 +84,9 @@ export interface CreditCardNumberProps extends OutlinedInputProps {
 export type CreditCardNumberType = ComponentExtra<CreditCardNumberProps>
 
 const CreditCardNumberExtra = styled(
-  forwardRef((props: CreditCardNumberProps, ref: React.Ref<HTMLInputElement>) => <CreditCardNumber {...props} forwardedRef={ref} />)
+  forwardRef((props: CreditCardNumberProps, ref: React.Ref<HTMLInputElement>) => (
+    <CreditCardNumber {...props} forwardedRef={ref} />
+  )),
 )`` as CreditCardNumberType
-
 
 export default CreditCardNumberExtra
