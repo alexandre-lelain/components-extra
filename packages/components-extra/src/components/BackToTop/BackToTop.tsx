@@ -17,7 +17,11 @@ import { ComponentExtra } from '../../types'
  * - [BackToTop API](https://components-extra.netlify.app/components/back-to-top)
  * - inherits [Fab API](https://material-ui.com/api/fab/)
  */
-const BackToTop: React.FC<BackToTopProps> = ({ forwardedRef, ...rest }: BackToTopProps) => {
+const BackToTop: React.FC<BackToTopProps> = ({
+  forwardedRef,
+  keepHash = false,
+  ...rest
+}: BackToTopProps) => {
   const {
     mixins: { backToTop },
     transitions,
@@ -33,16 +37,25 @@ const BackToTop: React.FC<BackToTopProps> = ({ forwardedRef, ...rest }: BackToTo
   useEffect(() => {
     const { startHeight } = backToTop
     const onScroll = (): void => {
+      const removeHash = (): void => {
+        if (!isServerSide() && window.location.href.includes('#') && !keepHash) {
+          window.location.hash = ''
+        }
+      }
+
       if (body.scrollTop > startHeight || documentElement.scrollTop > startHeight) {
         setDisplay(true)
       } else {
         setDisplay(false)
       }
+      if (documentElement.scrollTop === 0) {
+        removeHash()
+      }
     }
 
     document.addEventListener('scroll', onScroll)
     return (): void => document.removeEventListener('scroll', onScroll)
-  }, [body.scrollTop, documentElement.scrollTop, backToTop])
+  }, [body.scrollTop, documentElement.scrollTop, backToTop, keepHash])
 
   const scrollToTop = (): void =>
     documentElement && documentElement.scrollIntoView({ behavior: 'smooth' })
@@ -81,10 +94,16 @@ export interface BackToTopProps extends Omit<FabProps, 'children'> {
    * Ref forwarded to the HTML Root element.
    */
   forwardedRef?: React.Ref<HTMLButtonElement>
+  /**
+   * By default, the component will clear any existing hash from the URL when clicked, since it goes
+   * to the top of the page. Set this prop to true if you don't want this behavior.
+   */
+  keepHash?: boolean
 }
 
 BackToTop.propTypes = {
   children: PropTypes.node,
+  keepHash: PropTypes.bool,
 }
 
 export type BackToTopType = ComponentExtra<BackToTopProps, Record<string, unknown>, 'button'>

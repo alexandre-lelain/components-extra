@@ -31,4 +31,24 @@ describe('<BackToTop>', () => {
     fireEvent.click(backToTop)
     expect(document.documentElement.scrollTop).toEqual(0)
   })
+
+  test('it removes any url hash by default when scroll is on top', () => {
+    const { getByTestId } = renderWithTheme(<BackToTop />)
+    const backToTop = getByTestId('back-to-top-button')
+    document.documentElement.scrollTop = START_HEIGHT_TEST
+    window.location.hash = '#test'
+    fireEvent.click(backToTop)
+    fireEvent.scroll(document)
+    expect(window.location.hash).toEqual('')
+  })
+
+  test('it does not remove any url hash when scroll is on top if keepHash prop is set', () => {
+    const { getByTestId } = renderWithTheme(<BackToTop keepHash />)
+    const backToTop = getByTestId('back-to-top-button')
+    document.documentElement.scrollTop = START_HEIGHT_TEST
+    window.location.hash = '#test'
+    fireEvent.click(backToTop)
+    fireEvent.scroll(document)
+    expect(window.location.hash).toEqual('#test')
+  })
 })
