@@ -1,3 +1,19 @@
+# 3.1.0
+
+## Features
+
+* `<BackToTop>` now removes the URL's hash when clicked. Use `keepHash` prop to disable this default behavior. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Fixes
+
+* The `<Card>`'s title is now a `<p>` element to prevent bad titles order in the page's DOM. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Prevent `<CreditCardNumber>` to autofocus on mount. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
+## Docs
+
+* Add minimal version required for styled-components in the get started page. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+* Add a description in each component documentation page. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 3.0.1
 
 ## Chores
