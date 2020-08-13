@@ -9,7 +9,11 @@ import Props from '@components/Props'
 
 # BackToTop
 
-This is the component you can see at the bottom-right corner of your window when you scroll down.
+This is the component you can see at the bottom-right corner of your window when you scroll down. Its default behavior doesn't
+require any prop, so you can use it straight of the box. It will appear automatically on the bottom-right corner when the page is scrolled,
+and it will scroll back smoothly to the top of the page when you click on it.
+
+You can cutomize the height from which the Button will apear upon scrolling by overriding the `mixins.backToTop.startHeight` property from the **theme**.
 
 > **Note:** clicking on the button in the stories will bring you back to the top of the window ;)
 

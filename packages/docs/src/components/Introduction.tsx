@@ -7,7 +7,6 @@ import { SpacedParagraph } from './Paragraph'
 const commonStyle = css`
   font-weight: bold;
   color: cadetblue;
-
 `
 
 const Title = styled(Typography).attrs(() => ({
@@ -31,23 +30,17 @@ const Separator = styled(Divider)`
 `
 
 const Introduction: React.FC = () => {
-
   return (
     <>
-      <Title>
-        components-extra
-      </Title>
-      <Separator/>
-      <SubTitle>
-        React UI molecule components based on styled-components & material-ui.
-      </SubTitle>
+      <Title>components-extra</Title>
+      <Separator />
+      <SubTitle>React UI molecule components based on Material-UI & styled-components.</SubTitle>
       <SpacedParagraph>
-        Thank you for using components-extra ❤. Here you will learn how to set up in 2 minutes the lib inside your app.
-       </SpacedParagraph>
-    </> 
-    
+        Thank you for using components-extra ❤. Here you will learn how to set up in 2 minutes the
+        lib inside your app.
+      </SpacedParagraph>
+    </>
   )
 }
 
 export default Introduction
-
