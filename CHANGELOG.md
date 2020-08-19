@@ -1,3 +1,9 @@
+# next
+
+## Docs
+
+* Add components-extra icon to Readme! :) ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 3.1.0
 
 ## Features

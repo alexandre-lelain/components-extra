@@ -1,21 +1,30 @@
 <div align="center">
-  <h1>components-extra</h1>
 
-  <p>React UI molecule-components built on top of <a href="https://styled-components.com">styled-components</a> & <a href="https://material-ui.com">material-ui components</a>.
-  </p>
+<p align="center">
+  <a href="https://components-extra.netlify.app/" rel="noopener" target="_blank"><img width="150" src="https://components-extra.netlify.app/icons/icon-192x192.png" alt="Components-extra logo"></a></p>
+</p>
 
-  <br/>
+<h1>components-extra</h1>
 
-  [**Read the API**](https://components-extra.netlify.app)
+<p>
+  React UI molecule-components built on top of <a href="https://styled-components.com">styled-components</a> & <a href="https://material-ui.com">material-ui components</a>.
+</p>
 
-  <br/>
+<br/>
 
-  [![Docs Status](https://api.netlify.com/api/v1/badges/950cb520-b2e5-434f-b777-c36eede4e727/deploy-status)](https://components-extra.netlify.app/) [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra) [![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls)
+[**Read the API**](https://components-extra.netlify.app)
+
+<br/>
+
+[![Docs Status](https://api.netlify.com/api/v1/badges/950cb520-b2e5-434f-b777-c36eede4e727/deploy-status)](https://components-extra.netlify.app/)
+[![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra)
+[![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![build formats](https://img.shields.io/badge/module%20formats-amd%2C%20cjs%2C%20esm-green.svg)](https://github.com/alexandre-lelain/components-extra)
 [![bundle size](https://badgen.net/bundlephobia/min/components-extra@latest)](https://bundlephobia.com/result?p=components-extra@latest)
-
 
 </div>
 
