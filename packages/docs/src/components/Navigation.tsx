@@ -32,6 +32,13 @@ const useListStyle = makeStyles(({ spacing }) => ({
   root: {
     paddingLeft: spacing(4),
   },
+  subListItem: {
+    paddingTop: spacing(0.5),
+    paddingBottom: spacing(0.5),
+  },
+  primary: {
+    fontWeight: 500,
+  },
 }))
 
 const StyledNavButton = styled(Button)`
@@ -137,8 +144,10 @@ const Navigation: React.FC<NavigationProps> = ({ currentRoute }: NavigationProps
   )
 }
 
-const LeafItem: React.FC<LeafItemProps> = ({ name, route, ...rest }: LeafItemProps) => {
+const LeafItem: React.FC<LeafItemProps> = ({ name, route, isRoot, ...rest }: LeafItemProps) => {
   const currentRoute = useCurrentRoute()
+  const classes = useListStyle()
+
   return (
     <ListItem
       button
@@ -146,9 +155,12 @@ const LeafItem: React.FC<LeafItemProps> = ({ name, route, ...rest }: LeafItemPro
       selected={currentRoute === route}
       to={route}
       component={GatsbyLink}
+      className={isRoot ? undefined : classes.subListItem}
       {...rest}
     >
-      <StyledListItemText>{name}</StyledListItemText>
+      <StyledListItemText classes={{ primary: isRoot ? classes.primary : undefined }}>
+        {name}
+      </StyledListItemText>
     </ListItem>
   )
 }
@@ -161,13 +173,13 @@ const NodeItem: React.FC<NodeItemProps> = ({ name, leaves = [] }: NodeItemProps)
   return (
     <>
       <ListItem button onClick={(): void => toggle((prev) => !prev)}>
-        <StyledListItemText primary={name} />
+        <StyledListItemText primary={name} classes={{ primary: classes.primary }} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {map(leaves, ({ frontmatter: { name, route } }) => (
-            <LeafItem classes={{ ...classes }} key={name} name={name} route={route} />
+            <LeafItem classes={{ root: classes.root }} key={name} name={name} route={route} />
           ))}
         </List>
       </Collapse>
@@ -192,7 +204,7 @@ const DrawerContent: React.FC = () => {
           const { nodes } = find(group, ({ fieldValue }) => fieldValue === menuName)
           if (nodes.length < 2) {
             const { frontmatter } = nodes[0]
-            return <LeafItem key={menuName} {...frontmatter} />
+            return <LeafItem key={menuName} {...frontmatter} isRoot />
           }
           return <NodeItem key={menuName} name={menuName} leaves={nodes} />
         })}
@@ -225,6 +237,7 @@ interface LeafItemProps extends ListItemProps {
   name: string
   route: string
   to?: string
+  isRoot?: boolean
 }
 
 interface NodeItemProps {
