@@ -1,4 +1,8 @@
-# next
+# 3.1.1
+
+## Fixes
+
+* Fix `BackToTop` anchor bug when scrolling to top. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 

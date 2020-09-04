@@ -36,20 +36,12 @@ const BackToTop: React.FC<BackToTopProps> = ({
 
   useEffect(() => {
     const { startHeight } = backToTop
-    const onScroll = (): void => {
-      const removeHash = (): void => {
-        if (!isServerSide() && window.location.href.includes('#') && !keepHash) {
-          window.location.hash = ''
-        }
-      }
 
+    const onScroll = (): void => {
       if (body.scrollTop > startHeight || documentElement.scrollTop > startHeight) {
         setDisplay(true)
       } else {
         setDisplay(false)
-      }
-      if (documentElement.scrollTop === 0) {
-        removeHash()
       }
     }
 
@@ -57,8 +49,12 @@ const BackToTop: React.FC<BackToTopProps> = ({
     return (): void => document.removeEventListener('scroll', onScroll)
   }, [body.scrollTop, documentElement.scrollTop, backToTop, keepHash])
 
-  const scrollToTop = (): void =>
+  const scrollToTop = (): void => {
+    if (!keepHash && !isServerSide()) {
+      history.replaceState({}, '', '#')
+    }
     documentElement && documentElement.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <Zoom
