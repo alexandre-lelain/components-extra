@@ -1,3 +1,9 @@
+# 3.1.2
+
+## Features
+
+* `<Navbar>` now displays the current language in mobile mode by default for SSR apps. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 3.1.1
 
 ## Fixes

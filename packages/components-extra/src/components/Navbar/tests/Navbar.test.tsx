@@ -5,6 +5,7 @@ import Navbar from '..'
 
 const TITLE = 'awesome title'
 const SELECTED_LANGUAGE = 'English'
+const SELECTED_LANGUAGE_ABREV = 'En'
 const ITEM = 'awesome item'
 
 describe('<Navbar>', () => {
@@ -36,14 +37,14 @@ describe('<Navbar>', () => {
     expect(navbar).toHaveStyle('position: fixed')
   })
 
-  test('it displays the selectedLanguage if provided to the Navbar.Language component', () => {
+  test('it displays the two first chars of selectedLanguage by default if provided to the Navbar.Language component', () => {
     const { getByText } = renderWithTheme(
       <Navbar>
         <Navbar.Brand title={TITLE} />
         <Navbar.Language selectedLanguage={SELECTED_LANGUAGE} />
       </Navbar>,
     )
-    const language = getByText(SELECTED_LANGUAGE)
+    const language = getByText(SELECTED_LANGUAGE_ABREV)
     expect(language).toBeInTheDocument()
   })
 

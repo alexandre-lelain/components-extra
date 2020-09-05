@@ -1,10 +1,10 @@
-import React, { useState, MouseEvent } from 'react'
+import React, { useState, useMemo, MouseEvent } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Button, Menu, ButtonProps } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { useIsSmallScreen } from '../../../hooks'
+import { useIsDesktop } from '../../../hooks'
 import { ComponentExtra } from '../../../types'
 
 import { OnCloseLanguageProvider } from '../hooks'
@@ -26,9 +26,14 @@ const Language: React.FC<NavbarLanguageProps> = ({
 }: NavbarLanguageProps) => {
   const classes = useStyles()
   const [langAnchor, setLangAnchor] = useState<HTMLButtonElement>()
-  const isVerySmallScreen = useIsSmallScreen()
-  const currentLanguage =
-    smallScreenSupport && isVerySmallScreen ? selectedLanguage.substr(0, 2) : selectedLanguage
+  const isLargeScreen = useIsDesktop()
+
+  const currentLanguage = useMemo(() => {
+    if (smallScreenSupport && !isLargeScreen) {
+      return selectedLanguage.substr(0, 2)
+    }
+    return selectedLanguage
+  }, [selectedLanguage, smallScreenSupport, isLargeScreen])
 
   const onOpenMenu = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setLangAnchor(event.currentTarget)
