@@ -1,3 +1,9 @@
+# 3.1.3
+
+## Fixes
+
+* Fix class collision bug for SSR in `BackToTop` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+
 # 3.1.2
 
 ## Features
