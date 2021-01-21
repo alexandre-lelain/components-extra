@@ -80,7 +80,7 @@ yarn add components-extra
 or
 
 ```shell
-npm -i components-extra
+npm i components-extra
 ```
 
 Some more good news: This library is **tree-shakeable** and **side-effect free**! It also supports older builds like cjs and umd if needed.
