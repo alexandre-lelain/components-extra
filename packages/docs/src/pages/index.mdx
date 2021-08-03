@@ -37,7 +37,6 @@ import React from 'react'
 import { StyledProvider } from 'components-extra'
 
 const App = () => {
-
   return (
     <StyledProvider>
       <p>Simple, is it not ?</p>
@@ -46,9 +45,7 @@ const App = () => {
 }
 ```
 
-> **Note:** The `StyledProvider` will forward the **theme** object to all the children recursively. Not using this Provider above the other components will result in an JS error,
-and you will not be able to access the theme.
-
+> **Note:** The `StyledProvider` will forward the **theme** object to all the children recursively. Not using this Provider above the other components will result in an JS error, and you will not be able to access the theme.
 
 ### Step 2
 
@@ -59,7 +56,6 @@ import React from 'react'
 import { BackToTop, StyledProvider } from 'components-extra'
 
 const App = () => {
-
   return (
     <StyledProvider>
       <BackToTop />
@@ -78,8 +74,10 @@ but it is not included in **components-extra** to provide more freedom to the de
 You have to manually use the following CDN link to include the Roboto font in your application:
 
 ```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>
 ```
 
-> **Note:** adding this `stylesheet` in the `<head>` of your page will fetch it in a synchronous way.
-There are [multiple techniques](https://www.filamentgroup.com/lab/load-css-simpler) to fetch it asynchronously to improve the performances of your app.
+> **Note:** adding this `stylesheet` in the `<head>` of your page will fetch it in a synchronous way. There are [multiple techniques](https://www.filamentgroup.com/lab/load-css-simpler) to fetch it asynchronously to improve the performances of your app.

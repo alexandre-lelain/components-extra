@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core'
 import { LiveProvider, LivePreview, LiveEditor, LiveError } from 'react-live'
 import copy from 'copy-text-to-clipboard'
 import { Resizable } from 're-resizable'
-import theme from "prism-react-renderer/themes/oceanicNext"
+import theme from 'prism-react-renderer/themes/oceanicNext'
 
 import { Copy, Code } from '@icons'
 import { SpacedParagraph } from './Paragraph'
@@ -79,7 +79,7 @@ const ControlsContainer = styled('div')`
 `
 
 const Container = styled.div`
-  ${({ theme: { spacing }}): string => `
+  ${({ theme: { spacing } }): string => `
     margin: ${spacing(4)}px 0px;
   `}
 `
@@ -92,7 +92,9 @@ const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) =>
   const [copyLabel, setCopyLabel] = useState(COPY_LABELS.copy)
   const { children: code, className } = children.props
   const languageMatched = className.match(/language-([\S]+)/) || []
-  const [, language = "jsx"] = languageMatched
+  const [, language = 'jsx'] = languageMatched
+
+  const cleansedCode = code ? replace(code, LIVE_PATTERN, '').trim() : ''
 
   useEffect(() => {
     if (copyLabel === COPY_LABELS.copied) {
@@ -101,36 +103,42 @@ const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) =>
   }, [copyLabel])
 
   const onCopy = (): void => {
-    copy(code)
+    copy(cleansedCode)
     setCopyLabel(COPY_LABELS.copied)
   }
 
   const onEditCode = (): void => {
     setShowEditor((show) => !show)
   }
-  
+
   if (code.match(LIVE_PATTERN)) {
-    const cleansedCode = replace(code, LIVE_PATTERN, '').trim()
     return (
       <>
         {code.match(EXTENDED_PATTERN) && (
           <SpacedParagraph>
-            This component was extended using <Link href="https://styled-components.com/docs/api">styled()</Link> from styled-components.
+            This component was extended using{' '}
+            <Link href="https://styled-components.com/docs/api">styled()</Link> from
+            styled-components.
           </SpacedParagraph>
         )}
         <Container>
-          <LiveProvider code={cleansedCode} scope={scope} language={language as LanguageType} theme={theme}>
+          <LiveProvider
+            code={cleansedCode}
+            scope={scope}
+            language={language as LanguageType}
+            theme={theme}
+          >
             <Resizable {...resizableProps}>
               <div style={resizableStyle}>
                 <LivePreview />
               </div>
               <ControlsContainer>
                 <StyledButton onClick={onCopy}>
-                  <Copy fontSize="small"/>
+                  <Copy fontSize="small" />
                   {copyLabel}
                 </StyledButton>
                 <StyledButton onClick={onEditCode}>
-                  <Code fontSize="small"/>
+                  <Code fontSize="small" />
                   Edit code
                 </StyledButton>
               </ControlsContainer>
@@ -139,7 +147,7 @@ const Playground: React.FC<PlaygroundProps> = ({ children }: PlaygroundProps) =>
             </Resizable>
           </LiveProvider>
         </Container>
-      </>   
+      </>
     )
   }
   return <pre className={className}>{children}</pre>
@@ -157,37 +165,37 @@ interface PlaygroundProps {
 }
 
 type LanguageType =
-    | "markup"
-    | "bash"
-    | "clike"
-    | "c"
-    | "cpp"
-    | "css"
-    | "javascript"
-    | "jsx"
-    | "coffeescript"
-    | "actionscript"
-    | "css-extr"
-    | "diff"
-    | "git"
-    | "go"
-    | "graphql"
-    | "handlebars"
-    | "json"
-    | "less"
-    | "makefile"
-    | "markdown"
-    | "objectivec"
-    | "ocaml"
-    | "python"
-    | "reason"
-    | "sass"
-    | "scss"
-    | "sql"
-    | "stylus"
-    | "tsx"
-    | "typescript"
-    | "wasm"
-    | "yaml";
+  | 'markup'
+  | 'bash'
+  | 'clike'
+  | 'c'
+  | 'cpp'
+  | 'css'
+  | 'javascript'
+  | 'jsx'
+  | 'coffeescript'
+  | 'actionscript'
+  | 'css-extr'
+  | 'diff'
+  | 'git'
+  | 'go'
+  | 'graphql'
+  | 'handlebars'
+  | 'json'
+  | 'less'
+  | 'makefile'
+  | 'markdown'
+  | 'objectivec'
+  | 'ocaml'
+  | 'python'
+  | 'reason'
+  | 'sass'
+  | 'scss'
+  | 'sql'
+  | 'stylus'
+  | 'tsx'
+  | 'typescript'
+  | 'wasm'
+  | 'yaml'
 
 export default Playground

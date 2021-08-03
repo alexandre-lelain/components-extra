@@ -1,5 +1,5 @@
-import { createMuiTheme, ThemeOptions } from '@material-ui/core/styles'
-import { Theme } from '@material-ui/core/styles/createMuiTheme'
+import { createTheme as createMuiTheme, ThemeOptions } from '@material-ui/core/styles'
+import { Theme } from '@material-ui/core/styles/createTheme'
 
 import { merge } from '../utils'
 

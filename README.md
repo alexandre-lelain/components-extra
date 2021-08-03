@@ -18,7 +18,7 @@
 
 [![Docs Status](https://api.netlify.com/api/v1/badges/950cb520-b2e5-434f-b777-c36eede4e727/deploy-status)](https://components-extra.netlify.app/)
 [![npm version](https://img.shields.io/npm/v/components-extra.svg?style=flat)](https://www.npmjs.com/package/components-extra)
-[![ci status](https://travis-ci.org/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.org/alexandre-lelain/components-extra)
+[![ci status](https://travis-ci.com/alexandre-lelain/components-extra.svg?branch=master)](https://travis-ci.com/alexandre-lelain/components-extra)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexandre-lelain/components-extra/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexandre-lelain/components-extra/pulls)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
@@ -55,21 +55,19 @@ By the way: no more bloated components library. **components-extra** is [really 
 - [Bundling in your project](#bundling-in-your-project)
 - [Contributing](#contributing)
 
-
 ## Documentation
 
 Visit the [documentation site](https://components-extra.netlify.app) to see the list of available components the lib has to offer. You can check out the props of each component, see the source code of the stories and even play with them live with the react-live editor. You will also find guides to help you setup the library, use it, and extend it.
-
 
 ## Requirements
 
 In order for the lib to be the smallest possible, the three following dependencies are externals to the lib.
 So you will need to have those four installed on your app:
 
-- **[react >= 16.8.0](https://www.npmjs.com/package/react)**
-- **[react-dom >= 16.8.0](https://www.npmjs.com/package/react-dom)**
+- **[react >= 17.0.0](https://www.npmjs.com/package/react)**
+- **[react-dom >= 17.0.0](https://www.npmjs.com/package/react-dom)**
 - **[styled-components >= 5.0.0](https://www.npmjs.com/package/styled-components)**
-- **[@material-ui/core >= 4.0.0](https://www.npmjs.com/package/@material-ui/core)**
+- **[@material-ui/core >= 4.10.0](https://www.npmjs.com/package/@material-ui/core)**
 
 ## Installation
 
@@ -92,7 +90,10 @@ Like Material-UI, the components all use **[Roboto](https://fonts.google.com/spe
 You have to manually use the following CDN link to include the Roboto font in your application:
 
 ```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>
 ```
 
 ## Getting started in only 2 steps
@@ -108,7 +109,6 @@ import React from 'react'
 import { StyledProvider } from 'components-extra'
 
 const App = () => {
-
   return (
     <StyledProvider>
       <p>Simple, is it not ?</p>
@@ -129,7 +129,6 @@ import React from 'react'
 import { BackToTop, StyledProvider } from 'components-extra'
 
 const App = () => {
-
   return (
     <StyledProvider>
       <BackToTop />
@@ -175,7 +174,6 @@ import { BackToTop, StyledProvider } from 'components-extra'
 import yourTheme from './yourTheme'
 
 const App = () => {
-
   return (
     <StyledProvider theme={yourTheme}>
       <BackToTop />
@@ -189,7 +187,6 @@ const App = () => {
 All the **components-extra** are exported as [styled-components](styled-components.com), so you can extend them, and
 use them as styled selectors.
 
-
 For example, to extend the **BackToTop** component:
 
 ```js
@@ -201,7 +198,6 @@ const CustomBackToTop = styled(BackToTop)`
 `
 
 const App = () => {
-
   return (
     <StyledProvider>
       <CustomBackToTop />
@@ -223,7 +219,6 @@ const Container = styled.div`
 `
 
 const App = () => {
-
   return (
     <StyledProvider>
       <Container>
@@ -238,7 +233,7 @@ const App = () => {
 
 Components-extra requires a minimum version of `TypeScript@3.8`.
 
-Since **v3.0.0**, the library fully supports TypeScript. 
+Since **v3.0.0**, the library fully supports TypeScript.
 
 All the components export their **Props** [interface](https://www.typescriptlang.org/docs/handbook/interfaces.html)
 and their **Types**. That means you can fully take leverage of their typings system, and extend them in your own project,
@@ -254,7 +249,6 @@ All the types & interfaces can be imported from the index **root**, just like th
 Say, for example, that you're working with the [CookiesBanner](/packages/components-extra/src/components/CookiesBanner) component. You
 can make a new component on top of it using TypeScript this way:
 
-
 ```tsx
 import React from 'react'
 import { CookiesBanner, CookiesBannerProps } from 'components-extra'
@@ -264,7 +258,6 @@ interface ExtendedCookiesBannerProps extends CookiesBannerProps {
 }
 
 const ExtendedCookiesBanner: React.FC<ExtendedCookiesBannerProps> = ({ caption, ...rest }) => {
-
   return (
     <div>
       <CookiesBanner {...rest} />
