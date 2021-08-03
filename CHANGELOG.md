@@ -1,498 +1,509 @@
+# 3.2.0
+
+## Features
+
+- The project now uses `react@17` and `react-dom@17`.
+
+## Docs
+
+- Fix "copy code" button in the documentation.
+- Bump latest gatsby plugin versions.
+
 # 3.1.3
 
 ## Fixes
 
-* Fix class collision bug for SSR in `BackToTop` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix class collision bug for SSR in `BackToTop` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 3.1.2
 
 ## Features
 
-* `<Navbar>` now displays the current language in mobile mode by default for SSR apps. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `<Navbar>` now displays the current language in mobile mode by default for SSR apps. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 3.1.1
 
 ## Fixes
 
-* Fix `BackToTop` anchor bug when scrolling to top. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix `BackToTop` anchor bug when scrolling to top. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 
-* Add components-extra icon to Readme! :) ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add components-extra icon to Readme! :) ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 3.1.0
 
 ## Features
 
-* `<BackToTop>` now removes the URL's hash when clicked. Use `keepHash` prop to disable this default behavior. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `<BackToTop>` now removes the URL's hash when clicked. Use `keepHash` prop to disable this default behavior. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* The `<Card>`'s title is now a `<p>` element to prevent bad titles order in the page's DOM. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Prevent `<CreditCardNumber>` to autofocus on mount. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- The `<Card>`'s title is now a `<p>` element to prevent bad titles order in the page's DOM. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Prevent `<CreditCardNumber>` to autofocus on mount. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 
-* Add minimal version required for styled-components in the get started page. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add a description in each component documentation page. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add minimal version required for styled-components in the get started page. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add a description in each component documentation page. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 3.0.1
 
 ## Chores
 
-* Bump deps to latest versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Refactor `CookiesConsent.Category` to use `Accordion` name from MUI. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Bump deps to latest versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Refactor `CookiesConsent.Category` to use `Accordion` name from MUI. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 
-* Fix dead link on README. ([@Armanio](https://github.com/Armanio))
-* Update `CookiesConsent.Category` doc. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix dead link on README. ([@Armanio](https://github.com/Armanio))
+- Update `CookiesConsent.Category` doc. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 3.0.0
 
 ## Breaking-Changes
 
-* `<Navbar>` no longer have a `isSticky` prop, and instead use `position: string` to enhance customization. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `icon` prop of `<Footer.Item>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `bottomBanner` prop of `<Footer>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* /!\ all `onChange` callbacks on every component now return the `event` instead of only the `value`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Fixed `image` prop of `<Card>`. It now follows MUI's [CardMedia](https://material-ui.com/api/card-media/). ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `<Navbar>` no longer have a `isSticky` prop, and instead use `position: string` to enhance customization. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `icon` prop of `<Footer.Item>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `bottomBanner` prop of `<Footer>` is now of `React.ReactNode` type. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- /!\ all `onChange` callbacks on every component now return the `event` instead of only the `value`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fixed `image` prop of `<Card>`. It now follows MUI's [CardMedia](https://material-ui.com/api/card-media/). ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Features
 
-* The library now fully supports **TypeScript**! ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* You can now import components' types & props interfaces. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* The github project now used lerna to separate the components library from its documentation site; ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- The library now fully supports **TypeScript**! ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- You can now import components' types & props interfaces. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- The github project now used lerna to separate the components library from its documentation site; ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* The types errors appearing in browser's console were fixed to include the components' name instead. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- The types errors appearing in browser's console were fixed to include the components' name instead. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 
-* No more Docz :'( The documentation site was completely rewritten:
+- No more Docz :'( The documentation site was completely rewritten:
   - UI is much more faster
   - Props are now correctly parsed from both TS & PropTypes sources.
   - No more compilation error due to docs-core bugs.
   - Compilation time is a lot faster.
   - Enhanced SEO.
-* Added `TypeScript` page
-* Enhanced `Palette` page with the full palette instead.
+- Added `TypeScript` page
+- Enhanced `Palette` page with the full palette instead.
 
 # 2.6.2
 
 ## Docs
 
-* Complete the bundling guide in the docs. (@alexandre-lelain)
+- Complete the bundling guide in the docs. (@alexandre-lelain)
 
 ## Fixes
 
-* Fix undefined className in BackToTop's icon. (@alexandre-lelain)
+- Fix undefined className in BackToTop's icon. (@alexandre-lelain)
 
 # 2.6.1
 
 ## Fixes
 
-* Add `contrastText` default color to `Navbar`'s brand container. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `contrastText` default color to `Navbar`'s brand container. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.6.0
 
 ## Features
 
-* `BackToTop` button is now animated. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* **Display-breaking**: the default theme colors was changed to be closer to MUI's one. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `BackToTop` button is now animated. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- **Display-breaking**: the default theme colors was changed to be closer to MUI's one. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Chores
 
-* Remove useless bits of code in most of the components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* bump dependencies to latest version. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Remove useless bits of code in most of the components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- bump dependencies to latest version. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 
-* Added a live `ThemePicker` to enable users to test their colors live. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added a live `ThemePicker` to enable users to test their colors live. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.5.0
 
 ## Features
 
-* All components now have a more consistant and coherent usage of the theme. The
-backgrounds now relies on the `primary` main color, and the buttons, text & icons on them
-now have a `contrastColor` to adapt to any theme value provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `Paragraph`'s default variant changed to `body1`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* components' elevations now follow those of Material-ui. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- All components now have a more consistant and coherent usage of the theme. The
+  backgrounds now relies on the `primary` main color, and the buttons, text & icons on them
+  now have a `contrastColor` to adapt to any theme value provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Paragraph`'s default variant changed to `body1`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- components' elevations now follow those of Material-ui. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.4.2
 
 ## Docs
 
-* Update link to bundlesize in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Update link to bundlesize in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.4.1
 
 ## Features
 
-* Reduce bundle-size by replacing lodash. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Reduce bundle-size by replacing lodash. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* Add missing `@babel/runtime` dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add missing `@babel/runtime` dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.4.0
 
 ## Features
 
-* Add `dark` theme support in `<StyledProvider>`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `dark` theme support in `<StyledProvider>`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 
-* Add `Palette` page and fixed typos. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `Palette` page and fixed typos. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* Fix label's click not changing value of switch in `CookiesConsent`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix label's click not changing value of switch in `CookiesConsent`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Chores
 
-* Bump dependencies to latest versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* **Breaking-change**: `@material-ui/core` is now a peer-dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Bump dependencies to latest versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- **Breaking-change**: `@material-ui/core` is now a peer-dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.3.4
 
 ## Docs
 
-* Remove usage of `Typography` in docs to make copy-paste easier for users. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add link to Contributing.md in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Remove usage of `Typography` in docs to make copy-paste easier for users. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add link to Contributing.md in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* Fix wrong prop-type of `bottomBanner` prop (Footer) & `icon` prop (Footer.Item). ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix wrong prop-type of `bottomBanner` prop (Footer) & `icon` prop (Footer.Item). ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.3.3
 
 ## Docs
 
-* Fix wrong import in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Added `Guides` reference to documentation site. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix wrong import in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added `Guides` reference to documentation site. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.3.2
 
 ## Docs
 
-* Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.3.1
 
 ## Fixes
 
-* fix to small switch-label's width in `CookiesConsent`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- fix to small switch-label's width in `CookiesConsent`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Chores
 
-* Updated all dependencies to latest stable versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Updated all dependencies to latest stable versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.3.0
 
 ## Features
 
-* add `CookiesConsent` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- add `CookiesConsent` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.2.4
 
 ## Docs
 
-* add `Troubleshooting` section in storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- add `Troubleshooting` section in storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* fix `CookiesBanner`'s cookie icon display on sm screens. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* fix `CookiesBanner`'s elevation. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- fix `CookiesBanner`'s cookie icon display on sm screens. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- fix `CookiesBanner`'s elevation. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.2.3
 
 ## Features
 
-* `Card`'s description is now of type `node`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `Card`'s content will now render inside a `div` instead of a `button` if no onClick function is provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Card`'s description is now of type `node`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Card`'s content will now render inside a `div` instead of a `button` if no onClick function is provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.2.2
 
 ## Fixes
 
-* Fixed text content of `Newsletter` not being centered. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Navbar's title now has a normal line-height. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fixed text content of `Newsletter` not being centered. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Navbar's title now has a normal line-height. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.2.1
 
 ## Refactor
 
-* Reduce bundle size by replacing `TextField` with `OutlinedInput` in `Newsletter` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Reduce bundle size by replacing `TextField` with `OutlinedInput` in `Newsletter` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.2.0
 
 ## Features
 
-* Added `Newsletter` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added `Newsletter` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Tests
 
-* Added more accurate tests on forwarded refs. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added more accurate tests on forwarded refs. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Docs
 
-* Added `SSR` section to storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Code snippets of storybook are now styled with `react-syntax-highlighter`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added `SSR` section to storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Code snippets of storybook are now styled with `react-syntax-highlighter`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* Added missing `babel-plugin-transform-react-remove-prop-types` dev dep. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Fix `Navbar` menu not closing on Mobile. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added missing `babel-plugin-transform-react-remove-prop-types` dev dep. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix `Navbar` menu not closing on Mobile. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Chores
 
-* Bump `rollup-plugin-terser` & `@storybook/react` versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Bump latest material-ui versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Added external plugin to rollup for umd build. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Bump `rollup-plugin-terser` & `@storybook/react` versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Bump latest material-ui versions. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added external plugin to rollup for umd build. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.1.4
 
 ## Features
 
-* Set default dimensions props on `Navbar` icons to improve display on SSR rendering. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Set default dimensions props on `Navbar` icons to improve display on SSR rendering. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.1.3
 
 ## Fix
 
-* Fix `BackToTop` component crashing on SSR build. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix `BackToTop` component crashing on SSR build. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.1.2
 
 ## Fix
 
-* Added check for SSR on `BackToTop` button. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added check for SSR on `BackToTop` button. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.1.1
 
 ## Features
 
-* Added `big` prop to `Card`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added `big` prop to `Card`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.1.0
 
 ## Features
 
-* Added `resetCSS` helper to exports. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added `resetCSS` helper to exports. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Chore
 
-* Bump react & react-dom to 16.12.0. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Bump react & react-dom to 16.12.0. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.0.3
 
 ## Features
 
-* `Navbar.Language` now have `smallScreenSupport` bool prop to cut the selectedLanguage on very small screens. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Navbar.Language` now have `smallScreenSupport` bool prop to cut the selectedLanguage on very small screens. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.0.2
 
 ## Fixes
 
-* Fixed `Paragraph` component not being exported. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fixed `Paragraph` component not being exported. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.0.1
 
 ## Features
 
-* Add `fonts` section to README & stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `fonts` section to README & stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 2.0.0
 
 ## Breaking changes
 
-* The Compound Pattern was applied to all components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `Card` now have `Card.Button` for the controls. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Renamed *onCardClick* prop of `Card` component to *onClick*. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `CookiesBanner` now have `CookiesBanner.Button` for the controls. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `Footer` now have `Footer.Column` & `Footer.Item` inner components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Renamed `bannerContent` prop of `Footer` to `bottomBanner`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Updated all stories with latest changes. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `Navbar` now follow compound pattern. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Added copy&paste example in the storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- The Compound Pattern was applied to all components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Card` now have `Card.Button` for the controls. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Renamed _onCardClick_ prop of `Card` component to _onClick_. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `CookiesBanner` now have `CookiesBanner.Button` for the controls. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Footer` now have `Footer.Column` & `Footer.Item` inner components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Renamed `bannerContent` prop of `Footer` to `bottomBanner`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Updated all stories with latest changes. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Navbar` now follow compound pattern. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added copy&paste example in the storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 1.0.0
 
-* First major release of the project. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- First major release of the project. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.6.0
 
-* Updated dependencies. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add `StyledProvider` and `Customization` stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* **Breaking-change**: renamed `otherTheme` prop of *StyledProvider* to `theme`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Updated dependencies. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `StyledProvider` and `Customization` stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- **Breaking-change**: renamed `otherTheme` prop of _StyledProvider_ to `theme`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.5.2
 
-* Fix `PropTypes.oneOfType` bad representation on API stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix `PropTypes.oneOfType` bad representation on API stories. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.5.1
 
-* Fix forgotten export of `CreditCardNumber` component in the main entry. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix forgotten export of `CreditCardNumber` component in the main entry. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.5.0
 
-* Add `CreditCardNumber` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add react-hook eslint plugin. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `CreditCardNumber` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add react-hook eslint plugin. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.9
 
-* Fix wrong github `repository` value. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix wrong github `repository` value. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.8
 
-* Add `README` in published build folder. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `README` in published build folder. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.7
 
-* Replace `postinstall` script by after build script. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add `release` script to publish build folder only. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Replace `postinstall` script by after build script. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `release` script to publish build folder only. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.6
 
-* Fixed too big link of `Navbar`'s brand title. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fixed too big link of `Navbar`'s brand title. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.5
 
-* Remove `@material-ui/icons` dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* es5 components can now be imported via `components-extra/[COMPONENT]` if es modules are not supported. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Improved README display. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Remove `@material-ui/icons` dependency. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- es5 components can now be imported via `components-extra/[COMPONENT]` if es modules are not supported. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Improved README display. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.4
 
-* Fixed typo in package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fixed typo in package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.3
 
-* Fixed build entries in package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fixed build entries in package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.2
 
-* Add `babel-plugin-transform-imports` plugin to babel conf to tree shake material-ui imports. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Shorten default components imports from users' projects. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `babel-plugin-transform-imports` plugin to babel conf to tree shake material-ui imports. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Shorten default components imports from users' projects. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.1
 
-* Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Replaced named imports from `@material-ui/icons` to default. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Updated README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Replaced named imports from `@material-ui/icons` to default. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.4.0
 
-* `components-extra` is now tree-shakable! :) ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Replaced webpack by rollupJS. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add `cjs`, `umd`, `esm` & `es` builds. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Replaced `.babelrc` config by `babel.config.js` file. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `components-extra` is now tree-shakable! :) ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Replaced webpack by rollupJS. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `cjs`, `umd`, `esm` & `es` builds. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Replaced `.babelrc` config by `babel.config.js` file. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.3.2
 
-* Fix wrong link to CI badge in Readme (again!). ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Fix typo in code snippet in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix wrong link to CI badge in Readme (again!). ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix typo in code snippet in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.3.1
 
-* Fix wrong link to CI badge in Readme. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix wrong link to CI badge in Readme. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.3.0
 
-* Added components tests. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Added npm versioning scripts to package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Added connection to Travis CI pipelines. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* `Navbar` component now set the first item of `languages` array prop if no default is provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added components tests. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added npm versioning scripts to package.json. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added connection to Travis CI pipelines. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Navbar` component now set the first item of `languages` array prop if no default is provided. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.2.2
 
-* Fixed broken API on storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fixed broken API on storybook. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.2.1
 
-* Renamed old Navbar's props `options` & `renderBrandIcon` to `navItems` & `brandIcon`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Added default value props to components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* All components are now exported with `React.forwardRef`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Renamed old Navbar's props `options` & `renderBrandIcon` to `navItems` & `brandIcon`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added default value props to components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- All components are now exported with `React.forwardRef`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.2.0
 
-* Changed `Footer` main container element from `<div>` to `<footer>`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add `Paragraph` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add `CookiesBanner` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Changed `Footer` main container element from `<div>` to `<footer>`. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `Paragraph` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `CookiesBanner` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.12
 
-* Add `Footer` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `Footer` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.11
 
 ## Fixes
 
-* Fix README missing symbol in code snippets. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix README missing symbol in code snippets. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.10
 
 ## Features
 
-* Add `Menu` & `Contributing` sections in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add more details in `Customization` section in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add `Components` & `Introduction` in storybook, along with `get Started` story. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `Menu` & `Contributing` sections in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add more details in `Customization` section in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `Components` & `Introduction` in storybook, along with `get Started` story. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* Fix typos in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix typos in README. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.9
 
 ## Features
 
-* The components' api props-table in the storybook is now generic. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- The components' api props-table in the storybook is now generic. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 ## Fixes
 
-* Fix `Navbar` navigation items bug when using `linkComponent` prop. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Added missing default props in various components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix `Navbar` navigation items bug when using `linkComponent` prop. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Added missing default props in various components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.8
 
 ## Fixes
 
-* `Card`'s content is now left aligned. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Card`'s content is now left aligned. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.7
 
 ## Features
 
-* Add `Card` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add `Card` component. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.6
 
 ## Features
 
-* `Navbar` & `BackToTop` components are now exported as styled-components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- `Navbar` & `BackToTop` components are now exported as styled-components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.5
 
 ## Features
 
-* Add badges in Readme. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add badges in Readme. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.4
 
 ## Fixes
 
-* Fix `Navbar` & `BackToTop` secondary components color. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Fix `Navbar` & `BackToTop` secondary components color. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # 0.1.3
 
 ## Features
 
-* Initial publish of the project. ([@alexandre-lelain](https://github.com/alexandre-lelain))
-* Add Navbar, BackToTop & StylesProvider components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Initial publish of the project. ([@alexandre-lelain](https://github.com/alexandre-lelain))
+- Add Navbar, BackToTop & StylesProvider components. ([@alexandre-lelain](https://github.com/alexandre-lelain))
 
 # < 0.1.3
 
