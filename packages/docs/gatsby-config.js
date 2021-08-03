@@ -8,10 +8,12 @@ module.exports = {
     siteUrl: 'https://components-extra.netlify.app/',
     github: 'https://github.com/alexandre-lelain/components-extra',
     url: 'https://components-extra.netlify.app/',
-    keywords: 'components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer',
+    keywords:
+      'components-extra, react, components, molecules, blocks, ui, material design, cookies, navbar, footer',
     image: 'https://components-extra.netlify.app/icons/icon-512x512.png',
     google: process.env.GOOGLE || '',
-    githubEditLinkRoot: 'https://github.com/alexandre-lelain/components-extra/tree/master/packages/docs/src/pages',
+    githubEditLinkRoot:
+      'https://github.com/alexandre-lelain/components-extra/tree/master/packages/docs/src/pages',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -59,8 +61,9 @@ module.exports = {
       },
     },
     `gatsby-remark-images`,
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-offline`,

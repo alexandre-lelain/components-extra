@@ -2,7 +2,7 @@ import React, { useState, useEffect, createContext, useContext } from 'react'
 import styled from 'styled-components'
 import { find, includes, map, toLower } from 'lodash-es'
 import { useIsDesktop } from 'components-extra'
-import { version } from 'components-extra/package.json'
+import packageConfig from 'components-extra/package.json'
 import {
   Button,
   Collapse,
@@ -18,7 +18,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { ExpandMore, ExpandLess, Menu } from '@icons'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import { StaticImage } from 'gatsby-plugin-image'
+
+const { version } = packageConfig
 
 const useStyle = makeStyles(({ zIndex, transitions }) => ({
   paper: {
@@ -62,6 +64,9 @@ const StyledListItemText = styled(ListItemText)`
 
 const ImageContainer = styled.div`
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   ${({ theme: { spacing } }): string => `
     padding: ${spacing(2)}px;
   `}
@@ -82,13 +87,6 @@ const query = graphql`
             name
             route
           }
-        }
-      }
-    }
-    placeholderImage: file(relativePath: { eq: "logo.png" }) {
-      childImageSharp {
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -190,13 +188,18 @@ const NodeItem: React.FC<NodeItemProps> = ({ name, leaves = [] }: NodeItemProps)
 const DrawerContent: React.FC = () => {
   const {
     allMdx: { group },
-    placeholderImage: { childImageSharp },
   } = useStaticQuery(query)
 
   return (
     <DrawerContainer>
       <ImageContainer>
-        <Image fixed={childImageSharp.fixed} />
+        <StaticImage
+          src="../images/logo.webp"
+          layout="fixed"
+          width={200}
+          placeholder="blurred"
+          alt="logo"
+        />
         <Typography>v{version}</Typography>
       </ImageContainer>
       <List>

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to **components-extra**! 
+Thanks for contributing to **components-extra**!
 
 ## Conventions
 
@@ -29,6 +29,8 @@ yarn start
 ```
 
 The stories are located under the package `docs/`.
+
+> **Note**: if you are using a linux distribution, you might need to increase the system file watch limit. If you encounter an error like _Error: UNHANDLED REJECTION ENOSPC: System limit for number of file watchers reached_, just run the following command and try again: `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`.
 
 ### Test pipeline
 

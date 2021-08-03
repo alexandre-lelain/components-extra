@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap && lerna run build:bootstrap --stream",
-    "start": "lerna run start --stream --parallel",
+    "start": "lerna run start --stream --parallel --npm-client=yarn",
     "serve": "lerna run serve --stream",
     "build": "lerna run build --scope components-extra --stream",
     "build:docs": "lerna run build --scope docs --stream",
@@ -13,7 +13,7 @@
     "validate": "yarn lint && yarn test && yarn build && yarn check-types"
   },
   "devDependencies": {
-    "@material-ui/core": "^4.11.0",
+    "@material-ui/core": "^4.12.3",
     "@material-ui/types": "^5.1.0",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.0",
@@ -24,12 +24,12 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "husky": "^4.2.5",
-    "lerna": "^3.22.1",
+    "lerna": "^4.0.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0",
     "typescript": "^3.9.7"
   },
   "husky": {

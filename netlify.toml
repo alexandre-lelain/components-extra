@@ -1,4 +1,4 @@
 [build]
   command = "yarn bootstrap && yarn build:docs"
   publish = "packages/docs/public"
-  environment = { NODE_VERSION = "12.13.0" }
+  environment = { NODE_VERSION = "14.17.0" }
