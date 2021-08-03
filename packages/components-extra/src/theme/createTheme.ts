@@ -1,9 +1,12 @@
-import { createTheme as createMuiTheme, ThemeOptions } from '@material-ui/core/styles'
+import { createTheme, createMuiTheme, ThemeOptions } from '@material-ui/core/styles'
 import { Theme } from '@material-ui/core/styles/createTheme'
 
 import { merge } from '../utils'
 
-const createTheme = (dark = false, options?: ThemeOptions): Theme => {
+// For retro-compatibility. createTheme was only introduced in '@material-ui/core@4.12.3
+const createMuiThemeFonction = createTheme || createMuiTheme
+
+const createLocalTheme = (dark = false, options?: ThemeOptions): Theme => {
   const finalTheme = merge(
     {
       zIndex: {
@@ -34,8 +37,8 @@ const createTheme = (dark = false, options?: ThemeOptions): Theme => {
     options || {},
   )
 
-  return createMuiTheme(finalTheme)
+  return createMuiThemeFonction(finalTheme)
 }
 
-export default createTheme
+export default createLocalTheme
 export { Theme }

@@ -1,3 +1,9 @@
+# 3.2.1
+
+## Fixes
+
+- Keep import of `createMuiTheme` from `@material-ui/core/styles` to remain retro-compatible. Will be removed in mui v5.
+
 # 3.2.0
 
 ## Features
